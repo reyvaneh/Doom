@@ -6,7 +6,7 @@
 * **Purpose:** To create a set of beginner-friendly learning materials (Study Guide, PPT Slides, and Video Tutorials) that explain how computer hardware operates, how networks transmit data, and how simple behaviorist AI systems function.
 
 ## 👥 Team Members
-* **【黄雄明]** | ID: [1820262215] | GitHub: @reyvaneh
+* **[黄雄明]** | ID: [1820262215] | GitHub: @reyvaneh
 * **[Nama Anggota 2]** | ID: [NIM Anggota 2] | GitHub: [@username_github_mereka]
 * **[Nama Anggota 3]** | ID: [NIM Anggota 3] | GitHub: [@username_github_mereka]
 * **[Nama Anggota 4]** | ID: [NIM Anggota 4] | GitHub: [@username_github_mereka]
