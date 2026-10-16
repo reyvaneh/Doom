@@ -7,7 +7,7 @@
 
 ## 👥 Team Members
 * **[黄雄明]** | ID: [1820262215] | GitHub: @reyvaneh
-* **[Nama Anggota 2]** | ID: [NIM Anggota 2] | GitHub: [@username_github_mereka]
+* **[陈云花]** | ID: [1820262207] | GitHub: [@carensia]
 * **[刘峻源]** | ID: [1820262180] | GitHub: [@leoriclius]
 * **[Nama Anggota 4]** | ID: [NIM Anggota 4] | GitHub: [@username_github_mereka]
 * **[Nama Anggota 5]** | ID: [NIM Anggota 5] | GitHub: [@username_github_mereka]
