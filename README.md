@@ -12,6 +12,7 @@
 * **[李恩嘉]** | ID: [1820262176] | GitHub: [@Justin-Liem]
 * **[戴薇]** | ID: [1820262183] | GitHub: [@yrwkwit]
 * **[池俊賢]** | ID [1820262284] | Github: [@vendouple]
+* **[杜光辉]** | ID [1820262177] | Github: [@QuangHuy260608]
 
 ## 📂 Folder Structure
 * `/markdown_content` - The shared content foundation, explanations, and worked examples.
