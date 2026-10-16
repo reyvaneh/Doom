@@ -10,7 +10,7 @@
 * **[陈云花]** | ID: [1820262207] | GitHub: [@carensia]
 * **[刘峻源]** | ID: [1820262180] | GitHub: [@leoriclius]
 * **[李恩嘉]** | ID: [1820262176] | GitHub: [@Justin-Liem]
-* **[Nama Anggota 5]** | ID: [NIM Anggota 5] | GitHub: [@username_github_mereka]
+* **[戴薇]** | ID: [1820262183] | GitHub: [@yrwkwit]
 
 ## 📂 Folder Structure
 * `/markdown_content` - The shared content foundation, explanations, and worked examples.
