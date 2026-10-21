@@ -165,9 +165,9 @@ An LDR's resistance usually decreases as light on it increases. The resistance c
 
 A voltage divider has two resistors connected in series across a supply. The output is measured at the junction between them. If the output is measured across the lower resistor \(R_2\), the ideal no-load equation is:
 
-\[
+$$
 V_{out}=V_{in}\frac{R_2}{R_1+R_2}
-\]
+$$
 
 Here, \(V_{in}\) is the supply voltage, \(R_1\) is the top resistor, and \(R_2\) is the lower resistor connected to ground. The formula assumes the measurement input does not significantly load the divider.
 
@@ -195,8 +195,8 @@ The circuit makes a voltage that varies with light. With this exact arrangement,
 
 For practice, assume a 5 V input, a fixed resistor \(R_1=10\text{ kΩ}\), and two hypothetical LDR readings:
 
-- In a dark condition, assume \(R_2=100\text{ kΩ}\).
-- In a bright condition, assume \(R_2=2\text{ kΩ}\).
+- In a dark condition, assume $$R_2=100\text{ kΩ}$$.
+- In a bright condition, assume $$R_2=2\text{ kΩ}$$.
 
 These are illustrative values only. The resistance of a real LDR depends on its model and the lighting, so it must be measured or taken from its datasheet for a real design.
 
@@ -204,21 +204,21 @@ These are illustrative values only. The resistance of a real LDR depends on its 
 
 Substitute the values into the divider equation:
 
-\[
+$$
 V_{out}=5\frac{100}{10+100}
 =5\frac{100}{110}
 \approx4.55\text{ V}
-\]
+$$
 
 So the analog input is approximately 4.55 V.
 
 **Case B: bright condition**
 
-\[
+$$
 V_{out}=5\frac{2}{10+2}
 =5\frac{2}{12}
 \approx0.83\text{ V}
-\]
+$$
 
 So the analog input is approximately 0.83 V.
 
@@ -230,14 +230,14 @@ A microcontroller program works with digital values. An ADC converts the input v
 
 For a classic Arduino Uno R3 using a 0–5 V analog reference, `analogRead()` returns a value from 0 to 1023. This means there are 1024 possible codes, numbered from zero. The approximate conversion is:
 
-\[
+$$
 \text{ADC code}\approx\frac{V_{in}}{5}\times1023
-\]
+$$
 
 Using the previous examples:
 
-- Dark: \(4.55/5\times1023\approx930\).
-- Bright: \(0.83/5\times1023\approx170\).
+- Dark: $$4.55/5\times1023\approx930$$.
+- Bright: $$0.83/5\times1023\approx170$$.
 
 These are ideal estimates, not guaranteed measured values. Actual readings can differ because of the actual LDR resistance, the board's reference voltage, circuit tolerances, and electrical noise. The ADC's resolution is not the same as the full accuracy of the measurement.
 
@@ -249,23 +249,23 @@ An LED converts electrical energy into light. It is a simple output device for t
 
 An LED must normally have a series resistor to limit its current. If a 5 V output drives an LED with an assumed forward voltage of 2 V and a target current of 10 mA, the resistor voltage is:
 
-\[
+$$
 V_R=5-2=3\text{ V}
-\]
+$$
 
-Convert current to amperes: \(10\text{ mA}=0.010\text{ A}\).
+Convert current to amperes: $$10\text{ mA}=0.010\text{ A}$$.
 
 Then use Ohm's law:
 
-\[
+$$
 R=\frac{3}{0.010}=300\text{ Ω}
-\]
+$$
 
 A nearby standard value such as 330 Ω gives an approximate current of:
 
-\[
+$$
 I=\frac{3}{330}\approx0.0091\text{ A}=9.1\text{ mA}
-\]
+$$
 
 This is a worked estimate, not a substitute for checking the specific LED, resistor power rating, board output limits, and wiring. For a classic Uno-style example, the external LED can be wired from digital pin 9 through a 330 Ω resistor to the LED anode, with the LED cathode connected to GND. Other boards may have different output-voltage and current limits.
 
@@ -360,9 +360,9 @@ Possible answers include: operating and logic voltage; current and power limits;
 
 Use the voltage-divider equation:
 
-\[
+$$
 V_{out}=5\frac{10}{10+10}=2.5\text{ V}
-\]
+$$
 
 Because the two resistances are equal, the midpoint is half the input voltage.
 
