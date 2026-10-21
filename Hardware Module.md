@@ -99,17 +99,17 @@ A **sensor** measures a physical quantity and provides a usable signal. A **micr
 
 ### Photo: microcontroller board
 
-![Arduino Uno R3 development board](https://commons.wikimedia.org/wiki/Special:FilePath/Arduino%20Uno%20R3%20development%20board%2003.jpg)
+![Microcontroller board](https://github.com/reyvaneh/Doom/blob/c12b5a427af212c96e32ac2048c167ccb3f64b9b/arduino-uno.jpg)
 
 *An Arduino Uno R3 is an example of a microcontroller development board. It provides digital pins, analog inputs, a USB connection, and other supporting circuitry. Image: Shoot stufz, [Wikimedia Commons file page](https://commons.wikimedia.org/wiki/File:Arduino_Uno_R3_development_board_03.jpg), CC BY-SA 4.0.*
 
 ### Photo: light sensor
 
-![Light-dependent resistor](https://commons.wikimedia.org/wiki/Special:FilePath/25mm%20light-dependent%20resistor%20%28LDR%29%20%282%29.jpg)
+![Light-dependent resistor]([https://commons.wikimedia.org/wiki/Special:FilePath/25mm%20light-dependent%20resistor%20%28LDR%29%20%282%29.jpg](https://github.com/reyvaneh/Doom/blob/c12b5a427af212c96e32ac2048c167ccb3f64b9b/ldr.jpg))
 
 *A light-dependent resistor (LDR), also called a photoresistor, changes its resistance with light level. Image: Suyash Dwivedi, [Wikimedia Commons file page](https://commons.wikimedia.org/wiki/File:25mm_light-dependent_resistor_(LDR)_(2).jpg), CC BY-SA 4.0.*
 
-## 2. Choose components using measurable criteria
+## 2. Choose components using measurable criteria          
 
 Use this checklist when comparing possible components.
 
