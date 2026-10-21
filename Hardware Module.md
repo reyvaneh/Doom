@@ -149,9 +149,9 @@ V = IR
 
 It can be rearranged to calculate current or resistance:
 
-\[
+$$
 I = \frac{V}{R} \qquad R = \frac{V}{I}
-\]
+$$
 
 Electrical power is:
 
