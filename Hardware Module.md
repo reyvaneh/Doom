@@ -1,10 +1,5 @@
 # Hardware, Networks & Behaviorist AI — Module Plan and Learning Content V1.0
 
-> **Version:** 1.0 draft  
-> **Primary contribution in this file:** Hardware specialist  
-> **Overall status:** Hardware content drafted for review; Networks and Behaviorist AI remain outline only.  
-> **Important:** This is a working draft. Check each explanation, adapt it to the course's terminology, and update the status labels after team review. Do not mark a section “checked” until someone has actually checked it.
-
 ## How to use this module
 
 This module connects three ideas:
