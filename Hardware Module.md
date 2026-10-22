@@ -463,11 +463,3 @@ Before describing the whole module as complete, the team should:
 4. Shoot stufz. [Arduino Uno R3 development board 03](https://commons.wikimedia.org/wiki/File:Arduino_Uno_R3_development_board_03.jpg). Wikimedia Commons, CC BY-SA 4.0.
 5. Suyash Dwivedi. [25mm light-dependent resistor (LDR) (2)](https://commons.wikimedia.org/wiki/File:25mm_light-dependent_resistor_(LDR)_(2).jpg). Wikimedia Commons, CC BY-SA 4.0.
 
-## Starting points for sections that still need development
-
-6. Cisco. [What Is Computer Networking?](https://www.cisco.com/site/us/en/learn/topics/networking/what-is-computer-networking.html). Introductory overview of connected devices and network equipment.
-7. Oikawa, K., Tsuchiya, T., and Okubo, S. “Object-Oriented Design of Subsumption Architecture.” *Journal of Robotics and Mechatronics*, 23(6), 697–705 (2005). This may be useful for background on behaviour-based robotics, but the team should check that it matches the course's use of “Behaviorist AI” before relying on it as the main reference. [Article page](https://www.jstage.jst.go.jp/article/jrsj1983/23/6/23_6_697/_article).
-
-## Version note
-
-This is **V1.0, a draft**. The hardware lesson is developed with beginner explanations, a worked example, a diagram, a learner activity, answers, and references. The hardware calculations and component assumptions still need a technical review. Networks and Behaviorist AI are only outlined here; they are not complete teaching sections yet.
