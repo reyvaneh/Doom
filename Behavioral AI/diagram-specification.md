@@ -23,7 +23,7 @@ Alt text: “Environment supplies sensor observations to a controller, which com
 
 ## Figure 2 — Mode transitions
 
-The [chapter's ordered procedure](chapter.md) is authoritative. This Mermaid diagram summarizes mode updates, not physical movement. Modes without a matching guard persist. Labels specify the exact thresholds in invented energy units.
+The [fixed-rule exercise's ordered procedure](fixed-rule-vacuum.md) is authoritative. This Mermaid diagram summarizes mode updates, not physical movement. Modes without a matching guard persist. Labels specify the exact thresholds in invented energy units.
 
 ```mermaid
 stateDiagram-v2
@@ -42,3 +42,7 @@ Export specification if a standalone version is later needed: three labelled rou
 Four equal cells labelled 0–3, dock at 0, vacuum initially at 2, dirt at 1–3. Add text labels alongside symbols, a LEFT/RIGHT direction key, and initial energy 6/10. No compass heading is implied. Keep this original map visually separate from the generic loop diagram.
 
 The chapter provides a plain-text corridor and a complete trace table so the example remains readable without an image renderer. For a slide animation, show observations before the tick, then the chosen mode/action, then the resulting world. Animate only one action per tick.
+
+## Figure 4 — Learning loop in the main chapter
+
+Original assets: [SVG](assets/learning-loop.svg) and [PNG](assets/learning-loop.png). The environment receives an action and returns a next state and reward. The agent holds a Q-table, chooses an action through its policy, and updates one Q entry from experience. The arrow from the update back to the Q-table makes the learning mechanism explicit. This is distinct from the remembered operating mode in Figure 1. The two-tile task supplies complete state observations; no battery or mode is implied.

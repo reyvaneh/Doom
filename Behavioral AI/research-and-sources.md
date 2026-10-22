@@ -1,31 +1,14 @@
 # Research scope and source map
 
-Research date: 2026-10-22. **Status: provisional course alignment; no teammate review recorded.**
+Research date: 2026-10-22. **Status: lecturer overview inspected; teammate review pending.**
 
 ## 1. Lecturer-first scope check
 
-The course's authenticated [Learning materials folder](https://lexue.bit.edu.cn/mod/folder/view.php?id=544488) lists `（important）PPT and Docs / PPT 2024 / chap6 Behaviorist AI.pptx`. Two browser download attempts, including a newly opened Edge tab, displayed `ERR_BLOCKED_BY_CLIENT`. A targeted local search found no copy. The slides have not been read.
+The user downloaded `source-materials/chap6 Behaviorist AI.pptx` after the browser download was blocked. Inspection found two slides: a title and an overview. See the [scope review](lecturer-scope-review.md) for their exact contents and the coverage map.
 
-Only the title and folder placement are verified. The following cannot be verified from the slides:
+Slide 2 explicitly includes RL basics, algorithms and techniques, MDPs, robotics and games, applications, and limitations. The main chapter now develops RL and an MDP rather than treating learning as a short optional comparison. The detailed fixed-rule controller is retained as a supplementary comparison.
 
-- The lecturer's definition of Behaviorist AI or relationship to psychological behaviourism.
-- Whether reactive robotics, reinforcement learning, finite-state machines, subsumption, Braitenberg vehicles, evolutionary methods, or other approaches are covered.
-- Required depth, specific examples, terminology, assessment expectations, or teaching duration.
-- Whether this 2024 deck is unchanged guidance for the 2026 class.
-
-**Recommendation, not a course requirement:** teach agents and feedback first, then reactive rules and conflicts, then finite-state memory, and finish with a short rules/learning comparison. Use the vacuum as an original worked example. Treat subsumption as research context, not as a name for the example controller. Do not expand into advanced RL equations before checking Chapter 6.
-
-When the deck is supplied, read slide text, figures, and notes. Add exact slide numbers to the alignment table below, record omissions and disagreements, and revise the chapter before labeling it course-aligned.
-
-| Proposed topic | Lecturer slide evidence | Current decision |
-| --- | --- | --- |
-| Agents and environments | Unverified | Include as prerequisite explanation |
-| Perception/action and reactive control | Unverified | Proposed core |
-| Priority conflicts | Unverified | Proposed core example |
-| Finite-state behaviour | Unverified | Proposed introduction |
-| Reinforcement learning | Unverified | Proposed short comparison |
-| Subsumption | Unverified | Research context only |
-| Additional lecturer topics | Unknown | Reassess after access |
+The slides do not define Behaviorist AI, name an algorithm, or establish depth, duration or assessment expectations. Agents, reactive priorities, finite-state control and subsumption remain supporting concepts selected for this resource. Q-learning is our proposed beginner algorithm, not a lecturer requirement. The separate Shared Assignment Rules attachment remains unchecked.
 
 ## 2. Claim-to-source table
 
@@ -44,12 +27,15 @@ Locators use section titles where available because PDF viewer numbers, draft pa
 | S9 | Exploration gathers experience; exploitation selects actions favoured by current estimates. | Poole & Mackworth, author-hosted [§13.5 “Exploration and Exploitation”](https://www.cs.ubc.ca/~poole/aibook/3e/html/ArtInt3e.Ch13.S5.html), opening two bullets and following discussion. | Relevant indexed section inspected. The chapter avoids convergence guarantees and advanced strategy equations. |
 | S10 | Sutton and Barto discuss trial-and-error interaction and the exploration/exploitation tradeoff. | Sutton & Barto, [author-hosted March 2018 draft](https://www.incompleteideas.net/book/bookdraft2018mar21.pdf), §1.1 “Reinforcement Learning,” printed p. 3. §1.3 “Elements of Reinforcement Learning” begins on printed p. 6 in this draft's contents. | Author-hosted indexed §1.1 passage and contents inspected; direct full-file retrieval timed out. Do not claim §1.3 body was fully inspected. Use S8/S9 for this draft's main RL explanation. |
 | S11 | An agent can explore transitions/rewards and use feedback to estimate a policy. | UC Berkeley CS188, official [§5.1 “Reinforcement Learning”](https://inst.eecs.berkeley.edu/~cs188/textbook/rl/rl.html), introductory contrast between offline planning and online learning. | Relevant indexed university text inspected. The no-prior-model setup in this introduction is an example setting, not a necessary property of every RL system. |
+| S12 | The lecturer's overview explicitly includes RL basics, algorithms, MDPs, robotics and games, applications and limitations. | Supplied [Chapter 6 deck](source-materials/chap6%20Behaviorist%20AI.pptx), slide 2 “Overview”; slide 1 is the title. | Both slides inspected from the local PPTX package, including hidden-slide flags and linked notes/pictures. The deck contains no detailed teaching content. |
+| S13 | An MDP specifies states, actions, transitions and rewards; the Markov assumption concerns the sufficiency of the current state; discounting weights later rewards. | UC Berkeley CS188, official [§4.1 Markov Decision Processes](https://inst.eecs.berkeley.edu/~cs188/textbook/mdp/markov-decision-processes.html), opening specification, §4.1.1 “Finite Horizons and Discounting,” §4.1.2 “Markovianess.” | Relevant university text and equations retrieved. The vacuum state, rewards and gamma are original design choices. |
+| S14 | Sampled tabular Q-learning updates an action estimate toward reward plus discounted maximum next-state Q-value. | UC Berkeley CS188, official [§5.3.3 Q-Learning](https://inst.eecs.berkeley.edu/~cs188/textbook/rl/mfl.html), “sample” and moving-average equations. | Relevant university text/equations retrieved. The six updates are independently calculated for our invented task; no convergence claim. |
 
 ## 3. Original teaching design versus sourced facts
 
 **Sourced concepts:** sensor/actuator interaction, reflex versus remembered state, behaviour layers, finite-state transitions, reward-driven learning, exploration/exploitation.
 
-**Original teaching proposals:** the four-tile corridor, 0–10 energy scale, threshold 3, action costs, mode guards, trace, questions/answers, suggested sequence, and SVG layout. They are invented instructional models, not experiments or claims about a commercial vacuum. AIMA also uses vacuum worlds; this corridor is a separately specified teaching example, not a reproduced figure or exercise.
+**Original teaching proposals:** the four-tile fixed controller, two-tile learning task, energy thresholds, rewards, action costs, mode guards, scripted updates, questions/answers, sequence and SVG layouts. They are invented instructional models, not experiments or claims about a commercial vacuum. AIMA also uses vacuum worlds; this corridor is a separately specified teaching example, not a reproduced figure or exercise.
 
 **Design deductions:** the return-energy bound, oscillation counterexample, and reward-example conclusions follow from our stated assumptions. Check them against the model rather than attributing them to Brooks or BIT.
 
@@ -57,4 +43,4 @@ Locators use section titles where available because PDF viewer numbers, draft pa
 
 This is a focused primary-source research draft, not an exhaustive literature review. Several websites were available only through indexed excerpts; those limits are recorded above. No third-party summaries are used as factual authorities. Retain exact edition/section names when checking the cited text. Do not redistribute entire lecturer decks or textbooks in the public folder without appropriate permission.
 
-Required next checks: actual lecturer slide alignment; another member's substantive review; beginner accessibility; rendered PDF/asset checks when the team packages Stage 1. The user will complete personal logs and significant AI-use records separately.
+The lecturer overview has now been checked, but its expected depth remains unspecified. Next checks are another member's substantive review, beginner accessibility and the actual rendered PDF/assets when the team packages Stage 1. The user will complete personal logs and significant AI-use records separately.

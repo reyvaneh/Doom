@@ -9,11 +9,11 @@
 | Reviewer | Pending |
 | Review date and timezone | Pending |
 | Files and commit reviewed | Pending |
-| Lecturer slide file/version inspected | Pending access |
+| Lecturer slide file/version inspected | Two-slide overview inspected by AI; reviewer to verify |
 
 ## Course scope and evidence
 
-- [ ] Read the actual Chapter 6 deck, including diagrams and relevant notes. Add exact slide references to the alignment table and resolve scope differences.
+- [ ] Independently check the two-slide Chapter 6 deck and the scope map. Confirm that Q-learning is a teaching choice, not a named requirement.
 - [ ] Check the separate Shared Assignment Rules rather than assuming the handoff covers every rule.
 - [ ] Verify cited passages and source locators. Preserve the distinction between directly inspected text, indexed excerpts, and sources not fully accessed.
 - [ ] Confirm that original thresholds, activities, and examples are clearly labelled teaching proposals.
@@ -27,7 +27,9 @@
 - [ ] Manually trace all 13 worked ticks, including energy 0 at the dock and the full-charge transition on the next tick.
 - [ ] Verify the ordered transitions, invalid CHARGE guard, boundaries, energy costs, local dirt, and blocked-action behaviour.
 - [ ] Check the threshold argument and its assumptions; verify the insufficient-initial-energy and barrier counterexamples.
-- [ ] Confirm that the route-score activity is an analogy and not an implemented RL algorithm.
+- [ ] Distinguish the four-tile fixed controller from the fully observed two-tile MDP.
+- [ ] Check all MDP transitions, terminal rewards and resets, the six Q-learning updates, and the 11.2 discounted return.
+- [ ] Confirm that scripted replay is not described as a random training experiment or proof of convergence.
 - [ ] Check that exploration, exploitation, rewards, learned estimates, and fixed deployment are distinguished accurately.
 - [ ] Check the coverage counterexample and absence of an automatic completion rule.
 

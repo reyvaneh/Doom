@@ -23,9 +23,22 @@ Rendered the original SVG to a 1100 × 560 PNG and visually inspected the output
 
 ## Remaining verification
 
-- Actual lecturer Chapter 6 slide contents and course alignment.
+- Detailed course expectations beyond the two-slide lecturer overview, now inspected.
 - Full-text recheck for sources accessed only as indexed passages.
 - Another member's recorded technical and teaching review.
 - Beginner learner trial, if the team chooses to perform one.
 - Final rendered PDF and extracted submission ZIP.
 - User's authentic AI-use record and personal log, to be completed separately.
+
+## Redesign checks after lecturer-file inspection
+
+The local file has two slides, neither hidden. Both were read in presentation order; no pictures or linked notes were found. Slide 2 explicitly lists RL basics, algorithms, MDPs, robotics/games, applications and limitations. The scope review records these contents without inferring required depth.
+
+Ran `rl_vacuum_model.py` with the bundled Python runtime:
+
+```text
+Passed: 24 nonterminal state-action transitions; terminal guards; 6 scripted Q updates; return 11.2.
+Scripted educational replay only; no random training, convergence or physical performance result.
+```
+
+The earlier fixed-rule model was rerun and still passed its 13 trace rows and 16,896 finite configurations. The learning example is a separate model; these counts must not be combined into a claim about RL training. All redesign changes and the downloaded lecturer file remain uncommitted at the user's request.
