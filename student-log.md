@@ -4,6 +4,8 @@ This is the team's record of **what we actually do** while creating and teaching
 
 ## How to use this log
 
+This file is the public team development log. Use the [shared logging standard](docs/student-log-guidelines.md) on every branch. Copy the [personal log template](templates/student-log-template.md) into a private workspace for individual learning, reflections, student IDs, and submission evidence; do not publish completed personal logs here.
+
 - Add an entry after a work session or a meaningful contribution.
 - Record the contributor, actual work, outcome, and evidence such as a file, commit, slide, or review note.
 - Separate completed work from next steps. Do not record a planned activity as completed.
@@ -42,5 +44,5 @@ Copy this section for the next session and replace the placeholders.
 | Difficulties | Problems encountered and what we tried |
 | Reflection | What we learned or would improve |
 | Time spent | Actual duration, or Not recorded |
-| Next steps | Remaining tasks and agreed owner, if assigned |asdasdadsa
+| Next steps | Remaining tasks and agreed owner with internal deadline and dependencies |
 
