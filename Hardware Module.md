@@ -1,4 +1,4 @@
-# Hardware, Networks & Behaviorist AI — Module Plan and Learning Content V1.0
+# Hardware, Networks & Behaviorist AI ,Module Plan and Learning Content V1.0
 
 ## How to use this module
 
