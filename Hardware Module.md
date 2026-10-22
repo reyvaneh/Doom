@@ -1,281 +1,331 @@
-# Hardware, Networks & Behaviorist AI — Module Plan and Learning Content V1.0
+# Hardware, Networks and Behaviorist AI
+## Module Plan and Learning Content V1.0
 
-## How to use this module
+## About this module
 
-This module connects three ideas:
+This module brings together three parts of a computing system: hardware, networks, and AI that responds to its environment.
 
-1. **Hardware** allows a computer-based system to sense and affect the physical world.
-2. **Networks** allow devices to exchange information.
-3. **Behaviorist or behavior-based AI** concerns how an agent selects actions in response to its environment or feedback. The precise meaning of “Behaviorist AI” should be confirmed against the instructor's definition before that section is fully written.
+- **Hardware** is the physical equipment that lets a system receive information and do something in the real world.
+- **Networks** let devices send information to one another.
+- **Behaviorist AI** is the term used in this assignment for the AI topic. The exact meaning needs to be confirmed with the instructor before that section is developed in detail.
 
-A useful unifying example is a smart-room system: a sensor measures brightness, a controller reads the measurement, a network may share the reading, an agent or control rule decides what should happen, and an output device switches a light.
+A smart-room example can connect the ideas. A light sensor measures the brightness in a room, a controller reads the measurement, and a network could send it to another device. A program or agent then decides whether a light should be switched on. The light is the physical output.
+
+This version develops the hardware material in more detail. The Networks and Behaviorist AI sections are included in the overall plan so the team can see how the full module fits together, but those sections still need their own content and review.
 
 ## Prerequisites
 
-Beginners do not need previous electronics experience. They should be prepared to learn these ideas as they progress:
+Learners do not need previous electronics experience. It helps to be comfortable with:
 
-- Basic arithmetic, fractions, and rearranging a simple equation.
-- The difference between physical hardware and software instructions.
-- Basic programming ideas such as variables, conditions (`if` statements), and repetition (`while` or `loop`).
-- The idea that data can be represented as numbers and sent between devices.
+- basic arithmetic, fractions, and rearranging a simple equation;
+- the difference between hardware and software;
+- basic programming ideas, such as variables, `if` statements, and loops; and
+- the idea that information can be represented as numbers and sent between devices.
 
-Electrical terms such as voltage, current, resistance, and ground will be introduced before they are used in calculations.
+Voltage, current, resistance, power, and ground are introduced before they are used in calculations.
 
 ## Intended learning outcomes
 
-By the end of the complete module, a beginner should be able to:
+By the end of the full module, a beginner should be able to:
 
-1. **Describe** the roles of a processor or microcontroller, power supply, input, output, and communication interface in a small computing system.
-2. **Select and justify** physical components using requirements such as voltage, current, power, interface, performance, environmental conditions, cost, and availability.
-3. **Explain and calculate** simple circuits using Ohm's law and the voltage-divider equation.
-4. **Trace** the path from a physical measurement through a sensor and controller to an actuator.
-5. **Explain** how devices communicate over a network and identify the roles of network interfaces, switches, routers, and communication protocols.
-6. **Describe** the course's intended approach to Behaviorist AI and explain how a simple agent maps inputs or feedback to actions.
-7. **Evaluate** an integrated system by identifying compatibility, reliability, safety, and testing requirements.
+1. Describe the roles of a microcontroller or processor, a power supply, inputs, outputs, and communication interfaces.
+2. Choose physical components and explain the choice using voltage, current, power, interface, performance, environment, cost, and availability.
+3. Use Ohm's law and the voltage-divider equation to work through simple circuit calculations.
+4. Trace information from a physical measurement, through a sensor and controller, to an output device.
+5. Explain how devices communicate over a network and describe the basic roles of interfaces, switches, routers, and protocols.
+6. Explain the approach to Behaviorist AI taught in the course and trace how an agent maps inputs or feedback to actions.
+7. Identify compatibility, reliability, safety, and testing issues in a small integrated system.
 
-## Overall module structure and development status
+## Module structure and development status
 
-Status meanings:
+Use these status labels honestly. **Drafted** means a first version exists; it does not mean the content has been checked. Mark a section **Checked** only after someone has reviewed it or a documented test has been carried out.
 
-- **Outline only:** the section plan exists, but substantive teaching material still needs to be written.
-- **Drafted:** a first version of the content exists; it has not yet passed full peer or instructor review.
-- **Checked:** another person or a documented test has checked the material. Use this label only after that check has happened.
-- **Needs revision:** a known gap or uncertainty remains.
-
-| Order | Section and subtopics | What learners should be able to do | Planned example, question, or activity | Current status / gap |
+| Order | Topic and subtopics | What learners should be able to do | Planned example or activity | Current status |
 |---|---|---|---|---|
-| 1 | **Module overview:** hardware, networks, and agent behavior; how the parts fit together | Explain the whole system at a high level | Trace a smart-room system from sensing to action | **Drafted — needs revision:** confirm the module framing with the team |
-| 2 | **Hardware foundations:** voltage, current, resistance, power; series and parallel circuits; basic electrical safety | Define the main quantities and use Ohm's law in a simple calculation | Calculate the current through a resistor | **Drafted — needs technical review** |
-| 3 | **Physical component selection:** microcontroller vs. single-board computer; sensors; resistors; drivers; power supplies; datasheets; selection trade-offs | Choose a component and justify the choice from its specifications | Choose a controller and light sensor for an automatic lamp | **Drafted — needs technical review** |
-| 4 | **Circuit design:** schematic reading; voltage dividers; current-limiting resistors; logic-level compatibility; power budgeting; grounding; protection | Draw and check a basic sensor circuit | Calculate the divider output and LED resistor | **Drafted — needs circuit/peer review** |
-| 5 | **Sensor integration:** analog and digital sensors; ADC; resolution vs. accuracy; signal conditioning; sampling; calibration | Explain how a physical quantity becomes a value a program can use | Read a light-dependent resistor (LDR) using an analog input | **Drafted — needs technical review** |
-| 6 | **Actuator integration:** LEDs, buzzers, relays, motors; GPIO limits; transistor/MOSFET or motor-driver circuits; PWM; protection | Explain why some loads require driver circuitry | Control an indicator LED and explain why a motor needs a suitable driver | **Outline partly covered — needs additional examples and review** |
-| 7 | **Network foundations:** devices and links; packets; addresses; Ethernet and Wi-Fi; switches, routers, and access points; latency and reliability | Describe a simple device-to-device communication path | Draw how a sensor node sends a reading to a computer | **Outline only — assign/coordinate with Networks contributor** |
-| 8 | **Networked/IoT systems:** device communication, data formats, connectivity limits, privacy and security basics | Identify what a connected hardware system needs beyond a sensor and controller | Plan how a room sensor could share readings without exposing unnecessary data | **Outline only — needs substantive content** |
-| 9 | **Behaviorist AI / behavior-based agents:** inputs, state or feedback, behavior rules, action selection; layered behavior or learning concepts if those are in course scope | Explain the specific AI approach taught in the course and trace a simple input-to-action example | Describe a simple robot response to an obstacle | **Outline only — needs instructor/team clarification of “Behaviorist AI”** |
-| 10 | **Integration and evaluation:** hardware + networks + agent behavior; reliability; test plan; trade-offs; documentation | Explain how the parts interact and evaluate a proposed design | Walk through a networked smart-room example and identify failure points | **Outline only — depends on agreement across sections** |
-| 11 | **Glossary, questions, and references** | Use technical terms consistently and check their learning | Short end-of-module quiz with answer explanations | **Drafted for hardware terms — incomplete for whole module** |
+| 1 | Module overview: hardware, networks, and agent behaviour | Describe how the parts of a connected system work together | Trace a smart-room system from sensor reading to light output | **Drafted; needs team review** |
+| 2 | Hardware foundations: voltage, current, resistance, power, series and parallel circuits, basic safety | Define the main electrical quantities and use Ohm's law | Calculate current through a resistor | **Drafted; needs technical review** |
+| 3 | Physical component selection: microcontrollers, single-board computers, sensors, resistors, drivers, power supplies, datasheets, trade-offs | Choose components and justify the choices | Choose a controller and light sensor for an automatic lamp | **Drafted; needs technical review** |
+| 4 | Circuit design: schematics, voltage dividers, current-limiting resistors, logic levels, power budget, grounding, protection | Explain and check a simple circuit | Calculate a voltage-divider output and an LED resistor | **Drafted; needs circuit review** |
+| 5 | Sensor integration: analog and digital sensors, ADC, accuracy, resolution, signal conditioning, sampling, calibration | Explain how a measurement becomes a value that software can use | Read an LDR through an analog input | **Drafted; needs technical review** |
+| 6 | Actuator integration: LEDs, buzzers, relays, motors, GPIO limits, transistor/MOSFET drivers, PWM, protection | Explain when a load needs a driver circuit | Compare an LED output with a motor output | **Partly covered; add examples and review** |
+| 7 | Network foundations: links, packets, addresses, Ethernet, Wi-Fi, switches, routers, access points, latency, reliability | Describe a basic device-to-device communication path | Draw how a sensor sends a reading to a computer | **Outline only; coordinate with Networks contributor** |
+| 8 | Networked and IoT systems: device communication, data formats, connectivity, privacy, security | Identify what a connected device needs beyond a sensor and controller | Plan how a room sensor could share readings with another device | **Outline only; content still needed** |
+| 9 | Behaviorist AI or behaviour-based agents: inputs, state or feedback, rules, action selection | Explain the approach used in this course and trace an input-to-action example | Describe how a robot might respond to an obstacle | **Outline only; clarify the course meaning of “Behaviorist AI”** |
+| 10 | Integration and evaluation: hardware, networks, agent behaviour, reliability, testing, trade-offs, documentation | Explain how the pieces work together and identify likely failure points | Review a connected smart-room design | **Outline only; depends on agreement across sections** |
+| 11 | Glossary, questions, and references | Use terms consistently and check understanding | Answer short questions with explanations | **Hardware terms drafted; full-module glossary incomplete** |
 
-### Important gaps and uncertainties
+### Gaps to resolve
 
-- The supplied assignment rules do not define the exact intended meaning of **“Behaviorist AI.”** Confirm the course definition with the instructor or team before writing that section in depth. Possible interpretations should not be treated as interchangeable.
-- The Networks and Behaviorist AI sections are planning outlines here, not completed learning content. The relevant contributors should develop and review them.
-- Circuit values in the worked example below are illustrative. A real circuit must use the selected parts' datasheets and the exact board's electrical specifications.
-- The hardware example assumes a classic 5 V Arduino Uno R3-style board. Other boards can use different logic voltages and ADC characteristics; recalculate and check the board documentation before adapting the circuit.
+- The assignment instructions do not define exactly what the course means by **“Behaviorist AI.”** The team should confirm this with the instructor before writing that part in depth.
+- Networks and Behaviorist AI are only outlines in this version. They should not be described as completed sections.
+- The circuit values below are worked examples, not final specifications for a production design.
+- The circuit example assumes a classic 5 V Arduino Uno R3. Other development boards may use different logic voltages or ADC settings, so check the exact board's documentation before adapting the circuit.
 
 ---
 
-# Substantive Learning Content V1.0 — Hardware
+# Learning Content V1.0: Hardware
 
-## Topic: Selecting components and connecting a sensor to an output
+## Topic: Choosing components and connecting a sensor to an output
 
-### Learning goals for this topic
+### What you should learn
 
-After studying this topic, you should be able to:
+By the end of this topic, you should be able to:
 
-- Explain what component selection means and name key selection criteria.
-- Describe the jobs of a microcontroller, sensor, resistor, and output device.
-- Use the voltage-divider equation to estimate a sensor voltage.
-- Explain how an analog-to-digital converter (ADC) turns an input voltage into a number.
-- Trace a simple sensor-to-controller-to-output system.
-- Identify why electrical compatibility and component ratings must be checked.
+- explain what component selection involves;
+- describe the jobs of a microcontroller, sensor, resistor, and output device;
+- calculate an approximate sensor voltage using a voltage divider;
+- explain how an analog-to-digital converter (ADC) turns a voltage into a number;
+- follow the path from a sensor reading to an output; and
+- identify electrical ratings that need checking before building a circuit.
 
-## 1. Start with the system requirement, not the parts list
+## 1. Start with the task
 
-**Physical component selection** means choosing hardware that fits the task and the system's constraints. An engineer should not select a component just because it is popular or inexpensive. They first define what the system has to do, then check whether each candidate part can meet those requirements.
+Before choosing parts, decide what the system needs to do. For this lesson, the task is simple:
 
-For example, imagine the requirement is:
+> Turn an indicator light on when the room is dark, and turn it off when the room is bright.
 
-> Switch an indicator light on when a room becomes dark, and switch it off again when the room is bright.
+The system needs a few things:
 
-The design needs at least:
-
-- a **sensor** to respond to room brightness;
+- a **sensor** to respond to the light level;
 - a **controller** to read the sensor and make a decision;
-- an **output device** to indicate the result;
-- suitable resistors, wiring, and a power source.
+- an **output device** to show the result; and
+- suitable resistors, wires, and a power source.
 
-A **sensor** measures a physical quantity and provides a usable signal. A **microcontroller** is an integrated circuit designed to run a program and interact with hardware. An **actuator** converts a control signal and energy into a physical effect. In a beginner circuit an LED can be treated as an output device because it produces light; in larger systems, actuators include motors and solenoids.
+A **sensor** measures a physical quantity and produces a signal that the system can use. A **microcontroller** is an integrated circuit that runs a program and communicates with connected hardware. An **actuator** turns a control signal and energy into a physical effect. An LED is a useful output for this example because it produces light. In other projects, actuators might include motors, relays, or solenoids.
 
 ### Photo: microcontroller board
 
-![Microcontroller board](https://github.com/reyvaneh/Doom/blob/c12b5a427af212c96e32ac2048c167ccb3f64b9b/arduino-uno.jpg)
+![Arduino Uno R3 microcontroller development board](arduino-uno.jpg)
 
-*An Arduino Uno R3 is an example of a microcontroller development board. It provides digital pins, analog inputs, a USB connection, and other supporting circuitry. Image: Shoot stufz, [Wikimedia Commons file page](https://commons.wikimedia.org/wiki/File:Arduino_Uno_R3_development_board_03.jpg), CC BY-SA 4.0.*
+*The Arduino Uno R3 is a microcontroller development board. It has digital pins, analog inputs, a USB connection, and supporting circuitry. Image credit: Shoot stufz, [Wikimedia Commons file page](https://commons.wikimedia.org/wiki/File:Arduino_Uno_R3_development_board_03.jpg), CC BY-SA 4.0.*
 
 ### Photo: light sensor
 
-![Light-dependent resistor](https://github.com/reyvaneh/Doom/blob/c12b5a427af212c96e32ac2048c167ccb3f64b9b/ldr.jpg)
+![Light-dependent resistor (LDR)](ldr.jpg)
 
-*A light-dependent resistor (LDR), also called a photoresistor, changes its resistance with light level. Image: Suyash Dwivedi, [Wikimedia Commons file page](https://commons.wikimedia.org/wiki/File:25mm_light-dependent_resistor_(LDR)_(2).jpg), CC BY-SA 4.0.*
+*A light-dependent resistor (LDR), also called a photoresistor, changes its resistance as the light falling on it changes. Image credit: Suyash Dwivedi, [Wikimedia Commons file page](https://commons.wikimedia.org/wiki/File:25mm_light-dependent_resistor_(LDR)_(2).jpg), CC BY-SA 4.0.*
 
-## 2. Choose components using measurable criteria          
+**Image note:** These image links are relative paths. Upload `arduino-uno.jpg` and `ldr.jpg` to the same GitHub folder as this Markdown file, or change the paths to match where you stored the images.
 
-Use this checklist when comparing possible components.
+## 2. How to choose components
 
-| Criterion | What to ask | Why it matters |
+A component should fit the task, the electrical design, and the environment in which it will be used. Price matters, but it is not the only thing to consider.
+
+| Check | Question to ask | Why it matters |
 |---|---|---|
-| Operating voltage | What supply voltage does the part require? | An incompatible voltage can prevent operation or damage the part. |
-| Input/output compatibility | Can the controller safely read the sensor's signal? | A board's permitted input voltage may differ from another board's. |
-| Current and power | How much current will the part draw or carry? Can it dissipate the expected power? | Parts, pins, wires, and supplies have limits. |
-| Function and performance | Is the measurement range, response time, accuracy, or speed good enough? | The device must satisfy the actual task, not just connect electrically. |
-| Interface | Does the part use analog voltage, a digital pin, I²C, SPI, UART, or another interface? | The controller must support the interface or use an appropriate adapter. |
-| Environment | Will the part tolerate expected temperature, moisture, vibration, and light conditions? | Conditions can affect readings and reliability. |
-| Cost and availability | Is it affordable and are its specifications documented? | An undocumented or unavailable part can make the design hard to maintain. |
+| Operating voltage | What voltage does the part need? | The wrong voltage can stop the circuit working or damage a component. |
+| Input and output levels | Can the controller safely read the sensor signal? | A board's allowed input voltage may be different from another board's. |
+| Current and power | How much current will the part draw? Can it safely handle the power? | Pins, wires, components, and supplies all have limits. |
+| Performance | Are the range, response time, accuracy, or speed suitable? | A part can be electrically compatible but still not do the job well enough. |
+| Interface | Does it use an analog voltage, digital pin, I²C, SPI, UART, or another interface? | The controller has to support the interface or use a suitable adapter. |
+| Environment | Will it work at the expected temperature and humidity, and under the expected light or vibration conditions? | The environment can affect both readings and reliability. |
+| Cost and availability | Is the part affordable and easy to source? Is there a reliable datasheet? | It is difficult to maintain a design if parts or documentation are unavailable. |
 
-A **datasheet** is a manufacturer's technical document describing a component's pin connections, electrical characteristics, operating conditions, and limits. Check the datasheet before committing to a part. In particular, do not confuse *recommended operating conditions* with *absolute maximum ratings*: an absolute maximum is a limit to avoid exceeding, not a target for normal use.
+A **datasheet** is the manufacturer's technical document for a component. It lists its pins, electrical characteristics, operating conditions, and limits. Read it before settling on a part. Pay special attention to the difference between *recommended operating conditions* and *absolute maximum ratings*. The latter are limits that should not be exceeded, not targets for normal operation.
 
 ### Microcontroller or single-board computer?
 
-A microcontroller is often a good fit for a small control task because it can read inputs and control outputs directly. A single-board computer is more appropriate when the application needs a full operating system or heavier computation. The choice depends on requirements; one type is not automatically better for every project.
+A microcontroller is usually a good choice for a small control task, such as reading a sensor and switching an output. A single-board computer is more useful when a project needs a full operating system or heavier processing. Neither is best for every situation; the choice depends on what the system must do.
 
-For this example, a classic Arduino Uno R3 is a useful teaching platform because its official documentation describes six analog inputs and a 10-bit ADC. This board-specific fact must not be assumed for every Arduino-compatible board or every microcontroller. [Arduino Uno R3 technical information](https://docs.arduino.cc/hardware/uno-rev3/).
+For the example in this guide, the classic Arduino Uno R3 is convenient because it has analog inputs and a 10-bit ADC. Those details are specific to this board and should not be assumed for every Arduino-compatible board. See the [Arduino Uno R3 documentation](https://docs.arduino.cc/hardware/uno-rev3/).
 
-## 3. Understand the electrical terms used in the circuit
+## 3. Example bill of materials (BOM)
 
-- **Voltage (V):** electrical potential difference between two points, measured in volts.
-- **Current (I):** rate of flow of electric charge, measured in amperes (A).
-- **Resistance (R):** opposition to current flow, measured in ohms (Ω).
-- **Power (P):** rate of electrical energy transfer, measured in watts (W).
-- **Ground (GND):** the reference node used by the circuit; in many low-voltage circuits it is connected to the supply's negative terminal.
-- **Analog signal:** a signal that can vary continuously within a range.
-- **ADC (analog-to-digital converter):** circuitry that represents an analog input voltage as a digital number.
+A **bill of materials (BOM)** is the list of physical parts needed to build a system. A useful BOM records the quantity, key specifications, and purpose of each item. It also helps the designer spot missing parts before starting assembly.
 
-Ohm's law connects voltage, current, and resistance:
+This proposed BOM is for the simple automatic-light indicator used in this lesson.
 
-\[
+| Component | Quantity | Specification or selection requirement | Purpose |
+|---|---:|---|---|
+| Arduino Uno R3 | 1 | 5 V board with analog inputs | Reads the sensor voltage and runs the control program |
+| Light-dependent resistor (LDR) | 1 | Resistance changes with light level | Senses brightness |
+| Fixed resistor | 1 | 10 kΩ | Forms a voltage divider with the LDR |
+| LED | 1 | Check the forward voltage and current rating | Shows whether the output is on |
+| LED resistor | 1 | 330 Ω, with a suitable power rating | Limits the current through the LED |
+| USB power source or connection | 1 | Compatible with the selected board | Powers the controller and low-power sensing circuit |
+| Breadboard | 1 | Suitable for the chosen components | Lets the circuit be assembled without soldering |
+| Jumper wires | As needed | Compatible with the board and breadboard | Connect the circuit together |
+
+### Why use these parts?
+
+The **Arduino Uno R3** can read an analog input and control a digital output. That is enough for this introductory example.
+
+The **LDR** is easy to use for a brightness demonstration. Its resistance changes with light, although the actual values depend on the specific LDR and the lighting conditions.
+
+The **10 kΩ resistor** and LDR form a voltage divider. This turns the changing resistance into a voltage the board can measure.
+
+The **LED** gives a visible result. The **330 Ω resistor** limits the LED current for the assumed 5 V circuit and an LED with an approximately 2 V forward voltage. The actual LED datasheet and board limits still need to be checked.
+
+The **power source, breadboard, and jumper wires** let the circuit run and make it easy to change during testing.
+
+### Checks before assembly
+
+Before building the circuit:
+
+1. Check the board's voltage and input specifications.
+2. Find or measure the LDR's resistance in bright and dark conditions.
+3. Calculate the voltage-divider output for those readings.
+4. Check the LED's forward voltage, current, and the resistor's power rating.
+5. Make sure the power source can supply enough current.
+6. Test the readings and wiring before treating the design as complete.
+
+**Status:** The proposed BOM has been drafted. The exact part specifications and compatibility checks still need to be verified before the BOM can be marked as checked.
+
+## 4. Electrical terms used in this example
+
+- **Voltage (V):** the electrical potential difference between two points, measured in volts.
+- **Current (I):** the rate at which electric charge flows, measured in amperes (A).
+- **Resistance (R):** how strongly a component opposes current, measured in ohms (Ω).
+- **Power (P):** the rate at which electrical energy is transferred, measured in watts (W).
+- **Ground (GND):** the circuit's reference node. In many simple low-voltage circuits, it is connected to the supply's negative terminal.
+- **Analog signal:** a signal that can vary continuously over a range.
+- **Analog-to-digital converter (ADC):** circuitry that represents an analog input voltage as a digital number.
+
+Ohm's law links voltage, current, and resistance:
+
+$$
 V = IR
-\]
+$$
 
-It can be rearranged to calculate current or resistance:
+Rearrange it to calculate current or resistance:
 
 $$
 I = \frac{V}{R} \qquad R = \frac{V}{I}
 $$
 
-Electrical power is:
+Electrical power can be calculated with:
 
-\[
+$$
 P = VI
-\]
-
-## 4. Circuit design: use an LDR in a voltage divider
-
-An LDR's resistance usually decreases as light on it increases. The resistance change alone is not a voltage that the controller can directly interpret as a digital number. A simple way to convert that resistance change into a changing voltage is to connect the LDR and a fixed resistor as a **voltage divider**.
-
-A voltage divider has two resistors connected in series across a supply. The output is measured at the junction between them. If the output is measured across the lower resistor \(R_2\), the ideal no-load equation is:
-
-$$
-V_{out}=V_{in}\frac{R_2}{R_1+R_2}
 $$
 
-Here, \(V_{in}\) is the supply voltage, \(R_1\) is the top resistor, and \(R_2\) is the lower resistor connected to ground. The formula assumes the measurement input does not significantly load the divider.
+These formulas are useful for checking simple circuits and choosing suitable component values.
 
-### Wiring diagram
+## 5. Circuit design: use the LDR in a voltage divider
 
-The following diagram uses a 10 kΩ fixed resistor on the high side and the LDR on the low side. The midpoint connects to analog input A0.
+An LDR usually has a higher resistance in the dark and a lower resistance in brighter light. The controller cannot read resistance directly through a basic analog input, so the circuit uses a voltage divider to turn the resistance change into a changing voltage.
+
+A **voltage divider** has two resistors connected in series across a supply. The output is measured at the point between the resistors. If the output is measured across the lower resistor, called $R_2$, the ideal no-load equation is:
+
+$$
+V_{out} = V_{in}\frac{R_2}{R_1 + R_2}
+$$
+
+Here, $V_{in}$ is the supply voltage, $R_1$ is the upper resistor, and $R_2$ is the lower resistor connected to ground. The equation assumes that the device measuring the voltage does not significantly affect the divider.
+
+### Simple wiring diagram
+
+In this arrangement, the 10 kΩ fixed resistor is connected to +5 V, the LDR is connected between the midpoint and ground, and the midpoint connects to analog input A0.
 
 ```text
-          +5 V (Uno R3 example)
-                   |
-              [ R1 = 10 kΩ ]
-                   |
-                   +---------- A0 (analog input)
-                   |
+        +5 V (Arduino Uno R3 example)
+                  |
+             [ R1 = 10 kΩ ]
+                  |
+                  +---------- A0 (analog input)
+                  |
               [ LDR = R2 ]
-                   |
-                  GND
+                  |
+                 GND
 ```
 
-The circuit makes a voltage that varies with light. With this exact arrangement, more light generally reduces the LDR resistance and lowers the midpoint voltage. Reversing the two resistors would reverse the direction of the voltage change.
+As the light changes, the LDR's resistance changes and so does the midpoint voltage. With the LDR in the lower position shown here, the voltage generally rises in the dark and falls in brighter conditions. If the two resistors are swapped, the voltage change goes in the opposite direction.
 
-**Important:** a voltage divider is suitable for sensing, but it should not be used as a general power supply for a load. If a circuit needs a different supply voltage, use a suitable regulator or power converter instead.
+A voltage divider is useful for measuring a changing resistance. It is not a general-purpose power supply for other loads. Use a suitable voltage regulator or power converter when a circuit needs a different supply voltage.
 
 ### Worked example: estimate the sensor voltage
 
-For practice, assume a 5 V input, a fixed resistor \(R_1=10\text{ kΩ}\), and two hypothetical LDR readings:
+Assume the supply is 5 V and the fixed resistor is $R_1 = 10\,\text{kΩ}$. For the example, use these hypothetical LDR readings:
 
-- In a dark condition, assume $$R_2=100\text{ kΩ}$$.
-- In a bright condition, assume $$R_2=2\text{ kΩ}$$.
+- In the dark, $R_2 = 100\,\text{kΩ}$.
+- In bright light, $R_2 = 2\,\text{kΩ}$.
 
-These are illustrative values only. The resistance of a real LDR depends on its model and the lighting, so it must be measured or taken from its datasheet for a real design.
+These are example values, not guaranteed readings for every LDR. A real design should use the part's datasheet or measurements taken under the intended conditions.
 
 **Case A: dark condition**
 
-Substitute the values into the divider equation:
+Substitute the values into the voltage-divider equation:
 
 $$
-V_{out}=5\frac{100}{10+100}
-=5\frac{100}{110}
-\approx4.55\text{ V}
+V_{out} = 5\frac{100}{10 + 100}
 $$
 
-So the analog input is approximately 4.55 V.
+$$
+V_{out} = \frac{500}{110} \approx 4.55\,\text{V}
+$$
+
+The analog input is about 4.55 V.
 
 **Case B: bright condition**
 
 $$
-V_{out}=5\frac{2}{10+2}
-=5\frac{2}{12}
-\approx0.83\text{ V}
+V_{out} = 5\frac{2}{10 + 2}
 $$
 
-So the analog input is approximately 0.83 V.
-
-**Interpretation:** with the LDR in the lower position, the dark example produces a higher voltage than the bright example. The controller can use this difference to distinguish the conditions.
-
-## 5. From voltage to a number: the ADC
-
-A microcontroller program works with digital values. An ADC converts the input voltage into a number that software can read.
-
-For a classic Arduino Uno R3 using a 0–5 V analog reference, `analogRead()` returns a value from 0 to 1023. This means there are 1024 possible codes, numbered from zero. The approximate conversion is:
-
 $$
-\text{ADC code}\approx\frac{V_{in}}{5}\times1023
+V_{out} = \frac{10}{12} \approx 0.83\,\text{V}
 $$
 
-Using the previous examples:
+The analog input is about 0.83 V.
 
-- Dark: $$4.55/5\times1023\approx930$$.
-- Bright: $$0.83/5\times1023\approx170$$.
+In this arrangement, the dark example produces the higher voltage. The controller can use that difference to decide whether the light should be on. The threshold must be chosen from actual readings, not copied blindly from this example.
 
-These are ideal estimates, not guaranteed measured values. Actual readings can differ because of the actual LDR resistance, the board's reference voltage, circuit tolerances, and electrical noise. The ADC's resolution is not the same as the full accuracy of the measurement.
+## 6. From voltage to a number: the ADC
 
-For an explanation and practical example, see [Arduino's Analog Input tutorial](https://docs.arduino.cc/built-in-examples/analog/AnalogInput/) and [SparkFun's Voltage Divider guide](https://learn.sparkfun.com/tutorials/voltage-dividers/introduction).
+Software works with digital values, so the board needs a way to convert the input voltage into a number. That is the job of the **analog-to-digital converter (ADC)**.
 
-## 6. Add an output: an LED indicator
-
-An LED converts electrical energy into light. It is a simple output device for this demonstration.
-
-An LED must normally have a series resistor to limit its current. If a 5 V output drives an LED with an assumed forward voltage of 2 V and a target current of 10 mA, the resistor voltage is:
+On a classic Arduino Uno R3, `analogRead()` returns values from 0 to 1023. This is a 10-bit result, which gives 1024 possible codes. Assuming an ideal 0–5 V input range, a rough estimate is:
 
 $$
-V_R=5-2=3\text{ V}
+\text{ADC code} \approx \frac{V_{in}}{5\,\text{V}} \times 1023
 $$
 
-Convert current to amperes: $$10\text{ mA}=0.010\text{ A}$$.
+Using the sensor voltages from the previous example:
+
+- Dark: $\frac{4.545}{5} \times 1023 \approx 930$.
+- Bright: $\frac{0.833}{5} \times 1023 \approx 170$.
+
+These are estimates, not guaranteed readings. The result can change because of the actual LDR resistance, the board's reference voltage, resistor tolerances, and electrical noise. Also, **resolution and accuracy are not the same thing**. Resolution describes the size of the digital steps; accuracy describes how close a measurement is to the true value.
+
+For more detail, see [Arduino's Analog Input tutorial](https://docs.arduino.cc/built-in-examples/analog/AnalogInput/) and [SparkFun's Voltage Divider guide](https://learn.sparkfun.com/tutorials/voltage-dividers/introduction).
+
+## 7. Add an output: the LED
+
+An LED converts electrical energy into light. It is a convenient output device for this demonstration because its state is easy to see.
+
+An LED normally needs a series resistor to limit the current. Suppose a 5 V output drives an LED with an assumed forward voltage of 2 V, and the target current is 10 mA.
+
+First, find the voltage across the resistor:
+
+$$
+V_R = 5 - 2 = 3\,\text{V}
+$$
+
+Convert the current to amperes: $10\,\text{mA} = 0.010\,\text{A}$.
 
 Then use Ohm's law:
 
 $$
-R=\frac{3}{0.010}=300\text{ Ω}
+R = \frac{3}{0.010} = 300\,\Omega
 $$
 
-A nearby standard value such as 330 Ω gives an approximate current of:
+A nearby standard value, such as 330 Ω, would give an approximate current of:
 
 $$
-I=\frac{3}{330}\approx0.0091\text{ A}=9.1\text{ mA}
+I = \frac{3}{330} \approx 0.0091\,\text{A} = 9.1\,\text{mA}
 $$
 
-This is a worked estimate, not a substitute for checking the specific LED, resistor power rating, board output limits, and wiring. For a classic Uno-style example, the external LED can be wired from digital pin 9 through a 330 Ω resistor to the LED anode, with the LED cathode connected to GND. Other boards may have different output-voltage and current limits.
+The resistor would dissipate about 0.027 W under these assumptions, so a typical 0.25 W resistor has plenty of power-rating margin for this example. Still, check the actual LED specifications, the resistor rating, and the output limits of the board before building the circuit.
 
-### What if the output is a motor instead?
+For a classic Uno-style setup, the external LED can be connected to digital pin 9 through the 330 Ω resistor, with the LED's cathode connected to GND. Check the pinout for the exact board you use.
 
-A microcontroller pin is a signal output, not a general-purpose motor power supply. A motor may draw more current than a GPIO pin can safely deliver and can generate voltage transients when switched. Use a properly rated transistor/MOSFET driver or motor-driver module and suitable protection, following the driver's documentation. Do not connect a motor directly to a GPIO pin.
+### What if the output is a motor?
 
-## 7. Connect the sensor reading to the output decision
+A microcontroller pin is intended to send a control signal; it should not be treated as a motor power supply. A motor may draw more current than a GPIO pin can safely provide, and switching an inductive load can cause voltage spikes. Use a suitably rated transistor or MOSFET circuit, or a motor-driver module, and follow its documentation for protection and wiring. Do not connect a motor directly to a GPIO pin.
 
-The following Arduino-style example reads the LDR divider and turns an external LED on when the reading indicates darkness. The threshold `500` is only a starting point; it must be calibrated for the actual sensor, resistor, room, board and wiring.
+## 8. Put the sensor and output together
+
+The program below reads the sensor voltage through A0 and turns an external LED on when the reading suggests darkness. The value `500` is only a starting threshold. The correct value depends on the parts, room lighting, wiring, and board, so take real readings and adjust it during testing.
 
 ```cpp
 const int sensorPin = A0;
@@ -291,7 +341,7 @@ void loop() {
   int lightValue = analogRead(sensorPin);
   Serial.println(lightValue);
 
-  // With the LDR as the lower divider resistor,
+  // With the LDR connected as the lower resistor,
   // darker conditions usually produce a higher reading.
   if (lightValue > darkThreshold) {
     digitalWrite(ledPin, HIGH);
@@ -303,119 +353,121 @@ void loop() {
 }
 ```
 
-This is a software illustration for the stated circuit and a compatible Arduino board. Check the pinout and electrical specifications of the exact board before building it. The external LED needs its current-limiting resistor in series.
+This is an Arduino-style example for the circuit described above. The LED needs its series resistor, and the circuit must be wired according to the board's pinout and electrical specifications.
 
-### Overall system diagram
+### System overview
 
 ```text
 Room light
     |
     v
 LDR + fixed resistor
-(physical input -> voltage)
+(light level becomes a voltage)
     |
     v
 Analog input / ADC
-(voltage -> digital number)
+(voltage becomes a number)
     |
     v
 Microcontroller program
-(compare reading with threshold)
+(compares the reading with a threshold)
     |
     v
 Digital output pin
     |
     v
 330 Ω resistor + LED
-(electrical output -> light)
+(the output produces light)
 ```
 
-The sensor, controller, and output are a chain. A failure at any point can affect the whole behavior: incorrect wiring changes the measurement, a wrong threshold causes incorrect decisions, and an incorrectly connected LED can fail or damage a component.
+The parts form one chain. If the sensor is wired incorrectly, the reading may be wrong. If the threshold is unsuitable, the decision may be wrong. If the LED is connected backwards or without a current-limiting resistor, the output may not work as expected or a component could be damaged.
 
-## 8. Learner activity
+## 9. Learner activity
 
-### Question A — Component selection
+Try the questions before reading the answers. Show your calculations for Question B.
 
-You need to build the automatic light indicator above. Name four pieces of information you would check before choosing the board, LDR, fixed resistor, and LED.
+### Question A: component selection
 
-### Question B — Voltage divider
+You are building the automatic-light indicator above. Name four things you would check before choosing the controller, LDR, fixed resistor, and LED. For each one, say briefly why it matters.
 
-The input is 5 V, the fixed resistor is 10 kΩ, and the LDR resistance is 10 kΩ. Calculate the output voltage at the midpoint.
+### Question B: voltage divider
 
-### Question C — Interpret a measurement
+The supply is 5 V, the fixed resistor is 10 kΩ, and the LDR is also 10 kΩ. Calculate the midpoint voltage using the voltage-divider equation.
 
-For the stated Uno R3 example, an ADC reading is approximately 900 in one condition and 180 in another. Which reading is more consistent with darkness in the circuit shown, and why?
+### Question C: interpret a sensor reading
 
-### Question D — Actuator safety
+For the circuit shown in this guide, one reading is about 900 and another is about 180. Which reading is more consistent with darkness? Explain your reasoning.
 
-A teammate proposes connecting a small DC motor directly to a microcontroller's GPIO pin. Explain why this is not a suitable design and name the type of interface that should be investigated instead.
+### Question D: actuator safety
 
-## 9. Answers and expected outcomes
+A teammate suggests connecting a small DC motor directly to a microcontroller GPIO pin. Explain why that is not suitable and identify an alternative to investigate.
+
+## 10. Answers and explanations
 
 ### Answer A
 
-Possible answers include: operating and logic voltage; current and power limits; sensor resistance range; ADC/interface compatibility; LED forward voltage and current; physical/environmental conditions; cost and availability; and manufacturer datasheets. A good answer explains why the criterion matters rather than only listing terms.
+Possible checks include supply and logic voltage, current and power limits, the LDR's resistance range, ADC compatibility, the LED's forward voltage and current, environmental conditions, price and availability. A good answer explains why each check matters instead of just listing terms.
 
 ### Answer B
 
 Use the voltage-divider equation:
 
 $$
-V_{out}=5\frac{10}{10+10}=2.5\text{ V}
+V_{out} = 5\frac{10}{10 + 10} = 2.5\,\text{V}
 $$
 
-Because the two resistances are equal, the midpoint is half the input voltage.
+The two resistances are equal, so the midpoint is half the supply voltage.
 
 ### Answer C
 
-A reading near 900 is more consistent with darkness for the particular wiring shown. In this arrangement, darkness is assumed to increase the LDR resistance, which raises the midpoint voltage and therefore the ADC code. Actual threshold values depend on the components and lighting; test and calibrate the system rather than treating 900 as universal.
+A reading near 900 is more consistent with darkness in this particular arrangement. In the dark, the LDR is assumed to have a higher resistance. That raises the midpoint voltage and gives a higher ADC reading. A real circuit must be tested because the exact readings depend on its components and lighting.
 
 ### Answer D
 
-A GPIO pin is intended for a limited control signal and may not safely supply the motor's required current. A motor is an inductive load and can produce switching transients. Investigate a motor driver or suitably rated transistor/MOSFET circuit, including the required protection and power supply.
+A GPIO pin is designed for a limited control signal and may not be able to supply the current the motor needs. Motors can also produce voltage spikes when switched. Investigate a suitably rated motor driver or a transistor/MOSFET circuit with the protection recommended for the selected components.
 
-## 10. Troubleshooting checklist
+## 11. Troubleshooting checklist
 
-If the system does not behave as expected, check one thing at a time:
+If the circuit does not behave as expected, check one thing at a time:
 
-1. Verify the board pinout and supply voltage against its official documentation.
-2. Confirm that the fixed resistor and LDR are connected in series and that A0 connects to their junction.
-3. Check that the circuit has a suitable ground reference.
-4. Print sensor readings to the Serial Monitor and test bright and dark conditions.
-5. Adjust the threshold only after observing real readings.
-6. Confirm that the LED is the correct way around and has a series resistor.
-7. If adapting to another board, check its analog input range and output limits before connecting the circuit.
+1. Check the board's pinout and supply voltage in the official documentation.
+2. Make sure the fixed resistor and LDR are in series and A0 is connected to their junction.
+3. Check that the circuit has a suitable ground connection.
+4. Print the readings to the Serial Monitor and compare bright and dark conditions.
+5. Adjust the threshold only after you have seen actual readings.
+6. Check the LED direction and make sure the series resistor is installed.
+7. If you use another board, check its analog input range and output limits before connecting the circuit.
 
 ---
 
-# Further development plan
+# Further work for the team
 
-Before calling this module complete:
+Before describing the whole module as complete, the team should:
 
-- [ ] Ask the team to confirm the module's intended scope and terminology.
-- [ ] Ask the instructor/team to clarify what “Behaviorist AI” means in this course.
-- [ ] Add the substantive Networks section and cite its sources.
-- [ ] Add the substantive Behaviorist AI section and cite its sources.
-- [ ] Add at least one whole-module example linking hardware, network communication, and an agent's behavior.
-- [ ] Ask a teammate to check the hardware calculations and circuit diagram.
-- [ ] Check all image credits, external references, code, and board-specific electrical assumptions.
-- [ ] Update the status table honestly after reviews and team discussions.
+- [ ] Confirm the module's scope and terminology with the instructor or team.
+- [ ] Clarify what “Behaviorist AI” means in this course.
+- [ ] Write and reference the substantive Networks section.
+- [ ] Write and reference the substantive Behaviorist AI section.
+- [ ] Add an example that connects hardware, network communication, and an agent's behaviour.
+- [ ] Ask a teammate to check the hardware calculations and wiring diagram.
+- [ ] Confirm the image credits, component assumptions, references, and code.
+- [ ] Update the status table after reviews have actually taken place.
 
 # References
 
-## Hardware content
+## Hardware references
 
-1. Arduino. “UNO R3.” Board specifications, features, and documentation. <https://docs.arduino.cc/hardware/uno-rev3/>
-2. Arduino. “Analog Input.” Example using a variable resistor and ADC readings. <https://docs.arduino.cc/built-in-examples/analog/AnalogInput/>
-3. SparkFun Learn. “Voltage Dividers.” Principle, equation, applications, and practical limitations. <https://learn.sparkfun.com/tutorials/voltage-dividers/introduction>
-4. Shoot stufz. “Arduino Uno R3 development board 03.” Wikimedia Commons, CC BY-SA 4.0. <https://commons.wikimedia.org/wiki/File:Arduino_Uno_R3_development_board_03.jpg>
-5. Suyash Dwivedi. “25mm light-dependent resistor (LDR) (2).” Wikimedia Commons, CC BY-SA 4.0. <https://commons.wikimedia.org/wiki/File:25mm_light-dependent_resistor_(LDR)_(2).jpg>
+1. Arduino. [UNO R3: board documentation and specifications](https://docs.arduino.cc/hardware/uno-rev3/).
+2. Arduino. [Analog Input: reading an analog signal](https://docs.arduino.cc/built-in-examples/analog/AnalogInput/).
+3. SparkFun Learn. [Voltage Dividers: principle, equation, and applications](https://learn.sparkfun.com/tutorials/voltage-dividers/introduction).
+4. Shoot stufz. [Arduino Uno R3 development board 03](https://commons.wikimedia.org/wiki/File:Arduino_Uno_R3_development_board_03.jpg). Wikimedia Commons, CC BY-SA 4.0.
+5. Suyash Dwivedi. [25mm light-dependent resistor (LDR) (2)](https://commons.wikimedia.org/wiki/File:25mm_light-dependent_resistor_(LDR)_(2).jpg). Wikimedia Commons, CC BY-SA 4.0.
 
-## Starter references for outline-only sections
+## Starting points for sections that still need development
 
-6. Cisco. “What Is Computer Networking?” Introductory overview of connected devices and network equipment. <https://www.cisco.com/site/us/en/learn/topics/networking/what-is-computer-networking.html>
-7. Oikawa, K., Tsuchiya, T., and Okubo, S. “Object-Oriented Design of Subsumption Architecture.” *Journal of Robotics and Mechatronics*, 23(6), 697–705 (2005). This is one possible starting point for behavior-based robotics; confirm that this matches the course's use of “Behaviorist AI” before using it as the main reference. <https://www.jstage.jst.go.jp/article/jrsj1983/23/6/23_6_697/_article>
+6. Cisco. [What Is Computer Networking?](https://www.cisco.com/site/us/en/learn/topics/networking/what-is-computer-networking.html). Introductory overview of connected devices and network equipment.
+7. Oikawa, K., Tsuchiya, T., and Okubo, S. “Object-Oriented Design of Subsumption Architecture.” *Journal of Robotics and Mechatronics*, 23(6), 697–705 (2005). This may be useful for background on behaviour-based robotics, but the team should check that it matches the course's use of “Behaviorist AI” before relying on it as the main reference. [Article page](https://www.jstage.jst.go.jp/article/jrsj1983/23/6/23_6_697/_article).
 
-## Status note
+## Version note
 
-This file is **V1.0, a draft**. The hardware explanations and worked example are organized to support beginner learning, but the team still needs to verify component assumptions and review the content. Networks and Behaviorist AI are not substantively developed here; their presence in the module outline does not mean they are complete.
+This is **V1.0, a draft**. The hardware lesson is developed with beginner explanations, a worked example, a diagram, a learner activity, answers, and references. The hardware calculations and component assumptions still need a technical review. Networks and Behaviorist AI are only outlined here; they are not complete teaching sections yet.
