@@ -44,17 +44,17 @@ Status meanings:
 
 | Order | Section and subtopics | What learners should be able to do | Planned example, question, or activity | Current status / gap |
 |---|---|---|---|---|
-| 1 | **Module overview:** hardware, networks, and agent behavior; how the parts fit together | Explain the whole system at a high level | Trace a smart-room system from sensing to action | **Drafted — needs revision:** confirm the module framing with the team |
-| 2 | **Hardware foundations:** voltage, current, resistance, power; series and parallel circuits; basic electrical safety | Define the main quantities and use Ohm's law in a simple calculation | Calculate the current through a resistor | **Drafted — needs technical review** |
-| 3 | **Physical component selection:** microcontroller vs. single-board computer; sensors; resistors; drivers; power supplies; datasheets; selection trade-offs | Choose a component and justify the choice from its specifications | Choose a controller and light sensor for an automatic lamp | **Drafted — needs technical review** |
-| 4 | **Circuit design:** schematic reading; voltage dividers; current-limiting resistors; logic-level compatibility; power budgeting; grounding; protection | Draw and check a basic sensor circuit | Calculate the divider output and LED resistor | **Drafted — needs circuit/peer review** |
-| 5 | **Sensor integration:** analog and digital sensors; ADC; resolution vs. accuracy; signal conditioning; sampling; calibration | Explain how a physical quantity becomes a value a program can use | Read a light-dependent resistor (LDR) using an analog input | **Drafted — needs technical review** |
-| 6 | **Actuator integration:** LEDs, buzzers, relays, motors; GPIO limits; transistor/MOSFET or motor-driver circuits; PWM; protection | Explain why some loads require driver circuitry | Control an indicator LED and explain why a motor needs a suitable driver | **Outline partly covered — needs additional examples and review** |
-| 7 | **Network foundations:** devices and links; packets; addresses; Ethernet and Wi-Fi; switches, routers, and access points; latency and reliability | Describe a simple device-to-device communication path | Draw how a sensor node sends a reading to a computer | **Outline only — assign/coordinate with Networks contributor** |
-| 8 | **Networked/IoT systems:** device communication, data formats, connectivity limits, privacy and security basics | Identify what a connected hardware system needs beyond a sensor and controller | Plan how a room sensor could share readings without exposing unnecessary data | **Outline only — needs substantive content** |
-| 9 | **Behaviorist AI / behavior-based agents:** inputs, state or feedback, behavior rules, action selection; layered behavior or learning concepts if those are in course scope | Explain the specific AI approach taught in the course and trace a simple input-to-action example | Describe a simple robot response to an obstacle | **Outline only — needs instructor/team clarification of “Behaviorist AI”** |
-| 10 | **Integration and evaluation:** hardware + networks + agent behavior; reliability; test plan; trade-offs; documentation | Explain how the parts interact and evaluate a proposed design | Walk through a networked smart-room example and identify failure points | **Outline only — depends on agreement across sections** |
-| 11 | **Glossary, questions, and references** | Use technical terms consistently and check their learning | Short end-of-module quiz with answer explanations | **Drafted for hardware terms — incomplete for whole module** |
+| 1 | **Module overview:** hardware, networks, and agent behavior; how the parts fit together | Explain the whole system at a high level | Trace a smart-room system from sensing to action | **Drafted - needs revision:** confirm the module framing with the team |
+| 2 | **Hardware foundations:** voltage, current, resistance, power; series and parallel circuits; basic electrical safety | Define the main quantities and use Ohm's law in a simple calculation | Calculate the current through a resistor | **Drafted - needs technical review** |
+| 3 | **Physical component selection:** microcontroller vs. single-board computer; sensors; resistors; drivers; power supplies; datasheets; selection trade-offs | Choose a component and justify the choice from its specifications | Choose a controller and light sensor for an automatic lamp | **Drafted - needs technical review** |
+| 4 | **Circuit design:** schematic reading; voltage dividers; current-limiting resistors; logic-level compatibility; power budgeting; grounding; protection | Draw and check a basic sensor circuit | Calculate the divider output and LED resistor | **Drafted - needs circuit/peer review** |
+| 5 | **Sensor integration:** analog and digital sensors; ADC; resolution vs. accuracy; signal conditioning; sampling; calibration | Explain how a physical quantity becomes a value a program can use | Read a light-dependent resistor (LDR) using an analog input | **Drafted - needs technical review** |
+| 6 | **Actuator integration:** LEDs, buzzers, relays, motors; GPIO limits; transistor/MOSFET or motor-driver circuits; PWM; protection | Explain why some loads require driver circuitry | Control an indicator LED and explain why a motor needs a suitable driver | **Outline partly covered - needs additional examples and review** |
+| 7 | **Network foundations:** devices and links; packets; addresses; Ethernet and Wi-Fi; switches, routers, and access points; latency and reliability | Describe a simple device-to-device communication path | Draw how a sensor node sends a reading to a computer | **Outline only - assign/coordinate with Networks contributor** |
+| 8 | **Networked/IoT systems:** device communication, data formats, connectivity limits, privacy and security basics | Identify what a connected hardware system needs beyond a sensor and controller | Plan how a room sensor could share readings without exposing unnecessary data | **Outline only - needs substantive content** |
+| 9 | **Behaviorist AI / behavior-based agents:** inputs, state or feedback, behavior rules, action selection; layered behavior or learning concepts if those are in course scope | Explain the specific AI approach taught in the course and trace a simple input-to-action example | Describe a simple robot response to an obstacle | **Outline only - needs instructor/team clarification of “Behaviorist AI”** |
+| 10 | **Integration and evaluation:** hardware + networks + agent behavior; reliability; test plan; trade-offs; documentation | Explain how the parts interact and evaluate a proposed design | Walk through a networked smart-room example and identify failure points | **Outline only - depends on agreement across sections** |
+| 11 | **Glossary, questions, and references** | Use technical terms consistently and check their learning | Short end-of-module quiz with answer explanations | **Drafted for hardware terms - incomplete for whole module** |
 
 ### Important gaps and uncertainties
 
@@ -65,7 +65,7 @@ Status meanings:
 
 ---
 
-# Substantive Learning Content V1.0 — Hardware
+# Substantive Learning Content V1.0 - Hardware
 
 ## Topic: Selecting components and connecting a sensor to an output
 
@@ -380,19 +380,19 @@ The sensor, controller, and output are a chain. A failure at any point can affec
 
 ## 8. Learner activity
 
-### Question A — Component selection
+### Question A - Component selection
 
 You need to build the automatic light indicator above. Name four pieces of information you would check before choosing the board, LDR, fixed resistor, and LED.
 
-### Question B — Voltage divider
+### Question B - Voltage divider
 
 The input is 5 V, the fixed resistor is 10 kΩ, and the LDR resistance is 10 kΩ. Calculate the output voltage at the midpoint.
 
-### Question C — Interpret a measurement
+### Question C - Interpret a measurement
 
 For the stated Uno R3 example, an ADC reading is approximately 900 in one condition and 180 in another. Which reading is more consistent with darkness in the circuit shown, and why?
 
-### Question D — Actuator safety
+### Question D - Actuator safety
 
 A teammate proposes connecting a small DC motor directly to a microcontroller's GPIO pin. Explain why this is not a suitable design and name the type of interface that should be investigated instead.
 
