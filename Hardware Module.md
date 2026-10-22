@@ -131,6 +131,52 @@ A microcontroller is often a good fit for a small control task because it can re
 
 For this example, a classic Arduino Uno R3 is a useful teaching platform because its official documentation describes six analog inputs and a 10-bit ADC. This board-specific fact must not be assumed for every Arduino-compatible board or every microcontroller. [Arduino Uno R3 technical information](https://docs.arduino.cc/hardware/uno-rev3/).
 
+## Example: Bill of Materials (BOM)
+
+A Bill of Materials (BOM) is a list of the physical components required to build a system. It identifies the components, quantities, specifications, and purposes.
+
+For this example, we will design a simple automatic lighting indicator using a light-dependent resistor (LDR), a microcontroller, and an LED.
+
+### Proposed Hardware BOM
+
+| Component | Quantity | Specification | Purpose |
+|---|---:|---|---|
+| Arduino Uno R3 | 1 | 5 V board with analog inputs | Reads the sensor voltage and executes the program |
+| Light-dependent resistor (LDR) | 1 | Resistance varies with light | Detects changes in brightness |
+| Fixed resistor | 1 | 10 kΩ | Forms a voltage divider with the LDR |
+| LED | 1 | Suitable forward voltage and current rating | Indicates the lighting condition |
+| LED resistor | 1 | 330 Ω | Limits current through the LED |
+| USB power source | 1 | Compatible supply for the selected board | Powers the controller and sensing circuit |
+| Breadboard | 1 | Compatible with the selected components | Allows circuit prototyping without soldering |
+| Jumper wires | As required | Compatible with the board and breadboard | Connects the components |
+
+### Component Selection Rationale
+
+**Microcontroller:** The Arduino Uno R3 is suitable for this demonstration because it supports analog input readings and digital output control.
+
+**Sensor:** An LDR is inexpensive and easy to use in a beginner project. Its resistance changes with incident light.
+
+**Fixed resistor:** A 10 kΩ resistor forms a voltage divider with the LDR, producing a voltage that the controller can measure.
+
+**LED and resistor:** The LED provides a visible output, while the 330 Ω resistor limits its current under the assumed circuit conditions.
+
+**Power supply:** A compatible USB power source provides power to the development board and low-power sensing circuit.
+
+**Prototyping components:** A breadboard and jumper wires make it easy to assemble, modify, and test the circuit.
+
+### Verification Before Assembly
+
+Before building the circuit:
+
+1. Check the board's voltage and input specifications.
+2. Confirm the LDR's resistance range using its datasheet or measurements.
+3. Calculate the voltage-divider output at different light levels.
+4. Check the LED's forward voltage, current, and resistor power rating.
+5. Confirm that the power supply can provide sufficient current.
+6. Test the circuit and verify its behavior before marking the BOM as checked.
+
+**Development status:** Proposed BOM drafted; exact component specifications and electrical compatibility still need verification.
+
 ## 3. Understand the electrical terms used in the circuit
 
 - **Voltage (V):** electrical potential difference between two points, measured in volts.
