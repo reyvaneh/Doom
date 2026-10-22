@@ -63,6 +63,7 @@ By the end of the course, learners should be able to:
 - **Misconception to address:** binary is a representation of information; it does not mean a computer understands information as a person does.
 - **Planned visuals:** bit cards, truth table, instruction-cycle diagram. Adapt concepts from [Nand to Tetris](https://www.nand2tetris.org/course), without requiring its construction projects.
 
+
 ### Unit B — Networks
 
 #### Lesson 3: Connecting devices

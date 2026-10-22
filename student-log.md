@@ -42,4 +42,5 @@ Copy this section for the next session and replace the placeholders.
 | Difficulties | Problems encountered and what we tried |
 | Reflection | What we learned or would improve |
 | Time spent | Actual duration, or Not recorded |
-| Next steps | Remaining tasks and agreed owner, if assigned |
+| Next steps | Remaining tasks and agreed owner, if assigned |asdasdadsa
+
