@@ -415,7 +415,7 @@ Even at low voltage:
 3. **Check polarity** of LEDs, diodes, electrolytic capacitors and batteries before powering up.
 4. **Hot parts mean a fault.** If anything gets hot, smells or smokes, disconnect immediately.
 5. **Lithium batteries (LiPo / Li-ion)** can catch fire if punctured, short-circuited, over-charged or over-discharged. Use a proper charger and protected packs only.
-6. Follow the lab's own safety rules in H226/H222.
+6. Follow the lab's own safety rules
 
 [UIUC ECE 110 lab safety; Adafruit, Li-ion and LiPoly batteries]
 
