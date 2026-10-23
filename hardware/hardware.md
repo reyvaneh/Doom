@@ -59,7 +59,7 @@ Status meanings:
 
 ### Where this fits in the full module
 
-*Full-module plan by Justin Liem (from "Update Hardware", 22 Oct 2026). Rows 2–6 are developed in this file; rows 7–10 belong to the Networks and Behaviorist AI units.*
+Rows 2–6 are developed in this file; rows 7–10 belong to the Networks and Behaviorist AI units.*
 
 | Order | Topic and subtopics | What learners should be able to do | Planned example or activity | Current status |
 |---|---|---|---|---|
@@ -74,8 +74,6 @@ Status meanings:
 | 9 | Behaviorist AI or behaviour-based agents: inputs, state or feedback, rules, action selection | Explain the approach used in this course and trace an input-to-action example | Describe how a robot might respond to an obstacle | **Outline only; clarify the course meaning of “Behaviorist AI”** |
 | 10 | Integration and evaluation: hardware, networks, agent behaviour, reliability, testing, trade-offs, documentation | Explain how the pieces work together and identify likely failure points | Review a connected smart-room design | **Outline only; depends on agreement across sections** |
 | 11 | Glossary, questions, and references | Use terms consistently and check understanding | Answer short questions with explanations | **Hardware terms drafted; full-module glossary incomplete** |
-
-The assignment instructions do not define exactly what the course means by **“Behaviorist AI.”** Confirm this with the instructor before that unit is written in depth.
 
 ### Known gaps and uncertainties
 
