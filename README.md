@@ -15,9 +15,11 @@
 * **[杜光辉]** | ID [1820262177] | Github: [@QuangHuy260608]
 
 ## 📂 Folder Structure
-* `/markdown_content` - The shared content foundation, explanations, and worked examples.
-* `/assets` - Supporting images, diagrams, and code snippets used in the Markdown files.
-* `/project_management` - Location of our active Project Plan and Master Task List.
+* `/hardware` - Hardware unit: [hardware.md](hardware/hardware.md) (learning content V1.1), its images, research notes and source report.
+* `study-overview.md` - Whole-module outline and proposed lesson sequence.
+* `docs/`, `templates/` - Student-log guidelines and templates.
+* Networks and Behaviorist AI units are being developed on the `network` and `ai-behavior` branches.
+* Project Plan and Master Task List - *location to be added.*
 
 ## 🚀 Current Progress
 * **Stage 1 (Due Oct 24):** Repository established. Team roles assigned. Project plan and Markdown V1.0 outline currently in development.

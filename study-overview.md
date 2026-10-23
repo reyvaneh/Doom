@@ -134,8 +134,8 @@ Each lesson should eventually have a study-guide section, matching slides, a sho
 
 - [ ] Confirm required lecture length, delivery language, assessment criteria, and meaning of “Behaviorist AI.”
 - [ ] Agree on this sequence and assign lesson ownership.
-- [ ] Expand each lesson into beginner-friendly explanations and worked examples in `markdown_content/`.
-- [ ] Create original diagrams and activity sheets in `assets/`.
+- [ ] Expand each lesson into beginner-friendly explanations and worked examples, one folder per unit (Hardware: [hardware/hardware.md](hardware/hardware.md) covers Lessons 1–2 plus a physical-computing project).
+- [ ] Create original diagrams and activity sheets in each unit's folder.
 - [ ] Draft slides and video scripts from the reviewed Markdown.
 - [ ] Prepare answer guides and check source attribution for reused material.
 - [ ] Rehearse with a beginner and revise unclear explanations or unrealistic timing.
