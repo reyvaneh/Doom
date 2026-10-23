@@ -8,7 +8,6 @@ Start with the [teaching chapter](chapter.md). It contains the scope recommendat
 | --- | --- |
 | [chapter.md](chapter.md) | RL chapter with an MDP, Q-learning updates and answered activities |
 | [fixed-rule-vacuum.md](fixed-rule-vacuum.md) | Supplementary four-tile control exercise and 13-tick trace |
-| [lecturer-scope-review.md](lecturer-scope-review.md) | Exact slide contents and evidence for the revised scope |
 | [rl_vacuum_model.py](rl_vacuum_model.py) | Optional checks of the MDP and six Q-learning updates |
 | [assets/learning-loop.svg](assets/learning-loop.svg) | Editable original learning-loop figure |
 | [assets/learning-loop.png](assets/learning-loop.png) | Figure embedded in the main chapter |
@@ -17,8 +16,6 @@ Start with the [teaching chapter](chapter.md). It contains the scope recommendat
 | [assets/perception-action-loop.svg](assets/perception-action-loop.svg) | Original standalone diagram used by the chapter |
 | [assets/perception-action-loop.png](assets/perception-action-loop.png) | Raster copy for readers and PDF tools without SVG support |
 | [vacuum_model.py](vacuum_model.py) | Optional executable reference for the invented corridor model; learners need no Python |
-| [review-checklist.md](review-checklist.md) | Blank teammate review checklist and outcome form |
-| [validation.md](validation.md) | Actual local consistency checks and their limits |
 
 ## Lecturer source status
 
