@@ -330,3 +330,111 @@ Use these resources to verify and deepen your understanding:
 4. [MDN Web Docs — An Overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
 
 Record the sources you actually consult and verify before submitting the final version.
+# 🌐 Network Architecture & Security
+### A Beginner's Guide to How the Internet is Built
+
+> **THE BIG IDEA**
+>
+> We know that computers talk to each other. But how do billions of devices find each other without chaos? 
+>
+> It requires invisible structures, strict rules (protocols), and clever routing mechanisms.
+
+![Network architecture](https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=85)
+
+---
+
+## 📚 Learning Objectives
+
+By the end of this guide, you will be able to:
+
+- Understand basic network topologies (Star, Mesh).
+- Explain the OSI Model and why it matters.
+- Understand how devices get IP addresses (DHCP) and share them (NAT).
+- Differentiate between Latency and Bandwidth.
+- Explain the basic concepts of VPNs and Proxies.
+
+---
+
+## 10 · Network Topologies: How are devices arranged?
+
+A **topology** is the physical or logical layout of a network. How the cables and devices are connected determines how fast and reliable the network is.
+
+### ⭐ Star Topology
+All devices connect to a central device (like a Switch).
+**Think of it as:** A wheel. The hub is in the center, and devices are the spokes. If one spoke breaks, the wheel still works. But if the center (hub) dies, the whole network goes down.
+*   **Where it's used:** Homes and offices (Wi-Fi is essentially a wireless star).
+
+### 🕸️ Mesh Topology
+Every device connects to multiple other devices. 
+**Think of it as:** A spiderweb. If one string breaks, data can just find another path.
+*   **Where it's used:** The Internet itself, and military networks. It is highly redundant and reliable.
+
+---
+
+## 12 · The OSI Model: The 7 Layers of Networking
+
+When you send a message, it doesn't just teleport. It goes through **layers** of packaging, like Russian nesting dolls. The OSI (Open Systems Interconnection) model divides networking into 7 layers. Here are the most important ones for beginners:
+
+| Layer | Name | What it does | Example |
+|---|---|---|---|
+| 7 | Application | Where you interact with the network. | Web Browsers (HTTP) |
+| 4 | Transport | Breaks data into segments and ensures it arrives. | TCP, UDP |
+| 3 | Network | Finds the best path across networks. | IP Addresses, Routers |
+| 1 | Physical | The actual cables and radio waves. | Ethernet cables, Wi-Fi |
+
+> **Analogy:** Imagine sending a letter. Layer 7 is writing the letter. Layer 3 is writing the address on the envelope. Layer 1 is the mail truck driving on the road.
+
+---
+
+## 13 · DHCP and NAT: The Magic of Home Wi-Fi
+
+Have you ever wondered how your phone gets an IP address the second you connect to Wi-Fi? And how can 10 devices in your house share just *one* internet connection?
+
+### 🎫 DHCP (Dynamic Host Configuration Protocol)
+DHCP is the automated receptionist of the network. When your phone connects to Wi-Fi, it shouts, "I need an IP!" The DHCP server (usually your router) instantly assigns it a free, temporary IP address.
+*   **Think of it as:** Checking into a hotel. You don't pick your room number; the receptionist (DHCP) gives you an available one.
+
+### 🎭 NAT (Network Address Translation)
+NAT is how your router allows 10 different devices to share one single public IP address.
+*   **Think of it as:** A company mailroom. Your home devices have *Private IPs* (like `192.168.1.5`). When they send data to the internet, the router (the mailroom) changes the sender address to the home's *Public IP*. When the reply comes back, the router remembers which device sent it and forwards it correctly.
+
+---
+
+## 14 · Bandwidth vs. Latency: What is "Speed"?
+
+When we say "the internet is slow," we are usually confusing two different metrics:
+
+### 🛣️ Bandwidth (The Highway)
+Bandwidth is the maximum amount of data that can travel through the network at one time.
+*   **Think of it as:** The **number of lanes** on a highway. More lanes = more cars (data) can travel simultaneously.
+
+### ⏱️ Latency (The Speed Limit)
+Latency is the time it takes for a single packet of data to travel from source to destination and back. It is measured in milliseconds (ms). In games, this is called **Ping**.
+*   **Think of it as:** The **speed limit** on the highway. A highway can have 10 lanes (high bandwidth), but if the speed limit is 10 mph (high latency), it still takes a long time to reach the end.
+
+> **Did you know?** For streaming 4K video, you need high Bandwidth. For playing competitive online games, you need low Latency.
+
+---
+
+## 15 · Privacy: VPNs and Proxies 🛡️
+
+When you browse the internet, your Internet Service Provider (ISP) can see every website you visit. To protect privacy, we use Proxies and VPNs.
+
+### 🎭 Proxy
+A proxy server acts as a middleman. Your request goes to the proxy, the proxy requests the website for you, and returns the answer.
+*   **Pros:** Hides your IP from the website.
+*   **Cons:** Usually **does not encrypt** your data. Your ISP still knows what you are doing.
+
+### 🚇 VPN (Virtual Private Network)
+A VPN creates a **secure, encrypted tunnel** between your computer and the VPN server.
+*   **Pros:** High security. Your ISP only sees encrypted data. It hides both your IP and your traffic.
+*   **Cons:** Can slow down your speed due to encryption.
+
+```mermaid
+graph LR
+    subgraph VPN Routing
+    A[Your Laptop] -.->|Encrypted Tunnel| V[VPN Server]
+    V -->|Decrypted Data| W[Website]
+    end
+    
+    
