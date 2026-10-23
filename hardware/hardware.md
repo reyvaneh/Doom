@@ -11,6 +11,11 @@ The Hardware unit answers two beginner questions:
 
 Part A explains the computer as a general idea. Part B uses a small computer (a microcontroller) to build something real. Section A6 is the bridge between the two.
 
+Two companion files support Part B:
+
+- [beginner-lab-skills.md](beginner-lab-skills.md) — breadboards, multimeters, resistor colour codes, uploading code, schematic symbols, digital inputs, glossary and Questions H–L. Read it before the first lab session.
+- [arduino/](arduino/) — the B11 sketches as ready-to-open Arduino files, plus calibration, PWM-dimming and push-button extensions.
+
 A unifying example for the whole module is a **smart-room system**: a sensor measures brightness, a controller reads the measurement, a network may share the reading, an agent or control rule decides what should happen, and an output device switches a light. This file covers the sensor, controller and output parts.
 
 ## Prerequisites
@@ -56,6 +61,7 @@ Status meanings:
 | B6–B7 | Voltage divider, ADC, resolution/accuracy, smoothing, calibration, hysteresis | Explain how light becomes a number | LDR on A0 | **Drafted — needs technical review** |
 | B8–B10 | LED output, actuators, transistor/MOSFET drivers, PWM, servos, power budget | Explain why a motor needs a driver | Transistor base-resistor calculation | **Drafted — needs circuit/peer review** |
 | B11–B15 | Code, system diagram, activity, answers, troubleshooting | Build, test and debug the circuit | Questions A–G | **Drafted — not yet tested on real hardware** |
+| L1–L8 ([beginner-lab-skills.md](beginner-lab-skills.md)) | Breadboard, multimeter, resistor codes, Arduino IDE, schematic symbols, digital inputs, glossary | Build and measure a circuit safely | Measure the LDR; Questions H–L | **Drafted — needs technical review** |
 
 ### Where this fits in the full module
 
@@ -479,7 +485,7 @@ Using the worked example:
 
 - Dim: $4.55 / 5 \times 1024 \approx 931$
 - Bright: $0.83 / 5 \times 1024 \approx 170$
-- True darkness (≈1 MΩ LDR): about 1014
+- True darkness (≈1 MΩ LDR): $4.95 / 5 \times 1024 \approx 1013$
 
 These are ideal estimates. Real readings differ because of the actual LDR, the real supply voltage, resistor tolerance and electrical noise.
 
@@ -703,6 +709,8 @@ void loop() {
 ```
 
 Both sketches are written for the circuit in B6 and B8 on an Uno R3. They have **not yet been tested** by the team on real hardware. Check the pinout of your exact board before building.
+
+Ready-to-open copies of both sketches, plus a calibration sketch and two extensions (PWM dimming, push-button mode switch), are in [arduino/](arduino/). Uploading steps are in [beginner-lab-skills.md, L4](beginner-lab-skills.md#l4-uploading-code-with-the-arduino-ide).
 
 ## B12. Overall system diagram
 
