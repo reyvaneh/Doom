@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="610" viewBox="0 0 1100 610" role="img" aria-labelledby="title desc">
+<title id="title">Learning from actions and rewards</title>
+<desc id="desc">An environment returns a state and reward to an agent. The policy chooses actions using a Q table. Experience updates one Q entry and the revised table can influence later choices.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#334155"/></marker></defs>
+<rect width="1100" height="610" fill="white"/>
+<g font-family="Arial, sans-serif" fill="#172033">
+<text x="40" y="48" font-size="28" font-weight="bold">Learning from actions and rewards</text>
+<text x="40" y="82" font-size="18">Original two-tile vacuum example: a complete observation, one action, one update</text>
+<rect x="40" y="190" width="290" height="220" rx="15" fill="#eef2ff" stroke="#334155" stroke-width="2"/>
+<text x="185" y="231" text-anchor="middle" font-size="24" font-weight="bold">Environment</text>
+<text x="185" y="272" text-anchor="middle" font-size="19">Tiles A and B</text>
+<text x="185" y="305" text-anchor="middle" font-size="19">Position and dirt flags</text>
+<text x="185" y="338" text-anchor="middle" font-size="19">Action effects and reward</text>
+<text x="185" y="376" text-anchor="middle" font-size="18">Ends when both tiles are clean</text>
+<rect x="510" y="135" width="550" height="370" rx="15" fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+<text x="540" y="172" font-size="24" font-weight="bold">Agent</text>
+<rect x="550" y="200" width="210" height="100" rx="10" fill="#fff7ed" stroke="#334155" stroke-width="2"/>
+<rect x="820" y="200" width="200" height="100" rx="10" fill="#ecfdf5" stroke="#334155" stroke-width="2"/>
+<rect x="590" y="380" width="390" height="85" rx="10" fill="#fefce8" stroke="#334155" stroke-width="2"/>
+<g font-size="20" text-anchor="middle"><text x="655" y="236" font-weight="bold">Q-table</text><text x="655" y="272">Action estimates</text><text x="920" y="236" font-weight="bold">Policy</text><text x="920" y="272">Chooses an action</text><text x="785" y="411" font-weight="bold">Learning update</text><text x="785" y="442">Revises one Q entry from experience</text></g>
+<g fill="none" stroke="#334155" stroke-width="2.5" marker-end="url(#arrow)">
+<path d="M330 220 H500"/><path d="M760 250 H812"/><path d="M920 200 V110 H185 V182"/>
+<path d="M330 360 H565 V422 H582"/><path d="M655 380 V308"/>
+</g>
+<g font-size="17"><text x="350" y="204">Current state</text><text x="340" y="348">Experience + reward</text><text x="350" y="101">Selected action</text><text x="670" y="344">Updated estimate</text></g>
+<text x="40" y="551" font-size="18">During learning, experience changes the table used for future action choices.</text>
+<text x="40" y="583" font-size="17" fill="#475569">Complete state is supplied in this model. No battery, operating mode or Internet connection is required.</text>
+</g></svg>

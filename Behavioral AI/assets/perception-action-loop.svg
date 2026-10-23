@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="560" viewBox="0 0 1100 560" role="img" aria-labelledby="title desc">
+  <title id="title">Perception–action loop for the teaching vacuum</title>
+  <desc id="desc">Environment supplies observations through sensors to a controller, which commands actuators that change the environment. The controller remembers its operating mode. An optional dashed status link is outside the specified controller.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/></marker>
+  </defs>
+  <rect width="1100" height="560" fill="white"/>
+  <g font-family="Arial, sans-serif" fill="#172033">
+    <text x="40" y="48" font-size="27" font-weight="bold">How a vacuum chooses an action</text>
+    <text x="40" y="80" font-size="18">An original teaching model: observe, choose one command, act, observe again</text>
+    <g stroke="#334155" stroke-width="2">
+      <rect x="35" y="150" width="210" height="135" rx="14" fill="#eef2ff"/>
+      <rect x="300" y="150" width="210" height="135" rx="14" fill="#ecfdf5"/>
+      <rect x="565" y="150" width="220" height="135" rx="14" fill="#fff7ed"/>
+      <rect x="840" y="150" width="225" height="135" rx="14" fill="#f1f5f9"/>
+      <rect x="535" y="365" width="290" height="85" rx="12" fill="#fff7ed"/>
+      <rect x="865" y="365" width="210" height="85" rx="12" fill="#f8fafc" stroke-dasharray="7 5"/>
+    </g>
+    <g font-size="21" font-weight="bold" text-anchor="middle">
+      <text x="140" y="183">Environment</text><text x="405" y="183">Sensors</text>
+      <text x="675" y="183">Controller</text><text x="952" y="183">Actuators</text>
+    </g>
+    <g font-size="18" text-anchor="middle">
+      <text x="140" y="218">Floor, dirt, barriers</text><text x="140" y="247">and dock</text>
+      <text x="405" y="218">Position, local dirt</text><text x="405" y="247">energy, clearance</text>
+      <text x="675" y="218">Fixed rules + mode</text><text x="675" y="247">One action per tick</text>
+      <text x="952" y="218">Movement, suction</text><text x="952" y="247">charging interface</text>
+      <text x="680" y="396" font-weight="bold">Remembered mode</text>
+      <text x="680" y="426">CLEAN / RETURN / CHARGE</text>
+      <text x="970" y="396" font-weight="bold">Optional network</text><text x="970" y="426">Status messages only</text>
+    </g>
+    <g fill="none" stroke="#334155" stroke-width="2.5" marker-end="url(#arrow)">
+      <path d="M 245 213 H 294"/><path d="M 510 213 H 559"/><path d="M 785 213 H 834"/>
+      <path d="M 952 285 V 320 H 140 V 291"/>
+      <path d="M 680 358 V 291" marker-start="url(#arrow)"/>
+      <path d="M 785 267 L 850 350 L 870 365" stroke-dasharray="7 5"/>
+    </g>
+    <g font-size="15" text-anchor="middle">
+      <text x="272" y="133">observations</text><text x="537" y="133">readings</text><text x="812" y="133">command</text>
+      <text x="330" y="346">Actions change the world</text>
+    </g>
+    <text x="40" y="504" font-size="18">Memory selects a fixed behaviour. No learning update is implemented.</text>
+    <text x="40" y="535" font-size="17" fill="#475569">Solid arrows: control loop. Dashed arrow: optional status link outside this example's rules.</text>
+  </g>
+</svg>
