@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 270" width="700" height="270" font-family="Arial, Helvetica, sans-serif">
+  <rect width="700" height="270" fill="#ffffff"/>
+  <text x="350" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#1f2937">Our circuit vs the datasheet limits</text>
+  <text x="350" y="48" text-anchor="middle" font-size="12" fill="#6b7280">grey bar = absolute maximum · coloured bar = what our circuit uses</text>
+
+  <!-- bar area x 220..620 (400 px = 100 % of the limit) -->
+  <g font-size="13" font-weight="bold" fill="#111827" text-anchor="end">
+    <text x="205" y="88">LED current</text>
+    <text x="205" y="148">LED power</text>
+    <text x="205" y="208">LDR power</text>
+  </g>
+  <g fill="#e5e7eb">
+    <rect x="220" y="72" width="400" height="24" rx="3"/>
+    <rect x="220" y="132" width="400" height="24" rx="3"/>
+    <rect x="220" y="192" width="400" height="24" rx="3"/>
+  </g>
+  <!-- 9.4 / 30 = 31 %  -> 125 px ; 18 / 75 = 24 % -> 96 px ; 0.63 / 100 = 0.63 % -> 3 px (min visible) -->
+  <rect x="220" y="72" width="125" height="24" rx="3" fill="#dc2626"/>
+  <rect x="220" y="132" width="96" height="24" rx="3" fill="#ea580c"/>
+  <rect x="220" y="192" width="3" height="24" fill="#16a34a"/>
+  <g font-size="12" fill="#374151">
+    <text x="220" y="113">≈ 9.4 mA of 30 mA max (31 %)</text>
+    <text x="220" y="173">≈ 18 mW of 75 mW max (24 %)</text>
+    <text x="220" y="233">≤ 0.63 mW of 100 mW max (under 1 %)</text>
+  </g>
+  <text x="640" y="88" font-size="11" fill="#6b7280">WP7113ID</text>
+  <text x="640" y="148" font-size="11" fill="#6b7280">WP7113ID</text>
+  <text x="640" y="208" font-size="11" fill="#6b7280">GL5528</text>
+  <text x="350" y="260" text-anchor="middle" font-size="11" fill="#6b7280">LED at 5 V through 330 Ω with typical forward voltage 1.9 V; LDR worst case when it equals the 10 kΩ resistor</text>
+</svg>
