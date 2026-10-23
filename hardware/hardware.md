@@ -9,7 +9,7 @@ The Hardware unit answers two beginner questions:
 1. **What is inside a computer, and how does it follow instructions?** (Part A — matches Lessons 1–2 in [study-overview.md](../study-overview.md))
 2. **How does a computer-based system sense and affect the physical world?** (Part B — a worked project: an automatic light indicator)
 
-Part A explains the computer as a general idea. Part B uses a small computer (a microcontroller) to build something real. Section A6 is the bridge between the two.
+Part A explains the computer as a general idea. Part B uses a small computer (a microcontroller) to build something real. Section A6 is the bridge between the two. Part C goes further: serial buses (I²C, SPI, UART), sending data to another device, capacitors, reading a real datasheet, and e-waste.
 
 Two companion files support Part B:
 
@@ -61,11 +61,13 @@ Status meanings:
 | B6–B7 | Voltage divider, ADC, resolution/accuracy, smoothing, calibration, hysteresis | Explain how light becomes a number | LDR on A0 | **Drafted — needs technical review** |
 | B8–B10 | LED output, actuators, transistor/MOSFET drivers, PWM, servos, power budget | Explain why a motor needs a driver | Transistor base-resistor calculation | **Drafted — needs circuit/peer review** |
 | B11–B15 | Code, system diagram, activity, answers, troubleshooting | Build, test and debug the circuit | Questions A–G | **Drafted — not yet tested on real hardware** |
+| A3, A5, A6 additions | Hexadecimal; buses, MAR/MDR, clock; von Neumann vs Harvard | Convert hex; trace a fetch on the buses | Paper CPU re-traced with buses; Questions M, N, R | **Drafted — needs peer review (several secondary sources)** |
+| C1–C6 | UART, I²C, SPI; CSV over serial; capacitors; datasheet walkthrough; e-waste and RoHS | Choose a bus; read a datasheet; explain safe disposal | BH1750 vs LDR; GL5528/WP7113ID margin table; Questions M–R | **Drafted — needs technical review (several secondary sources)** |
 | L1–L8 ([beginner-lab-skills.md](beginner-lab-skills.md)) | Breadboard, multimeter, resistor codes, Arduino IDE, schematic symbols, digital inputs, glossary | Build and measure a circuit safely | Measure the LDR; Questions H–L | **Drafted — needs technical review** |
 
 ### Where this fits in the full module
 
-Rows 2–6 are developed in this file; rows 7–10 belong to the Networks and Behaviorist AI units.*
+Rows 2–6 are developed in this file; rows 7–10 belong to the Networks and Behaviorist AI units.
 
 | Order | Topic and subtopics | What learners should be able to do | Planned example or activity | Current status |
 |---|---|---|---|---|
@@ -144,6 +146,27 @@ $1011 = 8 + 0 + 2 + 1 = 11$
 
 **Units note:** officially, 1 kB (kilobyte) = 1000 bytes and 1 KiB (kibibyte) = 1024 bytes. Many product pages use "KB" loosely for 1024. Also watch the letter case: **b** = bit, **B** = byte. [NIST, prefixes for binary multiples]
 
+### Hexadecimal: a shorthand for binary
+
+**Hexadecimal** (hex) is base 16. It uses the digits 0–9 and then the letters A–F for the values 10–15. Its value to people is that **one hex digit stands for exactly 4 bits** (a *nibble*), so a byte is always **two** hex digits (0x00 to 0xFF = 0 to 255). Hex is shorter than binary and easier to copy without mistakes. The computer still stores binary — hex is only a way of *writing* it. [Save My Exams, hexadecimal (secondary source)]
+
+| Denary | 0–9 | 10 | 11 | 12 | 13 | 14 | 15 |
+|---|---|---|---|---|---|---|---|
+| Hex | 0–9 | A | B | C | D | E | F |
+| Binary | 0000–1001 | 1010 | 1011 | 1100 | 1101 | 1110 | 1111 |
+
+**Converting:** split the binary into groups of 4 from the right, and convert each group.
+
+- $1011\ 0110 \rightarrow$ B, 6 $\rightarrow$ 0xB6 $= 11 \times 16 + 6 = 182$
+- $200 = 12 \times 16 + 8 \rightarrow$ 0xC8 $= 1100\ 1000$
+- 0x23 $= 0010\ 0011 = 2 \times 16 + 3 = 35$ — **not** twenty-three.
+
+**In Arduino code** a hex number starts with `0x` (for example `0x7B`); upper- or lower-case letters both work. Binary numbers start with `0b` (older sketches use `B`). A number with no prefix is denary. [Arduino, integer constants]
+
+**Where learners will meet hex:** I²C device addresses (C1 — a BH1750 light sensor is at `0x23`), memory addresses (a 16-bit address bus spans 0x0000–0xFFFF, see A5), web colours (`#66FF33` = 24 bits), MAC addresses (12 hex digits = 48 bits — useful in the Networks unit) and error codes. [Save My Exams, uses of hexadecimal (secondary source)]
+
+**Misconception:** "A is a letter, so it can't be a number." In hex, A is simply the single digit for ten.
+
 ## A4. Logic gates
 
 A **logic gate** is a tiny circuit that takes one or more bits in and gives one bit out according to a fixed rule. CPUs are built from millions or billions of them. A **truth table** lists every input combination and the output.
@@ -204,6 +227,46 @@ Notice that **instructions and data sit in the same memory** — only the PC dec
 
 **Classroom activity:** one learner is the CPU (holding PC, IR and ACC cards), one is memory (holding the address cards). The CPU must ask memory for each address — it cannot "see" ahead.
 
+### How the CPU talks to memory: buses, MAR and MDR
+
+The trace above says the address is "sent to memory". It travels on **buses** — groups of parallel wires that connect the CPU to memory and input/output.
+
+| Bus | Carries | Direction |
+|---|---|---|
+| **Address bus** | The memory *location* to read or write | One way: CPU → memory / I/O |
+| **Data bus** | The data or instruction itself | Two way |
+| **Control bus** | Signals such as *read*, *write*, *clock*, *interrupt*, *reset* | Two way (each individual line has its own direction) |
+
+[Save My Exams, von Neumann architecture (secondary source); Toshiba, types of bus lines]
+
+**Width matters.** An address bus with $n$ wires can name $2^n$ locations — the same $2^n$ rule as A3. A 16-bit address bus reaches $2^{16} = 65\,536$ locations (0x0000–0xFFFF); each extra wire doubles that. [University of Cambridge Engineering, microprocessor notes]
+
+Two more registers sit at the CPU's edge, where it meets the buses:
+
+- **Memory address register (MAR):** holds the address about to be read or written. Its contents go out on the address bus.
+- **Memory data register (MDR):** holds the data or instruction just read from memory, or about to be written to it. It connects to the data bus.
+
+**The fetch step in full:** the PC is copied into the MAR → the address goes out on the address bus → the control unit sends *read* on the control bus → the instruction comes back on the data bus into the MDR → it is copied into the IR (CIR) → the PC is increased. [Seneca, Cambridge IGCSE fetch–decode–execute (secondary source); Save My Exams (secondary source)]
+
+**The paper CPU, re-traced with buses:**
+
+| Instruction | What goes in MAR (address bus) | Control signal | What travels on the data bus |
+|---|---|---|---|
+| Fetch `LOAD 4` | 0 | read | `LOAD 4` → MDR → IR |
+| Execute `LOAD 4` | 4 | read | 7 → MDR → ACC |
+| Execute `ADD 5` | 5 | read | 5 → MDR → ALU adds to ACC |
+| Execute `STORE 6` | 6 | **write** | 12 from ACC → MDR → memory |
+
+The `STORE` row is why the data bus must be two-way: for a *write*, data travels **out** of the CPU. (This write sequence is worked out from the definitions above; check the wording against your exam board's specification.)
+
+**Exam habit:** when describing a bus, say both *what it carries* and *which way it goes*. A common mistake is to say the address bus carries data — it carries only the location.
+
+### The clock: the CPU's metronome
+
+The **clock** is a signal that ticks at a steady rate; each tick lets the CPU move one step further. Clock speed is ticks (cycles) per second: 1 MHz = $10^6$ per second, 1 GHz = $10^9$. The clock signal is one of the control-bus lines. [Emory University CS255 notes; TutorChase (secondary source)]
+
+On the Uno's 16 MHz clock, one tick lasts $1 / 16\,000\,000\ \text{s} = 62.5\ \text{ns}$. The ATmega328P completes most simple instructions in a single tick, so it reaches *about* 1 million instructions per second (MIPS) per MHz — roughly 16 MIPS at best. Some instructions take two or more ticks. [Microchip, AVR CPU core — instruction execution timing; ATmega328P datasheet (secondary source — check against the Microchip PDF)]
+
 **Speed misconception:** a higher clock speed (GHz) does not automatically mean a faster computer. Speed also depends on how much work the CPU does per clock tick, how many cores the program can use, and whether the chip slows down when hot. [Tom's Hardware; Wikipedia, instructions per cycle]
 
 ## A6. The bridge to Part B: a microcontroller is a small computer on one chip
@@ -221,6 +284,20 @@ The Arduino Uno R3 uses the **ATmega328P** microcontroller: [Arduino Uno R3 docs
 | Input/output | 14 digital pins (6 can do PWM), 6 analog inputs |
 
 Compare a laptop with gigabytes of RAM: a microcontroller is tiny but enough to read a sensor and switch a light.
+
+### Real chips differ from the model: von Neumann vs Harvard
+
+The paper CPU in A5 keeps instructions and data in **one shared memory** on one set of buses. This design is called **von Neumann architecture**, and it is how most laptops and desktops are described in introductory courses.
+
+The ATmega328P is different. Microchip describes the AVR as a **Harvard architecture**, "with separate memories and buses for program and data". The program sits in **flash**; variables sit in **SRAM**; each has its own bus. Because the two do not compete for the same bus, the chip can **fetch the next instruction while it executes the current one** — which is why it manages about one instruction per clock tick. [Microchip, AVR CPU core overview]
+
+| | von Neumann (paper CPU) | Harvard (ATmega328P) |
+|---|---|---|
+| Memory for program and data | One shared memory | Separate: flash for program, SRAM for data |
+| Buses | One set, shared | Separate sets |
+| Fetch and data access at the same time? | No — they take turns | Yes |
+
+*(Some sources call the AVR "modified Harvard", because its program memory can also be read as data. [Wikipedia, ATmega328 (secondary source)])*
 
 ### Microcontroller or single-board computer?
 
@@ -790,6 +867,186 @@ Change one thing at a time:
 
 ---
 
+# Part C — Going further: talking to other devices, capacitors, datasheets and sustainability
+
+Part B built one complete circuit. Part C extends it in four directions: how a microcontroller talks to *digital* sensors and other computers (C1–C2), the one common component Part B did not use (C3), how to read a real datasheet line by line (C4), and what happens to the parts afterwards (C5).
+
+## C1. Serial communication: UART, I²C and SPI
+
+B5 lists "I²C, SPI, UART" as interface types. All three are **serial** interfaces: they send data **one bit at a time** over a few wires, instead of using one wire per bit. They differ in how many wires they need, how many devices can share them, and how fast they go.
+
+### UART — two devices, no clock wire
+
+**UART** (universal asynchronous receiver-transmitter) links **exactly two devices**. Each has a **TX** (transmit) and an **RX** (receive) pin, and the wires **cross**: TX of one goes to RX of the other. There is no clock wire, so both ends must agree on the speed in advance — the **baud rate**, in bits per second (9600 and 115200 are common). [SparkFun, Serial Communication]
+
+Each byte is sent as a **frame**: a start bit, 8 data bits, and a stop bit. This common setting is called **8N1** (8 data bits, no parity bit, 1 stop bit), and it is Arduino's default for `Serial.begin()`. Because of the start and stop bits, **every byte costs 10 bits on the wire**, so 9600 baud carries about 960 bytes per second. [SparkFun, Serial Communication; Arduino, Serial.begin()]
+
+On the Uno R3 the hardware UART is on **pins 0 (RX) and 1 (TX)**, and the same pins also go to the board's USB-to-serial chip (an ATmega16U2 *(secondary source)*). That is why the Serial Monitor and anything wired to pins 0/1 interfere with each other. **Never** connect these pins to an old RS-232 serial port, which uses about ±12 V. On the Uno R4, pins 0/1 are a separate port (`Serial1`), so the clash goes away. [SparkFun, Serial Communication; Arduino, Serial reference]
+
+### I²C — many addressed devices on two shared wires
+
+**I²C** (inter-integrated circuit, said "I-squared-C") uses two wires shared by every device on the bus: **SDA** (data) and **SCL** (clock). Each device has its own **7-bit address**, written in hex, so the controller can talk to one at a time. On the Uno R3, SDA is **A4** and SCL is **A5** (also on the SDA/SCL header pins). Arduino's library is `Wire`. [SparkFun, I2C; Arduino, Wire reference]
+
+- **Pull-up resistors are required.** Devices can only pull the lines *low*; a resistor from each line to the supply pulls them *high* again. SparkFun suggests starting at 4.7 kΩ. Many breakout boards already include them — check before adding more. [SparkFun, I2C]
+- **Speed:** 100 kHz (standard) or 400 kHz (fast), set with `Wire.setClock()`. [Arduino, Wire.setClock()]
+- **Distance:** short runs only, about 2–3 m. [SparkFun, I2C]
+- **How many devices?** 112 addresses are usable in theory; in practice, around seven on one bus is a sensible limit. [SparkFun, I2C]
+- **Example addresses:** a **BH1750 light sensor** is `0x23` (or `0x5C` if its ADDR pin is high) *(secondary source — from driver code, check the ROHM datasheet)*; an Adafruit **BME280** temperature/pressure/humidity breakout is `0x77` (or `0x76`). [Adafruit, BME280 guide] Because the addresses differ, both can share the same two wires.
+
+**Link to the project:** a BH1750 is a *digital* light sensor that reports brightness directly as a number over I²C, instead of needing a voltage divider and the ADC. Comparing it with the LDR is a good component-selection discussion (B5): more accurate and calibrated, but more expensive and more complex to use.
+
+### SPI — more wires, more speed
+
+**SPI** (serial peripheral interface) uses three shared wires plus **one chip-select (CS) wire for each device**:
+
+| Signal | Job | Uno R3 pin |
+|---|---|---|
+| **SCK** | Clock from the controller | 13 |
+| **COPI** (older name MOSI) | Controller out, peripheral in | 11 |
+| **CIPO** (older name MISO) | Controller in, peripheral out | 12 |
+| **CS** (older name SS) | Selects one device: **LOW = selected** | 10 (or any spare pin, one per device) |
+
+The same signals also appear on the 6-pin ICSP header. Data can flow both ways at once (full duplex). On the Uno the SPI clock can run from 125 kHz up to 8 MHz — much faster than I²C — but only over short distances (a few feet). Arduino's library is `SPI`. *Naming note:* Arduino uses COPI/CIPO, SparkFun uses PICO/POCI, and many older modules still print MOSI/MISO — they are the same lines. [SparkFun, SPI; Arduino, SPI reference]
+
+The Adafruit BME280 breakout can be wired as **either** I²C or SPI — the bus is a choice made by the designer, not a property of the measurement. [Adafruit, BME280 guide]
+
+### Comparing the three
+
+| | UART | I²C | SPI |
+|---|---|---|---|
+| Signal wires (plus GND) | 2 (TX/RX, crossed) | 2 (SDA/SCL, shared) | 3 shared + 1 CS per device |
+| Clock wire? | No — agree a baud rate | Yes (SCL) | Yes (SCK) |
+| How a device is chosen | Only two devices | By address | By its CS wire |
+| Typical speed on Uno | 9600–115 200 baud | 100 / 400 kHz | 125 kHz – 8 MHz |
+| Uno R3 pins | 0 (RX), 1 (TX) | A4 (SDA), A5 (SCL) | 10–13 + ICSP |
+| Arduino library | `Serial` | `Wire` | `SPI` |
+| Typical use | PC link, GPS, Bluetooth modules | Several slow sensors, small displays | Fast devices: SD cards, displays |
+
+### Logic levels: 3.3 V modules on a 5 V Uno
+
+B5 warns about 3.3 V *boards*. The more common beginner case is a 3.3 V **sensor module** on a 5 V Uno. For example, the bare BME280 chip runs at 1.71–3.6 V and is **not** 5 V-tolerant *(secondary source)*, while Adafruit's breakout adds a regulator and level shifting so it is safe on 5 V. [Adafruit, BME280 guide] Before connecting any module, check:
+
+1. Does its power pin (VIN) have a **regulator**, or must it get 3.3 V?
+2. Are its data pins **level-shifted**, or 3.3 V only?
+3. For I²C, which voltage do the **pull-up resistors** connect to?
+
+If the answer is unclear, use a **logic-level converter** between the Uno and the module. [SparkFun, I2C]
+
+## C2. Sending readings to another device: CSV over serial
+
+The sketches already print one value per line. Printing several values separated by commas makes a **CSV** (comma-separated values) line:
+
+```cpp
+Serial.print(lightValue);
+Serial.print(',');
+Serial.println(ledOn ? 1 : 0);   // e.g. "734,1" then a new line
+```
+
+The same stream can then be read in three ways:
+
+1. **Arduino Serial Plotter** — draws one line on the graph for each comma-separated column; values can also be labelled as `name:value` (sketch 02 does this). *(Format rule from secondary sources.)*
+2. **A Python program** on the computer, using the `pyserial` library: `serial.Serial('COM3', 9600, timeout=1)` then `readline()` returns one line up to the newline. Set a **timeout**, or `readline()` can wait forever. [pyserial documentation] `println()` ends each line with `\r\n`, so strip it off (`line.strip()`) before splitting on commas.
+3. **A spreadsheet**, once the lines are saved to a `.csv` file.
+
+**Bridge to the Networks unit:** this tiny format already has the ideas a network protocol needs — a **newline marks where each record ends** (framing), a **comma separates the fields**, and an optional first line can name the fields. Packets, addresses and data formats in the Networks unit build on exactly these ideas.
+
+## C3. Capacitors
+
+A **capacitor** stores electric charge, a little like a tiny rechargeable reservoir that fills and empties very quickly. Capacitance is measured in **farads (F)**; real parts are usually in **pF** (picofarads, $10^{-12}$ F), **nF** ($10^{-9}$ F) or **µF** ($10^{-6}$ F). Every capacitor also has a **voltage rating**; exceeding it will usually destroy the part. [SparkFun, Capacitors]
+
+| Type | Typical values | Polarity | Typical use |
+|---|---|---|---|
+| **Ceramic** | pF to a few µF | None — either way round | Decoupling, filtering |
+| **Aluminium electrolytic** | 1 µF – 1 mF and more | **Polarised:** stripe marks −, longer leg is + | Bulk storage near motors/servos |
+
+An electrolytic capacitor connected the wrong way round can "fail spectacularly (making a pop and bursting open)". Always check the stripe before powering up (B4). [SparkFun, Capacitors]
+
+**Reading the 3-digit code** on small ceramic capacitors: the first two digits are the value and the third is how many zeros to add, in **picofarads**. So **104** = 10 followed by 4 zeros = 100 000 pF = **100 nF = 0.1 µF** (not 104 pF). A letter after it gives the tolerance: J = ±5 %, K = ±10 %, M = ±20 %. *(secondary source)* This works like the resistor colour code in [beginner-lab-skills.md L3](beginner-lab-skills.md#l3-reading-resistor-values).
+
+### Decoupling and bulk capacitors
+
+- **Decoupling capacitor:** a **0.1 µF ceramic** placed **as close as possible** to a chip's power pin. When the chip suddenly draws current, this small local store supplies it, keeping the supply voltage steady. Manufacturers (Microchip, Texas Instruments) consistently recommend this. [Microchip, decoupling capacitors; TI THS4281 datasheet]
+- **Bulk capacitor:** a larger electrolytic (tens to hundreds of µF) that smooths bigger, slower dips. This matters as soon as a **servo** is added (B9): a servo starting up can pull the supply down far enough to **reset the Arduino**. Adafruit's fix is a capacitor of **470 µF or more** between 5 V and GND, longer (+) leg to 5 V. [Adafruit, Arduino Lesson 14 — servo motors]
+
+### A capacitor on the sensor input (optional)
+
+A 100 nF ceramic from A0 to GND forms an **RC filter** with the divider. Its **time constant** is
+
+$$
+\tau = RC = 10\ \text{k}\Omega \times 100\ \text{nF} = 10\,000 \times 0.000\,000\,1 = 0.001\ \text{s} = 1\ \text{ms}
+$$
+
+It is harmless and can reduce fast electrical noise. It is **not needed**: Microchip says the AVR ADC works best with a source resistance of about 10 kΩ or less, and this divider is always below that. [Microchip, AVR analog input circuitry (secondary — generic AVR page)] It also **cannot** remove the 100/120 Hz flicker of mains lighting, because it only filters changes faster than about 160 Hz — so the software averaging in B7/B11 is still the main smoothing method. A much bigger capacitor (100 µF, τ ≈ 1 s) would make the readings sluggish.
+
+## C4. Reading a real datasheet: the GL5528 LDR and a red LED
+
+B5 says "read the datasheet". Here is what that looks like for the two parts in this project. Simple parts' datasheets usually contain: a description, dimensions, **absolute maximum ratings**, **electrical/optical characteristics** (with *min*, *typ* and *max* columns and the *test conditions*), and **graphs**.
+
+| Datasheet line | GL5528 LDR | Kingbright WP7113ID red LED | In our circuit | Safe? |
+|---|---|---|---|---|
+| Voltage limit | 150 V max | 5 V **reverse** max | ≤ 5 V across the LDR | Yes, far below |
+| Power limit | 100 mW | 75 mW | LDR ≤ 0.63 mW; LED ≈ 18 mW | Yes |
+| Current limit | — | 30 mA continuous; 160 mA brief pulses only | ≈ 8–9 mA | Yes, about ⅓ of max |
+| Key characteristic | 10–20 kΩ at 10 lux; ≥ 1 MΩ dark; γ = 0.6 | Forward voltage 1.9 V typ, 2.3 V max (at 10 mA); 30° viewing angle | — | — |
+| Timing / temperature | 20 ms rise, 30 ms decay; −30 to +70 °C | −40 to +85 °C, with a derating curve | Room temperature | Yes |
+
+[GL5528 datasheet (Rapid Electronics / TruOpto); Kingbright WP7113ID datasheet] *The last two columns are our own calculations from those values.*
+
+**Four lessons from this table:**
+
+1. **Design to min/max, not "typ".** "Typ" is a typical part; yours may differ. With 330 Ω, the LED current is $(5 - 1.9)/330 \approx 9.4\ \text{mA}$ at typical forward voltage, but $(5 - 2.3)/330 \approx 8.2\ \text{mA}$ at the maximum. Both are safe. The LDR's 10–20 kΩ spread at the same light level — a factor of 2 between parts — is the datasheet's own reason why B7 tells you to **calibrate every build**.
+2. **Read the graphs, not just the headline numbers.** The LED's 30 mA limit applies at about 25 °C; its derating curve falls to about 5 mA near 85 °C. A part in a hot enclosure has a lower limit.
+3. **Gamma (γ) explains how much the reading changes.** γ = 0.6 means ten times more light divides the resistance by about $10^{0.6} \approx 4$. So at 100 lux the LDR is roughly 2.5–5 kΩ — consistent with the "bright room" 2 kΩ value used in B6.
+4. **Check the specific part you bought.** The BOM in B5 lists "20 mA max", which is from SparkFun's generic red LED; the WP7113ID is rated 30 mA. Neither is wrong — they are different parts. The BOM should name the exact part number bought and quote **its** datasheet.
+
+Two smaller points: an LED connected backwards on a 5 V pin sits right at its 5 V reverse-voltage limit, so fix it rather than leaving it; and Kingbright warns not to bend the LED legs "more than twice". *(The GL5528 sheet used here is a distributor's copy; one other site gives γ = 0.7 — use the datasheet's 0.6.)*
+
+## C5. Sustainability: e-waste and responsible parts
+
+**The scale of the problem.** The *Global E-waste Monitor 2024* reports **62 million tonnes** of electronic waste generated worldwide in 2022 — up 82 % since 2010 and heading for 82 million tonnes by 2030. Only **22.3 %** was documented as properly collected and recycled, and e-waste is growing **five times faster** than documented recycling. The metals in it were worth about US$91 billion. It defines e-waste as "any discarded product with a plug or battery". [UNITAR, Global E-waste Monitor 2024 press release]
+
+**RoHS links sustainability back to the datasheet.** The EU **RoHS** directive (2011/65/EU, extended by 2015/863) restricts ten hazardous substances in electronics, including **lead**, **cadmium** and **mercury**. [European Commission, RoHS directive] Look at this project's parts:
+
+- The Kingbright LED is marked **RoHS compliant** and recommends **lead-free** (SAC 305) solder. [Kingbright WP7113ID datasheet]
+- The GL5528's sensing layer is **CdS — cadmium sulphide**. [GL5528 datasheet] The LDR therefore contains cadmium and must go to **e-waste collection, never the normal bin**. Reuse it between projects instead of throwing it away.
+
+**Lab habits:**
+
+- **Reuse first.** C4 shows these parts run far below their ratings, so they can be reused many times. Keep a labelled parts-return tray, and prefer breadboard builds over soldering where possible.
+- **Batteries never go in household rubbish or recycling bins.** Tape the terminals or bag each battery, and take them to a battery collection point. [US EPA, used household batteries] Follow your local authority's rules.
+- **Dead boards, cables and modules** go to an e-waste collection point.
+- **Buy from authorised distributors.** Counterfeit parts are often old or refurbished parts sold as new; they may not match their datasheet at all, which defeats C4. *(secondary source)*
+
+## C6. Practice questions
+
+**Question M — Hexadecimal.** Convert the I²C address `0x5C` to binary and to denary.
+
+**Question N — Buses.** During the execute step of `STORE 6` in the paper CPU, what is on the address bus, what is on the data bus, and which control signal is sent?
+
+**Question O — Choosing a bus.** You want to add both a BH1750 light sensor and a BME280 sensor to the Uno, using as few pins as possible. Which interface would you choose, how many signal wires are needed, and how does the Uno tell the two sensors apart?
+
+**Question P — Capacitors.** A ceramic capacitor is marked `104`. What is its value in nF? What time constant does it give with a 10 kΩ resistor?
+
+**Question Q — Datasheet.** Using the C4 table, a learner wants to replace the 330 Ω LED resistor with 100 Ω "to make it brighter". Using the maximum forward voltage (2.3 V) and the *typical* one (1.9 V), is this within the WP7113ID's absolute maximum?
+
+**Question R — Harvard.** Give one difference between the paper CPU in A5 and the ATmega328P, and explain why it helps the ATmega328P run faster.
+
+### Answers
+
+**Answer M.** 5 = 0101, C = 1100, so `0x5C` = **0101 1100** = $5 \times 16 + 12 =$ **92**.
+
+**Answer N.** Address bus: **6** (from the MAR). Data bus: **12** (from the ACC via the MDR, going *out* to memory). Control signal: **write**.
+
+**Answer O.** **I²C**: only **2 signal wires** (SDA on A4, SCL on A5) plus power and GND, shared by both sensors. The Uno tells them apart by their **addresses** (BH1750 `0x23`, BME280 `0x77`).
+
+**Answer P.** 10 + four zeros = 100 000 pF = **100 nF**. $\tau = 10\,000 \times 100 \times 10^{-9} = 0.001\ \text{s} =$ **1 ms**.
+
+**Answer Q.** $(5 - 2.3)/100 = 27\ \text{mA}$; $(5 - 1.9)/100 = 31\ \text{mA}$. With a typical LED the current would be **above the 30 mA absolute maximum** — and above the Uno R3's 20 mA pin rating in either case. **No**: keep 330 Ω. (Absolute maximum is a damage limit, not a target — B5.)
+
+**Answer R.** The paper CPU keeps program and data in **one shared memory** (von Neumann); the ATmega328P has **separate memories and buses** for program (flash) and data (SRAM) (Harvard). It can fetch the next instruction while executing the current one, so it completes about one instruction per clock tick.
+
+---
+
 # How this content becomes the three resources
 
 | Content | Study Guide + Test Bank | PPT slide visual | Video segment |
@@ -811,6 +1068,8 @@ Use the same terms, values and diagrams in all three, so a correction made here 
 - [ ] Draw original diagrams for the slides (component diagram, fetch–decode–execute cycle, wiring diagram).
 - [ ] Coordinate with the Networks and Behaviorist AI owners on the shared smart-room example.
 - [ ] Update the status table honestly after each review.
+- [ ] Check every *(secondary source)* item in the new A3/A5/A6 subsections and Part C against the primary documents listed in [reports/Hardware unit gap topics.md](reports/Hardware%20unit%20gap%20topics.md) (mainly the Microchip ATmega328P datasheet, the Cambridge 0478 syllabus, and the ROHM BH1750 and Bosch BME280 datasheets).
+- [ ] Update the BOM (B5) with the exact LED part number bought and its datasheet current rating (see C4).
 
 # References
 
@@ -865,6 +1124,39 @@ Use the same terms, values and diagrams in all three, so a correction made here 
 38. Brooks, R. A. "A robust layered control system for a mobile robot." *IEEE Journal of Robotics and Automation*, 2(1), 14–23 (1986). <https://ieeexplore.ieee.org/document/1087032>
 39. Oikawa, K., Tsuchiya, T. and Okubo, S. "Object-Oriented Design of Subsumption Architecture." *Journal of the Robotics Society of Japan*, 23(6), 697–705 (2005). <https://www.jstage.jst.go.jp/article/jrsj1983/23/6/23_6_697/_article>
 
+## Hex, buses, clock and architecture (A3, A5, A6 additions)
+
+40. Arduino. Integer constants (`0x`, `0b`). <https://docs.arduino.cc/language-reference/en/variables/constants/integerConstants/>
+41. Save My Exams. "Hexadecimal" and "Uses of hexadecimal" (Cambridge IGCSE). <https://www.savemyexams.com/igcse/computer-science/cie/23/revision-notes/1-data-representation/1-1-number-systems/hexadecimal> *(secondary source)*
+42. Save My Exams. "Von Neumann Architecture" (Cambridge IGCSE). <https://savemyexams.com/igcse/computer-science/cie/23/revision-notes/3-hardware/computer-architecture/von-neumann-architecture> *(secondary source)*
+43. Seneca Learning. "The fetch-decode-execute cycle" (Cambridge IGCSE). <https://senecalearning.com/en-GB/revision-notes/igcse/computer-science/cambridge-international/1-3-4-the-fetch-decode-execute-cycle> *(secondary source)*
+44. Toshiba. "Types of bus lines" (microcontroller e-learning). <https://toshiba.semicon-storage.com/ap-en/semiconductor/knowledge/e-learning/micro-intro/chapter2/types-of-bus-lines.html>
+45. University of Cambridge, Department of Engineering. Microprocessor notes — address bus. <https://www-mdp.eng.cam.ac.uk/web/library/enginfo/mdp_micro/lecture1/lecture1-3-4.html>
+46. TutorChase. AQA A-level 16.1.4 "Buses." <https://www.tutorchase.com/notes/aqa-a-level/computer-science/16-1-4-buses> *(secondary source)*
+47. Emory University CS255. Computer overview notes (clock speed). <https://cs.emory.edu/~cheung/Courses/255/Syllabus/HardCopy/01-overview-computer/03.pdf>
+48. Microchip. AVR CPU core — overview and instruction execution timing (megaAVR online docs). <https://onlinedocs.microchip.com/oxy/GUID-74F8229E-4C43-4FA0-BE7D-1AA303C6F8A4-en-US-6/GUID-00885335-14FC-4AFF-9D60-0980181CAE0B.html>
+49. Wikipedia. "ATmega328." <https://en.wikipedia.org/wiki/ATmega328> *(secondary source)*
+
+## Serial communication, capacitors, datasheets and sustainability (Part C)
+
+50. SparkFun Learn. "Serial Communication." <https://learn.sparkfun.com/tutorials/serial-communication/all>
+51. SparkFun Learn. "I2C." <https://learn.sparkfun.com/tutorials/i2c/all>
+52. SparkFun Learn. "Serial Peripheral Interface (SPI)." <https://learn.sparkfun.com/tutorials/serial-peripheral-interface-spi/all>
+53. Arduino. `Serial`, `Serial.begin()`, `Wire`, `Wire.setClock()`, `SPI` and `SPISettings` references (source: <https://github.com/arduino/reference-en>). <https://docs.arduino.cc/language-reference/>
+54. Adafruit Learn. "Adafruit BME280 Humidity + Barometric Pressure + Temperature Sensor Breakout — Pinouts." <https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout/pinouts>
+55. RIOT-OS. BH1750FVI driver documentation (I²C addresses). <https://doc.riot-os.org/group__drivers__bh1750fvi.html> *(secondary source)*
+56. pySerial documentation. "Short introduction." <https://pyserial.readthedocs.io/en/latest/shortintro.html>
+57. SparkFun Learn. "Capacitors." <https://learn.sparkfun.com/tutorials/capacitors/all>
+58. Microchip. "Decoupling capacitors" (hardware design guidelines, online docs). <https://onlinedocs.microchip.com/oxy/GUID-D4CAD149-CB72-498B-B8E7-7E8255593463-en-US-7/GUID-832C2C5F-69CC-40FC-8C9B-C00BDCF7A081.html>
+59. Texas Instruments. THS4281 datasheet — power supply recommendations. <https://ti.com/document-viewer/THS4281/datasheet/power_supply_recommendations>
+60. Microchip. AVR analog input circuitry (ADC source impedance). <https://onlinedocs.microchip.com/oxy/GUID-6178B82B-1DE0-484B-ACA5-153F78A78E41-en-US-1/GUID-085B188C-E869-4105-8411-EB13F0E66D65.html>
+61. Adafruit Learn. "Arduino Lesson 14: Servo Motors — If the servo misbehaves." <https://learn.adafruit.com/adafruit-arduino-lesson-14-servo-motors/if-the-servo-misbehaves>
+62. Rapid Electronics / TruOpto. GL5528 photoresistor datasheet. <https://static.rapidonline.com/pdf/58-0134_v1.pdf>
+63. Kingbright. WP7113ID 5 mm red LED datasheet. <https://www.kingbrightusa.com/images/catalog/SPEC/WP7113ID.pdf>
+64. UNITAR. "Global E-waste Monitor 2024: Electronic waste rising five times faster than documented e-waste recycling" (press release). <https://www.unitar.org/about/news-stories/press/global-e-waste-monitor-2024-electronic-waste-rising-five-times-faster-documented-e-waste-recycling>
+65. European Commission. "RoHS Directive." <https://environment.ec.europa.eu/topics/waste-and-recycling/rohs-directive_en>
+66. US EPA. "Used household batteries." <https://www.epa.gov/recycle/used-household-batteries>
+
 ## Status note
 
-This file is **V1.1, a draft**. Part A and sections B3, B4, B7 (resolution/smoothing/hysteresis), B9 and B10 are new in V1.1. Sources were gathered with AI-assisted research (Claude, 22 Oct 2026); the research notes are in [research_notes/](research_notes/) and a summary report is in [reports/](reports/). The team still needs to check the content, build and test the circuit, and record this AI use in the project log before marking any section *Checked*.
+This file is **V1.1, a draft**. Part A and sections B3, B4, B7 (resolution/smoothing/hysteresis), B9 and B10 are new in V1.1. Sources were gathered with AI-assisted research (Claude, 22 Oct 2026); the research notes are in [research_notes/](research_notes/) and a summary report is in [reports/](reports/). The hexadecimal, buses/clock and von Neumann vs Harvard subsections (A3, A5, A6) and Part C were added on 23 Oct 2026, also from AI-assisted research; their notes are in [research_notes/Hardware unit gap topics/](research_notes/Hardware%20unit%20gap%20topics/) and the report, with a checklist of every secondary-source item, is [reports/Hardware unit gap topics.md](reports/Hardware%20unit%20gap%20topics.md). The team still needs to check the content, build and test the circuit, and record this AI use in the project log before marking any section *Checked*.
