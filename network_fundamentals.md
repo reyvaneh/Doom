@@ -8,8 +8,7 @@
 >
 > Computer networks make this communication possible.
 
-![Modern computer networking](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=85)
-
+<img src="computernetwork1.jpg" alt="Modern computer networking" width="800">
 ---
 
 ## 📚 Learning Objectives
@@ -51,15 +50,15 @@ Think about your daily life: when you connect your phone to Wi-Fi, send a messag
 
 ## 02 · Types of Networks
 
-![Network cables and computer equipment](https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=85)
+<img src="computernetwork2.jpg" alt="Network cables and computer equipment" width="800">
 
-### 🏠 LAN — Local Area Network
+## 🏠 LAN — Local Area Network
 
 A LAN connects devices within a limited geographical area, such as a home, classroom, office, or computer laboratory.
 
 **Example:** Computers connected within a university laboratory.
 
-### 🌍 WAN — Wide Area Network
+## 🌍 WAN — Wide Area Network
 
 A WAN connects networks across larger geographical areas, potentially between cities or countries.
 
@@ -153,8 +152,7 @@ Example: `00:1A:2B:3C:4D:5E`
 
 ### How does your laptop open a website?
 
-![Server infrastructure](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=85)
-
+<img src="computernetwork3.jpg" alt="Server infrastructure" width="800">
 Let's follow a simplified journey.
 
 ```mermaid
@@ -330,3 +328,6 @@ Use these resources to verify and deepen your understanding:
 4. [MDN Web Docs — An Overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
 
 Record the sources you actually consult and verify before submitting the final version.
+
+
+[def]: images/computernetwork1.jpg
