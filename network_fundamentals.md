@@ -8,20 +8,22 @@
 >
 > Computer networks make this communication possible.
 
-![Modern computer networking](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=85)
-
+<img src="computernetwork1.jpg" alt="Modern computer networking" width="800">
 ---
 
 ## 📚 Learning Objectives
 
 By the end of this guide, you will be able to:
-
 - Define a computer network and explain its purpose.
 - Distinguish between LAN, WAN, wired, and wireless networks.
 - Describe the roles of routers, switches, and network interfaces.
 - Explain the difference between IP addresses and MAC addresses.
 - Trace the basic journey of data from a laptop to a website.
 - Identify several common network protocols.
+- Compare Star and Mesh topologies.
+- Explain the OSI Model, DHCP, and NAT.
+- Differentiate between Latency and Bandwidth.
+- Understand the basic concepts of VPNs and Proxies.
 
 ---
 
@@ -51,15 +53,15 @@ Think about your daily life: when you connect your phone to Wi-Fi, send a messag
 
 ## 02 · Types of Networks
 
-![Network cables and computer equipment](https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=85)
+<img src="computernetwork2.jpg" alt="Network cables and computer equipment" width="800">
 
-### 🏠 LAN — Local Area Network
+## 🏠 LAN — Local Area Network
 
 A LAN connects devices within a limited geographical area, such as a home, classroom, office, or computer laboratory.
 
 **Example:** Computers connected within a university laboratory.
 
-### 🌍 WAN — Wide Area Network
+## 🌍 WAN — Wide Area Network
 
 A WAN connects networks across larger geographical areas, potentially between cities or countries.
 
@@ -80,9 +82,28 @@ A WAN connects networks across larger geographical areas, potentially between ci
 
 Wired and wireless describe connection methods, while LAN and WAN describe network scope. They are not opposing categories.
 
----
+## 03 · Network Topologies: How are devices arranged?
 
-## 03 · Meet the Network Devices
+A **topology** is the layout of a network. How the cables and devices are connected determines how reliable the network is.
+
+### 🕸️ Star Topology (The Classroom Analogy)
+All devices connect to a central device (like a Switch or Wi-Fi Router).
+- **Everyday Analogy:** Imagine a classroom. All students (devices) only talk to the teacher (the central router). If a student is absent, the class continues. But if the teacher is absent, the whole class stops.
+- **Where you see it:** Most home Wi-Fi networks and school computer labs.
+
+### 🕸️ Mesh Topology (The Group Chat Analogy)
+Every device connects to multiple other devices.
+- **Everyday Analogy:** Imagine a group of friends holding hands in a circle. If one person lets go, the others are still connected and can pass messages around.
+- **Where you see it:** Large Wi-Fi Mesh systems in big houses or the wider Internet itself.
+
+### 🔧 Troubleshooting Activity: The Broken Network
+Read the scenarios below and decide which topology they represent:
+- **Scenario A:** You are in a school computer lab. Suddenly, the teacher's main switch loses power. Every single student loses internet at the same time.
+  *(Answer: Star topology. You must fix the central device).*
+- **Scenario B:** You are at home using a Wi-Fi Mesh system (3 nodes). One node in the kitchen breaks, but you can still watch YouTube in the living room without interruption.
+  *(Answer: Mesh topology. The network rerouted your data through the other working nodes).*
+
+## 04 · Meet the Network Devices
 
 ### 🖥️ Network Interface Card (NIC)
 
@@ -121,7 +142,7 @@ A modem adapts signals for communication over a particular access technology, de
 
 ---
 
-## 04 · IP Addresses vs. MAC Addresses
+## 05 · IP Addresses vs. MAC Addresses
 
 Devices need addressing information to communicate.
 
@@ -149,12 +170,19 @@ Example: `00:1A:2B:3C:4D:5E`
 
 ---
 
-## 05 · Follow the Data! 🚀
+## 06 · Follow the Data! 🚀 
+
+### 📦 What is a packet? (The Postal Analogy)
+Imagine you want to send a 100-page book to a friend. You do not put the whole book into one giant envelope. Instead, you tear the book into 100 pages, put each page into its own envelope, write the destination address and a page number (1 of 100) on each, and mail them.
+
+In networking, a **packet** is like one of those small envelopes. 
+- Your large file is split into thousands of packets.
+- Each packet has a **destination IP address**.
+- Packets may take different paths, but they are reassembled at the destination.
 
 ### How does your laptop open a website?
 
-![Server infrastructure](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=85)
-
+<img src="computernetwork3.jpg" alt="Server infrastructure" width="800">
 Let's follow a simplified journey.
 
 ```mermaid
@@ -197,7 +225,7 @@ Your browser processes the received data and displays the website.
 
 ---
 
-## 06 · The Rules Behind Communication
+## 07 · The Rules Behind Communication
 
 A **network protocol** is a set of rules that governs communication between devices.
 
@@ -224,7 +252,7 @@ These protocols perform different jobs and work together to support communicatio
 
 ---
 
-## 07 · A First Look at Network Security 🔒
+## 08 · A First Look at Network Security 🔒
 
 Networks must protect connected devices and information.
 
@@ -241,7 +269,7 @@ Security is a broad topic. This guide introduces basic awareness rather than adv
 
 ---
 
-## 08 · Knowledge Check 🧠
+## 09 · Knowledge Check 🧠
 
 Test your understanding before moving on.
 
@@ -305,7 +333,7 @@ D. DNS is a physical network device.
 
 ---
 
-## 09 · Key Takeaways
+## 10 · Key Takeaways
 
 Before you finish, make sure you can explain these ideas:
 
@@ -315,6 +343,9 @@ Before you finish, make sure you can explain these ideas:
 - **IP and MAC addresses** serve different addressing purposes.
 - **Protocols** define how data is exchanged.
 - **Network security** helps protect devices and information.
+- **DHCP** assigns IP addresses dynamically; **NAT** allows devices to share one public IP.
+- **OSI Model** divides networking into layers to make troubleshooting easier.
+- **VPNs and Proxies** help protect privacy by routing traffic through middlemen.
 
 The big picture: computer networking allows devices around the world to communicate through addressing, protocols, and interconnected networks.
 
@@ -330,20 +361,15 @@ Use these resources to verify and deepen your understanding:
 4. [MDN Web Docs — An Overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
 
 Record the sources you actually consult and verify before submitting the final version.
-# 🌐 Network Architecture & Security
+
 ### A Beginner's Guide to How the Internet is Built
 
-> **THE BIG IDEA**
->
+
 > We know that computers talk to each other. But how do billions of devices find each other without chaos? 
 >
 > It requires invisible structures, strict rules (protocols), and clever routing mechanisms.
 
-![Network architecture](https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=85)
-
 ---
-
-## 📚 Learning Objectives
 
 By the end of this guide, you will be able to:
 
@@ -355,23 +381,7 @@ By the end of this guide, you will be able to:
 
 ---
 
-## 10 · Network Topologies: How are devices arranged?
-
-A **topology** is the physical or logical layout of a network. How the cables and devices are connected determines how fast and reliable the network is.
-
-### ⭐ Star Topology
-All devices connect to a central device (like a Switch).
-**Think of it as:** A wheel. The hub is in the center, and devices are the spokes. If one spoke breaks, the wheel still works. But if the center (hub) dies, the whole network goes down.
-*   **Where it's used:** Homes and offices (Wi-Fi is essentially a wireless star).
-
-### 🕸️ Mesh Topology
-Every device connects to multiple other devices. 
-**Think of it as:** A spiderweb. If one string breaks, data can just find another path.
-*   **Where it's used:** The Internet itself, and military networks. It is highly redundant and reliable.
-
----
-
-## 12 · The OSI Model: The 7 Layers of Networking
+## 11 · The OSI Model: The 7 Layers of Networking
 
 When you send a message, it doesn't just teleport. It goes through **layers** of packaging, like Russian nesting dolls. The OSI (Open Systems Interconnection) model divides networking into 7 layers. Here are the most important ones for beginners:
 
@@ -386,7 +396,7 @@ When you send a message, it doesn't just teleport. It goes through **layers** of
 
 ---
 
-## 13 · DHCP and NAT: The Magic of Home Wi-Fi
+## 12 · DHCP and NAT: The Magic of Home Wi-Fi
 
 Have you ever wondered how your phone gets an IP address the second you connect to Wi-Fi? And how can 10 devices in your house share just *one* internet connection?
 
@@ -400,7 +410,7 @@ NAT is how your router allows 10 different devices to share one single public IP
 
 ---
 
-## 14 · Bandwidth vs. Latency: What is "Speed"?
+## 13 · Bandwidth vs. Latency: What is "Speed"?
 
 When we say "the internet is slow," we are usually confusing two different metrics:
 
@@ -416,7 +426,7 @@ Latency is the time it takes for a single packet of data to travel from source t
 
 ---
 
-## 15 · Privacy: VPNs and Proxies 🛡️
+## 14 · Privacy: VPNs and Proxies 🛡️
 
 When you browse the internet, your Internet Service Provider (ISP) can see every website you visit. To protect privacy, we use Proxies and VPNs.
 
