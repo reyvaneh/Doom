@@ -1,16 +1,8 @@
-# Research scope and source map
+# AI Behaviour - References
 
-Initial research: 2026-10-22. Updated: 2026-10-28. **Status: lecturer overview inspected; selected 2024/2025 examples compared; teammate review pending.**
+This source record supports [AIBehaviour.md](AIBehaviour.md). S1-S18 identify the technical references cited in the book. Locators and access limits are retained so the team can verify the explanations before submission. Original worked examples and reward settings are teaching choices, not reported experiments.
 
-## 1. Lecturer-first scope check
-
-The user downloaded `source-materials/chap6 Behaviorist AI.pptx` after the browser download was blocked. Inspection found two slides: a title and an overview. See the [scope review](lecturer-scope-review.md) for their exact contents and the coverage map.
-
-Slide 2 explicitly includes RL basics, algorithms and techniques, MDPs, robotics and games, applications, and limitations. The main chapter now develops RL and an MDP rather than treating learning as a short optional comparison. The detailed fixed-rule controller is retained as a supplementary comparison.
-
-The slides do not define Behaviorist AI, name an algorithm, or establish depth, duration or assessment expectations. Agents, reactive priorities, finite-state control and subsumption remain supporting concepts selected for this resource. Q-learning is our proposed beginner algorithm, not a lecturer requirement. The separate Shared Assignment Rules attachment remains unchecked.
-
-## 2. Claim-to-source table
+## Technical sources
 
 Locators use section titles where available because PDF viewer numbers, draft pagination, and published-edition pages can differ. Sources support the concepts, not this lesson's invented thresholds, corridor, or teaching schedule.
 
@@ -35,22 +27,34 @@ Locators use section titles where available because PDF viewer numbers, draft pa
 | S17 | A deep Q-network uses a neural network to represent action-value estimates. | David Silver, Google DeepMind, [Deep Reinforcement Learning](https://deepmind.google/blog/deep-reinforcement-learning/), 17 June 2016, paragraphs on the Q-network and deep neural networks. | Primary research-team explanation read on 2026-10-28. Historical context, not a claim that DQN is a new 2026 method; no DQN implementation or benchmark claim. |
 | S18 | Evaluation can assess a learned policy or rewards received while learning; random runs can differ and require repetition. | Poole & Mackworth, author-hosted [§13.6 Evaluating RL Algorithms](https://www.cs.ubc.ca/~poole/aibook/3e/html/ArtInt3e.Ch13.S6.html), opening paragraphs and Fig. 13.4 discussion. | Relevant page read on 2026-10-28. Our suggested baselines, step limit and held-fixed evaluation are a proposed teaching design, not measured results. |
 
-## 3. Original teaching design versus sourced facts
+## Background reference materials
 
-**Sourced concepts:** sensor/actuator interaction, reflex versus remembered state, behaviour layers, finite-state transitions, reward-driven learning, exploration/exploitation.
+The following course examples informed broad structure, coverage and information density. They are background references rather than templates to reproduce one-to-one or authorities for technical claims. The book's prose, questions, tables and numerical extensions are independently written. The vacuum example was already present before this comparison.
 
-**Original teaching proposals:** the four-tile fixed controller, two-tile learning task, energy thresholds, rewards, action costs, mode guards, scripted updates, questions/answers, sequence and SVG layouts. They are invented instructional models, not experiments or claims about a commercial vacuum. AIMA also uses vacuum worlds; this corridor is a separately specified teaching example, not a reproduced figure or exercise.
+Paths are relative to the downloaded `Intro to AI & CS` collection. They identify the references without adding third-party documents to the public source folder.
 
-**Design deductions:** the return-energy bound, oscillation counterexample, and reward-example conclusions follow from our stated assumptions. Check them against the model rather than attributing them to Brooks or BIT.
+| ID | Document and location | Relevant locators inspected | Use and limit |
+| --- | --- | --- | --- |
+| Y24-A | `2024 - Intro to AI and CS/09、study guide v3.0/Team MHz Behaviorism and Hardware(fun to read).pdf` | PDF pp. 5–6, 87–92, 97–104; pp. 90–92 introduce a vacuum and grid | Useful progression from an everyday explanation to agent, environment and a decision problem. Keep a recurring example, but specify transitions and numerical updates explicitly rather than implying that a policy automatically improves |
+| Y24-B | `2024 - Intro to AI and CS/09、study guide v3.0/Technova Hardware and Behavioral AI.pdf` | PDF pp. 3–4, 80–86 | Useful chapter hierarchy and end-of-chapter questions. Its behavioural-analysis framing differs from action-policy learning; the new introduction explains this distinction rather than combining the definitions |
+| Y24-C | `2024 - Intro to AI and CS/09、study guide v3.0/MindWare Hardware and Behaviorism.pdf` | PDF pp. 113, 116–117, 122, 124, 130; printed pages differ, e.g. PDF p. 130 is printed p. 116 | Shows an algorithms overview and a stochastic grid case. Our chapter separates planning, model-based learning and model-free learning. Its two-tile example remains deterministic; we do not import an incompletely specified stochastic example |
+| Y25-A | `2025-intro to AI and CS/PPT & Videos V3.0/Power Bank Video Tutorial Script PPT Improvement.zip` → `Power Bank Video Tutorial Script PPT Improvement/ppt/Chapter 13 Definition of Behaviorist.pdf`, `Chapter 15 Behaviorist Learning Method.pdf`, `Chapter 16 Behaviorist Limitations.pdf`, `Chapter 17 Behaviorist Techniques.pdf`, `Chapter 18 Key Concepts of Behaviorist AI.pdf`, `Chapter 19 Application of Behaviorist AI.pdf` | Chapter 13 pp. 1–8; Chapter 15 pp. 1–10, especially p. 4; Chapter 16 pp. 1–9, especially pp. 4–5; Chapter 17 pp. 1–10; Chapter 18 pp. 1–8; Chapter 19 pp. 1–7 | Coverage prompts: terminology, learning methods, hardware limitations and applications. Keep the AI mechanisms precise; avoid importing psychological terminology as if it were a complete definition of RL, or treating every application as a deployed learning system |
+| Y25-B | `2025-intro to AI and CS/PPT & Videos V3.0/Paper T-Rex Ppt & video tutorial v3.0.zip` → `Script - Paper T-Rex (1).pdf` | PDF p. 41 and opening continuation on p. 42 | Introduces perception/action and several learning approaches. Add a short, sourced methods comparison rather than a long list of unexplained algorithms. Do not adopt a claim that all agents continuously learn or that learning guarantees optimal behaviour |
+| Y24-A, Team MHz | `4a79bdc4ce3545c59290f8f76d8137a9b7ef6130dcb2de97e5c6ada767dcc5cd` |
+| Y24-B, Technova | `571672d9a2477392f067147d71c86c2cfe8d09af4a555f0e85538fb534fddd46` |
+| Y24-C, MindWare | `15c7ffc2cf1a19dedb1479fed430691454f6446519332f5c4853faf8285a9ae5` |
+| Y25-A, Chapter 13 | `0fa8ca9afd848888b70b28ea9bc7dc3c9c60de833ff3656b55df88c8098f22a2` |
+| Y25-A, Chapter 15 | `42d6b26297a2a152868616d4987acec3e9878459c624549c584a46b055f77b44` |
+| Y25-A, Chapter 16 | `f0931352348c68651fe5b857a649689d1f91495ae4d63faa795c219c5a8c36cf` |
+| Y25-A, Chapter 17 | `07b7b7d69e64c919859b78097544d8883ea6fd5c18bae069be621bf276eabee1` |
+| Y25-A, Chapter 18 | `c41ea692b5fa4b9e03daab5c443f396969511f31764247b9bbde1b91b504a673` |
+| Y25-A, Chapter 19 | `434e1afcdc399dfe70301de9bd236bac57800ea1a0322ff13646d22f7411c5b7` |
+| Y25-B, Paper T-Rex script | `04e27853c3af19ae7f1d3842371f8e83928b098eee5fb7bd96bd84d4a64a8895` |
 
-## 4. Research limits and next checks
+Selected completed PDFs were inspected on 28 October 2026; files still marked `.downloading` and videos were excluded. Five source pages were rendered for visual inspection. Detailed working extracts remain in ignored local staging. This was a selective content comparison, not a review of the whole collection or an independent teammate review.
 
-This is a focused primary-source research draft, not an exhaustive literature review. Several websites were available only through indexed excerpts; those limits are recorded above. No third-party summaries are used as factual authorities. Retain exact edition/section names when checking the cited text. Do not redistribute entire lecturer decks or textbooks in the public folder without appropriate permission.
+## Attribution and limits
 
-The lecturer overview has now been checked, but its expected depth remains unspecified. Next checks are another member's substantive review, beginner accessibility and the actual rendered PDF/assets when the team packages Stage 1. The user will complete personal logs and significant AI-use records separately.
+The primary sources support definitions and mechanisms. The two-tile world, chosen action costs and rewards, six scripted updates, additional worked calculation, game model and proposed evaluation are original teaching examples. Diagram assets are original. Keep remaining indexed-excerpt or access limitations visible; do not turn a source listing into a claim of full-text verification.
 
-## 5. Previous-year comparison and current revision
-
-The [previous-year review](previous-year-review.md) identifies the completed 2024/2025 local documents, page locators, useful ideas, technical distinctions and file fingerprints. These student resources inform coverage and presentation; they do not replace the primary sources above. New content is written as a book-style source chapter. Questions remain together at the end for later adaptation into the study guide.
-
-On 2026-10-28, S11 and S14 were revisited and S15–S18 were read directly. Other entries retain their earlier access limits. The new arithmetic examples and fully specified grid-game model are original illustrations. No whole-archive or video review is claimed.
+S11 and S14 were revisited and S15-S18 were read directly on 28 October 2026. Other entries retain their recorded access limits. Personal logs and complete private AI-use evidence are maintained separately.

@@ -1,6 +1,6 @@
 # AI Behaviour
 
-Read the [detailed contents and section status](table-of-contents.md) for the organization of this AI Behaviour part. The short navigation below follows the current chapter; the detailed contents describe coverage and remaining review work.
+This book introduces how artificial agents select actions and learn from experience. It is the Markdown source for later study-guide, slide and video development.
 
 ## Contents
 
@@ -13,14 +13,15 @@ Read the [detailed contents and section status](table-of-contents.md) for the or
 7. [Applications](#7-applications)
 8. [Review questions](#8-review-questions)
 9. [Limits](#9-limits)
+10. [References](References.md)
 
-Supporting material: [references](research-and-sources.md) and the optional [fixed-rule exercise](fixed-rule-vacuum.md).
+Technical sources and precise locators are listed in [References](References.md).
 
 A robot vacuum reaches a dirty patch of floor. It can clean, move on, or wait. A programmer could write the decision in advance. A learning system could instead use experience to estimate which choices lead to better results. This chapter explains the difference, then works through a small learning example.
 
 ## 1. Introduction
 
-The supplied lecturer deck contains two slides. Slide 2 lists an introduction to Behaviorist AI, reinforcement-learning basics, RL algorithms and techniques, Markov Decision Processes (MDPs), robotics and games, applications, and challenges. It gives no definitions or worked examples. The topics below follow that overview; the examples, sequence and choice of Q-learning are our teaching proposals. See the [lecturer scope review](lecturer-scope-review.md).
+The supplied lecturer deck contains two slides. Slide 2 lists an introduction to Behaviorist AI, reinforcement-learning basics, RL algorithms and techniques, Markov Decision Processes (MDPs), robotics and games, applications, and challenges. It gives no definitions or worked examples. The topics below follow that overview; the examples, sequence and choice of Q-learning are our teaching proposals. The [Stage 1 notes](Stage1Notes.md#lecturer-scope) record the topic coverage and development status.
 
 This chapter is for beginners. No programming is needed, although the worked update uses addition and multiplication. Start with the idea that sensors supply information and actuators carry out actions. The Hardware section can introduce those parts beforehand.
 
@@ -38,19 +39,19 @@ By the end, learners should be able to follow both a fixed rule and a learning u
 
 ### Before you start
 
-You do not need to write code or build a robot. You will use addition, multiplication and negative numbers in Section 6. For example, a reward of −1 means one point is deducted; it does not mean the robot has feelings. Read the words first, then follow the numbers in the tables. The Python files are optional consistency checks for the examples.
+You do not need to write code or build a robot. You will use addition, multiplication and negative numbers in Section 6. For example, a reward of −1 means one point is deducted; it does not mean the robot has feelings. Read the words first, then follow the numbers in the tables. The Python script is an optional consistency check for the learning example.
 
 ### What this chapter means by AI Behaviour
 
-Here we study how artificial agents select actions, with reinforcement learning as a main topic in the lecturer overview. A robot may follow programmed rules, learn from reward, or combine different mechanisms. Describing observable actions does not mean the controller has no internal state or stored estimates. [S1–S2, S8](research-and-sources.md)
+Here we study how artificial agents select actions, with reinforcement learning as a main topic in the lecturer overview. A robot may follow programmed rules, learn from reward, or combine different mechanisms. Describing observable actions does not mean the controller has no internal state or stored estimates. [S1–S2, S8](References.md)
 
 Predicting human behaviour, psychological conditioning and learning an action policy describe different problems. To identify the mechanism, ask: **what observations enter, what actions are chosen, what feedback is available, and what changes through experience?** A system that predicts clicks is not established to be an RL agent merely because its input describes human behaviour.
 
 ## 2. Agents
 
-An **agent** receives information and acts in an **environment**. Sensors provide **observations**, while actuators carry out actions. The **controller** selects commands. Some controllers respond to the current observation; others also use information retained from earlier steps. [S1](research-and-sources.md)
+An **agent** receives information and acts in an **environment**. Sensors provide **observations**, while actuators carry out actions. The **controller** selects commands. Some controllers respond to the current observation; others also use information retained from earlier steps. [S1](References.md)
 
-For a vacuum, the floor, dirt and dock form part of the environment. A dirt sensor reports something about the floor; a motor changes the vacuum's position. A command to move and the resulting movement are different things. Sensors and mechanisms can be unreliable. [S2](research-and-sources.md)
+For a vacuum, the floor, dirt and dock form part of the environment. A dirt sensor reports something about the floor; a motor changes the vacuum's position. A command to move and the resulting movement are different things. Sensors and mechanisms can be unreliable. [S2](References.md)
 
 The loop repeats: observe, choose an action, act, then observe the result. After cleaning a dirty tile, the next reading should reflect the cleaner floor. The agent needs that new reading before making its next choice.
 
@@ -79,17 +80,17 @@ Consider these instructions, in order:
 
 When energy is low and the tile is dirty, the first instruction takes priority. The controller leaves the dirt for later. That decision is built into the rule order.
 
-A controller can also remember its current **mode**, such as CLEAN, RETURN or CHARGE. A **finite-state machine** describes a finite set of modes and the conditions that switch between them. It needs a starting mode and a clear way to resolve competing transitions. [S6–S7](research-and-sources.md)
+A controller can also remember its current **mode**, such as CLEAN, RETURN or CHARGE. A **finite-state machine** describes a finite set of modes and the conditions that switch between them. It needs a starting mode and a clear way to resolve competing transitions. [S6–S7](References.md)
 
-For example, a vacuum could remain in RETURN until it reaches the dock, even if it passes dirt on the way. Changing mode does not mean that it has learned: the programmer may have specified every transition. The [fixed-rule exercise](fixed-rule-vacuum.md) defines this controller completely, including energy costs, blocked movements and a 13-tick trace.
+For example, a vacuum could remain in RETURN until it reaches the dock, even if it passes dirt on the way. Changing mode does not mean that it has learned: the programmer may have specified every transition. The rules and modes here provide a conceptual comparison with the learning model developed below.
 
-Brooks's behaviour-based robotics provides background for connecting sensing with action. His subsumption architecture uses interacting layers of asynchronous finite-state modules, including suppression and inhibition mechanisms. An ordered list of rules alone does not implement the full architecture. [S3–S5](research-and-sources.md)
+Brooks's behaviour-based robotics provides background for connecting sensing with action. His subsumption architecture uses interacting layers of asynchronous finite-state modules, including suppression and inhibition mechanisms. An ordered list of rules alone does not implement the full architecture. [S3–S5](References.md)
 
 For simultaneous low battery and dirt, the stated order selects return-to-dock. Swapping the first two rules selects cleaning first. Neither version learns from this decision: the programmer changed the priorities. In a physical system, the consequences would depend on available energy and the hardware design.
 
 ## 4. Learning
 
-In **reinforcement learning (RL)**, an agent learns from interaction and reward feedback, aiming for accumulated reward. A **policy** describes how it selects actions. **Exploration** gathers experience by trying choices; **exploitation** uses choices favoured by current estimates. [S8–S11](research-and-sources.md)
+In **reinforcement learning (RL)**, an agent learns from interaction and reward feedback, aiming for accumulated reward. A **policy** describes how it selects actions. **Exploration** gathers experience by trying choices; **exploitation** uses choices favoured by current estimates. [S8–S11](References.md)
 
 Look at what changes. In the fixed controller, position, energy and mode change, but the written rules stay the same. In our learning example, experience also changes a table of action estimates. Those estimates can affect later choices.
 
@@ -104,7 +105,7 @@ Displaying a score does not create a learning mechanism. A trained policy can al
 
 ### Training and use
 
-During **training**, experience changes the estimates or policy. During **use**, also called inference or execution, the controller selects actions with the policy it has. Whether learning continues during use is a design choice. A policy can be trained in a simulator and then held fixed; a new task or different sensor behaviour may still cause it to fail. Simulation success is not proof of successful deployment. [S8, S18](research-and-sources.md)
+During **training**, experience changes the estimates or policy. During **use**, also called inference or execution, the controller selects actions with the policy it has. Whether learning continues during use is a design choice. A policy can be trained in a simulator and then held fixed; a new task or different sensor behaviour may still cause it to fail. Simulation success is not proof of successful deployment. [S8, S18](References.md)
 
 Compare two controllers. Controller A switches from CLEAN to RETURN when its battery is low. Controller B revises an action estimate after receiving a reward. B describes an update from experience; A describes a change of mode that could be fully programmed. To assess whether B improves, we would also need to examine later choices and performance, not only whether a number changed.
 
@@ -124,13 +125,13 @@ Section 5 makes these words precise in a small world. Reward and return are diff
 
 ## 5. Decision problems
 
-A **Markov Decision Process**, or **MDP**, specifies states, actions, transition probabilities and rewards. It can also include terminal states and a discount factor. The **Markov property** means that the current state contains the information needed to predict the next outcome given the action; earlier history adds no further predictive information. This depends on how the state is defined. [S13](research-and-sources.md)
+A **Markov Decision Process**, or **MDP**, specifies states, actions, transition probabilities and rewards. It can also include terminal states and a discount factor. The **Markov property** means that the current state contains the information needed to predict the next outcome given the action; earlier history adds no further predictive information. This depends on how the state is defined. [S13](References.md)
 
-An MDP describes the problem. A learning algorithm describes how the agent learns to act in it. Known transitions and rewards can also support planning without learning them through trial and error. [S11](research-and-sources.md)
+An MDP describes the problem. A learning algorithm describes how the agent learns to act in it. Known transitions and rewards can also support planning without learning them through trial and error. [S11](References.md)
 
 ### 5.1 A two-tile vacuum world
 
-This is a new teaching model. It differs from the four-tile fixed-rule exercise: there is no battery, dock or operating-mode variable, and the agent receives the complete dirt state.
+This teaching model has no battery, dock or operating-mode variable, and the agent receives the complete dirt state.
 
 ```text
 Initial world:   [ A: vacuum + dirt ] [ B: dirt ]
@@ -161,7 +162,7 @@ There are eight possible state tuples, including two terminal states. Position a
 
 Removing the first patch earns `−1 + 5 = 4`. Moving earns `−1`. Removing the last patch earns `−1 + 5 + 6 = 10`. Sucking an already clean tile earns only `−1`.
 
-The **discounted return** weights later rewards by successive powers of `gamma`. [S13](research-and-sources.md) For SUCK, RIGHT, SUCK from the initial state, the rewards are 4, −1 and 10:
+The **discounted return** weights later rewards by successive powers of `gamma`. [S13](References.md) For SUCK, RIGHT, SUCK from the initial state, the rewards are 4, −1 and 10:
 
 ```text
 Return = 4 + 0.9 × (−1) + 0.9² × 10
@@ -175,11 +176,11 @@ This is the return of one specified sequence. It is not a measured training resu
 
 Start at `(A, 0, 1)` and choose LEFT, then RIGHT. LEFT attempts to move beyond the boundary, so the state remains `(A, 0, 1)` and the reward is −1. It is not terminal because tile B is dirty. RIGHT then produces `(B, 0, 1)` and reward −1. No dirt has been removed. This uses the action definitions, not a guess about how a real vacuum would turn.
 
-This is a **deterministic** task: the same state and action always produce the same outcome. A more complex MDP could specify several possible next outcomes with probabilities adding to 1. We would need those probabilities before calculating an expected outcome; calling the task an MDP does not supply them automatically. [S13](research-and-sources.md)
+This is a **deterministic** task: the same state and action always produce the same outcome. A more complex MDP could specify several possible next outcomes with probabilities adding to 1. We would need those probabilities before calculating an expected outcome; calling the task an MDP does not supply them automatically. [S13](References.md)
 
 ## 6. Q-learning
 
-**Q-learning** revises action-value estimates from experience. Each sampled update combines the immediate reward with the highest current action estimate at the next state. The learning rate controls how far the old estimate moves toward that target. [S14](research-and-sources.md)
+**Q-learning** revises action-value estimates from experience. Each sampled update combines the immediate reward with the highest current action estimate at the next state. The learning rate controls how far the old estimate moves toward that target. [S14](References.md)
 
 We chose Q-learning because a small table makes the update visible. The lecturer's overview lists algorithms and techniques but names no particular algorithm.
 
@@ -201,7 +202,7 @@ target = reward + gamma × best_next_Q
 new_Q = old_Q + alpha × (target − old_Q)
 ```
 
-This expresses the standard sampled update, using the terminal convention above. [S14](research-and-sources.md)
+This expresses the standard sampled update, using the terminal convention above. [S14](References.md)
 
 ### 6.2 Follow one episode
 
@@ -260,9 +261,9 @@ Learning methods differ in what they estimate and how they use experience. This 
 | SARSA | Uses the next action actually selected when forming its update target | Its target reflects the policy being followed, including exploration [S16] |
 | Deep Q-network (DQN) | Uses a neural network to estimate action values | The representation differs from our small table; this requires additional machinery and is optional context [S17] |
 
-Sources: [S11, S14–S17](research-and-sources.md). “Model-free” does not mean an agent has no memory: a Q-table is stored information. It means the method can learn values without explicitly learning the environment's transition and reward model.
+Sources: [S11, S14–S17](References.md). “Model-free” does not mean an agent has no memory: a Q-table is stored information. It means the method can learn values without explicitly learning the environment's transition and reward model.
 
-For one comparison, suppose the next state's best estimate is 5, but the policy selects WAIT, whose estimate is 0. Q-learning uses 5 in its next-value term; SARSA uses 0 for that experience. This difference does not prove one algorithm is always better. It shows why the action-selection policy and the learning update need separate explanations. [S16](research-and-sources.md)
+For one comparison, suppose the next state's best estimate is 5, but the policy selects WAIT, whose estimate is 0. Q-learning uses 5 in its next-value term; SARSA uses 0 for that experience. This difference does not prove one algorithm is always better. It shows why the action-selection policy and the learning update need separate explanations. [S16](References.md)
 
 ## 7. Applications
 
@@ -276,7 +277,7 @@ The overview explicitly includes robotics and games. These are proposed examples
 
 In a game model, dirt can become collectibles and corridor boundaries can become walls. The ending condition and reward for each action still need explicit definitions. Changing the story is easy; specifying a sensible state and reward takes more care.
 
-The fixed-rule example also shows that a robot can act autonomously without a learning algorithm. A learning component could be combined with programmed control, provided their responsibilities and conflict rules are defined. Neither paper model requires an Internet connection.
+The fixed-rule comparison also shows that a robot can act autonomously without a learning algorithm. A learning component could be combined with programmed control, provided their responsibilities and conflict rules are defined. Neither form of local control inherently requires an Internet connection.
 
 ### 7.1 A game model
 
@@ -330,14 +331,14 @@ Connect observations and actions to the Hardware chapter's sensors, processor, m
 
 ### What would count as evidence?
 
-Checking the scripted arithmetic answers “does this replay follow our equations?” Training asks whether experience leads to useful choices. Evaluation asks how those choices perform under stated conditions. These are separate questions. [S18](research-and-sources.md)
+Checking the scripted arithmetic answers “does this replay follow our equations?” Training asks whether experience leads to useful choices. Evaluation asks how those choices perform under stated conditions. These are separate questions. [S18](References.md)
 
-A proposed next evaluation would compare a fixed controller, a random policy and a trained policy on the **same** two-tile task. State the starting conditions, training budget, action-selection settings and step limit; hold the learned table fixed for a separate evaluation. Repeat random runs and report success rate, steps and return, including failures. Do not compare the four-tile battery exercise directly with the two-tile learning task and call their score difference a learning benefit.
+A proposed next evaluation would compare a fixed controller, a random policy and a trained policy on the **same** two-tile task. State the starting conditions, training budget, action-selection settings and step limit; hold the learned table fixed for a separate evaluation. Repeat random runs and report success rate, steps and return, including failures. Comparing controllers on different task definitions would not establish a learning benefit.
 
-No such training comparison has been performed for this chapter. The existing scripts check a finite model and a specified replay. They do not evaluate generalisation to a new room, real sensor noise, privacy-sensitive deployments or a physical robot.
+No such training comparison has been performed for this chapter. The included check script verifies the finite model and a specified replay. They do not evaluate generalisation to a new room, real sensor noise, privacy-sensitive deployments or a physical robot.
 
 ### Recap
 
 Sensors provide observations; a controller chooses actions; actions change the environment. Fixed rules prescribe decisions. In RL, experience updates values or a policy that can affect later decisions. The MDP specifies the task, while Q-learning supplies one update method. A useful score, a correct calculation and a reliable deployed agent each need their own evidence.
 
-Before submission, another member should check the definitions, rewards, traces, arithmetic and sources using the [review checklist](review-checklist.md). The lecturer's overview confirms the topic list, but gives no required algorithm or depth. Further detailed lecturer guidance could still change the scope.
+Before submission, another member should check the definitions, rewards, traces, arithmetic and sources using the [review status and checks](Stage1Notes.md#review-status). The lecturer's overview confirms the topic list, but gives no required algorithm or depth. Further detailed lecturer guidance could still change the scope.

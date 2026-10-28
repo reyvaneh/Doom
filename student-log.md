@@ -34,7 +34,7 @@ This file is the public team development log. Keep individual learning records, 
 | Contributor | Work requested by [@vendouple](https://github.com/vendouple); repository inspection and contents drafting carried out with Codex assistance |
 | Goal | Address the reported Stage 1 Markdown organization feedback for the AI Behaviour part on `ai-behavior`, starting with short headings and detailed contents |
 | Work completed | Read the Stage 1 Markdown assignment and course learning-materials listing in the signed-in LeXue browser; inspected the existing AI chapter and source map; drafted an AI-only contents plan with section coverage, links, prerequisites, learning goals, activities and development status; added navigation to the chapter and folder README |
-| Output/evidence | [Detailed contents](Behavioral%20AI/table-of-contents.md), [chapter navigation](Behavioral%20AI/chapter.md#contents), [folder README](Behavioral%20AI/README.md), [Stage 1 assignment](https://lexue.bit.edu.cn/mod/assign/view.php?id=544495), [course materials listing](https://lexue.bit.edu.cn/mod/folder/view.php?id=544488) |
+| Output/evidence | [Detailed contents](AIBehaviour_Book/AIBehaviour.md#contents), [chapter navigation](AIBehaviour_Book/AIBehaviour.md#contents), [book entry point](AIBehaviour_Book/AIBehaviour.md), [Stage 1 assignment](https://lexue.bit.edu.cn/mod/assign/view.php?id=544495), [course materials listing](https://lexue.bit.edu.cn/mod/folder/view.php?id=544488) |
 | Outcome | Partial: the contents and navigation are drafted locally. Matching the revision against the exact team feedback and previous-year student work remains pending |
 | Checks | All 67 local Markdown links and anchors checked in the AI contents, chapter and folder README resolved. `git diff --check` passed. Teaching models were unchanged and were not rerun |
 | Decisions and reasons | Keep the existing developed explanations and numerical examples. Use a separate detailed contents file so the AI part can later be assembled into the book. Mark proposed activities as outline only and distinguish existing drafts from reviewed content |
@@ -52,7 +52,7 @@ This file is the public team development log. Keep individual learning records, 
 | Work completed | Inspected selected completed 2024 final guides and 2025 final-version PDF material; read primary technical sources; revised the chapter and detailed contents; recorded reference locations, page locators, decisions and fingerprints; updated supporting scope and review notes |
 | Format decisions | Kept the Markdown as book-style source content for later study-guide development. At the user's request, limited the chapter-end set to five easy questions using mostly simple reasoning, with no calculation or advanced algorithm questions, because the later test must cover all module topics |
 | Content changes | Clearer scope and prerequisites; short chapter headings; sensor/action and fixed-rule explanations; training/use distinction and vocabulary; a boundary trace, extra worked update, brief methods comparison, specified game example, optional message flow and evaluation limits |
-| Output/evidence | [Chapter](Behavioral%20AI/chapter.md), [contents](Behavioral%20AI/table-of-contents.md), [previous-year comparison](Behavioral%20AI/previous-year-review.md), [source map](Behavioral%20AI/research-and-sources.md), [validation](Behavioral%20AI/validation.md) |
+| Output/evidence | [Chapter](AIBehaviour_Book/AIBehaviour.md), [contents](AIBehaviour_Book/AIBehaviour.md#contents), [previous-year comparison](AIBehaviour_Book/References.md#background-reference-materials), [source map](AIBehaviour_Book/References.md), [validation](AIBehaviour_Book/Stage1Notes.md#validation) |
 | Checks | Existing learning-model replay passed 24 nonterminal transitions and six Q updates with return 11.2; fixed-rule model passed 13 trace ticks and 16,896 configurations. Additional checks confirmed the new numerical update, terminal alternative, boundary trace and 12 grid-game transitions. All 115 checked local links/anchors resolved; code fences and five-question count checked; `git diff --check` passed |
 | Outcome | Book-style revision and selected reference comparison completed; independent teammate review, final book export and later study-guide/test-bank production remain pending |
 | Limitations | The full collection was still downloading. Partial `.downloading` files and videos were excluded; only the selected documents and locators in the comparison record support this revision. No training run, learner trial, real-robot result or teammate review is claimed |
@@ -65,6 +65,15 @@ This file is the public team development log. Keep individual learning records, 
 - Kept the material as a standalone book chapter. Reference examples inform broad organization and information density; the chapter does not reproduce their structure or content one-to-one.
 - Retained attribution and inspection details in separate research records. The five easy reasoning questions and technical explanations remain in place.
 - Checked the chapter and contents for earlier-edition mentions and ran `git diff --check` before publication.
+
+## 28 October 2026 - AI Behaviour Stage 1 folder cleanup
+
+- Renamed the source folder to `AIBehaviour_Book` and the main text to `AIBehaviour.md`.
+- Consolidated nine Markdown files into three: the book, technical/background references and concise Stage 1 notes. The book retains its contents and five easy reasoning questions.
+- Removed the duplicate contents plan, separate blank review/check files, diagram specification and old supplementary fixed-rule exercise. Consolidated useful scope, source and validation information; Git retains the earlier files.
+- Moved the core RL consistency script into `checks/`, retained the source deck and original diagram assets, and updated links to the renamed material.
+- Checks passed: 46 local links/anchors, balanced code fences, five-question count, unchanged content for six retained assets/source/check files, the relocated RL replay and `git diff --check`.
+- Independent teammate review and final export checks remain pending.
 
 ## Copyable entry template
 

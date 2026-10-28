@@ -15,6 +15,8 @@
 * **[杜光辉]** | ID [1820262177] | Github: [@QuangHuy260608]
 
 ## 📂 Folder Structure
+* [AI Behaviour book](AIBehaviour_Book/AIBehaviour.md) - Stage 1 Markdown source, with references, development notes and supporting assets.
+
 * `/markdown_content` - The shared content foundation, explanations, and worked examples.
 * `/assets` - Supporting images, diagrams, and code snippets used in the Markdown files.
 * `/project_management` - Location of our active Project Plan and Master Task List.
