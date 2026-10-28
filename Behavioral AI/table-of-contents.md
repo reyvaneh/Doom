@@ -6,7 +6,7 @@ This is the contents map for the AI Behaviour part of the future Markdown book. 
 
 **Audience:** beginners with no AI or programming background. Learners need to know that sensors collect information, a controller chooses commands, and actuators carry them out. Introduce these ideas again in Section 2 so the AI part can also be read separately. The numerical example needs addition, multiplication and negative numbers; explain each symbol before using it.
 
-**Revision basis:** the user's account of the team leader's Stage 1 feedback, the existing teaching draft, the [lecturer overview](lecturer-scope-review.md), the [Stage 1 Markdown requirements](https://lexue.bit.edu.cn/mod/assign/view.php?id=544495), read in LeXue on 27 October 2026, and selected downloaded 2024/2025 final-version examples reviewed on 28 October. The [reference comparison](previous-year-review.md) records which examples were inspected and how they informed the revision. The user's later clarification sets the format: a book-style source chapter, with a compact chapter-end question set rather than interactive teaching activities throughout.
+The chapter develops the subject through definitions, connected explanations and worked examples. A compact question set concludes the reading. The content can later support an interactive study guide, while this document remains a map of the book-style source material.
 
 ## Reading order
 
@@ -120,12 +120,12 @@ Current material: [Research and source map](research-and-sources.md) and [lectur
 
 - Retain identifiable sources and precise section or slide locators for definitions and important claims. Distinguish original examples from borrowed concepts.
 - Keep citations close to the explanations they support. Use the source map when checking the chapter before compiling the book.
-- Use the recorded previous-year comparison for coverage, sequencing and clarity. It identifies the files, collection years, relevant pages and decisions; technical explanations remain grounded in the primary source map.
-- Do not treat the `PPT 2024` folder label as evidence that a file is last year's student submission. Keep unresolved access or source checks visible in the development record.
+- Ground technical explanations in identifiable sources and preserve the distinction between sourced concepts and original worked examples.
+- Keep source-checking notes and editorial decisions in the research record rather than interrupting the chapter's explanations.
 
 ## Development status
 
-**Drafted** means the prose or example exists; it does not mean another member has reviewed it. The selected previous-year comparison and primary-source rechecks are recorded separately from independent teammate review. The contents describe the chapter available now, not a claim that the future study guide is complete.
+**Drafted** means the prose or example exists; it does not mean another member has reviewed it. Primary-source checks are recorded separately from independent teammate review. The contents describe the chapter available now, not a claim that the future study guide is complete.
 
 | Section | Existing material | Remaining work |
 | --- | --- | --- |
@@ -138,6 +138,6 @@ Current material: [Research and source map](research-and-sources.md) and [lectur
 | 7. Applications | Revised, with a specified game model and message example | Teammate review |
 | 8. Review questions | Five easy explained questions drafted | Independent answer review; later study-guide adaptation |
 | 9. Limits | Revised, with an evaluation proposal and recap | Teammate review; evaluation remains unperformed |
-| 10. References | Source map extended and selected 2024/2025 comparison recorded | Remaining source access limits and teammate checks |
+| 10. References | Technical source map prepared | Remaining source access limits and teammate checks |
 
 For later book assembly, retain this order, normalize chapter numbering with the team, and keep examples, images, questions and answers beside their explanations. Whole-book integration, slides, videos and Stage 2 production are outside this revision. Another team member's review and a readable export check remain pending.

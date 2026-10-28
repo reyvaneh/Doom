@@ -1,7 +1,5 @@
 # AI Behaviour
 
-**Stage 1 revision, 28 October 2026. Compared with selected downloaded 2024/2025 materials; teammate review pending.**
-
 Read the [detailed contents and section status](table-of-contents.md) for the organization of this AI Behaviour part. The short navigation below follows the current chapter; the detailed contents describe coverage and remaining review work.
 
 ## Contents
@@ -46,7 +44,7 @@ You do not need to write code or build a robot. You will use addition, multiplic
 
 Here we study how artificial agents select actions, with reinforcement learning as a main topic in the lecturer overview. A robot may follow programmed rules, learn from reward, or combine different mechanisms. Describing observable actions does not mean the controller has no internal state or stored estimates. [S1–S2, S8](research-and-sources.md)
 
-The previous-year materials use similar names for several topics, including predicting human behaviour and psychological conditioning. Those are not interchangeable with a robot learning an action policy. To identify the mechanism, ask: **what observations enter, what actions are chosen, what feedback is available, and what changes through experience?** A system that predicts clicks is not established to be an RL agent merely because its input describes human behaviour. The [reference comparison](previous-year-review.md) records these scope decisions.
+Predicting human behaviour, psychological conditioning and learning an action policy describe different problems. To identify the mechanism, ask: **what observations enter, what actions are chosen, what feedback is available, and what changes through experience?** A system that predicts clicks is not established to be an RL agent merely because its input describes human behaviour.
 
 ## 2. Agents
 
@@ -252,7 +250,7 @@ The target is `2 + 0.9 × 4 = 5.6`. The difference from the old estimate is `5.6
 
 ### 6.5 Other approaches
 
-The downloaded 2025 resources name many algorithms. For a beginner, first identify what each method estimates. This comparison is introductory; only tabular Q-learning is worked through here.
+Learning methods differ in what they estimate and how they use experience. This comparison introduces those differences; only tabular Q-learning is worked through here.
 
 | Approach | What it does | Difference to notice |
 | --- | --- | --- |

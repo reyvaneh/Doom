@@ -59,6 +59,13 @@ This file is the public team development log. Keep individual learning records, 
 | Time spent | Not recorded |
 | Next steps | Team member reviews the revised explanations and five simple answers, records a concrete outcome, and later adapts the source chapter into the combined study guide and test. Keep required personal AI-use records and full interaction evidence in private submission materials |
 
+## 28 October 2026 — Keep reference history out of the chapter
+
+- Removed mentions of earlier course editions from the chapter and contents, including the revision banner already removed in the working copy.
+- Kept the material as a standalone book chapter. Reference examples inform broad organization and information density; the chapter does not reproduce their structure or content one-to-one.
+- Retained attribution and inspection details in separate research records. The five easy reasoning questions and technical explanations remain in place.
+- Checked the chapter and contents for earlier-edition mentions and ran `git diff --check` before publication.
+
 ## Copyable entry template
 
 Copy this section for the next session and replace the placeholders.
