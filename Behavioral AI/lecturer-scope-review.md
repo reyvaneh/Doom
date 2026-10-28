@@ -37,3 +37,7 @@ The slide does not explicitly list agents, perception–action loops, finite-sta
 The deck gives no detailed explanations, algorithm list, formulas, examples, required outcomes, assessment weights, duration or depth. It does not explain the relationship to psychological behaviourism. Its location under `PPT 2024` does not establish whether further 2026 guidance exists. The separate Shared Assignment Rules attachment remains unchecked.
 
 The local file resolves the earlier download blocker. Detailed expectations and teammate review remain open. This is an AI-assisted source inspection, not an independent team-member review.
+
+## 28 October 2026 update
+
+Selected completed 2024 and 2025 student materials have now been compared with the AI Behaviour Markdown; see the [previous-year review](previous-year-review.md). The chapter adds clearer prerequisites and terminology, further worked examples, a short methods comparison, and an explanation of evaluation. These additions are teaching choices checked against primary sources. They do not turn the overview into a requirement for SARSA, DQN, a physical robot or a training experiment. The chapter remains the book-style source for a later study guide.

@@ -21,6 +21,8 @@
 
 ## Technical content
 
+For the 28 October revision, also check the chapter's scope distinction, terminal/nonterminal worked update, model-based/SARSA/DQN comparison, complete grid-game definition, and separation of replay checks from training/evaluation. Use the [previous-year comparison](previous-year-review.md) for provenance and the [source map](research-and-sources.md) for technical authority. A previous team's explanation is not sufficient verification by itself.
+
 - [ ] Check agent/environment, observation/command/action, and sensor/actuator definitions.
 - [ ] Check that a priority chain is never presented as full subsumption.
 - [ ] Check current observation versus stored mode, and that a fixed state machine is not called learning.

@@ -1,6 +1,6 @@
 # Research scope and source map
 
-Research date: 2026-10-22. **Status: lecturer overview inspected; teammate review pending.**
+Initial research: 2026-10-22. Updated: 2026-10-28. **Status: lecturer overview inspected; selected 2024/2025 examples compared; teammate review pending.**
 
 ## 1. Lecturer-first scope check
 
@@ -30,6 +30,10 @@ Locators use section titles where available because PDF viewer numbers, draft pa
 | S12 | The lecturer's overview explicitly includes RL basics, algorithms, MDPs, robotics and games, applications and limitations. | Supplied [Chapter 6 deck](source-materials/chap6%20Behaviorist%20AI.pptx), slide 2 “Overview”; slide 1 is the title. | Both slides inspected from the local PPTX package, including hidden-slide flags and linked notes/pictures. The deck contains no detailed teaching content. |
 | S13 | An MDP specifies states, actions, transitions and rewards; the Markov assumption concerns the sufficiency of the current state; discounting weights later rewards. | UC Berkeley CS188, official [§4.1 Markov Decision Processes](https://inst.eecs.berkeley.edu/~cs188/textbook/mdp/markov-decision-processes.html), opening specification, §4.1.1 “Finite Horizons and Discounting,” §4.1.2 “Markovianess.” | Relevant university text and equations retrieved. The vacuum state, rewards and gamma are original design choices. |
 | S14 | Sampled tabular Q-learning updates an action estimate toward reward plus discounted maximum next-state Q-value. | UC Berkeley CS188, official [§5.3.3 Q-Learning](https://inst.eecs.berkeley.edu/~cs188/textbook/rl/mfl.html), “sample” and moving-average equations. | Relevant university text/equations retrieved. The six updates are independently calculated for our invented task; no convergence claim. |
+| S15 | Model-based learning can estimate transitions and rewards from experience and use the learned model to plan. | UC Berkeley CS188, official [§5.2 Model-Based Learning](https://inst.eecs.berkeley.edu/~cs188/textbook/rl/mbl.html), opening paragraph, transition-count example and final planning discussion. | Relevant page read on 2026-10-28. Supports the comparison, not a claim that our Python example learns a model. |
+| S16 | SARSA uses the next selected action's estimate in its target, whereas Q-learning uses the largest next-state estimate. | Poole & Mackworth, author-hosted [§13.7 On-Policy Learning](https://www.cs.ubc.ca/~poole/aibook/3e/html/ArtInt3e.Ch13.S7.html), opening discussion and Fig. 13.5. | Relevant text and update read on 2026-10-28. The 5-versus-0 comparison is an original illustration; neither method is declared universally better. |
+| S17 | A deep Q-network uses a neural network to represent action-value estimates. | David Silver, Google DeepMind, [Deep Reinforcement Learning](https://deepmind.google/blog/deep-reinforcement-learning/), 17 June 2016, paragraphs on the Q-network and deep neural networks. | Primary research-team explanation read on 2026-10-28. Historical context, not a claim that DQN is a new 2026 method; no DQN implementation or benchmark claim. |
+| S18 | Evaluation can assess a learned policy or rewards received while learning; random runs can differ and require repetition. | Poole & Mackworth, author-hosted [§13.6 Evaluating RL Algorithms](https://www.cs.ubc.ca/~poole/aibook/3e/html/ArtInt3e.Ch13.S6.html), opening paragraphs and Fig. 13.4 discussion. | Relevant page read on 2026-10-28. Our suggested baselines, step limit and held-fixed evaluation are a proposed teaching design, not measured results. |
 
 ## 3. Original teaching design versus sourced facts
 
@@ -44,3 +48,9 @@ Locators use section titles where available because PDF viewer numbers, draft pa
 This is a focused primary-source research draft, not an exhaustive literature review. Several websites were available only through indexed excerpts; those limits are recorded above. No third-party summaries are used as factual authorities. Retain exact edition/section names when checking the cited text. Do not redistribute entire lecturer decks or textbooks in the public folder without appropriate permission.
 
 The lecturer overview has now been checked, but its expected depth remains unspecified. Next checks are another member's substantive review, beginner accessibility and the actual rendered PDF/assets when the team packages Stage 1. The user will complete personal logs and significant AI-use records separately.
+
+## 5. Previous-year comparison and current revision
+
+The [previous-year review](previous-year-review.md) identifies the completed 2024/2025 local documents, page locators, useful ideas, technical distinctions and file fingerprints. These student resources inform coverage and presentation; they do not replace the primary sources above. New content is written as a book-style source chapter. Questions remain together at the end for later adaptation into the study guide.
+
+On 2026-10-28, S11 and S14 were revisited and S15–S18 were read directly. Other entries retain their earlier access limits. The new arithmetic examples and fully specified grid-game model are original illustrations. No whole-archive or video review is claimed.

@@ -41,4 +41,21 @@ Passed: 24 nonterminal state-action transitions; terminal guards; 6 scripted Q u
 Scripted educational replay only; no random training, convergence or physical performance result.
 ```
 
-The earlier fixed-rule model was rerun and still passed its 13 trace rows and 16,896 finite configurations. The learning example is a separate model; these counts must not be combined into a claim about RL training. All redesign changes and the downloaded lecturer file remain uncommitted at the user's request.
+The earlier fixed-rule model was rerun and still passed its 13 trace rows and 16,896 finite configurations. The learning example is a separate model; these counts must not be combined into a claim about RL training. This paragraph records the original local checks; current Git history determines the publication state.
+
+## 28 October 2026 source-chapter revision
+
+Re-ran both unchanged Python models using the bundled runtime. They again reported:
+
+```text
+Passed: 24 nonterminal state-action transitions; terminal guards; 6 scripted Q updates; return 11.2.
+Passed: 13 trace ticks; 16896 finite configurations; return bound and counterexamples.
+```
+
+Additional one-off checks used the learning model's update function for the new illustrative values: target 5.6, revised estimate 3.3, and terminal alternative 1.5. The boundary example was checked against the model: LEFT from `(A, 0, 1)` leaves that state unchanged at reward −1, followed by RIGHT to `(B, 0, 1)` at reward −1. A separate enumeration of the game example's 12 nonterminal state–action pairs confirmed its coordinate bounds and rewards; RIGHT then UP reaches the terminal collectible with rewards −1 and 5.
+
+The five chapter-end questions were reviewed against the definitions, stated rule order, update distinction, state/action examples and delayed-return explanation. They require simple reasoning rather than arithmetic or advanced algorithm knowledge. This is an assisted consistency check, not another team member's review.
+
+The [previous-year record](previous-year-review.md) describes extraction and five rendered source-page inspections. Source files and temporary extracts remain outside the public change. The new Markdown is a book-style source chapter; a new PDF, interactive study guide, videos and training evaluation were not produced.
+
+All 115 local file links and heading anchors in the AI Markdown files and public progress log resolved in the final link check. Code fences were balanced and the chapter-end question count was five. `git diff --check` passed. These source checks do not establish the layout of a future book export.
