@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 230" width="700" height="230" font-family="Arial, Helvetica, sans-serif">
+  <rect width="700" height="230" fill="#ffffff"/>
+  <text x="350" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#1f2937">E-waste generated worldwide</text>
+
+  <!-- scale: 600 px = 82 Mt. 2022: 62 Mt = 454 px; recycled 22.3 % of 62 = 13.8 Mt = 101 px -->
+  <text x="70" y="78" text-anchor="end" font-size="14" font-weight="bold" fill="#111827">2022</text>
+  <rect x="80" y="60" width="454" height="28" rx="3" fill="#9ca3af"/>
+  <rect x="80" y="60" width="101" height="28" rx="3" fill="#16a34a"/>
+  <text x="544" y="80" font-size="14" font-weight="bold" fill="#111827">62 Mt</text>
+  <text x="130" y="108" text-anchor="middle" font-size="11" fill="#15803d">22.3 % documented recycled</text>
+  <text x="360" y="108" text-anchor="middle" font-size="11" fill="#4b5563">not documented as recycled</text>
+
+  <text x="70" y="148" text-anchor="end" font-size="14" font-weight="bold" fill="#111827">2030</text>
+  <rect x="80" y="130" width="600" height="28" rx="3" fill="#d1d5db" stroke="#9ca3af" stroke-dasharray="5 4"/>
+  <text x="380" y="149" text-anchor="middle" font-size="13" font-weight="bold" fill="#374151">82 Mt (projected)</text>
+
+  <text x="350" y="190" text-anchor="middle" font-size="13" fill="#111827">E-waste is growing 5× faster than documented recycling.</text>
+  <text x="350" y="214" text-anchor="middle" font-size="11" fill="#6b7280">Source: Global E-waste Monitor 2024 (UNITAR / ITU). Mt = million tonnes.</text>
+</svg>

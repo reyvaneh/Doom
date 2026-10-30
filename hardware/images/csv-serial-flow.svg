@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 200" width="740" height="200" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#374151"/></marker>
+  </defs>
+  <rect width="740" height="200" fill="#ffffff"/>
+
+  <rect x="15" y="70" width="120" height="60" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+  <text x="75" y="96" text-anchor="middle" font-size="13" font-weight="bold" fill="#111827">LDR on A0</text>
+  <text x="75" y="114" text-anchor="middle" font-size="11" fill="#374151">light → number</text>
+
+  <line x1="137" y1="100" x2="168" y2="100" stroke="#374151" stroke-width="2" marker-end="url(#ak)"/>
+
+  <rect x="170" y="70" width="135" height="60" rx="8" fill="#f3f4f6" stroke="#374151" stroke-width="1.5"/>
+  <text x="237" y="94" text-anchor="middle" font-size="13" font-weight="bold" fill="#111827">Arduino sketch</text>
+  <text x="237" y="114" text-anchor="middle" font-size="11" fill="#374151" font-family="Consolas, Menlo, monospace">Serial.print(...)</text>
+
+  <line x1="307" y1="100" x2="338" y2="100" stroke="#374151" stroke-width="2" marker-end="url(#ak)"/>
+  <text x="322" y="90" text-anchor="middle" font-size="10" fill="#6b7280">USB</text>
+
+  <rect x="340" y="40" width="150" height="120" rx="8" fill="#111827"/>
+  <text x="415" y="62" text-anchor="middle" font-size="11" fill="#9ca3af">serial text, one line each</text>
+  <g font-size="14" fill="#a7f3d0" font-family="Consolas, Menlo, monospace">
+    <text x="365" y="88">light,led</text>
+    <text x="365" y="110">734,1</text>
+    <text x="365" y="130">731,1</text>
+    <text x="365" y="150">402,0</text>
+  </g>
+
+  <line x1="492" y1="100" x2="548" y2="40" stroke="#374151" stroke-width="2" marker-end="url(#ak)"/>
+  <line x1="492" y1="100" x2="548" y2="100" stroke="#374151" stroke-width="2" marker-end="url(#ak)"/>
+  <line x1="492" y1="100" x2="548" y2="160" stroke="#374151" stroke-width="2" marker-end="url(#ak)"/>
+
+  <g font-size="13" font-weight="bold" fill="#111827">
+    <rect x="550" y="20" width="175" height="40" rx="6" fill="#dbeafe" stroke="#2563eb"/><text x="637" y="45" text-anchor="middle">Serial Plotter (graph)</text>
+    <rect x="550" y="80" width="175" height="40" rx="6" fill="#dcfce7" stroke="#16a34a"/><text x="637" y="105" text-anchor="middle">Python (pyserial)</text>
+    <rect x="550" y="140" width="175" height="40" rx="6" fill="#ede9fe" stroke="#7c3aed"/><text x="637" y="165" text-anchor="middle">Spreadsheet (.csv)</text>
+  </g>
+  <text x="415" y="190" text-anchor="middle" font-size="11" fill="#374151">newline = end of record · comma = between fields · first line = field names</text>
+</svg>

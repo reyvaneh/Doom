@@ -161,6 +161,10 @@ $1011 = 8 + 0 + 2 + 1 = 11$
 - $200 = 12 \times 16 + 8 \rightarrow$ 0xC8 $= 1100\ 1000$
 - 0x23 $= 0010\ 0011 = 2 \times 16 + 3 = 35$ — **not** twenty-three.
 
+![Binary 1011 0110 split into two 4-bit groups, which become the hex digits B and 6, so 0xB6 = 182](images/hex-nibbles.svg)
+
+*Each group of 4 bits becomes one hex digit.*
+
 **In Arduino code** a hex number starts with `0x` (for example `0x7B`); upper- or lower-case letters both work. Binary numbers start with `0b` (older sketches use `B`). A number with no prefix is denary. [Arduino, integer constants]
 
 **Where learners will meet hex:** I²C device addresses (C1 — a BH1750 light sensor is at `0x23`), memory addresses (a 16-bit address bus spans 0x0000–0xFFFF, see A5), web colours (`#66FF33` = 24 bits), MAC addresses (12 hex digits = 48 bits — useful in the Networks unit) and error codes. [Save My Exams, uses of hexadecimal (secondary source)]
@@ -257,6 +261,10 @@ Two more registers sit at the CPU's edge, where it meets the buses:
 | Execute `ADD 5` | 5 | read | 5 → MDR → ALU adds to ACC |
 | Execute `STORE 6` | 6 | **write** | 12 from ACC → MDR → memory |
 
+![The CPU (PC, IR, ACC, ALU, MAR, MDR, CU) connected to memory holding the paper-CPU program by a one-way address bus, a two-way data bus and a control bus](images/cpu-buses.svg)
+
+*The paper CPU and its memory, joined by the three buses.*
+
 The `STORE` row is why the data bus must be two-way: for a *write*, data travels **out** of the CPU. (This write sequence is worked out from the definitions above; check the wording against your exam board's specification.)
 
 **Exam habit:** when describing a bus, say both *what it carries* and *which way it goes*. A common mistake is to say the address bus carries data — it carries only the location.
@@ -266,6 +274,8 @@ The `STORE` row is why the data bus must be two-way: for a *write*, data travels
 The **clock** is a signal that ticks at a steady rate; each tick lets the CPU move one step further. Clock speed is ticks (cycles) per second: 1 MHz = $10^6$ per second, 1 GHz = $10^9$. The clock signal is one of the control-bus lines. [Emory University CS255 notes; TutorChase (secondary source)]
 
 On the Uno's 16 MHz clock, one tick lasts $1 / 16\,000\,000\ \text{s} = 62.5\ \text{ns}$. The ATmega328P completes most simple instructions in a single tick, so it reaches *about* 1 million instructions per second (MIPS) per MHz — roughly 16 MIPS at best. Some instructions take two or more ticks. [Microchip, AVR CPU core — instruction execution timing; ATmega328P datasheet (secondary source — check against the Microchip PDF)]
+
+![A square-wave clock signal with one instruction per tick; one tick at 16 MHz lasts 62.5 ns](images/clock-signal.svg)
 
 **Speed misconception:** a higher clock speed (GHz) does not automatically mean a faster computer. Speed also depends on how much work the CPU does per clock tick, how many cores the program can use, and whether the chip slows down when hot. [Tom's Hardware; Wikipedia, instructions per cycle]
 
@@ -298,6 +308,8 @@ The ATmega328P is different. Microchip describes the AVR as a **Harvard architec
 | Fetch and data access at the same time? | No — they take turns | Yes |
 
 *(Some sources call the AVR "modified Harvard", because its program memory can also be read as data. [Wikipedia, ATmega328 (secondary source)])*
+
+![Left: von Neumann CPU with one shared bus to one memory. Right: Harvard CPU with a program bus to flash and a separate data bus to SRAM](images/von-neumann-vs-harvard.svg)
 
 ### Microcontroller or single-board computer?
 
@@ -922,6 +934,8 @@ The Adafruit BME280 breakout can be wired as **either** I²C or SPI — the bus 
 | Arduino library | `Serial` | `Wire` | `SPI` |
 | Typical use | PC link, GPS, Bluetooth modules | Several slow sensors, small displays | Fast devices: SD cards, displays |
 
+![Wiring of the three buses: UART with crossed TX/RX between two devices; I²C with two devices (BH1750 0x23, BME280 0x77) on shared SDA/SCL; SPI with shared SCK/COPI/CIPO and one CS line per device](images/serial-buses.svg)
+
 ### Logic levels: 3.3 V modules on a 5 V Uno
 
 B5 warns about 3.3 V *boards*. The more common beginner case is a 3.3 V **sensor module** on a 5 V Uno. For example, the bare BME280 chip runs at 1.71–3.6 V and is **not** 5 V-tolerant *(secondary source)*, while Adafruit's breakout adds a regulator and level shifting so it is safe on 5 V. [Adafruit, BME280 guide] Before connecting any module, check:
@@ -941,6 +955,8 @@ Serial.print(lightValue);
 Serial.print(',');
 Serial.println(ledOn ? 1 : 0);   // e.g. "734,1" then a new line
 ```
+
+![The LDR reading goes through the Arduino sketch and USB as CSV lines (light,led / 734,1 / 731,1 / 402,0) to the Serial Plotter, a Python program, or a spreadsheet](images/csv-serial-flow.svg)
 
 The same stream can then be read in three ways:
 
@@ -968,6 +984,8 @@ An electrolytic capacitor connected the wrong way round can "fail spectacularly 
 - **Decoupling capacitor:** a **0.1 µF ceramic** placed **as close as possible** to a chip's power pin. When the chip suddenly draws current, this small local store supplies it, keeping the supply voltage steady. Manufacturers (Microchip, Texas Instruments) consistently recommend this. [Microchip, decoupling capacitors; TI THS4281 datasheet]
 - **Bulk capacitor:** a larger electrolytic (tens to hundreds of µF) that smooths bigger, slower dips. This matters as soon as a **servo** is added (B9): a servo starting up can pull the supply down far enough to **reset the Arduino**. Adafruit's fix is a capacitor of **470 µF or more** between 5 V and GND, longer (+) leg to 5 V. [Adafruit, Arduino Lesson 14 — servo motors]
 
+![Left: a ceramic capacitor marked 104 (no polarity) and an electrolytic capacitor with a stripe marking the negative leg. Right: a 0.1 µF decoupling capacitor next to a chip and a 470 µF bulk capacitor next to a servo, both between 5 V and GND](images/capacitors.svg)
+
 ### A capacitor on the sensor input (optional)
 
 A 100 nF ceramic from A0 to GND forms an **RC filter** with the divider. Its **time constant** is
@@ -992,6 +1010,8 @@ B5 says "read the datasheet". Here is what that looks like for the two parts in 
 
 [GL5528 datasheet (Rapid Electronics / TruOpto); Kingbright WP7113ID datasheet] *The last two columns are our own calculations from those values.*
 
+![Bar chart: LED current about 9.4 mA of a 30 mA limit (31 %), LED power about 18 mW of 75 mW (24 %), LDR power at most 0.63 mW of 100 mW (under 1 %)](images/datasheet-margins.svg)
+
 **Four lessons from this table:**
 
 1. **Design to min/max, not "typ".** "Typ" is a typical part; yours may differ. With 330 Ω, the LED current is $(5 - 1.9)/330 \approx 9.4\ \text{mA}$ at typical forward voltage, but $(5 - 2.3)/330 \approx 8.2\ \text{mA}$ at the maximum. Both are safe. The LDR's 10–20 kΩ spread at the same light level — a factor of 2 between parts — is the datasheet's own reason why B7 tells you to **calibrate every build**.
@@ -1004,6 +1024,8 @@ Two smaller points: an LED connected backwards on a 5 V pin sits right at its 5 
 ## C5. Sustainability: e-waste and responsible parts
 
 **The scale of the problem.** The *Global E-waste Monitor 2024* reports **62 million tonnes** of electronic waste generated worldwide in 2022 — up 82 % since 2010 and heading for 82 million tonnes by 2030. Only **22.3 %** was documented as properly collected and recycled, and e-waste is growing **five times faster** than documented recycling. The metals in it were worth about US$91 billion. It defines e-waste as "any discarded product with a plug or battery". [UNITAR, Global E-waste Monitor 2024 press release]
+
+![Bar chart: 62 Mt of e-waste in 2022, of which 22.3 % was documented as recycled; 82 Mt projected for 2030](images/e-waste.svg)
 
 **RoHS links sustainability back to the datasheet.** The EU **RoHS** directive (2011/65/EU, extended by 2015/863) restricts ten hazardous substances in electronics, including **lead**, **cadmium** and **mercury**. [European Commission, RoHS directive] Look at this project's parts:
 
