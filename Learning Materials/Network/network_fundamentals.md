@@ -11,6 +11,8 @@
 <img src="computernetwork1.jpg" alt="Modern computer networking" width="800">
 ---
 
+For an introduction to data, packets, LANs and WANs, start with [Beginner Prerequisites](beginner-prerequisites.md).
+
 ## 📚 Learning Objectives
 
 By the end of this guide, you will be able to:
@@ -446,5 +448,4 @@ graph LR
     A[Your Laptop] -.->|Encrypted Tunnel| V[VPN Server]
     V -->|Decrypted Data| W[Website]
     end
-    
-    
+```

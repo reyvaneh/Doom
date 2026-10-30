@@ -6,7 +6,7 @@
 
 The Hardware unit answers two beginner questions:
 
-1. **What is inside a computer, and how does it follow instructions?** (Part A — matches Lessons 1–2 in [study-overview.md](../study-overview.md))
+1. **What is inside a computer, and how does it follow instructions?** (Part A — matches Lessons 1–2 in [study-overview.md](../../study-overview.md))
 2. **How does a computer-based system sense and affect the physical world?** (Part B — a worked project: an automatic light indicator)
 
 Part A explains the computer as a general idea. Part B uses a small computer (a microcontroller) to build something real. Section A6 is the bridge between the two. Part C goes further: serial buses (I²C, SPI, UART), sending data to another device, capacitors, reading a real datasheet, and e-waste.
