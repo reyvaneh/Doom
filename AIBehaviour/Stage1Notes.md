@@ -39,7 +39,7 @@ The five questions are a small contribution to a later test covering the whole m
 Run the optional check from the repository root:
 
 ```powershell
-python "AIBehaviour_Book/checks/rl_vacuum_model.py"
+python "AIBehaviour/checks/rl_vacuum_model.py"
 ```
 
 Expected output from the unchanged teaching model:
@@ -70,6 +70,6 @@ Do not mark this review complete until it actually happens. Keep personal reflec
 
 ## Folder cleanup
 
-The folder was renamed to `AIBehaviour_Book` because this material is a book-style Markdown foundation. The chapter already provides navigation, so the separate long contents plan was removed. Lecturer scope, content status, validation and pending review now share this file; technical and background references share References.md. Duplicate diagram specifications and the older supplementary four-tile controller exercise were removed from the current package. Their development history remains recoverable in Git.
+The current folder is `AIBehaviour`. The material remains a book-style Markdown foundation. Legacy PDF exports were removed on 30 October 2026; earlier versions remain recoverable in Git history. The chapter already provides navigation, so the separate long contents plan was removed. Lecturer scope, content status, validation and pending review now share this file; technical and background references share References.md. Duplicate diagram specifications and the older supplementary four-tile controller exercise were removed from the current package. Their development history remains recoverable in Git.
 
 Cleanup checks: all 46 local links and heading anchors in the three Markdown files, repository introduction and public progress log resolved. Code fences are balanced and the book retains exactly five easy questions. The six retained asset, source-deck and check-script files match their original Git content after normal checkout line-ending handling. The relocated RL check passed its 24 transitions and six scripted updates. `git diff --check` passed. These checks do not complete independent review or verify a final book export.
