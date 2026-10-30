@@ -139,7 +139,7 @@ Each lesson should eventually have a study-guide section, matching slides, a sho
 - [ ] Draft slides and video scripts from the reviewed Markdown.
 - [ ] Prepare answer guides and check source attribution for reused material.
 - [ ] Rehearse with a beginner and revise unclear explanations or unrealistic timing.
-- [ ] Record actual contributions, decisions, and evidence in [student-log.md](student-log.md).
+- [ ] Record actual contributions, decisions, and evidence in the team project log and private personal logs; their locations still need to be supplied by the team.
 
 These are planned tasks, not completed deliverables. The README lists Stage 1 as due 24 October; later milestones and individual assignments are not specified here.
 

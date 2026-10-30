@@ -15,11 +15,15 @@
 * **[杜光辉]** | ID [1820262177] | Github: [@QuangHuy260608]
 
 ## 📂 Folder Structure
-* `/hardware` - Hardware unit: [hardware.md](hardware/hardware.md) (learning content V1.1), its images, research notes and source report.
-* `study-overview.md` - Whole-module outline and proposed lesson sequence.
-* `docs/`, `templates/` - Student-log guidelines and templates.
-* Networks and Behaviorist AI units are being developed on the `network` and `ai-behavior` branches.
-* Project Plan and Master Task List - *location to be added.*
+* [Hardware unit](hardware/hardware.md) - Learning content, lab skills, Arduino examples, diagrams and research notes.
+* [Networks unit](Network/network_fundamentals.md) - Beginner networking content and supporting images.
+* [AI Behaviour book](AIBehaviour_Book/AIBehaviour.md) - Current Markdown source, with references, development notes and supporting assets.
+* [Module outline](study-overview.md) - Whole-module outline and proposed lesson sequence; some status entries still need updating.
+* [Legacy AI exports](AIBehaviour_Book/legacy-exports/README.md) - Earlier PDFs retained for reference; these are not exports of the current AI chapter.
+* Project Plan and Master Task List - Location still needs to be supplied by the team.
 
 ## 🚀 Current Progress
-* **Stage 1 (Due Oct 24):** Repository established. Team roles assigned. Project plan and Markdown V1.0 outline currently in development.
+* Hardware, Networks and AI Behaviour source content is consolidated on `main`.
+* Hardware teaching diagrams and the revised AI Behaviour book are included.
+* Content drafting and local example checks do not complete Stage 1: teammate review, current rendered submission/package verification, and team submission evidence remain pending or unverified. See [AI Stage 1 notes](AIBehaviour_Book/Stage1Notes.md).
+* Personal logs must remain outside the public repository.
