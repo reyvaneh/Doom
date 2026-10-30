@@ -18,6 +18,7 @@
 * [Hardware unit](Learning%20Materials/Hardware/hardware.md) - Learning content, lab skills, Arduino examples, diagrams and research notes.
 * [Networks unit](Learning%20Materials/Network/network_fundamentals.md) - Beginner networking content and supporting images.
 * [AI Behaviour](Learning%20Materials/AIBehaviour/AIBehaviour.md) - Current Markdown source, with references, development notes and supporting assets.
+* [Test Bank](Test%20Bank/README.md) - Beginner Stage 2 draft with 46 questions, explained answers and an editable Word document; teammate review pending.
 * [Module outline](study-overview.md) - Whole-module outline and proposed lesson sequence; some status entries still need updating.
 * [Project plan and master task list](Project%20Plan/Project_Plan_Stage2_and_Stage3.md) - Master plan and task list, with the supplied [PDF](Project%20Plan/Project_Plan_Stage2_and_Stage3.pdf) and its Markdown transcription; the plan spans Stages 1–3.
 
