@@ -1,6 +1,6 @@
 # AI Behaviour - Stage 1 notes
 
-**Updated: 28 October 2026. Status: content drafted and locally checked; independent teammate review pending.**
+**Updated: 30 October 2026. Status: Stage 1 teammate review and team submission completed, as confirmed by the team.**
 
 The reader starts with [AIBehaviour.md](AIBehaviour.md). [References.md](References.md) contains the claim-to-source map and background attribution. This file holds submission and verification notes so development records do not interrupt the book. The later interactive study guide, combined test bank, slides and videos are separate deliverables.
 
@@ -18,7 +18,7 @@ The supplied `source-materials/chap6 Behaviorist AI.pptx` was inspected on 22 Oc
 | Applications and Use Cases | Cleaning, grid games and simulated navigation | Proposed examples, not product claims |
 | Challenges and Limitations | Partial observations, rewards, exploration and model limits | No empirical evaluation or safety guarantee |
 
-The separate Shared Assignment Rules attachment remains unchecked. The Stage 1 Markdown assignment was read in LeXue on 27 October 2026; the user's account of the team leader's feedback informed the revision. No independent review, learner trial or physical experiment is claimed.
+The separate Shared Assignment Rules attachment remains unchecked. The Stage 1 Markdown assignment was read in LeXue on 27 October 2026; the user's account of the team leader's feedback informed the revision. The team confirmed on 30 October 2026 that the required teammate review and team submission are complete. No learner trial or physical experiment is claimed.
 
 ## Content status
 
@@ -28,9 +28,10 @@ The separate Shared Assignment Rules attachment remains unchecked. The Stage 1 M
 | Five easy chapter-end questions with answers | Drafted; mostly simple reasoning, with no calculation requirement |
 | Technical references and background attribution | Recorded with access limits |
 | Two-tile MDP and scripted numerical replay | Local consistency checks passed |
-| Independent teammate review | Pending |
+| Independent teammate review | Completed; confirmed by the team on 30 October 2026 |
 | Training comparison or physical robot trial | Not performed |
-| Rendered team submission and extracted-package check | Pending |
+| Team submission | Completed by the team leader; confirmed by the team on 30 October 2026 |
+| Submitted package and extraction-check evidence | Not separately recorded here; team submission is confirmed complete |
 
 The five questions are a small contribution to a later test covering the whole module. Detailed algorithm explanations remain source material and do not imply that the introductory test must examine them in depth.
 
@@ -53,16 +54,11 @@ Additional one-off checks on 28 October confirmed the illustrative Q target 5.6,
 
 ## Review status
 
-Another team member still needs to check the book. This brief checklist replaces the separate blank review form:
+The required teammate review is complete, as confirmed by the team on 30 October 2026. The team leader has also completed the team submission. The confirmation date records this status update, not the date on which the review took place.
 
-- Check the definitions, scope and distinction between fixed modes and learning.
-- Manually verify the MDP rewards, terminal convention and worked updates.
-- Confirm that the methods overview agrees with its technical sources.
-- Answer the five simple questions using only the chapter and check their explanations.
-- Check diagrams, relative links and the actual rendered submission copy.
-- Record the reviewer, date, version, what was checked, a concrete finding or confirmation, and any resulting correction in the project log.
+For reviewer details, findings and submitted files, refer to the team's project and submission records. The [master project plan](../../Project%20Plan/Project_Plan_Stage2_and_Stage3.md) records Stage 1 completion and the next stages of work.
 
-Do not mark this review complete until it actually happens. Keep personal reflections, student IDs and full private AI-use records outside the public repository.
+Keep personal reflections and full private AI-use records outside the public repository. Future Stage 2 revisions need their own checks and review records.
 
 ## Diagrams
 
@@ -70,6 +66,6 @@ Do not mark this review complete until it actually happens. Keep personal reflec
 
 ## Folder cleanup
 
-The current folder is `Learning Materials/AIBehaviour`. The material remains a book-style Markdown foundation. Legacy PDF exports were removed on 30 October 2026; earlier versions remain recoverable in Git history. The chapter already provides navigation, so the separate long contents plan was removed. Lecturer scope, content status, validation and pending review now share this file; technical and background references share References.md. Duplicate diagram specifications and the older supplementary four-tile controller exercise were removed from the current package. Their development history remains recoverable in Git.
+The current folder is `Learning Materials/AIBehaviour`. The material remains a book-style Markdown foundation. Legacy PDF exports were removed on 30 October 2026; earlier versions remain recoverable in Git history. The chapter already provides navigation, so the separate long contents plan was removed. Lecturer scope, content status, validation and review status now share this file; technical and background references share References.md. Duplicate diagram specifications and the older supplementary four-tile controller exercise were removed from the current package. Their development history remains recoverable in Git.
 
-Cleanup checks: all 46 local links and heading anchors in the three Markdown files, repository introduction and public progress log resolved. Code fences are balanced and the book retains exactly five easy questions. The six retained asset, source-deck and check-script files match their original Git content after normal checkout line-ending handling. The relocated RL check passed its 24 transitions and six scripted updates. `git diff --check` passed. These checks do not complete independent review or verify a final book export.
+Cleanup checks: all 46 local links and heading anchors in the three Markdown files, repository introduction and public progress log resolved. Code fences are balanced and the book retains exactly five easy questions. The six retained asset, source-deck and check-script files match their original Git content after normal checkout line-ending handling. The relocated RL check passed its 24 transitions and six scripted updates. `git diff --check` passed. These local checks are separate from the teammate review and team submission subsequently confirmed as complete on 30 October 2026; they do not independently verify the final submitted export.
