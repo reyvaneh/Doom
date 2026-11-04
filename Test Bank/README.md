@@ -6,6 +6,8 @@ This folder holds Team Doom's Stage 2 test-bank draft for **Hardware, Networks &
 
 Start with [Questions.md](Questions.md), then check [AnswerKey.md](AnswerKey.md). The [editable Word document](Doom_Stage2_TestBank_V1.docx) combines all questions with the answer key afterward. [PLAN.md](PLAN.md) records the coverage and [Review.md](Review.md) records checks and outstanding review work.
 
+An [interactive HTML practice version](../DOOM_Test_Bank_Interactive.html) is also retained from the latest main-branch contribution. Download it and open it in a browser; its assessment content needs the same final reconciliation as the other versions.
+
 The bank contains **20 true/false, 20 multiple-choice and 6 guided open-ended questions**. Hardware has 16 questions, Networks 16 and AI Behaviour 14. Questions focus on basic understanding, everyday examples and short reasoning. They require no real circuit, network account or advanced algorithm calculation.
 
 The Word document will be included in `Doom_Stage2_StudyGuide_TestBank_V1.zip` alongside the Study Guide and required activity files when those are ready. This folder is the test-bank contribution, not a complete Study Guide submission package. A PDF copy is optional and is not included.

@@ -189,7 +189,6 @@ Use the [46-question practice bank](../Test%20Bank/Questions.md), then consult i
   - [I.2 Background reference materials](#i2-background-reference-materials)
   - [I.3 Attribution and limits](#i3-attribution-and-limits)
 - [Appendix J — Networking companion references](#appendix-J)
-  - [J.1 A Beginner's Guide to How the Internet is Built](#j1-a-beginners-guide-to-how-the-internet-is-built)
 
 ---
 
@@ -2905,7 +2904,7 @@ Example: `00:1A:2B:3C:4D:5E`
 #### What is a packet? (The Postal Analogy)
 Imagine you want to send a 100-page book to a friend. You do not put the whole book into one giant envelope. Instead, you tear the book into 100 pages, put each page into its own envelope, write the destination address and a page number (1 of 100) on each, and mail them.
 
-In networking, a **packet** is like one of those small envelopes. 
+In networking, a **packet** is like one of those small envelopes.
 - Your large file is split into thousands of packets.
 - Each packet has a **destination IP address**.
 - Packets may take different paths, but they are reassembled at the destination.
@@ -3011,37 +3010,37 @@ Test your understanding before moving on.
 
 **Question 1:** Which device primarily forwards packets between IP networks?
 
-A. Switch  
-B. Router  
-C. Keyboard  
+A. Switch<br>
+B. Router<br>
+C. Keyboard<br>
 D. Monitor
 
 **Question 2:** Which network usually covers a home or classroom?
 
-A. WAN  
-B. Satellite  
-C. LAN  
+A. WAN<br>
+B. Satellite<br>
+C. LAN<br>
 D. The entire Internet
 
 **Question 3:** What does DNS help a device do?
 
-A. Find records associated with a domain name  
-B. Replace the router  
-C. Increase CPU speed  
+A. Find records associated with a domain name<br>
+B. Replace the router<br>
+C. Increase CPU speed<br>
 D. Connect a monitor
 
 **Question 4:** What is the main role of a switch?
 
-A. Display web pages  
-B. Store passwords  
-C. Replace every network protocol  
+A. Display web pages<br>
+B. Store passwords<br>
+C. Replace every network protocol<br>
 D. Forward frames within a local network
 
 **Question 5:** Which statement is correct?
 
-A. IP and MAC addresses are interchangeable.  
-B. IP and MAC addresses have different roles.  
-C. Only routers need addresses.  
+A. IP and MAC addresses are interchangeable.<br>
+B. IP and MAC addresses have different roles.<br>
+C. Only routers need addresses.<br>
 D. DNS is a physical network device.
 
 <a id="11-short-answer-challenge"></a>
@@ -3054,10 +3053,10 @@ D. DNS is a physical network device.
 <details>
 <summary><strong>Show the answer key</strong></summary>
 
-1. B — Router  
-2. C — LAN  
-3. A — Find records associated with a domain name  
-4. D — Forward frames within a local network  
+1. B — Router<br>
+2. C — LAN<br>
+3. A — Find records associated with a domain name<br>
+4. D — Forward frames within a local network<br>
 5. B — IP and MAC addresses have different roles
 
 **Short-answer guidance**
@@ -3806,23 +3805,3 @@ Use these resources to verify and deepen your understanding:
 4. [MDN Web Docs — An Overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
 
 Record the sources you actually consult and verify before submitting the final version.
-
-<a id="J-j1-a-beginners-guide-to-how-the-internet-is-built"></a>
-### J.1 A Beginner's Guide to How the Internet is Built
-
-
-> We know that computers talk to each other. But how do billions of devices find each other without chaos? 
->
-> It requires invisible structures, strict rules (protocols), and clever routing mechanisms.
-
----
-
-By the end of this guide, you will be able to:
-
-- Understand basic network topologies (Star, Mesh).
-- Explain the OSI Model and why it matters.
-- Understand how devices get IP addresses (DHCP) and share them (NAT).
-- Differentiate between Latency and Bandwidth.
-- Explain the basic concepts of VPNs and Proxies.
-
----

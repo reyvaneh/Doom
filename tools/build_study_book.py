@@ -123,7 +123,7 @@ add(network, "📖 References", "11 · The OSI Model: The 7 Layers of Networking
 # The sentence between the old reference list and extension belongs to the old
 # page introduction, not to the collected bibliography.
 source, body = blocks[-1]
-body = body.split("### A Beginner's Guide to How the Internet is Built")[0].rstrip()
+body = body.split('\n<a id="J-')[0].rstrip()
 blocks[-1] = (source, body)
 
 
@@ -235,6 +235,16 @@ for _, level, title in headings(body):
     toc.append(("  " if level == 3 else "") + f"- [{title}](#{anchor})")
 
 book = front.replace("{{CONTENTS}}", "\n".join(toc)) + "\n" + body + "\n"
+# Preserve Markdown hard line breaks explicitly; avoid inherited trailing spaces.
+clean_lines = []
+in_code = False
+for line in book.splitlines():
+    if re.match(r"^(`{3,}|~{3,})", line):
+        in_code = not in_code
+    if not in_code:
+        line = line.rstrip() + ("<br>" if line.endswith("  ") else "")
+    clean_lines.append(line)
+book = "\n".join(clean_lines).rstrip() + "\n"
 
 
 def validate(book):
