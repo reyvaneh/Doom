@@ -1,6 +1,6 @@
 # Hardware, Networks & Behaviorist AI
 
-> Course outline v0.1 — 16 October 2026. A plan for lectures and learning materials; full lesson content, slides, and videos are still to be developed.
+> Teaching outline originally drafted 16 October 2026. The current learning content is the [consolidated study book](Learning%20Materials/Study%20Book.md), with six core chapters and practical extensions. The proposed lesson timings and development checklist below are historical planning items, not a current completion record.
 
 ## 1. Course purpose
 
@@ -141,7 +141,7 @@ Each lesson should eventually have a study-guide section, matching slides, a sho
 - [ ] Rehearse with a beginner and revise unclear explanations or unrealistic timing.
 - [ ] Record actual contributions, decisions, and evidence in the team project log and private personal logs; their locations still need to be supplied by the team.
 
-These are planned tasks, not completed deliverables. The README lists Stage 1 as due 24 October; later milestones and individual assignments are not specified here.
+These are planning items, not a current completion checklist. Stage 1 review and team submission were confirmed complete on 30 October 2026; see the [project README](README.md). The consolidated book now supplies the reading content. Slides, videos and other Stage 2 deliverables still need their own completion evidence.
 
 ## 8. Research references
 

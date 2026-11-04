@@ -1,5 +1,7 @@
 # Hardware — Learning Content V1.1
 
+> **Reading edition:** This source is included or superseded in the [complete study book](../Study%20Book.md). Start there for the numbered chapters and subchapters.
+
 *Part of the module **Hardware, Networks & Behaviorist AI**. The Networks and Behaviorist AI units are developed on their own branches/folders; this file covers the Hardware unit only.*
 
 ## How to use this file

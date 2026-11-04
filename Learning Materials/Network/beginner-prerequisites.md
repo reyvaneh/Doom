@@ -1,5 +1,7 @@
 # Network Beginner Prerequisites
 
+> **Reading edition:** This source is included or superseded in the [complete study book](../Study%20Book.md). Start there for the numbered chapters and subchapters.
+
 
 Before exploring computer networks, let's understand how computers represent information, how data travels, and how networks connect devices over different distances.
 

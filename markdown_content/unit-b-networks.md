@@ -1,5 +1,7 @@
 # Unit B — Networks
 
+> **Reading edition:** This source is included or superseded in the [complete study book](../Learning%20Materials/Study%20Book.md). Start there for the numbered chapters and subchapters.
+
 > Study-guide content for Lessons 3–4 of the [course outline](../study-overview.md). Written for absolute beginners. The descriptions are simplified on purpose; where a simplification hides an important detail, a note says so.
 
 **Running example:** a robot vacuum that can be started from a phone app.

@@ -15,16 +15,15 @@
 * **[杜光辉]** | ID [1820262177] | Github: [@QuangHuy260608]
 
 ## 📂 Folder Structure
-* [Hardware unit](Learning%20Materials/Hardware/hardware.md) - Learning content, lab skills, Arduino examples, diagrams and research notes.
-* [Networks unit](Learning%20Materials/Network/network_fundamentals.md) - Beginner networking content and supporting images.
-* [AI Behaviour](Learning%20Materials/AIBehaviour/AIBehaviour.md) - Current Markdown source, with references, development notes and supporting assets.
+* **[Read the study book](Learning%20Materials/Study%20Book.md)** - One reading edition for Hardware, Networks and AI Behaviour, with 16 numbered chapters, subchapters, examples, questions and 10 reference/glossary appendices.
+* [Book guide and supporting materials](Learning%20Materials/README.md) - Reading order, chapter map, source records, diagrams and practical files.
 * [Test Bank](Test%20Bank/README.md) - Beginner Stage 2 draft with 46 questions, explained answers and an editable Word document; teammate review pending.
-* [Module outline](study-overview.md) - Whole-module outline and proposed lesson sequence; some status entries still need updating.
+* [Module outline](study-overview.md) - Teaching plan for the six core lessons; the book is the current reading edition.
 * [Project plan and master task list](Project%20Plan/Project_Plan_Stage2_and_Stage3.md) - Master plan and task list, with the supplied [PDF](Project%20Plan/Project_Plan_Stage2_and_Stage3.pdf) and its Markdown transcription; the plan spans Stages 1–3.
 
 ## 🚀 Current Progress
-* Hardware, Networks and AI Behaviour source content is organized under `Learning Materials/` and consolidated on `main`.
+* Hardware, Networks, AI Behaviour and practical supplements are combined in the [study book](Learning%20Materials/Study%20Book.md), including the newer six-lesson drafts from the hardware branch. Original source files remain available for attribution and maintenance.
 * Hardware teaching diagrams and the revised AI Behaviour content are included.
 * **Stage 1:** Teammate review and team submission are complete, confirmed by the team on 30 October 2026. The team leader handled submission; other members do not need a separate submission attempt. The master project plan also records the Stage 1 status report as completed. See [AI Stage 1 notes](Learning%20Materials/AIBehaviour/Stage1Notes.md).
-* **Stage 2:** Continue with Markdown V2.0, the Study Guide and Test Bank, teaching slides, video tutorials, and updated logs according to the project plan.
+* **Stage 2:** The consolidated study-book draft and Test Bank draft are available. Teammate/learner review, technical checks, submission packaging, teaching slides, video tutorials and updated logs remain subject to the project plan.
 * Personal logs must remain outside the public repository.

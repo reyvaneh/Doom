@@ -1,5 +1,7 @@
 # Hardware — Beginner Lab Skills (supplement to V1.1)
 
+> **Reading edition:** This source is included or superseded in the [complete study book](../Study%20Book.md). Start there for the numbered chapters and subchapters.
+
 *Companion to [hardware.md](hardware.md). Read this **before the first lab session**. It covers the practical skills a first-time builder needs before Part B makes sense: using a breadboard, a multimeter, resistor values, schematic symbols, uploading code, and digital inputs.*
 
 **Status:** Drafted — needs technical review. Not yet tested in a lab session.

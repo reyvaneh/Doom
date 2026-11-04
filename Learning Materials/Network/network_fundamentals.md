@@ -1,5 +1,7 @@
 
 # 🌐 Computer Networks
+
+> **Reading edition:** This source is included or superseded in the [complete study book](../Study%20Book.md). Start there for the numbered chapters and subchapters.
 ### A Beginner's Guide to How Devices Communicate
 
 > **THE BIG IDEA**

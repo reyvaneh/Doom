@@ -2,7 +2,7 @@
 
 **Status: version 1.0 drafted and locally checked; teammate review and final Study Guide mapping pending.**
 
-This folder will hold Team Doom's Stage 2 test bank for **Hardware, Networks & Behaviorist AI**. It covers the whole module and accompanies the separate Study Guide.
+This folder holds Team Doom's Stage 2 test-bank draft for **Hardware, Networks & Behaviorist AI**. It accompanies the [consolidated study book](../Learning%20Materials/Study%20Book.md). Read its six core chapters first; the advanced extensions are not prerequisites for this beginner bank. Teammate review and final question-by-question reconciliation remain pending.
 
 Start with [Questions.md](Questions.md), then check [AnswerKey.md](AnswerKey.md). The [editable Word document](Doom_Stage2_TestBank_V1.docx) combines all questions with the answer key afterward. [PLAN.md](PLAN.md) records the coverage and [Review.md](Review.md) records checks and outstanding review work.
 

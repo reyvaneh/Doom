@@ -1,5 +1,7 @@
 # Unit C — Behaviorist AI
 
+> **Reading edition:** This source is included or superseded in the [complete study book](../Learning%20Materials/Study%20Book.md). Start there for the numbered chapters and subchapters.
+
 > Study-guide content for Lessons 5–6 of the [course outline](../study-overview.md). Written for absolute beginners. No programming is required; rules are written in plain language.
 
 **Running example:** a robot vacuum that cleans a room without a map or a network connection.

@@ -1,5 +1,7 @@
 # AI Behaviour
 
+> **Reading edition:** This source is included or superseded in the [complete study book](../Study%20Book.md). Start there for the numbered chapters and subchapters.
+
 This book introduces how artificial agents select actions and learn from experience. It is the Markdown source for later study-guide, slide and video development.
 
 ## Contents

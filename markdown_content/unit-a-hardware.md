@@ -1,5 +1,7 @@
 # Unit A — Hardware
 
+> **Reading edition:** This source is included or superseded in the [complete study book](../Learning%20Materials/Study%20Book.md). Start there for the numbered chapters and subchapters.
+
 > Study-guide content for Lessons 1–2 of the [course outline](../study-overview.md). Written for absolute beginners. Numbers marked "roughly" are typical values used for comparison, not exact specifications.
 
 **Running example:** a robot vacuum. Every section ends by asking what the same idea looks like inside the vacuum.
