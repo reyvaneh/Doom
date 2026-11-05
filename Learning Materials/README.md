@@ -2,6 +2,8 @@
 
 **[Open the complete book](Study%20Book.md)**
 
+The same complete content is also available in [markdown_content/learning-materials.md](../markdown_content/learning-materials.md), alongside the [Markdown folder guide](../markdown_content/README.md).
+
 Read one book from beginning to end, with numbered chapters and subchapters, a clickable contents page, worked examples, review questions, glossaries, sources and image credits. The robot vacuum connects the three core subjects; the light indicator provides a practical hardware project.
 
 | Reading order | Chapters | What you will learn |

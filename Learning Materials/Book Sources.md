@@ -20,6 +20,8 @@ Numeric reference lists retain their original scopes. The book's opening pages i
 
 ## Updating the book
 
+The builder also writes the complete content to [markdown_content/learning-materials.md](../markdown_content/learning-materials.md), rebasing image and supporting-file paths for that folder. Both generated editions contain the same teaching material and are checked together.
+
 Edit the relevant retained source, then run `python tools/build_study_book.py` from the repository root. The builder preserves fenced code examples, rewrites local links and images for the book's location, assigns unique anchors, and rebuilds the contents page. It validates chapter order and local link/image destinations. Run `python tools/build_study_book.py --check` to confirm the reading edition matches the sources. Keep changes to the source and book in the same commit.
 
 Chapter 16 and the opening reading guide are maintained in the builder. Source navigation banners are excluded from the generated book. Supporting research documents are linked from the original sources; their findings have not been newly verified by this editorial consolidation.

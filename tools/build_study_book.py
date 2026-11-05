@@ -6,6 +6,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "Learning Materials/Study Book.md"
+MARKDOWN_OUTPUT = ROOT / "markdown_content/learning-materials.md"
 
 
 def read(path):
@@ -247,7 +248,7 @@ for line in book.splitlines():
 book = "\n".join(clean_lines).rstrip() + "\n"
 
 
-def validate(book):
+def validate(book, output=OUTPUT):
     ids = re.findall(r'<a id="([^"]+)"', book)
     if len(ids) != len(set(ids)):
         raise SystemExit("Duplicate explicit book anchors")
@@ -262,7 +263,7 @@ def validate(book):
         if not path:
             if fragment not in anchors:
                 errors.append(f"Missing book anchor: {url}")
-        elif not (OUTPUT.parent / path).exists():
+        elif not (output.parent / path).exists():
             errors.append(f"Missing local destination: {url}")
     chapters = re.findall(r"^## Chapter (\d+) —", book, flags=re.M)
     if chapters != [str(i) for i in range(1, 17)]:
@@ -273,10 +274,39 @@ def validate(book):
 
 
 validate(book)
+
+
+def export_url(url):
+    """Keep book anchors and rebase asset/source links for markdown_content."""
+    if re.match(r"^(?:[a-zA-Z][\w+.-]*:|//|#)", url):
+        return url
+    from os.path import relpath
+    path, separator, fragment = unquote(url).partition("#")
+    destination = quote(
+        Path(relpath(OUTPUT.parent / path, MARKDOWN_OUTPUT.parent)).as_posix(),
+        safe="/-._~",
+    )
+    return destination + (separator + fragment if separator else "")
+
+
+markdown_book = re.sub(
+    r"(\]\()((?:[^()\n]|\([^()]*\))*)(\))",
+    lambda m: m[1] + export_url(m[2]) + m[3],
+    book,
+)
+markdown_book = re.sub(
+    r'(\b(?:src|href)=")([^"]+)(")',
+    lambda m: m[1] + export_url(m[2]) + m[3],
+    markdown_book,
+)
+validate(markdown_book, MARKDOWN_OUTPUT)
+
 if "--check" in sys.argv:
-    if not OUTPUT.exists() or OUTPUT.read_text(encoding="utf-8") != book:
-        raise SystemExit("Book needs rebuilding: python tools/build_study_book.py")
-    print("Book matches its chapter sources.")
+    for output, content in [(OUTPUT, book), (MARKDOWN_OUTPUT, markdown_book)]:
+        if not output.exists() or output.read_text(encoding="utf-8") != content:
+            raise SystemExit(f"{output.relative_to(ROOT)} needs rebuilding: python tools/build_study_book.py")
+    print("Both reading editions match their chapter sources.")
 else:
-    OUTPUT.write_text(book, encoding="utf-8", newline="\n")
-    print(f"Built {OUTPUT.relative_to(ROOT)} ({len(book.split()):,} words)")
+    for output, content in [(OUTPUT, book), (MARKDOWN_OUTPUT, markdown_book)]:
+        output.write_text(content, encoding="utf-8", newline="\n")
+        print(f"Built {output.relative_to(ROOT)} ({len(content.split()):,} words)")

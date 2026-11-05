@@ -15,6 +15,7 @@
 * **[杜光辉]** | ID [1820262177] | Github: [@QuangHuy260608]
 
 ## 📂 Folder Structure
+* [Learning materials in markdown_content](markdown_content/README.md) - Complete Markdown content, including all 16 chapters and 10 appendices, plus the three core unit sources.
 * **[Read the study book](Learning%20Materials/Study%20Book.md)** - One reading edition for Hardware, Networks and AI Behaviour, with 16 numbered chapters, subchapters, examples, questions and 10 reference/glossary appendices.
 * [Book guide and supporting materials](Learning%20Materials/README.md) - Reading order, chapter map, source records, diagrams and practical files.
 * [Test Bank](Test%20Bank/README.md) - Beginner Stage 2 draft with 46 questions, explained answers and an editable Word document; teammate review pending.
