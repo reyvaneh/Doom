@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Castle Doom Campaign · Hardware, Networks &amp; Behaviorist AI · Team Doom Stage 2 Study Guide</title>
+<meta name="description" content="Team Doom's Stage 2 study guide as a playable campaign: 16 missions across hardware, networks and behaviorist AI.">
+<style>/*CSS*/</style>
+</head>
+<body class="on-title">
+<div class="bg-art"></div><div class="bg-veil"></div>
+
+<header class="hud" id="hud">
+  <button class="brand" type="button" data-go="#/title" aria-label="Title screen">
+    <img data-asset="CREST" alt="">
+    <div><b class="gold-text">CASTLE DOOM</b><small>STAGE 2 CAMPAIGN</small></div>
+  </button>
+  <nav aria-label="Main">
+    <button type="button" data-go="#/map" data-nav="map">Campaign</button>
+    <button type="button" data-go="#/armoury" data-nav="armoury">Armoury</button>
+    <button type="button" data-go="#/codex" data-nav="codex">Codex</button>
+    <button type="button" data-go="#/trial" data-nav="trial">Final Trial</button>
+  </nav>
+  <div class="hud-stats">
+    <button class="rank" type="button" data-go="#/trophies" title="Rank and trophies">
+      <div class="rank-hex" id="hud-level">1</div>
+      <div class="rank-info">
+        <div class="rank-name" id="hud-rank">Serf of Latveria</div>
+        <div class="xpbar"><i id="hud-xpbar"></i></div>
+        <div class="xp-num" id="hud-xp">0 XP</div>
+      </div>
+    </button>
+    <button class="chip star" type="button" data-go="#/map" title="Stars earned"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 17l-6.5 4 2-7.5L2 9h7z"/></svg><span id="hud-stars">0</span></button>
+    <button class="chip codex" type="button" data-go="#/codex" title="Codex entries unlocked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h12a4 4 0 014 4v12H8a4 4 0 01-4-4z"/><path d="M8 8h8M8 12h6"/></svg><span id="hud-codex">0</span></button>
+    <button class="chip trophies" type="button" data-go="#/trophies" title="Trophies"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 3h10v3h4v3a5 5 0 01-5 5h-.3A5 5 0 0113 16.9V19h3v2H8v-2h3v-2.1A5 5 0 018.3 14H8a5 5 0 01-5-5V6h4zm0 5H5v1a3 3 0 002 2.8zm10 0v3.8A3 3 0 0019 9V8z"/></svg><span id="hud-trophies">0</span></button>
+    <div class="hud-menu">
+      <button class="icon-btn" type="button" id="menu-btn" aria-label="Menu" aria-expanded="false">☰</button>
+      <div class="menu-pop" id="menu-pop">
+        <button type="button" data-go="#/title">Title screen</button>
+        <button type="button" data-go="#/trophies">Rank &amp; trophies</button>
+        <a href="DOOM_Stage2_Study_Guide.pdf" target="_blank" rel="noopener">Open printable dossier (PDF)</a>
+        <button type="button" id="reset-btn">Reset campaign progress</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="screen" id="scr-title" aria-label="Title">
+    <div class="gl-host" id="hero-host"></div>
+    <div class="title-team">
+      <div class="brand"><img data-asset="CREST" alt=""><div><b class="gold-text">TEAM DOOM</b><small>FALL 2026 · STAGE 2</small></div></div>
+    </div>
+    <div class="title-overlay">
+      <div class="eyebrow">The Castle Doom Campaign · Interactive Study Guide</div>
+      <h1 class="title-main gold-text">Hardware, Networks<br>&amp; Behaviorist AI</h1>
+      <p class="title-sub">Doctor Doom demands engineers, not tourists. Conquer <b>16 missions</b> across the Hardware Foundry, the Network Citadel and the AI Sanctum. Read the intel, run the field operations and break each gatekeeper Doombot to rise from serf to <b>Sovereign of Latveria</b>.</p>
+      <div class="title-actions" id="title-actions"></div>
+      <div class="title-stats" id="title-stats"></div>
+    </div>
+  </section>
+
+  <section class="screen" id="scr-map" aria-label="Campaign map">
+    <div class="gl-host" id="map-host"></div>
+    <aside class="map-side panel rivets">
+      <div class="eyebrow">War Table</div>
+      <h2 class="gold-text">The Campaign</h2>
+      <div class="campaign-meter"><div class="xpbar"><i id="camp-bar"></i></div><small id="camp-note"></small></div>
+      <div class="mission-list" id="mission-list"></div>
+      <div class="map-tools">
+        <button class="toggle" type="button" id="free-roam" aria-pressed="false"><i></i>Free roam</button>
+        <button class="btn ghost sm" type="button" id="overview-btn">Overview</button>
+      </div>
+    </aside>
+    <div class="map-card panel rivets" id="map-card" aria-live="polite"></div>
+    <div class="map-hint">Drag to orbit · Scroll to zoom · Click a beacon to deploy</div>
+  </section>
+
+  <section class="screen" id="scr-mission" aria-label="Mission"></section>
+  <section class="screen" id="scr-armoury" aria-label="Armoury"></section>
+  <section class="screen" id="scr-codex" aria-label="Codex"></section>
+  <section class="screen" id="scr-trial" aria-label="Final Trial"></section>
+  <section class="screen" id="scr-trophies" aria-label="Rank and trophies"></section>
+</main>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script>/*DATA*/</script>
+<script>/*SCENE*/</script>
+<script>/*APP*/</script>
+</body>
+</html>

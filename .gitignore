@@ -1,2 +1,6 @@
 # Private submission staging; completed personal logs should normally live outside this repository.
 /private-submissions/
+
+# Build tooling for the game guide
+tools/game_guide/node_modules/
+tools/game_guide/build/

@@ -1,0 +1,12 @@
+{
+  "name": "doom-game-guide",
+  "private": true,
+  "description": "Bundles the Three.js scenes for the gamified study guide.",
+  "scripts": {
+    "bundle": "esbuild src/scene.js --bundle --minify --format=iife --global-name=DoomScene --outfile=vendor/scene.bundle.js"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "three": "^0.170.0"
+  }
+}
