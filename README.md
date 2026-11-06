@@ -28,4 +28,5 @@
 * Hardware teaching diagrams and the revised AI Behaviour content are included.
 * **Stage 1:** Teammate review and team submission are complete, confirmed by the team on 30 October 2026. The team leader handled submission; other members do not need a separate submission attempt. The master project plan also records the Stage 1 status report as completed. See [AI Stage 1 notes](Learning%20Materials/AIBehaviour/Stage1Notes.md).
 * **Stage 2:** The consolidated study-book draft and Test Bank draft are available. Teammate/learner review, technical checks, submission packaging, teaching slides, video tutorials and updated logs remain subject to the project plan.
+* **Video tutorials (Stage 2):** three narrated explainer videos are rendered in [videos/](videos/): Hardware Foundations (6:53), Network Communication (6:30) and Behaviorist AI (8:26). See [videos/README.md](videos/README.md) for how they are built.
 * Personal logs must remain outside the public repository.

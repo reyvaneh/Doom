@@ -1,0 +1,666 @@
+{
+ "text": " When you send a photo to a friend or load a web page hosted thousands of kilometers away, your data does not travel down one private wire tied between your two computers. Even more surprising, if a major fiber optic cable between two cities breaks right in the middle of your download, the rest of your photo still arrives intact a spilled second later. How does the internet pull that off? Welcome to Unit B, Network Communications. In the next few minutes, you will learn how local networks connect to the global internet, how DNS and IP addresses guide your data, how packets switching heals around broken links, and how protocols like TCP, UDP, and HTTPS keep your connection fast and secure.",
+ "task": "transcribe",
+ "language": "en",
+ "duration": 44,
+ "words": [
+  {
+   "word": "When",
+   "start": 0.76,
+   "end": 1.32
+  },
+  {
+   "word": "you",
+   "start": 1.32,
+   "end": 1.56
+  },
+  {
+   "word": "send",
+   "start": 1.56,
+   "end": 1.8
+  },
+  {
+   "word": "a",
+   "start": 1.8,
+   "end": 1.96
+  },
+  {
+   "word": "photo",
+   "start": 1.96,
+   "end": 2.28
+  },
+  {
+   "word": "to",
+   "start": 2.28,
+   "end": 2.42
+  },
+  {
+   "word": "a",
+   "start": 2.42,
+   "end": 2.52
+  },
+  {
+   "word": "friend",
+   "start": 2.52,
+   "end": 2.92
+  },
+  {
+   "word": "or",
+   "start": 2.92,
+   "end": 3.14
+  },
+  {
+   "word": "load",
+   "start": 3.14,
+   "end": 3.38
+  },
+  {
+   "word": "a",
+   "start": 3.38,
+   "end": 3.5
+  },
+  {
+   "word": "web",
+   "start": 3.5,
+   "end": 3.82
+  },
+  {
+   "word": "page",
+   "start": 3.82,
+   "end": 4.14
+  },
+  {
+   "word": "hosted",
+   "start": 4.14,
+   "end": 4.52
+  },
+  {
+   "word": "thousands",
+   "start": 4.52,
+   "end": 4.9
+  },
+  {
+   "word": "of",
+   "start": 4.9,
+   "end": 5.22
+  },
+  {
+   "word": "kilometers",
+   "start": 5.22,
+   "end": 5.42
+  },
+  {
+   "word": "away,",
+   "start": 5.42,
+   "end": 5.84
+  },
+  {
+   "word": "your",
+   "start": 6.06,
+   "end": 6.5
+  },
+  {
+   "word": "data",
+   "start": 6.5,
+   "end": 6.7
+  },
+  {
+   "word": "does",
+   "start": 6.7,
+   "end": 6.92
+  },
+  {
+   "word": "not",
+   "start": 6.92,
+   "end": 7.22
+  },
+  {
+   "word": "travel",
+   "start": 7.22,
+   "end": 7.56
+  },
+  {
+   "word": "down",
+   "start": 7.56,
+   "end": 7.82
+  },
+  {
+   "word": "one",
+   "start": 7.82,
+   "end": 8.04
+  },
+  {
+   "word": "private",
+   "start": 8.04,
+   "end": 8.44
+  },
+  {
+   "word": "wire",
+   "start": 8.44,
+   "end": 8.78
+  },
+  {
+   "word": "tied",
+   "start": 8.78,
+   "end": 9.06
+  },
+  {
+   "word": "between",
+   "start": 9.06,
+   "end": 9.4
+  },
+  {
+   "word": "your",
+   "start": 9.4,
+   "end": 9.62
+  },
+  {
+   "word": "two",
+   "start": 9.62,
+   "end": 9.82
+  },
+  {
+   "word": "computers.",
+   "start": 9.82,
+   "end": 10.3
+  },
+  {
+   "word": "Even",
+   "start": 10.72,
+   "end": 11.28
+  },
+  {
+   "word": "more",
+   "start": 11.28,
+   "end": 11.52
+  },
+  {
+   "word": "surprising,",
+   "start": 11.52,
+   "end": 11.98
+  },
+  {
+   "word": "if",
+   "start": 12.18,
+   "end": 12.36
+  },
+  {
+   "word": "a",
+   "start": 12.36,
+   "end": 12.44
+  },
+  {
+   "word": "major",
+   "start": 12.44,
+   "end": 12.78
+  },
+  {
+   "word": "fiber",
+   "start": 12.78,
+   "end": 13.04
+  },
+  {
+   "word": "optic",
+   "start": 13.04,
+   "end": 13.36
+  },
+  {
+   "word": "cable",
+   "start": 13.36,
+   "end": 14.1
+  },
+  {
+   "word": "between",
+   "start": 14.1,
+   "end": 14.46
+  },
+  {
+   "word": "two",
+   "start": 14.46,
+   "end": 14.78
+  },
+  {
+   "word": "cities",
+   "start": 14.78,
+   "end": 15.06
+  },
+  {
+   "word": "breaks",
+   "start": 15.06,
+   "end": 15.46
+  },
+  {
+   "word": "right",
+   "start": 15.46,
+   "end": 15.7
+  },
+  {
+   "word": "in",
+   "start": 15.7,
+   "end": 15.84
+  },
+  {
+   "word": "the",
+   "start": 15.84,
+   "end": 15.88
+  },
+  {
+   "word": "middle",
+   "start": 15.88,
+   "end": 16.12
+  },
+  {
+   "word": "of",
+   "start": 16.12,
+   "end": 16.24
+  },
+  {
+   "word": "your",
+   "start": 16.24,
+   "end": 16.36
+  },
+  {
+   "word": "download,",
+   "start": 16.36,
+   "end": 16.58
+  },
+  {
+   "word": "the",
+   "start": 16.86,
+   "end": 17.28
+  },
+  {
+   "word": "rest",
+   "start": 17.28,
+   "end": 17.7
+  },
+  {
+   "word": "of",
+   "start": 17.7,
+   "end": 17.84
+  },
+  {
+   "word": "your",
+   "start": 17.84,
+   "end": 18.04
+  },
+  {
+   "word": "photo",
+   "start": 18.04,
+   "end": 18.3
+  },
+  {
+   "word": "still",
+   "start": 18.3,
+   "end": 18.52
+  },
+  {
+   "word": "arrives",
+   "start": 18.52,
+   "end": 19.16
+  },
+  {
+   "word": "intact",
+   "start": 19.16,
+   "end": 19.46
+  },
+  {
+   "word": "a",
+   "start": 19.46,
+   "end": 19.86
+  },
+  {
+   "word": "spilled",
+   "start": 19.86,
+   "end": 20.1
+  },
+  {
+   "word": "second",
+   "start": 20.1,
+   "end": 20.4
+  },
+  {
+   "word": "later.",
+   "start": 20.4,
+   "end": 20.7
+  },
+  {
+   "word": "How",
+   "start": 21.02,
+   "end": 21.58
+  },
+  {
+   "word": "does",
+   "start": 21.58,
+   "end": 21.86
+  },
+  {
+   "word": "the",
+   "start": 21.86,
+   "end": 22.08
+  },
+  {
+   "word": "internet",
+   "start": 22.08,
+   "end": 22.36
+  },
+  {
+   "word": "pull",
+   "start": 22.36,
+   "end": 22.64
+  },
+  {
+   "word": "that",
+   "start": 22.64,
+   "end": 22.78
+  },
+  {
+   "word": "off?",
+   "start": 22.78,
+   "end": 22.98
+  },
+  {
+   "word": "Welcome",
+   "start": 23.24,
+   "end": 23.66
+  },
+  {
+   "word": "to",
+   "start": 23.66,
+   "end": 23.92
+  },
+  {
+   "word": "Unit",
+   "start": 23.92,
+   "end": 24.14
+  },
+  {
+   "word": "B,",
+   "start": 24.14,
+   "end": 24.34
+  },
+  {
+   "word": "Network",
+   "start": 24.5,
+   "end": 24.94
+  },
+  {
+   "word": "Communications.",
+   "start": 24.94,
+   "end": 25.46
+  },
+  {
+   "word": "In",
+   "start": 25.46,
+   "end": 26
+  },
+  {
+   "word": "the",
+   "start": 26,
+   "end": 26.1
+  },
+  {
+   "word": "next",
+   "start": 26.1,
+   "end": 26.44
+  },
+  {
+   "word": "few",
+   "start": 26.44,
+   "end": 26.7
+  },
+  {
+   "word": "minutes,",
+   "start": 26.7,
+   "end": 27.14
+  },
+  {
+   "word": "you",
+   "start": 27.32,
+   "end": 27.62
+  },
+  {
+   "word": "will",
+   "start": 27.62,
+   "end": 27.8
+  },
+  {
+   "word": "learn",
+   "start": 27.8,
+   "end": 28.1
+  },
+  {
+   "word": "how",
+   "start": 28.1,
+   "end": 28.3
+  },
+  {
+   "word": "local",
+   "start": 28.3,
+   "end": 28.62
+  },
+  {
+   "word": "networks",
+   "start": 28.62,
+   "end": 28.92
+  },
+  {
+   "word": "connect",
+   "start": 28.92,
+   "end": 29.36
+  },
+  {
+   "word": "to",
+   "start": 29.36,
+   "end": 29.64
+  },
+  {
+   "word": "the",
+   "start": 29.64,
+   "end": 29.78
+  },
+  {
+   "word": "global",
+   "start": 29.78,
+   "end": 30.04
+  },
+  {
+   "word": "internet,",
+   "start": 30.04,
+   "end": 30.48
+  },
+  {
+   "word": "how",
+   "start": 30.68,
+   "end": 31.08
+  },
+  {
+   "word": "DNS",
+   "start": 31.08,
+   "end": 31.5
+  },
+  {
+   "word": "and",
+   "start": 31.5,
+   "end": 31.94
+  },
+  {
+   "word": "IP",
+   "start": 31.94,
+   "end": 32.24
+  },
+  {
+   "word": "addresses",
+   "start": 32.24,
+   "end": 32.7
+  },
+  {
+   "word": "guide",
+   "start": 32.7,
+   "end": 33.24
+  },
+  {
+   "word": "your",
+   "start": 33.24,
+   "end": 33.48
+  },
+  {
+   "word": "data,",
+   "start": 33.48,
+   "end": 33.8
+  },
+  {
+   "word": "how",
+   "start": 34.04,
+   "end": 34.6
+  },
+  {
+   "word": "packets",
+   "start": 34.6,
+   "end": 35.02
+  },
+  {
+   "word": "switching",
+   "start": 35.02,
+   "end": 35.42
+  },
+  {
+   "word": "heals",
+   "start": 35.42,
+   "end": 35.92
+  },
+  {
+   "word": "around",
+   "start": 35.92,
+   "end": 36.38
+  },
+  {
+   "word": "broken",
+   "start": 36.38,
+   "end": 36.74
+  },
+  {
+   "word": "links,",
+   "start": 36.74,
+   "end": 37.06
+  },
+  {
+   "word": "and",
+   "start": 37.2,
+   "end": 37.58
+  },
+  {
+   "word": "how",
+   "start": 37.58,
+   "end": 37.74
+  },
+  {
+   "word": "protocols",
+   "start": 37.74,
+   "end": 38.24
+  },
+  {
+   "word": "like",
+   "start": 38.24,
+   "end": 38.5
+  },
+  {
+   "word": "TCP,",
+   "start": 38.5,
+   "end": 38.8
+  },
+  {
+   "word": "UDP,",
+   "start": 39,
+   "end": 39.3
+  },
+  {
+   "word": "and",
+   "start": 39.44,
+   "end": 39.64
+  },
+  {
+   "word": "HTTPS",
+   "start": 39.64,
+   "end": 40.44
+  },
+  {
+   "word": "keep",
+   "start": 40.44,
+   "end": 41.16
+  },
+  {
+   "word": "your",
+   "start": 41.16,
+   "end": 41.38
+  },
+  {
+   "word": "connection",
+   "start": 41.38,
+   "end": 41.8
+  },
+  {
+   "word": "fast",
+   "start": 41.8,
+   "end": 42.28
+  },
+  {
+   "word": "and",
+   "start": 42.28,
+   "end": 42.52
+  },
+  {
+   "word": "secure.",
+   "start": 42.52,
+   "end": 42.8
+  }
+ ],
+ "segments": [
+  {
+   "id": 0,
+   "start": 0.76,
+   "end": 10.3,
+   "text": " When you send a photo to a friend or load a web page hosted thousands of kilometers away, your data does not travel down one private wire tied between your two computers."
+  },
+  {
+   "id": 1,
+   "start": 10.72,
+   "end": 20.7,
+   "text": " Even more surprising, if a major fiber optic cable between two cities breaks right in the middle of your download, the rest of your photo still arrives intact a spilled second later."
+  },
+  {
+   "id": 2,
+   "start": 21.02,
+   "end": 22.98,
+   "text": " How does the internet pull that off?"
+  },
+  {
+   "id": 3,
+   "start": 23.24,
+   "end": 25.46,
+   "text": " Welcome to Unit B, Network Communications."
+  },
+  {
+   "id": 4,
+   "start": 25.46,
+   "end": 30.48,
+   "text": " In the next few minutes, you will learn how local networks connect to the global internet,"
+  },
+  {
+   "id": 5,
+   "start": 30.68,
+   "end": 36.74,
+   "text": " how DNS and IP addresses guide your data, how packets switching heals around broken"
+  },
+  {
+   "id": 6,
+   "start": 36.74,
+   "end": 42.8,
+   "text": " links, and how protocols like TCP, UDP, and HTTPS keep your connection fast and secure."
+  }
+ ],
+ "usage": {
+  "type": "duration",
+  "seconds": 44
+ }
+}

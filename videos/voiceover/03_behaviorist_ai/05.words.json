@@ -1,0 +1,801 @@
+{
+ "text": " Let's watch quick learning happen live in our study guide Quick Learning 4x4 Grid Simulator At episode 0, every grid value is 0.0 The agent has no idea where the Win plus 10 goals or the Red minus 10 tracks are When I click Run 1 episode, watch the engine wander around randomly When it accidentally steps into a red huddle at 1,1, the action query value drops into the negatives, teaching the engine not to repeat such mistakes. Now watch what happens when I click train 50 episodes. As the engine reaches the plus 10 goal at the bottom right, the positive reward spreads backwards square by square. Look at the directional arrow in each grid cell now. The agent has learned that the shortest set part from the start to finish without the human writing a single navigation rule.",
+ "task": "transcribe",
+ "language": "en",
+ "duration": 67,
+ "words": [
+  {
+   "word": "Let's",
+   "start": 1.34,
+   "end": 2.04
+  },
+  {
+   "word": "watch",
+   "start": 2.04,
+   "end": 2.16
+  },
+  {
+   "word": "quick",
+   "start": 2.16,
+   "end": 2.54
+  },
+  {
+   "word": "learning",
+   "start": 2.54,
+   "end": 2.76
+  },
+  {
+   "word": "happen",
+   "start": 2.76,
+   "end": 3.06
+  },
+  {
+   "word": "live",
+   "start": 3.06,
+   "end": 3.82
+  },
+  {
+   "word": "in",
+   "start": 3.82,
+   "end": 4.2
+  },
+  {
+   "word": "our",
+   "start": 4.2,
+   "end": 4.4
+  },
+  {
+   "word": "study",
+   "start": 4.4,
+   "end": 4.7
+  },
+  {
+   "word": "guide",
+   "start": 4.7,
+   "end": 4.98
+  },
+  {
+   "word": "Quick",
+   "start": 4.98,
+   "end": 5.26
+  },
+  {
+   "word": "Learning",
+   "start": 5.26,
+   "end": 5.5
+  },
+  {
+   "word": "4x4",
+   "start": 5.5,
+   "end": 6.34
+  },
+  {
+   "word": "Grid",
+   "start": 6.34,
+   "end": 6.56
+  },
+  {
+   "word": "Simulator",
+   "start": 6.56,
+   "end": 7.1
+  },
+  {
+   "word": "At",
+   "start": 7.9,
+   "end": 8.6
+  },
+  {
+   "word": "episode",
+   "start": 8.6,
+   "end": 9.06
+  },
+  {
+   "word": "0,",
+   "start": 9.06,
+   "end": 9.52
+  },
+  {
+   "word": "every",
+   "start": 9.78,
+   "end": 10.72
+  },
+  {
+   "word": "grid",
+   "start": 10.72,
+   "end": 11.08
+  },
+  {
+   "word": "value",
+   "start": 11.08,
+   "end": 11.68
+  },
+  {
+   "word": "is",
+   "start": 11.68,
+   "end": 12.02
+  },
+  {
+   "word": "0",
+   "start": 12.02,
+   "end": 13.04
+  },
+  {
+   "word": ".0",
+   "start": 13.04,
+   "end": 13.76
+  },
+  {
+   "word": "The",
+   "start": 14.71,
+   "end": 15.06
+  },
+  {
+   "word": "agent",
+   "start": 15.06,
+   "end": 15.36
+  },
+  {
+   "word": "has",
+   "start": 15.36,
+   "end": 15.56
+  },
+  {
+   "word": "no",
+   "start": 15.56,
+   "end": 15.74
+  },
+  {
+   "word": "idea",
+   "start": 15.74,
+   "end": 15.98
+  },
+  {
+   "word": "where",
+   "start": 15.98,
+   "end": 16.24
+  },
+  {
+   "word": "the",
+   "start": 16.24,
+   "end": 16.52
+  },
+  {
+   "word": "Win",
+   "start": 16.52,
+   "end": 16.68
+  },
+  {
+   "word": "plus",
+   "start": 16.68,
+   "end": 16.88
+  },
+  {
+   "word": "10",
+   "start": 16.88,
+   "end": 17.3
+  },
+  {
+   "word": "goals",
+   "start": 17.3,
+   "end": 17.7
+  },
+  {
+   "word": "or",
+   "start": 17.7,
+   "end": 18.12
+  },
+  {
+   "word": "the",
+   "start": 18.12,
+   "end": 18.3
+  },
+  {
+   "word": "Red",
+   "start": 18.3,
+   "end": 18.56
+  },
+  {
+   "word": "minus",
+   "start": 18.56,
+   "end": 19.16
+  },
+  {
+   "word": "10",
+   "start": 19.16,
+   "end": 19.62
+  },
+  {
+   "word": "tracks",
+   "start": 19.62,
+   "end": 19.98
+  },
+  {
+   "word": "are",
+   "start": 19.98,
+   "end": 20.26
+  },
+  {
+   "word": "When",
+   "start": 21,
+   "end": 21.52
+  },
+  {
+   "word": "I",
+   "start": 21.52,
+   "end": 21.66
+  },
+  {
+   "word": "click",
+   "start": 21.66,
+   "end": 21.98
+  },
+  {
+   "word": "Run",
+   "start": 21.98,
+   "end": 22.82
+  },
+  {
+   "word": "1",
+   "start": 22.82,
+   "end": 23.36
+  },
+  {
+   "word": "episode,",
+   "start": 23.36,
+   "end": 23.96
+  },
+  {
+   "word": "watch",
+   "start": 24.3,
+   "end": 25.06
+  },
+  {
+   "word": "the",
+   "start": 25.06,
+   "end": 25.26
+  },
+  {
+   "word": "engine",
+   "start": 25.26,
+   "end": 25.5
+  },
+  {
+   "word": "wander",
+   "start": 25.5,
+   "end": 25.8
+  },
+  {
+   "word": "around",
+   "start": 25.8,
+   "end": 26.16
+  },
+  {
+   "word": "randomly",
+   "start": 26.16,
+   "end": 26.78
+  },
+  {
+   "word": "When",
+   "start": 26.78,
+   "end": 28
+  },
+  {
+   "word": "it",
+   "start": 28,
+   "end": 28.3
+  },
+  {
+   "word": "accidentally",
+   "start": 28.3,
+   "end": 28.74
+  },
+  {
+   "word": "steps",
+   "start": 28.74,
+   "end": 29.3
+  },
+  {
+   "word": "into",
+   "start": 29.3,
+   "end": 29.66
+  },
+  {
+   "word": "a",
+   "start": 29.66,
+   "end": 29.92
+  },
+  {
+   "word": "red",
+   "start": 29.92,
+   "end": 30.04
+  },
+  {
+   "word": "huddle",
+   "start": 30.04,
+   "end": 30.3
+  },
+  {
+   "word": "at",
+   "start": 30.3,
+   "end": 30.62
+  },
+  {
+   "word": "1",
+   "start": 30.62,
+   "end": 31.46
+  },
+  {
+   "word": ",1,",
+   "start": 31.46,
+   "end": 32.14
+  },
+  {
+   "word": "the",
+   "start": 32.34,
+   "end": 33.04
+  },
+  {
+   "word": "action",
+   "start": 33.04,
+   "end": 33.44
+  },
+  {
+   "word": "query",
+   "start": 33.44,
+   "end": 33.8
+  },
+  {
+   "word": "value",
+   "start": 33.8,
+   "end": 34.12
+  },
+  {
+   "word": "drops",
+   "start": 34.12,
+   "end": 34.46
+  },
+  {
+   "word": "into",
+   "start": 34.46,
+   "end": 34.68
+  },
+  {
+   "word": "the",
+   "start": 34.68,
+   "end": 34.94
+  },
+  {
+   "word": "negatives,",
+   "start": 34.94,
+   "end": 35.3
+  },
+  {
+   "word": "teaching",
+   "start": 35.64,
+   "end": 36.62
+  },
+  {
+   "word": "the",
+   "start": 36.62,
+   "end": 37.02
+  },
+  {
+   "word": "engine",
+   "start": 37.02,
+   "end": 37.36
+  },
+  {
+   "word": "not",
+   "start": 37.36,
+   "end": 37.66
+  },
+  {
+   "word": "to",
+   "start": 37.66,
+   "end": 37.84
+  },
+  {
+   "word": "repeat",
+   "start": 37.84,
+   "end": 38.1
+  },
+  {
+   "word": "such",
+   "start": 38.1,
+   "end": 38.36
+  },
+  {
+   "word": "mistakes.",
+   "start": 38.36,
+   "end": 38.66
+  },
+  {
+   "word": "Now",
+   "start": 40.6,
+   "end": 41.28
+  },
+  {
+   "word": "watch",
+   "start": 41.28,
+   "end": 41.96
+  },
+  {
+   "word": "what",
+   "start": 41.96,
+   "end": 42.12
+  },
+  {
+   "word": "happens",
+   "start": 42.12,
+   "end": 42.46
+  },
+  {
+   "word": "when",
+   "start": 42.46,
+   "end": 42.68
+  },
+  {
+   "word": "I",
+   "start": 42.68,
+   "end": 42.8
+  },
+  {
+   "word": "click",
+   "start": 42.8,
+   "end": 43.1
+  },
+  {
+   "word": "train",
+   "start": 43.1,
+   "end": 43.5
+  },
+  {
+   "word": "50",
+   "start": 43.5,
+   "end": 44.18
+  },
+  {
+   "word": "episodes.",
+   "start": 44.18,
+   "end": 44.9
+  },
+  {
+   "word": "As",
+   "start": 45.7,
+   "end": 46.38
+  },
+  {
+   "word": "the",
+   "start": 46.38,
+   "end": 46.52
+  },
+  {
+   "word": "engine",
+   "start": 46.52,
+   "end": 46.7
+  },
+  {
+   "word": "reaches",
+   "start": 46.7,
+   "end": 47.02
+  },
+  {
+   "word": "the",
+   "start": 47.02,
+   "end": 47.42
+  },
+  {
+   "word": "plus",
+   "start": 47.42,
+   "end": 47.62
+  },
+  {
+   "word": "10",
+   "start": 47.62,
+   "end": 47.96
+  },
+  {
+   "word": "goal",
+   "start": 47.96,
+   "end": 48.28
+  },
+  {
+   "word": "at",
+   "start": 48.28,
+   "end": 48.48
+  },
+  {
+   "word": "the",
+   "start": 48.48,
+   "end": 48.62
+  },
+  {
+   "word": "bottom",
+   "start": 48.62,
+   "end": 48.92
+  },
+  {
+   "word": "right,",
+   "start": 48.92,
+   "end": 49.22
+  },
+  {
+   "word": "the",
+   "start": 49.48,
+   "end": 50.16
+  },
+  {
+   "word": "positive",
+   "start": 50.16,
+   "end": 50.52
+  },
+  {
+   "word": "reward",
+   "start": 50.52,
+   "end": 50.94
+  },
+  {
+   "word": "spreads",
+   "start": 50.94,
+   "end": 51.78
+  },
+  {
+   "word": "backwards",
+   "start": 51.78,
+   "end": 52.52
+  },
+  {
+   "word": "square",
+   "start": 52.52,
+   "end": 53.08
+  },
+  {
+   "word": "by",
+   "start": 53.08,
+   "end": 53.34
+  },
+  {
+   "word": "square.",
+   "start": 53.34,
+   "end": 53.62
+  },
+  {
+   "word": "Look",
+   "start": 54.5,
+   "end": 55.02
+  },
+  {
+   "word": "at",
+   "start": 55.02,
+   "end": 55.12
+  },
+  {
+   "word": "the",
+   "start": 55.12,
+   "end": 55.24
+  },
+  {
+   "word": "directional",
+   "start": 55.24,
+   "end": 56.24
+  },
+  {
+   "word": "arrow",
+   "start": 56.24,
+   "end": 56.56
+  },
+  {
+   "word": "in",
+   "start": 56.56,
+   "end": 57.08
+  },
+  {
+   "word": "each",
+   "start": 57.08,
+   "end": 57.42
+  },
+  {
+   "word": "grid",
+   "start": 57.42,
+   "end": 57.68
+  },
+  {
+   "word": "cell",
+   "start": 57.68,
+   "end": 57.88
+  },
+  {
+   "word": "now.",
+   "start": 57.88,
+   "end": 58.2
+  },
+  {
+   "word": "The",
+   "start": 58.96,
+   "end": 59.48
+  },
+  {
+   "word": "agent",
+   "start": 59.48,
+   "end": 59.68
+  },
+  {
+   "word": "has",
+   "start": 59.68,
+   "end": 59.86
+  },
+  {
+   "word": "learned",
+   "start": 59.86,
+   "end": 60.1
+  },
+  {
+   "word": "that",
+   "start": 60.1,
+   "end": 60.32
+  },
+  {
+   "word": "the",
+   "start": 60.32,
+   "end": 60.5
+  },
+  {
+   "word": "shortest",
+   "start": 60.5,
+   "end": 60.82
+  },
+  {
+   "word": "set",
+   "start": 60.82,
+   "end": 61.1
+  },
+  {
+   "word": "part",
+   "start": 61.1,
+   "end": 61.36
+  },
+  {
+   "word": "from",
+   "start": 61.36,
+   "end": 61.6
+  },
+  {
+   "word": "the",
+   "start": 61.6,
+   "end": 61.74
+  },
+  {
+   "word": "start",
+   "start": 61.74,
+   "end": 61.98
+  },
+  {
+   "word": "to",
+   "start": 61.98,
+   "end": 62.16
+  },
+  {
+   "word": "finish",
+   "start": 62.16,
+   "end": 62.54
+  },
+  {
+   "word": "without",
+   "start": 62.54,
+   "end": 63.32
+  },
+  {
+   "word": "the",
+   "start": 63.32,
+   "end": 63.76
+  },
+  {
+   "word": "human",
+   "start": 63.76,
+   "end": 64.02
+  },
+  {
+   "word": "writing",
+   "start": 64.02,
+   "end": 64.48
+  },
+  {
+   "word": "a",
+   "start": 64.48,
+   "end": 64.66
+  },
+  {
+   "word": "single",
+   "start": 64.66,
+   "end": 64.94
+  },
+  {
+   "word": "navigation",
+   "start": 64.94,
+   "end": 65.34
+  },
+  {
+   "word": "rule.",
+   "start": 65.34,
+   "end": 65.96
+  }
+ ],
+ "segments": [
+  {
+   "id": 0,
+   "start": 1.34,
+   "end": 7.1,
+   "text": " Let's watch quick learning happen live in our study guide Quick Learning 4x4 Grid Simulator"
+  },
+  {
+   "id": 1,
+   "start": 7.9,
+   "end": 13.76,
+   "text": " At episode 0, every grid value is 0.0"
+  },
+  {
+   "id": 2,
+   "start": 15,
+   "end": 20.26,
+   "text": " The agent has no idea where the Win plus 10 goals or the Red minus 10 tracks are"
+  },
+  {
+   "id": 3,
+   "start": 21,
+   "end": 26.78,
+   "text": " When I click Run 1 episode, watch the engine wander around randomly"
+  },
+  {
+   "id": 4,
+   "start": 26.78,
+   "end": 34.68,
+   "text": " When it accidentally steps into a red huddle at 1,1, the action query value drops into"
+  },
+  {
+   "id": 5,
+   "start": 34.68,
+   "end": 38.66,
+   "text": " the negatives, teaching the engine not to repeat such mistakes."
+  },
+  {
+   "id": 6,
+   "start": 40.6,
+   "end": 44.9,
+   "text": " Now watch what happens when I click train 50 episodes."
+  },
+  {
+   "id": 7,
+   "start": 45.7,
+   "end": 51.78,
+   "text": " As the engine reaches the plus 10 goal at the bottom right, the positive reward spreads"
+  },
+  {
+   "id": 8,
+   "start": 51.78,
+   "end": 53.62,
+   "text": " backwards square by square."
+  },
+  {
+   "id": 9,
+   "start": 54.5,
+   "end": 58.2,
+   "text": " Look at the directional arrow in each grid cell now."
+  },
+  {
+   "id": 10,
+   "start": 58.96,
+   "end": 63.76,
+   "text": " The agent has learned that the shortest set part from the start to finish without the"
+  },
+  {
+   "id": 11,
+   "start": 63.76,
+   "end": 65.96,
+   "text": " human writing a single navigation rule."
+  }
+ ],
+ "usage": {
+  "type": "duration",
+  "seconds": 67
+ }
+}

@@ -1,0 +1,948 @@
+{
+ "text": " How do we take a processor off a desk and make it control physical machines, like an automatic street lamp or a robot? We connect sensors which are input that measure light, temperature, or distance, and actuators, which are outputs like LEDs, buzzers, or motor on a breadboard. Let's trace our automatic night light circuit. On the input side, we use an LDR, a light-dependent resistor. When a room gets dark, its electrical resistance changes, shifting the voltage on our input pin. In the middle, our controller compares that reading against the threshold. Is the light level below 30%? On the output side, if it's dark, the controller sends voltage to an LED. Note these two hard rules that every beginner must check in the lab first. First, an LED has polarity, so current only flows in one direction from the long positive leg to the short ground leg. Second, we always put a resistor in series with the LED so excess current does not burn it out.",
+ "task": "transcribe",
+ "language": "en",
+ "duration": 68,
+ "words": [
+  {
+   "word": "How",
+   "start": 0.84,
+   "end": 1.44
+  },
+  {
+   "word": "do",
+   "start": 1.44,
+   "end": 1.56
+  },
+  {
+   "word": "we",
+   "start": 1.56,
+   "end": 1.66
+  },
+  {
+   "word": "take",
+   "start": 1.66,
+   "end": 1.82
+  },
+  {
+   "word": "a",
+   "start": 1.82,
+   "end": 1.96
+  },
+  {
+   "word": "processor",
+   "start": 1.96,
+   "end": 2.26
+  },
+  {
+   "word": "off",
+   "start": 2.26,
+   "end": 2.62
+  },
+  {
+   "word": "a",
+   "start": 2.62,
+   "end": 2.76
+  },
+  {
+   "word": "desk",
+   "start": 2.76,
+   "end": 3
+  },
+  {
+   "word": "and",
+   "start": 3,
+   "end": 3.2
+  },
+  {
+   "word": "make",
+   "start": 3.2,
+   "end": 3.38
+  },
+  {
+   "word": "it",
+   "start": 3.38,
+   "end": 3.48
+  },
+  {
+   "word": "control",
+   "start": 3.48,
+   "end": 3.78
+  },
+  {
+   "word": "physical",
+   "start": 3.78,
+   "end": 4.14
+  },
+  {
+   "word": "machines,",
+   "start": 4.14,
+   "end": 4.62
+  },
+  {
+   "word": "like",
+   "start": 4.88,
+   "end": 5.24
+  },
+  {
+   "word": "an",
+   "start": 5.24,
+   "end": 5.36
+  },
+  {
+   "word": "automatic",
+   "start": 5.36,
+   "end": 5.66
+  },
+  {
+   "word": "street",
+   "start": 5.66,
+   "end": 6.04
+  },
+  {
+   "word": "lamp",
+   "start": 6.04,
+   "end": 6.44
+  },
+  {
+   "word": "or",
+   "start": 6.44,
+   "end": 7.06
+  },
+  {
+   "word": "a",
+   "start": 7.06,
+   "end": 7.14
+  },
+  {
+   "word": "robot?",
+   "start": 7.14,
+   "end": 7.38
+  },
+  {
+   "word": "We",
+   "start": 7.76,
+   "end": 8.36
+  },
+  {
+   "word": "connect",
+   "start": 8.36,
+   "end": 8.54
+  },
+  {
+   "word": "sensors",
+   "start": 8.54,
+   "end": 8.98
+  },
+  {
+   "word": "which",
+   "start": 8.98,
+   "end": 9.3
+  },
+  {
+   "word": "are",
+   "start": 9.3,
+   "end": 9.42
+  },
+  {
+   "word": "input",
+   "start": 9.42,
+   "end": 9.78
+  },
+  {
+   "word": "that",
+   "start": 9.78,
+   "end": 10.04
+  },
+  {
+   "word": "measure",
+   "start": 10.04,
+   "end": 10.38
+  },
+  {
+   "word": "light,",
+   "start": 10.38,
+   "end": 10.72
+  },
+  {
+   "word": "temperature,",
+   "start": 10.9,
+   "end": 11.5
+  },
+  {
+   "word": "or",
+   "start": 11.8,
+   "end": 12.56
+  },
+  {
+   "word": "distance,",
+   "start": 12.56,
+   "end": 12.96
+  },
+  {
+   "word": "and",
+   "start": 13.12,
+   "end": 13.3
+  },
+  {
+   "word": "actuators,",
+   "start": 13.3,
+   "end": 13.82
+  },
+  {
+   "word": "which",
+   "start": 14.04,
+   "end": 14.56
+  },
+  {
+   "word": "are",
+   "start": 14.56,
+   "end": 14.68
+  },
+  {
+   "word": "outputs",
+   "start": 14.68,
+   "end": 15.1
+  },
+  {
+   "word": "like",
+   "start": 15.1,
+   "end": 15.54
+  },
+  {
+   "word": "LEDs,",
+   "start": 15.54,
+   "end": 15.9
+  },
+  {
+   "word": "buzzers,",
+   "start": 16.24,
+   "end": 17.12
+  },
+  {
+   "word": "or",
+   "start": 17.12,
+   "end": 17.34
+  },
+  {
+   "word": "motor",
+   "start": 17.34,
+   "end": 17.6
+  },
+  {
+   "word": "on",
+   "start": 17.6,
+   "end": 18.62
+  },
+  {
+   "word": "a",
+   "start": 18.62,
+   "end": 18.78
+  },
+  {
+   "word": "breadboard.",
+   "start": 18.78,
+   "end": 19.14
+  },
+  {
+   "word": "Let's",
+   "start": 19.5,
+   "end": 20.1
+  },
+  {
+   "word": "trace",
+   "start": 20.1,
+   "end": 20.38
+  },
+  {
+   "word": "our",
+   "start": 20.38,
+   "end": 20.68
+  },
+  {
+   "word": "automatic",
+   "start": 20.68,
+   "end": 21.04
+  },
+  {
+   "word": "night",
+   "start": 21.04,
+   "end": 21.44
+  },
+  {
+   "word": "light",
+   "start": 21.44,
+   "end": 21.66
+  },
+  {
+   "word": "circuit.",
+   "start": 21.66,
+   "end": 21.98
+  },
+  {
+   "word": "On",
+   "start": 22.26,
+   "end": 22.68
+  },
+  {
+   "word": "the",
+   "start": 22.68,
+   "end": 22.8
+  },
+  {
+   "word": "input",
+   "start": 22.8,
+   "end": 23.04
+  },
+  {
+   "word": "side,",
+   "start": 23.04,
+   "end": 23.34
+  },
+  {
+   "word": "we",
+   "start": 23.46,
+   "end": 23.58
+  },
+  {
+   "word": "use",
+   "start": 23.58,
+   "end": 23.8
+  },
+  {
+   "word": "an",
+   "start": 23.8,
+   "end": 23.96
+  },
+  {
+   "word": "LDR,",
+   "start": 23.96,
+   "end": 24.3
+  },
+  {
+   "word": "a",
+   "start": 24.5,
+   "end": 24.98
+  },
+  {
+   "word": "light",
+   "start": 24.98,
+   "end": 25.24
+  },
+  {
+   "word": "-dependent",
+   "start": 25.24,
+   "end": 25.68
+  },
+  {
+   "word": "resistor.",
+   "start": 25.68,
+   "end": 25.96
+  },
+  {
+   "word": "When",
+   "start": 25.96,
+   "end": 26.46
+  },
+  {
+   "word": "a",
+   "start": 26.46,
+   "end": 26.78
+  },
+  {
+   "word": "room",
+   "start": 26.78,
+   "end": 26.94
+  },
+  {
+   "word": "gets",
+   "start": 26.94,
+   "end": 27.12
+  },
+  {
+   "word": "dark,",
+   "start": 27.12,
+   "end": 27.42
+  },
+  {
+   "word": "its",
+   "start": 27.58,
+   "end": 27.76
+  },
+  {
+   "word": "electrical",
+   "start": 27.76,
+   "end": 28.14
+  },
+  {
+   "word": "resistance",
+   "start": 28.14,
+   "end": 28.56
+  },
+  {
+   "word": "changes,",
+   "start": 28.56,
+   "end": 29.36
+  },
+  {
+   "word": "shifting",
+   "start": 29.54,
+   "end": 30.2
+  },
+  {
+   "word": "the",
+   "start": 30.2,
+   "end": 30.4
+  },
+  {
+   "word": "voltage",
+   "start": 30.4,
+   "end": 30.78
+  },
+  {
+   "word": "on",
+   "start": 30.78,
+   "end": 31.18
+  },
+  {
+   "word": "our",
+   "start": 31.18,
+   "end": 31.48
+  },
+  {
+   "word": "input",
+   "start": 31.48,
+   "end": 31.82
+  },
+  {
+   "word": "pin.",
+   "start": 31.82,
+   "end": 32.1
+  },
+  {
+   "word": "In",
+   "start": 32.38,
+   "end": 32.92
+  },
+  {
+   "word": "the",
+   "start": 32.92,
+   "end": 33.02
+  },
+  {
+   "word": "middle,",
+   "start": 33.02,
+   "end": 33.32
+  },
+  {
+   "word": "our",
+   "start": 33.4,
+   "end": 33.92
+  },
+  {
+   "word": "controller",
+   "start": 33.92,
+   "end": 34.26
+  },
+  {
+   "word": "compares",
+   "start": 34.26,
+   "end": 34.8
+  },
+  {
+   "word": "that",
+   "start": 34.8,
+   "end": 35.04
+  },
+  {
+   "word": "reading",
+   "start": 35.04,
+   "end": 35.4
+  },
+  {
+   "word": "against",
+   "start": 35.4,
+   "end": 35.78
+  },
+  {
+   "word": "the",
+   "start": 35.78,
+   "end": 35.94
+  },
+  {
+   "word": "threshold.",
+   "start": 35.94,
+   "end": 36.28
+  },
+  {
+   "word": "Is",
+   "start": 36.72,
+   "end": 37.32
+  },
+  {
+   "word": "the",
+   "start": 37.32,
+   "end": 37.44
+  },
+  {
+   "word": "light",
+   "start": 37.44,
+   "end": 37.72
+  },
+  {
+   "word": "level",
+   "start": 37.72,
+   "end": 38.16
+  },
+  {
+   "word": "below",
+   "start": 38.16,
+   "end": 38.42
+  },
+  {
+   "word": "30",
+   "start": 38.42,
+   "end": 38.7
+  },
+  {
+   "word": "%?",
+   "start": 38.7,
+   "end": 39.06
+  },
+  {
+   "word": "On",
+   "start": 39.68,
+   "end": 40.28
+  },
+  {
+   "word": "the",
+   "start": 40.28,
+   "end": 40.38
+  },
+  {
+   "word": "output",
+   "start": 40.38,
+   "end": 40.62
+  },
+  {
+   "word": "side,",
+   "start": 40.62,
+   "end": 40.94
+  },
+  {
+   "word": "if",
+   "start": 41.16,
+   "end": 41.74
+  },
+  {
+   "word": "it's",
+   "start": 41.74,
+   "end": 41.92
+  },
+  {
+   "word": "dark,",
+   "start": 41.92,
+   "end": 42.2
+  },
+  {
+   "word": "the",
+   "start": 42.32,
+   "end": 42.44
+  },
+  {
+   "word": "controller",
+   "start": 42.44,
+   "end": 42.82
+  },
+  {
+   "word": "sends",
+   "start": 42.82,
+   "end": 43.38
+  },
+  {
+   "word": "voltage",
+   "start": 43.38,
+   "end": 43.9
+  },
+  {
+   "word": "to",
+   "start": 43.9,
+   "end": 44.22
+  },
+  {
+   "word": "an",
+   "start": 44.22,
+   "end": 44.3
+  },
+  {
+   "word": "LED.",
+   "start": 44.3,
+   "end": 44.54
+  },
+  {
+   "word": "Note",
+   "start": 45.24,
+   "end": 45.74
+  },
+  {
+   "word": "these",
+   "start": 45.74,
+   "end": 46.02
+  },
+  {
+   "word": "two",
+   "start": 46.02,
+   "end": 46.82
+  },
+  {
+   "word": "hard",
+   "start": 46.82,
+   "end": 47.22
+  },
+  {
+   "word": "rules",
+   "start": 47.22,
+   "end": 47.56
+  },
+  {
+   "word": "that",
+   "start": 47.56,
+   "end": 47.88
+  },
+  {
+   "word": "every",
+   "start": 47.88,
+   "end": 48.28
+  },
+  {
+   "word": "beginner",
+   "start": 48.28,
+   "end": 48.66
+  },
+  {
+   "word": "must",
+   "start": 48.66,
+   "end": 49.3
+  },
+  {
+   "word": "check",
+   "start": 49.3,
+   "end": 49.58
+  },
+  {
+   "word": "in",
+   "start": 49.58,
+   "end": 49.72
+  },
+  {
+   "word": "the",
+   "start": 49.72,
+   "end": 49.78
+  },
+  {
+   "word": "lab",
+   "start": 49.78,
+   "end": 49.98
+  },
+  {
+   "word": "first.",
+   "start": 49.98,
+   "end": 50.28
+  },
+  {
+   "word": "First,",
+   "start": 50.28,
+   "end": 50.52
+  },
+  {
+   "word": "an",
+   "start": 50.64,
+   "end": 51.36
+  },
+  {
+   "word": "LED",
+   "start": 51.36,
+   "end": 51.66
+  },
+  {
+   "word": "has",
+   "start": 51.66,
+   "end": 52.14
+  },
+  {
+   "word": "polarity,",
+   "start": 52.14,
+   "end": 53
+  },
+  {
+   "word": "so",
+   "start": 53.1,
+   "end": 53.76
+  },
+  {
+   "word": "current",
+   "start": 53.76,
+   "end": 54.14
+  },
+  {
+   "word": "only",
+   "start": 54.14,
+   "end": 54.6
+  },
+  {
+   "word": "flows",
+   "start": 54.6,
+   "end": 55.18
+  },
+  {
+   "word": "in",
+   "start": 55.18,
+   "end": 55.44
+  },
+  {
+   "word": "one",
+   "start": 55.44,
+   "end": 55.66
+  },
+  {
+   "word": "direction",
+   "start": 55.66,
+   "end": 56.06
+  },
+  {
+   "word": "from",
+   "start": 56.06,
+   "end": 56.72
+  },
+  {
+   "word": "the",
+   "start": 56.72,
+   "end": 56.86
+  },
+  {
+   "word": "long",
+   "start": 56.86,
+   "end": 57.04
+  },
+  {
+   "word": "positive",
+   "start": 57.04,
+   "end": 57.42
+  },
+  {
+   "word": "leg",
+   "start": 57.42,
+   "end": 57.8
+  },
+  {
+   "word": "to",
+   "start": 57.8,
+   "end": 58.02
+  },
+  {
+   "word": "the",
+   "start": 58.02,
+   "end": 58.14
+  },
+  {
+   "word": "short",
+   "start": 58.14,
+   "end": 58.38
+  },
+  {
+   "word": "ground",
+   "start": 58.38,
+   "end": 58.64
+  },
+  {
+   "word": "leg.",
+   "start": 58.64,
+   "end": 58.86
+  },
+  {
+   "word": "Second,",
+   "start": 59.1,
+   "end": 59.74
+  },
+  {
+   "word": "we",
+   "start": 59.96,
+   "end": 60.4
+  },
+  {
+   "word": "always",
+   "start": 60.4,
+   "end": 60.66
+  },
+  {
+   "word": "put",
+   "start": 60.66,
+   "end": 60.92
+  },
+  {
+   "word": "a",
+   "start": 60.92,
+   "end": 61.04
+  },
+  {
+   "word": "resistor",
+   "start": 61.04,
+   "end": 61.38
+  },
+  {
+   "word": "in",
+   "start": 61.38,
+   "end": 61.74
+  },
+  {
+   "word": "series",
+   "start": 61.74,
+   "end": 62.1
+  },
+  {
+   "word": "with",
+   "start": 62.1,
+   "end": 62.78
+  },
+  {
+   "word": "the",
+   "start": 62.78,
+   "end": 63.38
+  },
+  {
+   "word": "LED",
+   "start": 63.38,
+   "end": 63.88
+  },
+  {
+   "word": "so",
+   "start": 63.88,
+   "end": 64.54
+  },
+  {
+   "word": "excess",
+   "start": 64.54,
+   "end": 65
+  },
+  {
+   "word": "current",
+   "start": 65,
+   "end": 65.52
+  },
+  {
+   "word": "does",
+   "start": 65.52,
+   "end": 65.88
+  },
+  {
+   "word": "not",
+   "start": 65.88,
+   "end": 66.1
+  },
+  {
+   "word": "burn",
+   "start": 66.1,
+   "end": 66.36
+  },
+  {
+   "word": "it",
+   "start": 66.36,
+   "end": 66.48
+  },
+  {
+   "word": "out.",
+   "start": 66.48,
+   "end": 66.62
+  }
+ ],
+ "segments": [
+  {
+   "id": 0,
+   "start": 0.84,
+   "end": 7.38,
+   "text": " How do we take a processor off a desk and make it control physical machines, like an automatic street lamp or a robot?"
+  },
+  {
+   "id": 1,
+   "start": 7.76,
+   "end": 19.14,
+   "text": " We connect sensors which are input that measure light, temperature, or distance, and actuators, which are outputs like LEDs, buzzers, or motor on a breadboard."
+  },
+  {
+   "id": 2,
+   "start": 19.5,
+   "end": 21.98,
+   "text": " Let's trace our automatic night light circuit."
+  },
+  {
+   "id": 3,
+   "start": 22.26,
+   "end": 25.96,
+   "text": " On the input side, we use an LDR, a light-dependent resistor."
+  },
+  {
+   "id": 4,
+   "start": 25.96,
+   "end": 31.82,
+   "text": " When a room gets dark, its electrical resistance changes, shifting the voltage on our input"
+  },
+  {
+   "id": 5,
+   "start": 31.82,
+   "end": 32.1,
+   "text": " pin."
+  },
+  {
+   "id": 6,
+   "start": 32.38,
+   "end": 36.28,
+   "text": " In the middle, our controller compares that reading against the threshold."
+  },
+  {
+   "id": 7,
+   "start": 36.72,
+   "end": 39.06,
+   "text": " Is the light level below 30%?"
+  },
+  {
+   "id": 8,
+   "start": 39.68,
+   "end": 44.54,
+   "text": " On the output side, if it's dark, the controller sends voltage to an LED."
+  },
+  {
+   "id": 9,
+   "start": 45.24,
+   "end": 50.28,
+   "text": " Note these two hard rules that every beginner must check in the lab first."
+  },
+  {
+   "id": 10,
+   "start": 50.28,
+   "end": 57.42,
+   "text": " First, an LED has polarity, so current only flows in one direction from the long positive"
+  },
+  {
+   "id": 11,
+   "start": 57.42,
+   "end": 58.86,
+   "text": " leg to the short ground leg."
+  },
+  {
+   "id": 12,
+   "start": 59.1,
+   "end": 66.36,
+   "text": " Second, we always put a resistor in series with the LED so excess current does not burn"
+  },
+  {
+   "id": 13,
+   "start": 66.36,
+   "end": 66.62,
+   "text": " it out."
+  }
+ ],
+ "usage": {
+  "type": "duration",
+  "seconds": 68
+ }
+}

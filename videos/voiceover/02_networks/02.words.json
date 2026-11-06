@@ -1,0 +1,878 @@
+{
+ "text": " Let's trace the path from your desk outward. All the devices inside your room, lab, or home form a LAN, a local area network. Inside a LAN, a switch connects neighboring devices together, passing frames directly from one computer to another inside the same building. To talk to the outside world, known as a WAN or wide area network your land needs a router thinks of a switch as a hallway connecting rooms inside your house while a router is the front gate and post office that forwards traffic between your house and the rest of the world every device on a network needs a numerical IP address like one 192.0.2.10, which acts like a street address. Because humans are bad at memorizing numbers, we type domain names like bit.edu.cn, and a service called DNS, the domain name system, acts as the internet's phone book, looking up the matching IP address automatically before your message even leaves.",
+ "task": "transcribe",
+ "language": "en",
+ "duration": 74,
+ "words": [
+  {
+   "word": "Let's",
+   "start": 0,
+   "end": 1.16
+  },
+  {
+   "word": "trace",
+   "start": 1.16,
+   "end": 1.42
+  },
+  {
+   "word": "the",
+   "start": 1.42,
+   "end": 1.76
+  },
+  {
+   "word": "path",
+   "start": 1.76,
+   "end": 2.02
+  },
+  {
+   "word": "from",
+   "start": 2.02,
+   "end": 2.38
+  },
+  {
+   "word": "your",
+   "start": 2.38,
+   "end": 2.62
+  },
+  {
+   "word": "desk",
+   "start": 2.62,
+   "end": 2.96
+  },
+  {
+   "word": "outward.",
+   "start": 2.96,
+   "end": 3.28
+  },
+  {
+   "word": "All",
+   "start": 3.6,
+   "end": 4.26
+  },
+  {
+   "word": "the",
+   "start": 4.26,
+   "end": 4.48
+  },
+  {
+   "word": "devices",
+   "start": 4.48,
+   "end": 4.88
+  },
+  {
+   "word": "inside",
+   "start": 4.88,
+   "end": 5.3
+  },
+  {
+   "word": "your",
+   "start": 5.3,
+   "end": 5.6
+  },
+  {
+   "word": "room,",
+   "start": 5.6,
+   "end": 5.92
+  },
+  {
+   "word": "lab,",
+   "start": 6.02,
+   "end": 6.32
+  },
+  {
+   "word": "or",
+   "start": 6.42,
+   "end": 6.62
+  },
+  {
+   "word": "home",
+   "start": 6.62,
+   "end": 6.9
+  },
+  {
+   "word": "form",
+   "start": 6.9,
+   "end": 7.34
+  },
+  {
+   "word": "a",
+   "start": 7.34,
+   "end": 7.78
+  },
+  {
+   "word": "LAN,",
+   "start": 7.78,
+   "end": 8.08
+  },
+  {
+   "word": "a",
+   "start": 8.24,
+   "end": 8.42
+  },
+  {
+   "word": "local",
+   "start": 8.42,
+   "end": 8.76
+  },
+  {
+   "word": "area",
+   "start": 8.76,
+   "end": 9.1
+  },
+  {
+   "word": "network.",
+   "start": 9.1,
+   "end": 9.5
+  },
+  {
+   "word": "Inside",
+   "start": 10.02,
+   "end": 10.7
+  },
+  {
+   "word": "a",
+   "start": 10.7,
+   "end": 11.04
+  },
+  {
+   "word": "LAN,",
+   "start": 11.04,
+   "end": 11.34
+  },
+  {
+   "word": "a",
+   "start": 11.46,
+   "end": 11.56
+  },
+  {
+   "word": "switch",
+   "start": 11.56,
+   "end": 11.9
+  },
+  {
+   "word": "connects",
+   "start": 11.9,
+   "end": 12.3
+  },
+  {
+   "word": "neighboring",
+   "start": 12.3,
+   "end": 12.8
+  },
+  {
+   "word": "devices",
+   "start": 12.8,
+   "end": 13.32
+  },
+  {
+   "word": "together,",
+   "start": 13.32,
+   "end": 13.96
+  },
+  {
+   "word": "passing",
+   "start": 14.26,
+   "end": 14.86
+  },
+  {
+   "word": "frames",
+   "start": 14.86,
+   "end": 15.32
+  },
+  {
+   "word": "directly",
+   "start": 15.32,
+   "end": 15.7
+  },
+  {
+   "word": "from",
+   "start": 15.7,
+   "end": 16.1
+  },
+  {
+   "word": "one",
+   "start": 16.1,
+   "end": 16.34
+  },
+  {
+   "word": "computer",
+   "start": 16.34,
+   "end": 16.76
+  },
+  {
+   "word": "to",
+   "start": 16.76,
+   "end": 17.04
+  },
+  {
+   "word": "another",
+   "start": 17.04,
+   "end": 17.3
+  },
+  {
+   "word": "inside",
+   "start": 17.3,
+   "end": 17.74
+  },
+  {
+   "word": "the",
+   "start": 17.74,
+   "end": 18.02
+  },
+  {
+   "word": "same",
+   "start": 18.02,
+   "end": 18.3
+  },
+  {
+   "word": "building.",
+   "start": 18.3,
+   "end": 18.62
+  },
+  {
+   "word": "To",
+   "start": 18.9,
+   "end": 19.52
+  },
+  {
+   "word": "talk",
+   "start": 19.52,
+   "end": 19.94
+  },
+  {
+   "word": "to",
+   "start": 19.94,
+   "end": 20.12
+  },
+  {
+   "word": "the",
+   "start": 20.12,
+   "end": 20.28
+  },
+  {
+   "word": "outside",
+   "start": 20.28,
+   "end": 20.62
+  },
+  {
+   "word": "world,",
+   "start": 20.62,
+   "end": 21.14
+  },
+  {
+   "word": "known",
+   "start": 21.3,
+   "end": 21.96
+  },
+  {
+   "word": "as",
+   "start": 21.96,
+   "end": 22.5
+  },
+  {
+   "word": "a",
+   "start": 22.5,
+   "end": 22.8
+  },
+  {
+   "word": "WAN",
+   "start": 22.8,
+   "end": 23.22
+  },
+  {
+   "word": "or",
+   "start": 23.22,
+   "end": 23.56
+  },
+  {
+   "word": "wide",
+   "start": 23.56,
+   "end": 23.94
+  },
+  {
+   "word": "area",
+   "start": 23.94,
+   "end": 24.4
+  },
+  {
+   "word": "network",
+   "start": 24.4,
+   "end": 24.8
+  },
+  {
+   "word": "your",
+   "start": 24.8,
+   "end": 25.52
+  },
+  {
+   "word": "land",
+   "start": 25.52,
+   "end": 25.86
+  },
+  {
+   "word": "needs",
+   "start": 25.86,
+   "end": 26.14
+  },
+  {
+   "word": "a",
+   "start": 26.14,
+   "end": 26.36
+  },
+  {
+   "word": "router",
+   "start": 26.36,
+   "end": 26.76
+  },
+  {
+   "word": "thinks",
+   "start": 26.76,
+   "end": 28.04
+  },
+  {
+   "word": "of",
+   "start": 28.04,
+   "end": 28.32
+  },
+  {
+   "word": "a",
+   "start": 28.32,
+   "end": 28.48
+  },
+  {
+   "word": "switch",
+   "start": 28.48,
+   "end": 28.8
+  },
+  {
+   "word": "as",
+   "start": 28.8,
+   "end": 29.08
+  },
+  {
+   "word": "a",
+   "start": 29.08,
+   "end": 29.24
+  },
+  {
+   "word": "hallway",
+   "start": 29.24,
+   "end": 29.66
+  },
+  {
+   "word": "connecting",
+   "start": 29.66,
+   "end": 30.18
+  },
+  {
+   "word": "rooms",
+   "start": 30.18,
+   "end": 30.8
+  },
+  {
+   "word": "inside",
+   "start": 30.8,
+   "end": 31.28
+  },
+  {
+   "word": "your",
+   "start": 31.28,
+   "end": 32.06
+  },
+  {
+   "word": "house",
+   "start": 32.06,
+   "end": 32.48
+  },
+  {
+   "word": "while",
+   "start": 32.48,
+   "end": 33.14
+  },
+  {
+   "word": "a",
+   "start": 33.14,
+   "end": 33.32
+  },
+  {
+   "word": "router",
+   "start": 33.32,
+   "end": 33.82
+  },
+  {
+   "word": "is",
+   "start": 33.82,
+   "end": 34.32
+  },
+  {
+   "word": "the",
+   "start": 34.32,
+   "end": 34.54
+  },
+  {
+   "word": "front",
+   "start": 34.54,
+   "end": 34.86
+  },
+  {
+   "word": "gate",
+   "start": 34.86,
+   "end": 35.16
+  },
+  {
+   "word": "and",
+   "start": 35.16,
+   "end": 35.44
+  },
+  {
+   "word": "post",
+   "start": 35.44,
+   "end": 35.68
+  },
+  {
+   "word": "office",
+   "start": 35.68,
+   "end": 36.1
+  },
+  {
+   "word": "that",
+   "start": 36.1,
+   "end": 36.48
+  },
+  {
+   "word": "forwards",
+   "start": 36.48,
+   "end": 36.84
+  },
+  {
+   "word": "traffic",
+   "start": 36.84,
+   "end": 37.24
+  },
+  {
+   "word": "between",
+   "start": 37.24,
+   "end": 37.5
+  },
+  {
+   "word": "your",
+   "start": 37.5,
+   "end": 37.84
+  },
+  {
+   "word": "house",
+   "start": 37.84,
+   "end": 38.22
+  },
+  {
+   "word": "and",
+   "start": 38.22,
+   "end": 38.48
+  },
+  {
+   "word": "the",
+   "start": 38.48,
+   "end": 38.6
+  },
+  {
+   "word": "rest",
+   "start": 38.6,
+   "end": 38.86
+  },
+  {
+   "word": "of",
+   "start": 38.86,
+   "end": 39.14
+  },
+  {
+   "word": "the",
+   "start": 39.14,
+   "end": 39.3
+  },
+  {
+   "word": "world",
+   "start": 39.3,
+   "end": 39.66
+  },
+  {
+   "word": "every",
+   "start": 39.66,
+   "end": 41.04
+  },
+  {
+   "word": "device",
+   "start": 41.04,
+   "end": 41.4
+  },
+  {
+   "word": "on",
+   "start": 41.4,
+   "end": 41.86
+  },
+  {
+   "word": "a",
+   "start": 41.86,
+   "end": 42.02
+  },
+  {
+   "word": "network",
+   "start": 42.02,
+   "end": 42.44
+  },
+  {
+   "word": "needs",
+   "start": 42.44,
+   "end": 42.76
+  },
+  {
+   "word": "a",
+   "start": 42.76,
+   "end": 42.94
+  },
+  {
+   "word": "numerical",
+   "start": 42.94,
+   "end": 43.56
+  },
+  {
+   "word": "IP",
+   "start": 43.56,
+   "end": 44.14
+  },
+  {
+   "word": "address",
+   "start": 44.14,
+   "end": 44.56
+  },
+  {
+   "word": "like",
+   "start": 44.56,
+   "end": 46.08
+  },
+  {
+   "word": "one",
+   "start": 46.08,
+   "end": 46.52
+  },
+  {
+   "word": "192",
+   "start": 46.52,
+   "end": 47.26
+  },
+  {
+   "word": ".0",
+   "start": 47.26,
+   "end": 48.12
+  },
+  {
+   "word": ".2",
+   "start": 48.12,
+   "end": 48.94
+  },
+  {
+   "word": ".10,",
+   "start": 48.94,
+   "end": 49.54
+  },
+  {
+   "word": "which",
+   "start": 49.64,
+   "end": 50.28
+  },
+  {
+   "word": "acts",
+   "start": 50.28,
+   "end": 50.72
+  },
+  {
+   "word": "like",
+   "start": 50.72,
+   "end": 51.02
+  },
+  {
+   "word": "a",
+   "start": 51.02,
+   "end": 51.22
+  },
+  {
+   "word": "street",
+   "start": 51.22,
+   "end": 51.42
+  },
+  {
+   "word": "address.",
+   "start": 51.42,
+   "end": 51.9
+  },
+  {
+   "word": "Because",
+   "start": 52.2,
+   "end": 52.72
+  },
+  {
+   "word": "humans",
+   "start": 52.72,
+   "end": 53.3
+  },
+  {
+   "word": "are",
+   "start": 53.3,
+   "end": 53.56
+  },
+  {
+   "word": "bad",
+   "start": 53.56,
+   "end": 53.94
+  },
+  {
+   "word": "at",
+   "start": 53.94,
+   "end": 54.16
+  },
+  {
+   "word": "memorizing",
+   "start": 54.16,
+   "end": 54.72
+  },
+  {
+   "word": "numbers,",
+   "start": 54.72,
+   "end": 55.16
+  },
+  {
+   "word": "we",
+   "start": 55.42,
+   "end": 55.72
+  },
+  {
+   "word": "type",
+   "start": 55.72,
+   "end": 55.96
+  },
+  {
+   "word": "domain",
+   "start": 55.96,
+   "end": 56.3
+  },
+  {
+   "word": "names",
+   "start": 56.3,
+   "end": 56.8
+  },
+  {
+   "word": "like",
+   "start": 56.8,
+   "end": 57.28
+  },
+  {
+   "word": "bit",
+   "start": 57.28,
+   "end": 57.86
+  },
+  {
+   "word": ".edu",
+   "start": 57.86,
+   "end": 58.96
+  },
+  {
+   "word": ".cn,",
+   "start": 58.96,
+   "end": 59.72
+  },
+  {
+   "word": "and",
+   "start": 59.94,
+   "end": 60.2
+  },
+  {
+   "word": "a",
+   "start": 60.2,
+   "end": 60.38
+  },
+  {
+   "word": "service",
+   "start": 60.38,
+   "end": 60.88
+  },
+  {
+   "word": "called",
+   "start": 60.88,
+   "end": 61.2
+  },
+  {
+   "word": "DNS,",
+   "start": 61.2,
+   "end": 61.68
+  },
+  {
+   "word": "the",
+   "start": 61.78,
+   "end": 62.02
+  },
+  {
+   "word": "domain",
+   "start": 62.02,
+   "end": 62.36
+  },
+  {
+   "word": "name",
+   "start": 62.36,
+   "end": 62.62
+  },
+  {
+   "word": "system,",
+   "start": 62.62,
+   "end": 63
+  },
+  {
+   "word": "acts",
+   "start": 63.26,
+   "end": 63.98
+  },
+  {
+   "word": "as",
+   "start": 63.98,
+   "end": 64.3
+  },
+  {
+   "word": "the",
+   "start": 64.3,
+   "end": 64.5
+  },
+  {
+   "word": "internet's",
+   "start": 64.5,
+   "end": 65.06
+  },
+  {
+   "word": "phone",
+   "start": 65.06,
+   "end": 65.26
+  },
+  {
+   "word": "book,",
+   "start": 65.26,
+   "end": 65.56
+  },
+  {
+   "word": "looking",
+   "start": 65.68,
+   "end": 65.94
+  },
+  {
+   "word": "up",
+   "start": 65.94,
+   "end": 66.32
+  },
+  {
+   "word": "the",
+   "start": 66.32,
+   "end": 66.5
+  },
+  {
+   "word": "matching",
+   "start": 66.5,
+   "end": 66.94
+  },
+  {
+   "word": "IP",
+   "start": 66.94,
+   "end": 67.36
+  },
+  {
+   "word": "address",
+   "start": 67.36,
+   "end": 67.82
+  },
+  {
+   "word": "automatically",
+   "start": 67.82,
+   "end": 68.38
+  },
+  {
+   "word": "before",
+   "start": 68.38,
+   "end": 69.08
+  },
+  {
+   "word": "your",
+   "start": 69.08,
+   "end": 69.44
+  },
+  {
+   "word": "message",
+   "start": 69.44,
+   "end": 69.86
+  },
+  {
+   "word": "even",
+   "start": 69.86,
+   "end": 70.26
+  },
+  {
+   "word": "leaves.",
+   "start": 70.26,
+   "end": 70.64
+  }
+ ],
+ "segments": [
+  {
+   "id": 0,
+   "start": 0,
+   "end": 5.92,
+   "text": " Let's trace the path from your desk outward. All the devices inside your room,"
+  },
+  {
+   "id": 1,
+   "start": 6.02,
+   "end": 12.3,
+   "text": " lab, or home form a LAN, a local area network. Inside a LAN, a switch connects"
+  },
+  {
+   "id": 2,
+   "start": 12.3,
+   "end": 17.04,
+   "text": " neighboring devices together, passing frames directly from one computer to"
+  },
+  {
+   "id": 3,
+   "start": 17.04,
+   "end": 23.56,
+   "text": " another inside the same building. To talk to the outside world, known as a WAN or"
+  },
+  {
+   "id": 4,
+   "start": 23.56,
+   "end": 31.28,
+   "text": " wide area network your land needs a router thinks of a switch as a hallway connecting rooms inside"
+  },
+  {
+   "id": 5,
+   "start": 31.28,
+   "end": 37.84,
+   "text": " your house while a router is the front gate and post office that forwards traffic between your"
+  },
+  {
+   "id": 6,
+   "start": 37.84,
+   "end": 46.52,
+   "text": " house and the rest of the world every device on a network needs a numerical IP address like one"
+  },
+  {
+   "id": 7,
+   "start": 46.52,
+   "end": 51.9,
+   "text": " 192.0.2.10, which acts like a street address."
+  },
+  {
+   "id": 8,
+   "start": 52.2,
+   "end": 70.64,
+   "text": " Because humans are bad at memorizing numbers, we type domain names like bit.edu.cn, and a service called DNS, the domain name system, acts as the internet's phone book, looking up the matching IP address automatically before your message even leaves."
+  }
+ ],
+ "usage": {
+  "type": "duration",
+  "seconds": 74
+ }
+}

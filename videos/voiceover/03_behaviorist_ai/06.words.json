@@ -1,0 +1,798 @@
+{
+ "text": " Pause the video for 10 seconds and look at this critical role for stage 8-2. Up is plus 1.2, down is minus 4.5, right is plus 6.8, and left is plus 0.4. Answer 2 questions. First, if the agent G with pure exploitation, epsilon equals 0, reaction group is peak. Second, why setting Exploration to 0 from the very first episode of Chaining Dangerous? Let's check. First, pure Exploration always picks the highest Q value, which is right at the plus 6.8. Second, if you set Exploration to 0 from the very beginning, the agent logs on to the first, mediocre path that gives a tiny positive score and never explores the rest of the map. Mixing much better rows, you can practice full QVL update in study guide chapter 13 and 14 and text bind question MC18 and OE05.",
+ "task": "transcribe",
+ "language": "en",
+ "duration": 71,
+ "words": [
+  {
+   "word": "Pause",
+   "start": 0,
+   "end": 1.36
+  },
+  {
+   "word": "the",
+   "start": 1.36,
+   "end": 1.5
+  },
+  {
+   "word": "video",
+   "start": 1.5,
+   "end": 1.74
+  },
+  {
+   "word": "for",
+   "start": 1.74,
+   "end": 2.02
+  },
+  {
+   "word": "10",
+   "start": 2.02,
+   "end": 2.28
+  },
+  {
+   "word": "seconds",
+   "start": 2.28,
+   "end": 2.7
+  },
+  {
+   "word": "and",
+   "start": 2.7,
+   "end": 3.02
+  },
+  {
+   "word": "look",
+   "start": 3.02,
+   "end": 3.2
+  },
+  {
+   "word": "at",
+   "start": 3.2,
+   "end": 3.34
+  },
+  {
+   "word": "this",
+   "start": 3.34,
+   "end": 3.56
+  },
+  {
+   "word": "critical",
+   "start": 3.56,
+   "end": 3.9
+  },
+  {
+   "word": "role",
+   "start": 3.9,
+   "end": 4.38
+  },
+  {
+   "word": "for",
+   "start": 4.38,
+   "end": 4.76
+  },
+  {
+   "word": "stage",
+   "start": 4.76,
+   "end": 5.18
+  },
+  {
+   "word": "8",
+   "start": 5.18,
+   "end": 5.6
+  },
+  {
+   "word": "-2.",
+   "start": 5.6,
+   "end": 5.98
+  },
+  {
+   "word": "Up",
+   "start": 6.74,
+   "end": 7.46
+  },
+  {
+   "word": "is",
+   "start": 7.46,
+   "end": 7.82
+  },
+  {
+   "word": "plus",
+   "start": 7.82,
+   "end": 8.18
+  },
+  {
+   "word": "1",
+   "start": 8.18,
+   "end": 8.52
+  },
+  {
+   "word": ".2,",
+   "start": 8.52,
+   "end": 9.02
+  },
+  {
+   "word": "down",
+   "start": 9.22,
+   "end": 9.98
+  },
+  {
+   "word": "is",
+   "start": 9.98,
+   "end": 10.28
+  },
+  {
+   "word": "minus",
+   "start": 10.28,
+   "end": 10.58
+  },
+  {
+   "word": "4",
+   "start": 10.58,
+   "end": 11.06
+  },
+  {
+   "word": ".5,",
+   "start": 11.06,
+   "end": 11.54
+  },
+  {
+   "word": "right",
+   "start": 11.78,
+   "end": 12.9
+  },
+  {
+   "word": "is",
+   "start": 12.9,
+   "end": 13.34
+  },
+  {
+   "word": "plus",
+   "start": 13.34,
+   "end": 13.72
+  },
+  {
+   "word": "6",
+   "start": 13.72,
+   "end": 14.16
+  },
+  {
+   "word": ".8,",
+   "start": 14.16,
+   "end": 14.92
+  },
+  {
+   "word": "and",
+   "start": 14.96,
+   "end": 15.64
+  },
+  {
+   "word": "left",
+   "start": 15.64,
+   "end": 15.86
+  },
+  {
+   "word": "is",
+   "start": 15.86,
+   "end": 16.24
+  },
+  {
+   "word": "plus",
+   "start": 16.24,
+   "end": 16.56
+  },
+  {
+   "word": "0",
+   "start": 16.56,
+   "end": 16.92
+  },
+  {
+   "word": ".4.",
+   "start": 16.92,
+   "end": 17.46
+  },
+  {
+   "word": "Answer",
+   "start": 18.68,
+   "end": 19.4
+  },
+  {
+   "word": "2",
+   "start": 19.4,
+   "end": 19.64
+  },
+  {
+   "word": "questions.",
+   "start": 19.64,
+   "end": 20
+  },
+  {
+   "word": "First,",
+   "start": 20.38,
+   "end": 21.1
+  },
+  {
+   "word": "if",
+   "start": 21.32,
+   "end": 21.92
+  },
+  {
+   "word": "the",
+   "start": 21.92,
+   "end": 22.04
+  },
+  {
+   "word": "agent",
+   "start": 22.04,
+   "end": 22.22
+  },
+  {
+   "word": "G",
+   "start": 22.22,
+   "end": 22.44
+  },
+  {
+   "word": "with",
+   "start": 22.44,
+   "end": 22.62
+  },
+  {
+   "word": "pure",
+   "start": 22.62,
+   "end": 23.14
+  },
+  {
+   "word": "exploitation,",
+   "start": 23.14,
+   "end": 23.84
+  },
+  {
+   "word": "epsilon",
+   "start": 24.34,
+   "end": 25.16
+  },
+  {
+   "word": "equals",
+   "start": 25.16,
+   "end": 25.58
+  },
+  {
+   "word": "0,",
+   "start": 25.58,
+   "end": 26.02
+  },
+  {
+   "word": "reaction",
+   "start": 26.26,
+   "end": 27.02
+  },
+  {
+   "word": "group",
+   "start": 27.02,
+   "end": 27.5
+  },
+  {
+   "word": "is",
+   "start": 27.5,
+   "end": 27.66
+  },
+  {
+   "word": "peak.",
+   "start": 27.66,
+   "end": 27.94
+  },
+  {
+   "word": "Second,",
+   "start": 28.62,
+   "end": 29.18
+  },
+  {
+   "word": "why",
+   "start": 29.52,
+   "end": 30.06
+  },
+  {
+   "word": "setting",
+   "start": 30.06,
+   "end": 30.56
+  },
+  {
+   "word": "Exploration",
+   "start": 30.56,
+   "end": 31.18
+  },
+  {
+   "word": "to",
+   "start": 31.18,
+   "end": 31.5
+  },
+  {
+   "word": "0",
+   "start": 31.5,
+   "end": 31.84
+  },
+  {
+   "word": "from",
+   "start": 31.84,
+   "end": 32.06
+  },
+  {
+   "word": "the",
+   "start": 32.06,
+   "end": 32.22
+  },
+  {
+   "word": "very",
+   "start": 32.22,
+   "end": 32.48
+  },
+  {
+   "word": "first",
+   "start": 32.48,
+   "end": 32.76
+  },
+  {
+   "word": "episode",
+   "start": 32.76,
+   "end": 33.02
+  },
+  {
+   "word": "of",
+   "start": 33.02,
+   "end": 33.38
+  },
+  {
+   "word": "Chaining",
+   "start": 33.38,
+   "end": 33.64
+  },
+  {
+   "word": "Dangerous?",
+   "start": 33.64,
+   "end": 34.32
+  },
+  {
+   "word": "Let's",
+   "start": 35.16,
+   "end": 35.72
+  },
+  {
+   "word": "check.",
+   "start": 35.72,
+   "end": 35.96
+  },
+  {
+   "word": "First,",
+   "start": 36.34,
+   "end": 36.9
+  },
+  {
+   "word": "pure",
+   "start": 37.44,
+   "end": 37.86
+  },
+  {
+   "word": "Exploration",
+   "start": 37.86,
+   "end": 38.5
+  },
+  {
+   "word": "always",
+   "start": 38.5,
+   "end": 38.86
+  },
+  {
+   "word": "picks",
+   "start": 38.86,
+   "end": 39.26
+  },
+  {
+   "word": "the",
+   "start": 39.26,
+   "end": 39.44
+  },
+  {
+   "word": "highest",
+   "start": 39.44,
+   "end": 39.7
+  },
+  {
+   "word": "Q",
+   "start": 39.7,
+   "end": 39.86
+  },
+  {
+   "word": "value,",
+   "start": 39.86,
+   "end": 40.18
+  },
+  {
+   "word": "which",
+   "start": 40.44,
+   "end": 41.24
+  },
+  {
+   "word": "is",
+   "start": 41.24,
+   "end": 41.4
+  },
+  {
+   "word": "right",
+   "start": 41.4,
+   "end": 41.68
+  },
+  {
+   "word": "at",
+   "start": 41.68,
+   "end": 41.9
+  },
+  {
+   "word": "the",
+   "start": 41.9,
+   "end": 42.08
+  },
+  {
+   "word": "plus",
+   "start": 42.08,
+   "end": 42.34
+  },
+  {
+   "word": "6",
+   "start": 42.34,
+   "end": 42.76
+  },
+  {
+   "word": ".8.",
+   "start": 42.76,
+   "end": 43.92
+  },
+  {
+   "word": "Second,",
+   "start": 44.44,
+   "end": 45
+  },
+  {
+   "word": "if",
+   "start": 45.18,
+   "end": 45.28
+  },
+  {
+   "word": "you",
+   "start": 45.28,
+   "end": 45.38
+  },
+  {
+   "word": "set",
+   "start": 45.38,
+   "end": 45.64
+  },
+  {
+   "word": "Exploration",
+   "start": 45.64,
+   "end": 46.28
+  },
+  {
+   "word": "to",
+   "start": 46.28,
+   "end": 46.62
+  },
+  {
+   "word": "0",
+   "start": 46.62,
+   "end": 46.94
+  },
+  {
+   "word": "from",
+   "start": 46.94,
+   "end": 47.24
+  },
+  {
+   "word": "the",
+   "start": 47.24,
+   "end": 47.4
+  },
+  {
+   "word": "very",
+   "start": 47.4,
+   "end": 47.68
+  },
+  {
+   "word": "beginning,",
+   "start": 47.68,
+   "end": 48.02
+  },
+  {
+   "word": "the",
+   "start": 48.5,
+   "end": 49.28
+  },
+  {
+   "word": "agent",
+   "start": 49.28,
+   "end": 49.52
+  },
+  {
+   "word": "logs",
+   "start": 49.52,
+   "end": 49.74
+  },
+  {
+   "word": "on",
+   "start": 49.74,
+   "end": 49.92
+  },
+  {
+   "word": "to",
+   "start": 49.92,
+   "end": 50.04
+  },
+  {
+   "word": "the",
+   "start": 50.04,
+   "end": 50.14
+  },
+  {
+   "word": "first,",
+   "start": 50.14,
+   "end": 50.44
+  },
+  {
+   "word": "mediocre",
+   "start": 50.58,
+   "end": 51.34
+  },
+  {
+   "word": "path",
+   "start": 51.34,
+   "end": 52.46
+  },
+  {
+   "word": "that",
+   "start": 52.46,
+   "end": 52.78
+  },
+  {
+   "word": "gives",
+   "start": 52.78,
+   "end": 52.98
+  },
+  {
+   "word": "a",
+   "start": 52.98,
+   "end": 53.16
+  },
+  {
+   "word": "tiny",
+   "start": 53.16,
+   "end": 53.42
+  },
+  {
+   "word": "positive",
+   "start": 53.42,
+   "end": 53.78
+  },
+  {
+   "word": "score",
+   "start": 53.78,
+   "end": 54.16
+  },
+  {
+   "word": "and",
+   "start": 54.16,
+   "end": 54.48
+  },
+  {
+   "word": "never",
+   "start": 54.48,
+   "end": 54.78
+  },
+  {
+   "word": "explores",
+   "start": 54.78,
+   "end": 55.18
+  },
+  {
+   "word": "the",
+   "start": 55.18,
+   "end": 55.48
+  },
+  {
+   "word": "rest",
+   "start": 55.48,
+   "end": 55.66
+  },
+  {
+   "word": "of",
+   "start": 55.66,
+   "end": 55.76
+  },
+  {
+   "word": "the",
+   "start": 55.76,
+   "end": 55.9
+  },
+  {
+   "word": "map.",
+   "start": 55.9,
+   "end": 56.1
+  },
+  {
+   "word": "Mixing",
+   "start": 56.94,
+   "end": 57.62
+  },
+  {
+   "word": "much",
+   "start": 57.62,
+   "end": 57.74
+  },
+  {
+   "word": "better",
+   "start": 57.74,
+   "end": 58.08
+  },
+  {
+   "word": "rows,",
+   "start": 58.08,
+   "end": 58.38
+  },
+  {
+   "word": "you",
+   "start": 58.58,
+   "end": 59.2
+  },
+  {
+   "word": "can",
+   "start": 59.2,
+   "end": 59.36
+  },
+  {
+   "word": "practice",
+   "start": 59.36,
+   "end": 59.68
+  },
+  {
+   "word": "full",
+   "start": 59.68,
+   "end": 60.18
+  },
+  {
+   "word": "QVL",
+   "start": 60.18,
+   "end": 60.66
+  },
+  {
+   "word": "update",
+   "start": 60.66,
+   "end": 61.04
+  },
+  {
+   "word": "in",
+   "start": 61.04,
+   "end": 61.34
+  },
+  {
+   "word": "study",
+   "start": 61.34,
+   "end": 61.56
+  },
+  {
+   "word": "guide",
+   "start": 61.56,
+   "end": 61.84
+  },
+  {
+   "word": "chapter",
+   "start": 61.84,
+   "end": 62.18
+  },
+  {
+   "word": "13",
+   "start": 62.18,
+   "end": 63.54
+  },
+  {
+   "word": "and",
+   "start": 63.54,
+   "end": 63.86
+  },
+  {
+   "word": "14",
+   "start": 63.86,
+   "end": 64.24
+  },
+  {
+   "word": "and",
+   "start": 64.24,
+   "end": 65.02
+  },
+  {
+   "word": "text",
+   "start": 65.02,
+   "end": 65.26
+  },
+  {
+   "word": "bind",
+   "start": 65.26,
+   "end": 65.44
+  },
+  {
+   "word": "question",
+   "start": 65.44,
+   "end": 65.76
+  },
+  {
+   "word": "MC18",
+   "start": 65.76,
+   "end": 66.56
+  },
+  {
+   "word": "and",
+   "start": 66.56,
+   "end": 66.98
+  },
+  {
+   "word": "OE05.",
+   "start": 66.98,
+   "end": 68.96
+  }
+ ],
+ "segments": [
+  {
+   "id": 0,
+   "start": 0,
+   "end": 5.98,
+   "text": " Pause the video for 10 seconds and look at this critical role for stage 8-2."
+  },
+  {
+   "id": 1,
+   "start": 6.74,
+   "end": 17.46,
+   "text": " Up is plus 1.2, down is minus 4.5, right is plus 6.8, and left is plus 0.4."
+  },
+  {
+   "id": 2,
+   "start": 18.68,
+   "end": 20,
+   "text": " Answer 2 questions."
+  },
+  {
+   "id": 3,
+   "start": 20.38,
+   "end": 27.94,
+   "text": " First, if the agent G with pure exploitation, epsilon equals 0, reaction group is peak."
+  },
+  {
+   "id": 4,
+   "start": 28.62,
+   "end": 34.32,
+   "text": " Second, why setting Exploration to 0 from the very first episode of Chaining Dangerous?"
+  },
+  {
+   "id": 5,
+   "start": 35.16,
+   "end": 35.96,
+   "text": " Let's check."
+  },
+  {
+   "id": 6,
+   "start": 36.34,
+   "end": 43.92,
+   "text": " First, pure Exploration always picks the highest Q value, which is right at the plus 6.8."
+  },
+  {
+   "id": 7,
+   "start": 44.44,
+   "end": 56.1,
+   "text": " Second, if you set Exploration to 0 from the very beginning, the agent logs on to the first, mediocre path that gives a tiny positive score and never explores the rest of the map."
+  },
+  {
+   "id": 8,
+   "start": 56.94,
+   "end": 68.96,
+   "text": " Mixing much better rows, you can practice full QVL update in study guide chapter 13 and 14 and text bind question MC18 and OE05."
+  }
+ ],
+ "usage": {
+  "type": "duration",
+  "seconds": 71
+ }
+}

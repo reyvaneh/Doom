@@ -1,0 +1,653 @@
+{
+ "text": " Behaviourist AI focuses on observable behaviour, how an engine responds to its environment right now. Rather than storing heavy symbolic maps, every behaviourist agent runs a tight continuous loop. First, send the current state of the work through hardware inputs. Second, decide which action to take. reflected through motor outputs, which changes the environment and starts the next cycle. The simplest version of the reflex agent, driven by Ibsen rules, for example, in a robot vacuum, if the clip sensor detects stairs, then stop and reserve. No reflex rules are fast, but what if the robot gets trapped bouncing left and right in a corner because he's had no memory of what is this one second ago",
+ "task": "transcribe",
+ "language": "en",
+ "duration": 58,
+ "words": [
+  {
+   "word": "Behaviourist",
+   "start": 1.34,
+   "end": 2.06
+  },
+  {
+   "word": "AI",
+   "start": 2.06,
+   "end": 2.34
+  },
+  {
+   "word": "focuses",
+   "start": 2.34,
+   "end": 2.82
+  },
+  {
+   "word": "on",
+   "start": 2.82,
+   "end": 3.22
+  },
+  {
+   "word": "observable",
+   "start": 3.22,
+   "end": 4.42
+  },
+  {
+   "word": "behaviour,",
+   "start": 4.42,
+   "end": 5.2
+  },
+  {
+   "word": "how",
+   "start": 5.74,
+   "end": 6.48
+  },
+  {
+   "word": "an",
+   "start": 6.48,
+   "end": 6.72
+  },
+  {
+   "word": "engine",
+   "start": 6.72,
+   "end": 7.04
+  },
+  {
+   "word": "responds",
+   "start": 7.04,
+   "end": 7.44
+  },
+  {
+   "word": "to",
+   "start": 7.44,
+   "end": 7.88
+  },
+  {
+   "word": "its",
+   "start": 7.88,
+   "end": 8.06
+  },
+  {
+   "word": "environment",
+   "start": 8.06,
+   "end": 8.54
+  },
+  {
+   "word": "right",
+   "start": 8.54,
+   "end": 8.86
+  },
+  {
+   "word": "now.",
+   "start": 8.86,
+   "end": 9.12
+  },
+  {
+   "word": "Rather",
+   "start": 9.64,
+   "end": 10.36
+  },
+  {
+   "word": "than",
+   "start": 10.36,
+   "end": 10.64
+  },
+  {
+   "word": "storing",
+   "start": 10.64,
+   "end": 11.02
+  },
+  {
+   "word": "heavy",
+   "start": 11.02,
+   "end": 11.4
+  },
+  {
+   "word": "symbolic",
+   "start": 11.4,
+   "end": 11.86
+  },
+  {
+   "word": "maps,",
+   "start": 11.86,
+   "end": 12.22
+  },
+  {
+   "word": "every",
+   "start": 12.8,
+   "end": 13.14
+  },
+  {
+   "word": "behaviourist",
+   "start": 13.14,
+   "end": 13.96
+  },
+  {
+   "word": "agent",
+   "start": 13.96,
+   "end": 14.28
+  },
+  {
+   "word": "runs",
+   "start": 14.28,
+   "end": 14.64
+  },
+  {
+   "word": "a",
+   "start": 14.64,
+   "end": 14.86
+  },
+  {
+   "word": "tight",
+   "start": 14.86,
+   "end": 15.16
+  },
+  {
+   "word": "continuous",
+   "start": 15.16,
+   "end": 15.98
+  },
+  {
+   "word": "loop.",
+   "start": 15.98,
+   "end": 16.52
+  },
+  {
+   "word": "First,",
+   "start": 17.02,
+   "end": 17.74
+  },
+  {
+   "word": "send",
+   "start": 17.96,
+   "end": 18.82
+  },
+  {
+   "word": "the",
+   "start": 18.82,
+   "end": 18.94
+  },
+  {
+   "word": "current",
+   "start": 18.94,
+   "end": 19.12
+  },
+  {
+   "word": "state",
+   "start": 19.12,
+   "end": 19.4
+  },
+  {
+   "word": "of",
+   "start": 19.4,
+   "end": 19.56
+  },
+  {
+   "word": "the",
+   "start": 19.56,
+   "end": 19.74
+  },
+  {
+   "word": "work",
+   "start": 19.74,
+   "end": 20
+  },
+  {
+   "word": "through",
+   "start": 20,
+   "end": 20.3
+  },
+  {
+   "word": "hardware",
+   "start": 20.3,
+   "end": 20.7
+  },
+  {
+   "word": "inputs.",
+   "start": 20.7,
+   "end": 21.14
+  },
+  {
+   "word": "Second,",
+   "start": 21.74,
+   "end": 22.46
+  },
+  {
+   "word": "decide",
+   "start": 22.72,
+   "end": 23.28
+  },
+  {
+   "word": "which",
+   "start": 23.28,
+   "end": 23.6
+  },
+  {
+   "word": "action",
+   "start": 23.6,
+   "end": 23.98
+  },
+  {
+   "word": "to",
+   "start": 23.98,
+   "end": 24.12
+  },
+  {
+   "word": "take.",
+   "start": 24.12,
+   "end": 24.4
+  },
+  {
+   "word": "reflected",
+   "start": 24.4,
+   "end": 25.54
+  },
+  {
+   "word": "through",
+   "start": 25.54,
+   "end": 25.64
+  },
+  {
+   "word": "motor",
+   "start": 25.64,
+   "end": 27
+  },
+  {
+   "word": "outputs,",
+   "start": 27,
+   "end": 27.44
+  },
+  {
+   "word": "which",
+   "start": 27.94,
+   "end": 28.66
+  },
+  {
+   "word": "changes",
+   "start": 28.66,
+   "end": 29.12
+  },
+  {
+   "word": "the",
+   "start": 29.12,
+   "end": 29.36
+  },
+  {
+   "word": "environment",
+   "start": 29.36,
+   "end": 29.72
+  },
+  {
+   "word": "and",
+   "start": 29.72,
+   "end": 30.1
+  },
+  {
+   "word": "starts",
+   "start": 30.1,
+   "end": 30.5
+  },
+  {
+   "word": "the",
+   "start": 30.5,
+   "end": 30.78
+  },
+  {
+   "word": "next",
+   "start": 30.78,
+   "end": 31
+  },
+  {
+   "word": "cycle.",
+   "start": 31,
+   "end": 31.34
+  },
+  {
+   "word": "The",
+   "start": 32.3,
+   "end": 33.02
+  },
+  {
+   "word": "simplest",
+   "start": 33.02,
+   "end": 33.38
+  },
+  {
+   "word": "version",
+   "start": 33.38,
+   "end": 33.8
+  },
+  {
+   "word": "of",
+   "start": 33.8,
+   "end": 34.2
+  },
+  {
+   "word": "the",
+   "start": 34.2,
+   "end": 34.52
+  },
+  {
+   "word": "reflex",
+   "start": 34.52,
+   "end": 35.56
+  },
+  {
+   "word": "agent,",
+   "start": 35.56,
+   "end": 36.06
+  },
+  {
+   "word": "driven",
+   "start": 36.24,
+   "end": 36.86
+  },
+  {
+   "word": "by",
+   "start": 36.86,
+   "end": 37.26
+  },
+  {
+   "word": "Ibsen",
+   "start": 37.26,
+   "end": 37.66
+  },
+  {
+   "word": "rules,",
+   "start": 37.66,
+   "end": 38.1
+  },
+  {
+   "word": "for",
+   "start": 38.38,
+   "end": 39.06
+  },
+  {
+   "word": "example,",
+   "start": 39.06,
+   "end": 39.5
+  },
+  {
+   "word": "in",
+   "start": 39.64,
+   "end": 40.26
+  },
+  {
+   "word": "a",
+   "start": 40.26,
+   "end": 40.4
+  },
+  {
+   "word": "robot",
+   "start": 40.4,
+   "end": 40.62
+  },
+  {
+   "word": "vacuum,",
+   "start": 40.62,
+   "end": 40.96
+  },
+  {
+   "word": "if",
+   "start": 41.34,
+   "end": 42.1
+  },
+  {
+   "word": "the",
+   "start": 42.1,
+   "end": 42.24
+  },
+  {
+   "word": "clip",
+   "start": 42.24,
+   "end": 42.5
+  },
+  {
+   "word": "sensor",
+   "start": 42.5,
+   "end": 42.84
+  },
+  {
+   "word": "detects",
+   "start": 42.84,
+   "end": 43.5
+  },
+  {
+   "word": "stairs,",
+   "start": 43.5,
+   "end": 43.78
+  },
+  {
+   "word": "then",
+   "start": 44.02,
+   "end": 44.86
+  },
+  {
+   "word": "stop",
+   "start": 44.86,
+   "end": 45.22
+  },
+  {
+   "word": "and",
+   "start": 45.22,
+   "end": 45.5
+  },
+  {
+   "word": "reserve.",
+   "start": 45.5,
+   "end": 45.86
+  },
+  {
+   "word": "No",
+   "start": 46.46,
+   "end": 47.18
+  },
+  {
+   "word": "reflex",
+   "start": 47.18,
+   "end": 47.48
+  },
+  {
+   "word": "rules",
+   "start": 47.48,
+   "end": 47.72
+  },
+  {
+   "word": "are",
+   "start": 47.72,
+   "end": 47.86
+  },
+  {
+   "word": "fast,",
+   "start": 47.86,
+   "end": 48.1
+  },
+  {
+   "word": "but",
+   "start": 48.38,
+   "end": 48.98
+  },
+  {
+   "word": "what",
+   "start": 48.98,
+   "end": 49.74
+  },
+  {
+   "word": "if",
+   "start": 49.74,
+   "end": 49.9
+  },
+  {
+   "word": "the",
+   "start": 49.9,
+   "end": 50.52
+  },
+  {
+   "word": "robot",
+   "start": 50.52,
+   "end": 50.82
+  },
+  {
+   "word": "gets",
+   "start": 50.82,
+   "end": 51.06
+  },
+  {
+   "word": "trapped",
+   "start": 51.06,
+   "end": 51.42
+  },
+  {
+   "word": "bouncing",
+   "start": 51.42,
+   "end": 51.82
+  },
+  {
+   "word": "left",
+   "start": 51.82,
+   "end": 52.08
+  },
+  {
+   "word": "and",
+   "start": 52.08,
+   "end": 52.32
+  },
+  {
+   "word": "right",
+   "start": 52.32,
+   "end": 52.64
+  },
+  {
+   "word": "in",
+   "start": 52.64,
+   "end": 52.88
+  },
+  {
+   "word": "a",
+   "start": 52.88,
+   "end": 52.96
+  },
+  {
+   "word": "corner",
+   "start": 52.96,
+   "end": 53.24
+  },
+  {
+   "word": "because",
+   "start": 53.24,
+   "end": 53.6
+  },
+  {
+   "word": "he's",
+   "start": 53.6,
+   "end": 53.88
+  },
+  {
+   "word": "had",
+   "start": 53.88,
+   "end": 53.98
+  },
+  {
+   "word": "no",
+   "start": 53.98,
+   "end": 54.7
+  },
+  {
+   "word": "memory",
+   "start": 54.7,
+   "end": 55.16
+  },
+  {
+   "word": "of",
+   "start": 55.16,
+   "end": 55.38
+  },
+  {
+   "word": "what",
+   "start": 55.38,
+   "end": 55.6
+  },
+  {
+   "word": "is",
+   "start": 55.6,
+   "end": 55.82
+  },
+  {
+   "word": "this",
+   "start": 55.82,
+   "end": 56.22
+  },
+  {
+   "word": "one",
+   "start": 56.22,
+   "end": 56.62
+  },
+  {
+   "word": "second",
+   "start": 56.62,
+   "end": 56.96
+  },
+  {
+   "word": "ago",
+   "start": 56.96,
+   "end": 57.2
+  }
+ ],
+ "segments": [
+  {
+   "id": 0,
+   "start": 1.34,
+   "end": 9.12,
+   "text": " Behaviourist AI focuses on observable behaviour, how an engine responds to its environment right now."
+  },
+  {
+   "id": 1,
+   "start": 9.64,
+   "end": 16.52,
+   "text": " Rather than storing heavy symbolic maps, every behaviourist agent runs a tight continuous loop."
+  },
+  {
+   "id": 2,
+   "start": 17.02,
+   "end": 21.14,
+   "text": " First, send the current state of the work through hardware inputs."
+  },
+  {
+   "id": 3,
+   "start": 21.74,
+   "end": 24.4,
+   "text": " Second, decide which action to take."
+  },
+  {
+   "id": 4,
+   "start": 24.4,
+   "end": 31.34,
+   "text": " reflected through motor outputs, which changes the environment and starts the next cycle."
+  },
+  {
+   "id": 5,
+   "start": 32.3,
+   "end": 40.62,
+   "text": " The simplest version of the reflex agent, driven by Ibsen rules, for example, in a robot"
+  },
+  {
+   "id": 6,
+   "start": 40.62,
+   "end": 45.86,
+   "text": " vacuum, if the clip sensor detects stairs, then stop and reserve."
+  },
+  {
+   "id": 7,
+   "start": 46.46,
+   "end": 52.64,
+   "text": " No reflex rules are fast, but what if the robot gets trapped bouncing left and right"
+  },
+  {
+   "id": 8,
+   "start": 52.64,
+   "end": 57.2,
+   "text": " in a corner because he's had no memory of what is this one second ago"
+  }
+ ],
+ "usage": {
+  "type": "duration",
+  "seconds": 58
+ }
+}

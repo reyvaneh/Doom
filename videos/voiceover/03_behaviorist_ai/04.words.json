@@ -1,0 +1,1113 @@
+{
+ "text": " Reactive rules work well when the programmer already knows every rule in advance. But what if an engine is placed in an unknown maze and has to learn the best strategy of it all? That is reinforcement learning. Instead of giving the engine the rules, we give it a numeric reward. For example, plus 10 for reaching the charging goals, minus 10 for hitting a hazard piece, and minus 1 for every step it takes so it learns to hurry instead of walking in circles. In query learning, the agents give a reference table called a query table. Each row is a state, a square on the grid, and each column is a possible action, up, down, left, or right. The number inside itself, called the query value, estimates the total future reward of taking the action from the square. How does the engine fill out this table? By balancing exploration, drawing new, random paths, using an excellent grid D, setting service does not meet the shortcut, And exploitation, choose the interaction with the highest QValue it has discovered so far. Every time it takes a test. It updates the QValue using the immediate reward plus the best QValue of the next query.",
+ "task": "transcribe",
+ "language": "en",
+ "duration": 95,
+ "words": [
+  {
+   "word": "Reactive",
+   "start": 0.9,
+   "end": 1.5
+  },
+  {
+   "word": "rules",
+   "start": 1.5,
+   "end": 1.96
+  },
+  {
+   "word": "work",
+   "start": 1.96,
+   "end": 2.42
+  },
+  {
+   "word": "well",
+   "start": 2.42,
+   "end": 2.7
+  },
+  {
+   "word": "when",
+   "start": 2.7,
+   "end": 3.02
+  },
+  {
+   "word": "the",
+   "start": 3.02,
+   "end": 3.22
+  },
+  {
+   "word": "programmer",
+   "start": 3.22,
+   "end": 3.68
+  },
+  {
+   "word": "already",
+   "start": 3.68,
+   "end": 4.04
+  },
+  {
+   "word": "knows",
+   "start": 4.04,
+   "end": 4.4
+  },
+  {
+   "word": "every",
+   "start": 4.4,
+   "end": 4.98
+  },
+  {
+   "word": "rule",
+   "start": 4.98,
+   "end": 5.28
+  },
+  {
+   "word": "in",
+   "start": 5.28,
+   "end": 5.48
+  },
+  {
+   "word": "advance.",
+   "start": 5.48,
+   "end": 5.7
+  },
+  {
+   "word": "But",
+   "start": 6.56,
+   "end": 7.16
+  },
+  {
+   "word": "what",
+   "start": 7.16,
+   "end": 7.76
+  },
+  {
+   "word": "if",
+   "start": 7.76,
+   "end": 7.9
+  },
+  {
+   "word": "an",
+   "start": 7.9,
+   "end": 8.04
+  },
+  {
+   "word": "engine",
+   "start": 8.04,
+   "end": 8.38
+  },
+  {
+   "word": "is",
+   "start": 8.38,
+   "end": 8.8
+  },
+  {
+   "word": "placed",
+   "start": 8.8,
+   "end": 9.22
+  },
+  {
+   "word": "in",
+   "start": 9.22,
+   "end": 9.44
+  },
+  {
+   "word": "an",
+   "start": 9.44,
+   "end": 9.64
+  },
+  {
+   "word": "unknown",
+   "start": 9.64,
+   "end": 10
+  },
+  {
+   "word": "maze",
+   "start": 10,
+   "end": 10.48
+  },
+  {
+   "word": "and",
+   "start": 10.48,
+   "end": 10.8
+  },
+  {
+   "word": "has",
+   "start": 10.8,
+   "end": 10.94
+  },
+  {
+   "word": "to",
+   "start": 10.94,
+   "end": 11.14
+  },
+  {
+   "word": "learn",
+   "start": 11.14,
+   "end": 11.42
+  },
+  {
+   "word": "the",
+   "start": 11.42,
+   "end": 11.6
+  },
+  {
+   "word": "best",
+   "start": 11.6,
+   "end": 11.78
+  },
+  {
+   "word": "strategy",
+   "start": 11.78,
+   "end": 12.2
+  },
+  {
+   "word": "of",
+   "start": 12.2,
+   "end": 12.48
+  },
+  {
+   "word": "it",
+   "start": 12.48,
+   "end": 12.62
+  },
+  {
+   "word": "all?",
+   "start": 12.62,
+   "end": 12.84
+  },
+  {
+   "word": "That",
+   "start": 14.08,
+   "end": 14.68
+  },
+  {
+   "word": "is",
+   "start": 14.68,
+   "end": 14.9
+  },
+  {
+   "word": "reinforcement",
+   "start": 14.9,
+   "end": 15.82
+  },
+  {
+   "word": "learning.",
+   "start": 15.82,
+   "end": 16.4
+  },
+  {
+   "word": "Instead",
+   "start": 16.98,
+   "end": 17.58
+  },
+  {
+   "word": "of",
+   "start": 17.58,
+   "end": 17.78
+  },
+  {
+   "word": "giving",
+   "start": 17.78,
+   "end": 18.02
+  },
+  {
+   "word": "the",
+   "start": 18.02,
+   "end": 18.18
+  },
+  {
+   "word": "engine",
+   "start": 18.18,
+   "end": 18.5
+  },
+  {
+   "word": "the",
+   "start": 18.5,
+   "end": 18.68
+  },
+  {
+   "word": "rules,",
+   "start": 18.68,
+   "end": 19
+  },
+  {
+   "word": "we",
+   "start": 19.28,
+   "end": 19.82
+  },
+  {
+   "word": "give",
+   "start": 19.82,
+   "end": 20.1
+  },
+  {
+   "word": "it",
+   "start": 20.1,
+   "end": 20.22
+  },
+  {
+   "word": "a",
+   "start": 20.22,
+   "end": 20.38
+  },
+  {
+   "word": "numeric",
+   "start": 20.38,
+   "end": 20.92
+  },
+  {
+   "word": "reward.",
+   "start": 20.92,
+   "end": 21.24
+  },
+  {
+   "word": "For",
+   "start": 21.68,
+   "end": 22.28
+  },
+  {
+   "word": "example,",
+   "start": 22.28,
+   "end": 22.68
+  },
+  {
+   "word": "plus",
+   "start": 22.84,
+   "end": 23.64
+  },
+  {
+   "word": "10",
+   "start": 23.64,
+   "end": 23.92
+  },
+  {
+   "word": "for",
+   "start": 23.92,
+   "end": 24.22
+  },
+  {
+   "word": "reaching",
+   "start": 24.22,
+   "end": 24.46
+  },
+  {
+   "word": "the",
+   "start": 24.46,
+   "end": 24.74
+  },
+  {
+   "word": "charging",
+   "start": 24.74,
+   "end": 24.98
+  },
+  {
+   "word": "goals,",
+   "start": 24.98,
+   "end": 25.3
+  },
+  {
+   "word": "minus",
+   "start": 25.56,
+   "end": 26.38
+  },
+  {
+   "word": "10",
+   "start": 26.38,
+   "end": 26.7
+  },
+  {
+   "word": "for",
+   "start": 26.7,
+   "end": 26.98
+  },
+  {
+   "word": "hitting",
+   "start": 26.98,
+   "end": 27.16
+  },
+  {
+   "word": "a",
+   "start": 27.16,
+   "end": 27.42
+  },
+  {
+   "word": "hazard",
+   "start": 27.42,
+   "end": 27.76
+  },
+  {
+   "word": "piece,",
+   "start": 27.76,
+   "end": 28.14
+  },
+  {
+   "word": "and",
+   "start": 28.14,
+   "end": 29.14
+  },
+  {
+   "word": "minus",
+   "start": 29.14,
+   "end": 29.58
+  },
+  {
+   "word": "1",
+   "start": 29.58,
+   "end": 29.88
+  },
+  {
+   "word": "for",
+   "start": 29.88,
+   "end": 30.26
+  },
+  {
+   "word": "every",
+   "start": 30.26,
+   "end": 30.58
+  },
+  {
+   "word": "step",
+   "start": 30.58,
+   "end": 30.96
+  },
+  {
+   "word": "it",
+   "start": 30.96,
+   "end": 31.2
+  },
+  {
+   "word": "takes",
+   "start": 31.2,
+   "end": 31.64
+  },
+  {
+   "word": "so",
+   "start": 31.64,
+   "end": 32.14
+  },
+  {
+   "word": "it",
+   "start": 32.14,
+   "end": 33.14
+  },
+  {
+   "word": "learns",
+   "start": 33.14,
+   "end": 33.44
+  },
+  {
+   "word": "to",
+   "start": 33.44,
+   "end": 33.66
+  },
+  {
+   "word": "hurry",
+   "start": 33.66,
+   "end": 33.96
+  },
+  {
+   "word": "instead",
+   "start": 33.96,
+   "end": 34.22
+  },
+  {
+   "word": "of",
+   "start": 34.22,
+   "end": 34.42
+  },
+  {
+   "word": "walking",
+   "start": 34.42,
+   "end": 34.68
+  },
+  {
+   "word": "in",
+   "start": 34.68,
+   "end": 34.9
+  },
+  {
+   "word": "circles.",
+   "start": 34.9,
+   "end": 35.48
+  },
+  {
+   "word": "In",
+   "start": 36.48,
+   "end": 37.12
+  },
+  {
+   "word": "query",
+   "start": 37.12,
+   "end": 37.44
+  },
+  {
+   "word": "learning,",
+   "start": 37.44,
+   "end": 37.76
+  },
+  {
+   "word": "the",
+   "start": 37.98,
+   "end": 38.6
+  },
+  {
+   "word": "agents",
+   "start": 38.6,
+   "end": 38.92
+  },
+  {
+   "word": "give",
+   "start": 38.92,
+   "end": 39.22
+  },
+  {
+   "word": "a",
+   "start": 39.22,
+   "end": 39.48
+  },
+  {
+   "word": "reference",
+   "start": 39.48,
+   "end": 39.86
+  },
+  {
+   "word": "table",
+   "start": 39.86,
+   "end": 40.3
+  },
+  {
+   "word": "called",
+   "start": 40.3,
+   "end": 40.7
+  },
+  {
+   "word": "a",
+   "start": 40.7,
+   "end": 40.92
+  },
+  {
+   "word": "query",
+   "start": 40.92,
+   "end": 41.2
+  },
+  {
+   "word": "table.",
+   "start": 41.2,
+   "end": 41.52
+  },
+  {
+   "word": "Each",
+   "start": 42.34,
+   "end": 42.98
+  },
+  {
+   "word": "row",
+   "start": 42.98,
+   "end": 43.34
+  },
+  {
+   "word": "is",
+   "start": 43.34,
+   "end": 43.66
+  },
+  {
+   "word": "a",
+   "start": 43.66,
+   "end": 43.8
+  },
+  {
+   "word": "state,",
+   "start": 43.8,
+   "end": 44.12
+  },
+  {
+   "word": "a",
+   "start": 44.36,
+   "end": 44.92
+  },
+  {
+   "word": "square",
+   "start": 44.92,
+   "end": 45.26
+  },
+  {
+   "word": "on",
+   "start": 45.26,
+   "end": 45.48
+  },
+  {
+   "word": "the",
+   "start": 45.48,
+   "end": 45.64
+  },
+  {
+   "word": "grid,",
+   "start": 45.64,
+   "end": 45.9
+  },
+  {
+   "word": "and",
+   "start": 46.06,
+   "end": 46.88
+  },
+  {
+   "word": "each",
+   "start": 46.88,
+   "end": 47.28
+  },
+  {
+   "word": "column",
+   "start": 47.28,
+   "end": 47.7
+  },
+  {
+   "word": "is",
+   "start": 47.7,
+   "end": 48
+  },
+  {
+   "word": "a",
+   "start": 48,
+   "end": 48.18
+  },
+  {
+   "word": "possible",
+   "start": 48.18,
+   "end": 48.44
+  },
+  {
+   "word": "action,",
+   "start": 48.44,
+   "end": 48.82
+  },
+  {
+   "word": "up,",
+   "start": 49.06,
+   "end": 49.78
+  },
+  {
+   "word": "down,",
+   "start": 49.92,
+   "end": 50.54
+  },
+  {
+   "word": "left,",
+   "start": 50.82,
+   "end": 51.64
+  },
+  {
+   "word": "or",
+   "start": 51.9,
+   "end": 52.3
+  },
+  {
+   "word": "right.",
+   "start": 52.3,
+   "end": 52.6
+  },
+  {
+   "word": "The",
+   "start": 53.32,
+   "end": 53.96
+  },
+  {
+   "word": "number",
+   "start": 53.96,
+   "end": 54.28
+  },
+  {
+   "word": "inside",
+   "start": 54.28,
+   "end": 54.6
+  },
+  {
+   "word": "itself,",
+   "start": 54.6,
+   "end": 54.88
+  },
+  {
+   "word": "called",
+   "start": 55.32,
+   "end": 55.94
+  },
+  {
+   "word": "the",
+   "start": 55.94,
+   "end": 56.22
+  },
+  {
+   "word": "query",
+   "start": 56.22,
+   "end": 56.42
+  },
+  {
+   "word": "value,",
+   "start": 56.42,
+   "end": 56.76
+  },
+  {
+   "word": "estimates",
+   "start": 57,
+   "end": 57.88
+  },
+  {
+   "word": "the",
+   "start": 57.88,
+   "end": 58.22
+  },
+  {
+   "word": "total",
+   "start": 58.22,
+   "end": 58.56
+  },
+  {
+   "word": "future",
+   "start": 58.56,
+   "end": 58.94
+  },
+  {
+   "word": "reward",
+   "start": 58.94,
+   "end": 59.32
+  },
+  {
+   "word": "of",
+   "start": 59.32,
+   "end": 59.52
+  },
+  {
+   "word": "taking",
+   "start": 59.52,
+   "end": 59.78
+  },
+  {
+   "word": "the",
+   "start": 59.78,
+   "end": 60
+  },
+  {
+   "word": "action",
+   "start": 60,
+   "end": 60.3
+  },
+  {
+   "word": "from",
+   "start": 60.3,
+   "end": 60.56
+  },
+  {
+   "word": "the",
+   "start": 60.56,
+   "end": 60.72
+  },
+  {
+   "word": "square.",
+   "start": 60.72,
+   "end": 61.02
+  },
+  {
+   "word": "How",
+   "start": 62.56,
+   "end": 63.2
+  },
+  {
+   "word": "does",
+   "start": 63.2,
+   "end": 63.42
+  },
+  {
+   "word": "the",
+   "start": 63.42,
+   "end": 63.54
+  },
+  {
+   "word": "engine",
+   "start": 63.54,
+   "end": 63.76
+  },
+  {
+   "word": "fill",
+   "start": 63.76,
+   "end": 64.1
+  },
+  {
+   "word": "out",
+   "start": 64.1,
+   "end": 64.36
+  },
+  {
+   "word": "this",
+   "start": 64.36,
+   "end": 64.56
+  },
+  {
+   "word": "table?",
+   "start": 64.56,
+   "end": 65.34
+  },
+  {
+   "word": "By",
+   "start": 65.96,
+   "end": 66.5
+  },
+  {
+   "word": "balancing",
+   "start": 66.5,
+   "end": 67.44
+  },
+  {
+   "word": "exploration,",
+   "start": 67.44,
+   "end": 68.22
+  },
+  {
+   "word": "drawing",
+   "start": 68.74,
+   "end": 69.56
+  },
+  {
+   "word": "new,",
+   "start": 69.56,
+   "end": 69.96
+  },
+  {
+   "word": "random",
+   "start": 70.12,
+   "end": 70.96
+  },
+  {
+   "word": "paths,",
+   "start": 70.96,
+   "end": 71.32
+  },
+  {
+   "word": "using",
+   "start": 71.64,
+   "end": 72.52
+  },
+  {
+   "word": "an",
+   "start": 72.52,
+   "end": 72.8
+  },
+  {
+   "word": "excellent",
+   "start": 72.8,
+   "end": 73.76
+  },
+  {
+   "word": "grid",
+   "start": 73.76,
+   "end": 74.06
+  },
+  {
+   "word": "D,",
+   "start": 74.06,
+   "end": 74.32
+  },
+  {
+   "word": "setting",
+   "start": 74.48,
+   "end": 75.38
+  },
+  {
+   "word": "service",
+   "start": 75.38,
+   "end": 75.94
+  },
+  {
+   "word": "does",
+   "start": 75.94,
+   "end": 76.24
+  },
+  {
+   "word": "not",
+   "start": 76.24,
+   "end": 76.42
+  },
+  {
+   "word": "meet",
+   "start": 76.42,
+   "end": 76.62
+  },
+  {
+   "word": "the",
+   "start": 76.62,
+   "end": 76.74
+  },
+  {
+   "word": "shortcut,",
+   "start": 76.74,
+   "end": 77.04
+  },
+  {
+   "word": "And",
+   "start": 78.2,
+   "end": 78.82
+  },
+  {
+   "word": "exploitation,",
+   "start": 78.82,
+   "end": 79.44
+  },
+  {
+   "word": "choose",
+   "start": 79.88,
+   "end": 80.98
+  },
+  {
+   "word": "the",
+   "start": 80.98,
+   "end": 81.12
+  },
+  {
+   "word": "interaction",
+   "start": 81.12,
+   "end": 81.4
+  },
+  {
+   "word": "with",
+   "start": 81.4,
+   "end": 81.78
+  },
+  {
+   "word": "the",
+   "start": 81.78,
+   "end": 81.98
+  },
+  {
+   "word": "highest",
+   "start": 81.98,
+   "end": 82.32
+  },
+  {
+   "word": "QValue",
+   "start": 82.32,
+   "end": 82.94
+  },
+  {
+   "word": "it",
+   "start": 82.94,
+   "end": 83.08
+  },
+  {
+   "word": "has",
+   "start": 83.08,
+   "end": 83.64
+  },
+  {
+   "word": "discovered",
+   "start": 83.64,
+   "end": 84.08
+  },
+  {
+   "word": "so",
+   "start": 84.08,
+   "end": 84.36
+  },
+  {
+   "word": "far.",
+   "start": 84.36,
+   "end": 84.62
+  },
+  {
+   "word": "Every",
+   "start": 85.22,
+   "end": 85.84
+  },
+  {
+   "word": "time",
+   "start": 85.84,
+   "end": 86.08
+  },
+  {
+   "word": "it",
+   "start": 86.08,
+   "end": 86.18
+  },
+  {
+   "word": "takes",
+   "start": 86.18,
+   "end": 86.32
+  },
+  {
+   "word": "a",
+   "start": 86.32,
+   "end": 86.5
+  },
+  {
+   "word": "test.",
+   "start": 86.5,
+   "end": 86.78
+  },
+  {
+   "word": "It",
+   "start": 87.38,
+   "end": 88
+  },
+  {
+   "word": "updates",
+   "start": 88,
+   "end": 88.34
+  },
+  {
+   "word": "the",
+   "start": 88.34,
+   "end": 88.72
+  },
+  {
+   "word": "QValue",
+   "start": 88.72,
+   "end": 89.2
+  },
+  {
+   "word": "using",
+   "start": 89.2,
+   "end": 89.5
+  },
+  {
+   "word": "the",
+   "start": 89.5,
+   "end": 89.8
+  },
+  {
+   "word": "immediate",
+   "start": 89.8,
+   "end": 90.22
+  },
+  {
+   "word": "reward",
+   "start": 90.22,
+   "end": 90.62
+  },
+  {
+   "word": "plus",
+   "start": 90.62,
+   "end": 90.96
+  },
+  {
+   "word": "the",
+   "start": 90.96,
+   "end": 91.66
+  },
+  {
+   "word": "best",
+   "start": 91.66,
+   "end": 91.98
+  },
+  {
+   "word": "QValue",
+   "start": 91.98,
+   "end": 92.88
+  },
+  {
+   "word": "of",
+   "start": 92.88,
+   "end": 93.02
+  },
+  {
+   "word": "the",
+   "start": 93.02,
+   "end": 93.1
+  },
+  {
+   "word": "next",
+   "start": 93.1,
+   "end": 93.26
+  },
+  {
+   "word": "query.",
+   "start": 93.26,
+   "end": 93.48
+  }
+ ],
+ "segments": [
+  {
+   "id": 0,
+   "start": 0.9,
+   "end": 5.7,
+   "text": " Reactive rules work well when the programmer already knows every rule in advance."
+  },
+  {
+   "id": 1,
+   "start": 6.56,
+   "end": 12.84,
+   "text": " But what if an engine is placed in an unknown maze and has to learn the best strategy of it all?"
+  },
+  {
+   "id": 2,
+   "start": 14.08,
+   "end": 16.4,
+   "text": " That is reinforcement learning."
+  },
+  {
+   "id": 3,
+   "start": 16.98,
+   "end": 21.24,
+   "text": " Instead of giving the engine the rules, we give it a numeric reward."
+  },
+  {
+   "id": 4,
+   "start": 21.68,
+   "end": 28.14,
+   "text": " For example, plus 10 for reaching the charging goals, minus 10 for hitting a hazard piece,"
+  },
+  {
+   "id": 5,
+   "start": 28.14,
+   "end": 35.48,
+   "text": " and minus 1 for every step it takes so it learns to hurry instead of walking in circles."
+  },
+  {
+   "id": 6,
+   "start": 36.48,
+   "end": 41.52,
+   "text": " In query learning, the agents give a reference table called a query table."
+  },
+  {
+   "id": 7,
+   "start": 42.34,
+   "end": 52.6,
+   "text": " Each row is a state, a square on the grid, and each column is a possible action, up, down, left, or right."
+  },
+  {
+   "id": 8,
+   "start": 53.32,
+   "end": 61.02,
+   "text": " The number inside itself, called the query value, estimates the total future reward of taking the action from the square."
+  },
+  {
+   "id": 9,
+   "start": 62.56,
+   "end": 65.34,
+   "text": " How does the engine fill out this table?"
+  },
+  {
+   "id": 10,
+   "start": 65.96,
+   "end": 77.04,
+   "text": " By balancing exploration, drawing new, random paths, using an excellent grid D, setting service does not meet the shortcut,"
+  },
+  {
+   "id": 11,
+   "start": 78.2,
+   "end": 84.62,
+   "text": " And exploitation, choose the interaction with the highest QValue it has discovered so far."
+  },
+  {
+   "id": 12,
+   "start": 85.22,
+   "end": 86.78,
+   "text": " Every time it takes a test."
+  },
+  {
+   "id": 13,
+   "start": 87.38,
+   "end": 93.48,
+   "text": " It updates the QValue using the immediate reward plus the best QValue of the next query."
+  }
+ ],
+ "usage": {
+  "type": "duration",
+  "seconds": 95
+ }
+}

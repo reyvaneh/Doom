@@ -1206,6 +1206,8 @@ export function createBoss(host, { variant = 'hardware', still = false } = {}) {
       sp.burst(chest(), 120, C.gold, 7);
     },
     snapshot() { st.renderOnce(1.3); return st.renderer.domElement.toDataURL('image/png'); },
+    /** Video capture only: move the camera (the arena never calls this). */
+    setCamera({ x = 0, y = 0.35, z = 8.6, lookY = 0 } = {}) { camera.position.set(x, y, z); camera.lookAt(0, lookY, 0); },
     dispose: () => st.dispose(),
   };
 }

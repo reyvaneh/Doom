@@ -1,0 +1,592 @@
+{
+ "text": " Finally, when connecting multiple chips together, engineers choose the right communication wire for the job. A single GPIO pin for simple on-off switches, I2C when chaining many sensors onto just two shared wires using addresses, SPI for high-speed displays, or UART for direct serial messages. Always check the component's datasheet for its voltage limits before powering on, so you build reliable, long-lasting hardware instead of electronic waste. Now that we can build a single smart device, how do two devices talk to each other across a room or across the planet? In video 2, we will trace a message across the global network.",
+ "task": "transcribe",
+ "language": "en",
+ "duration": 49,
+ "words": [
+  {
+   "word": "Finally,",
+   "start": 0,
+   "end": 0.88
+  },
+  {
+   "word": "when",
+   "start": 0.96,
+   "end": 1.54
+  },
+  {
+   "word": "connecting",
+   "start": 1.54,
+   "end": 1.86
+  },
+  {
+   "word": "multiple",
+   "start": 1.86,
+   "end": 2.18
+  },
+  {
+   "word": "chips",
+   "start": 2.18,
+   "end": 2.54
+  },
+  {
+   "word": "together,",
+   "start": 2.54,
+   "end": 2.88
+  },
+  {
+   "word": "engineers",
+   "start": 3.12,
+   "end": 3.62
+  },
+  {
+   "word": "choose",
+   "start": 3.62,
+   "end": 4.28
+  },
+  {
+   "word": "the",
+   "start": 4.28,
+   "end": 4.56
+  },
+  {
+   "word": "right",
+   "start": 4.56,
+   "end": 4.76
+  },
+  {
+   "word": "communication",
+   "start": 4.76,
+   "end": 5.14
+  },
+  {
+   "word": "wire",
+   "start": 5.14,
+   "end": 5.66
+  },
+  {
+   "word": "for",
+   "start": 5.66,
+   "end": 5.9
+  },
+  {
+   "word": "the",
+   "start": 5.9,
+   "end": 6
+  },
+  {
+   "word": "job.",
+   "start": 6,
+   "end": 6.26
+  },
+  {
+   "word": "A",
+   "start": 6.57,
+   "end": 6.98
+  },
+  {
+   "word": "single",
+   "start": 6.98,
+   "end": 7.28
+  },
+  {
+   "word": "GPIO",
+   "start": 7.28,
+   "end": 7.94
+  },
+  {
+   "word": "pin",
+   "start": 7.94,
+   "end": 8.3
+  },
+  {
+   "word": "for",
+   "start": 8.3,
+   "end": 8.92
+  },
+  {
+   "word": "simple",
+   "start": 8.92,
+   "end": 9.34
+  },
+  {
+   "word": "on",
+   "start": 9.34,
+   "end": 9.76
+  },
+  {
+   "word": "-off",
+   "start": 9.76,
+   "end": 10.06
+  },
+  {
+   "word": "switches,",
+   "start": 10.06,
+   "end": 10.34
+  },
+  {
+   "word": "I2C",
+   "start": 10.94,
+   "end": 11.64
+  },
+  {
+   "word": "when",
+   "start": 11.64,
+   "end": 11.94
+  },
+  {
+   "word": "chaining",
+   "start": 11.94,
+   "end": 12.36
+  },
+  {
+   "word": "many",
+   "start": 12.36,
+   "end": 12.6
+  },
+  {
+   "word": "sensors",
+   "start": 12.6,
+   "end": 13.14
+  },
+  {
+   "word": "onto",
+   "start": 13.14,
+   "end": 13.58
+  },
+  {
+   "word": "just",
+   "start": 13.58,
+   "end": 13.86
+  },
+  {
+   "word": "two",
+   "start": 13.86,
+   "end": 14.04
+  },
+  {
+   "word": "shared",
+   "start": 14.04,
+   "end": 14.42
+  },
+  {
+   "word": "wires",
+   "start": 14.42,
+   "end": 14.78
+  },
+  {
+   "word": "using",
+   "start": 14.78,
+   "end": 15.2
+  },
+  {
+   "word": "addresses,",
+   "start": 15.2,
+   "end": 15.54
+  },
+  {
+   "word": "SPI",
+   "start": 16.04,
+   "end": 17.02
+  },
+  {
+   "word": "for",
+   "start": 17.02,
+   "end": 17.28
+  },
+  {
+   "word": "high",
+   "start": 17.28,
+   "end": 17.66
+  },
+  {
+   "word": "-speed",
+   "start": 17.66,
+   "end": 17.94
+  },
+  {
+   "word": "displays,",
+   "start": 17.94,
+   "end": 18.52
+  },
+  {
+   "word": "or",
+   "start": 18.8,
+   "end": 19.42
+  },
+  {
+   "word": "UART",
+   "start": 19.42,
+   "end": 20.46
+  },
+  {
+   "word": "for",
+   "start": 20.46,
+   "end": 21.16
+  },
+  {
+   "word": "direct",
+   "start": 21.16,
+   "end": 21.84
+  },
+  {
+   "word": "serial",
+   "start": 21.84,
+   "end": 22.24
+  },
+  {
+   "word": "messages.",
+   "start": 22.24,
+   "end": 22.7
+  },
+  {
+   "word": "Always",
+   "start": 23.1,
+   "end": 23.6
+  },
+  {
+   "word": "check",
+   "start": 23.6,
+   "end": 24.04
+  },
+  {
+   "word": "the",
+   "start": 24.04,
+   "end": 24.44
+  },
+  {
+   "word": "component's",
+   "start": 24.44,
+   "end": 25.2
+  },
+  {
+   "word": "datasheet",
+   "start": 25.2,
+   "end": 25.72
+  },
+  {
+   "word": "for",
+   "start": 25.72,
+   "end": 26.34
+  },
+  {
+   "word": "its",
+   "start": 26.34,
+   "end": 26.58
+  },
+  {
+   "word": "voltage",
+   "start": 26.58,
+   "end": 27.02
+  },
+  {
+   "word": "limits",
+   "start": 27.02,
+   "end": 27.64
+  },
+  {
+   "word": "before",
+   "start": 27.64,
+   "end": 28.16
+  },
+  {
+   "word": "powering",
+   "start": 28.16,
+   "end": 28.64
+  },
+  {
+   "word": "on,",
+   "start": 28.64,
+   "end": 28.78
+  },
+  {
+   "word": "so",
+   "start": 28.86,
+   "end": 29.44
+  },
+  {
+   "word": "you",
+   "start": 29.44,
+   "end": 29.6
+  },
+  {
+   "word": "build",
+   "start": 29.6,
+   "end": 29.82
+  },
+  {
+   "word": "reliable,",
+   "start": 29.82,
+   "end": 30.42
+  },
+  {
+   "word": "long",
+   "start": 30.48,
+   "end": 30.98
+  },
+  {
+   "word": "-lasting",
+   "start": 30.98,
+   "end": 31.42
+  },
+  {
+   "word": "hardware",
+   "start": 31.42,
+   "end": 31.98
+  },
+  {
+   "word": "instead",
+   "start": 31.98,
+   "end": 32.52
+  },
+  {
+   "word": "of",
+   "start": 32.52,
+   "end": 32.78
+  },
+  {
+   "word": "electronic",
+   "start": 32.78,
+   "end": 33
+  },
+  {
+   "word": "waste.",
+   "start": 33,
+   "end": 33.52
+  },
+  {
+   "word": "Now",
+   "start": 34.52,
+   "end": 35.1
+  },
+  {
+   "word": "that",
+   "start": 35.1,
+   "end": 35.3
+  },
+  {
+   "word": "we",
+   "start": 35.3,
+   "end": 35.42
+  },
+  {
+   "word": "can",
+   "start": 35.42,
+   "end": 35.54
+  },
+  {
+   "word": "build",
+   "start": 35.54,
+   "end": 35.82
+  },
+  {
+   "word": "a",
+   "start": 35.82,
+   "end": 35.96
+  },
+  {
+   "word": "single",
+   "start": 35.96,
+   "end": 36.26
+  },
+  {
+   "word": "smart",
+   "start": 36.26,
+   "end": 36.54
+  },
+  {
+   "word": "device,",
+   "start": 36.54,
+   "end": 36.94
+  },
+  {
+   "word": "how",
+   "start": 37.16,
+   "end": 37.64
+  },
+  {
+   "word": "do",
+   "start": 37.64,
+   "end": 37.84
+  },
+  {
+   "word": "two",
+   "start": 37.84,
+   "end": 38.18
+  },
+  {
+   "word": "devices",
+   "start": 38.18,
+   "end": 38.8
+  },
+  {
+   "word": "talk",
+   "start": 38.8,
+   "end": 39.64
+  },
+  {
+   "word": "to",
+   "start": 39.64,
+   "end": 39.88
+  },
+  {
+   "word": "each",
+   "start": 39.88,
+   "end": 40.18
+  },
+  {
+   "word": "other",
+   "start": 40.18,
+   "end": 40.56
+  },
+  {
+   "word": "across",
+   "start": 40.56,
+   "end": 40.8
+  },
+  {
+   "word": "a",
+   "start": 40.8,
+   "end": 41.04
+  },
+  {
+   "word": "room",
+   "start": 41.04,
+   "end": 41.24
+  },
+  {
+   "word": "or",
+   "start": 41.24,
+   "end": 41.84
+  },
+  {
+   "word": "across",
+   "start": 41.84,
+   "end": 42.36
+  },
+  {
+   "word": "the",
+   "start": 42.36,
+   "end": 42.64
+  },
+  {
+   "word": "planet?",
+   "start": 42.64,
+   "end": 42.9
+  },
+  {
+   "word": "In",
+   "start": 43.14,
+   "end": 43.7
+  },
+  {
+   "word": "video",
+   "start": 43.7,
+   "end": 43.94
+  },
+  {
+   "word": "2,",
+   "start": 43.94,
+   "end": 44.22
+  },
+  {
+   "word": "we",
+   "start": 44.3,
+   "end": 44.46
+  },
+  {
+   "word": "will",
+   "start": 44.46,
+   "end": 44.52
+  },
+  {
+   "word": "trace",
+   "start": 44.52,
+   "end": 44.86
+  },
+  {
+   "word": "a",
+   "start": 44.86,
+   "end": 45.06
+  },
+  {
+   "word": "message",
+   "start": 45.06,
+   "end": 45.4
+  },
+  {
+   "word": "across",
+   "start": 45.4,
+   "end": 45.82
+  },
+  {
+   "word": "the",
+   "start": 45.82,
+   "end": 46.26
+  },
+  {
+   "word": "global",
+   "start": 46.26,
+   "end": 46.56
+  },
+  {
+   "word": "network.",
+   "start": 46.56,
+   "end": 46.94
+  }
+ ],
+ "segments": [
+  {
+   "id": 0,
+   "start": 0,
+   "end": 5.66,
+   "text": " Finally, when connecting multiple chips together, engineers choose the right communication wire"
+  },
+  {
+   "id": 1,
+   "start": 5.66,
+   "end": 6.26,
+   "text": " for the job."
+  },
+  {
+   "id": 2,
+   "start": 6.96,
+   "end": 14.04,
+   "text": " A single GPIO pin for simple on-off switches, I2C when chaining many sensors onto just two"
+  },
+  {
+   "id": 3,
+   "start": 14.04,
+   "end": 22.7,
+   "text": " shared wires using addresses, SPI for high-speed displays, or UART for direct serial messages."
+  },
+  {
+   "id": 4,
+   "start": 23.1,
+   "end": 29.44,
+   "text": " Always check the component's datasheet for its voltage limits before powering on, so"
+  },
+  {
+   "id": 5,
+   "start": 29.44,
+   "end": 33.52,
+   "text": " you build reliable, long-lasting hardware instead of electronic waste."
+  },
+  {
+   "id": 6,
+   "start": 34.52,
+   "end": 41.24,
+   "text": " Now that we can build a single smart device, how do two devices talk to each other across a room"
+  },
+  {
+   "id": 7,
+   "start": 41.24,
+   "end": 46.94,
+   "text": " or across the planet? In video 2, we will trace a message across the global network."
+  }
+ ],
+ "usage": {
+  "type": "duration",
+  "seconds": 49
+ }
+}

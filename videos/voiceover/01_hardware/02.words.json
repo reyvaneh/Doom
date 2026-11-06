@@ -1,0 +1,1275 @@
+{
+ "text": " Every digital device, from a phone to a robot vacuum, runs on the same four-step loop. First, input sensors like a keyboard, microphone, or camera turn the physical world into electrical signals. Second, processing. The CPU or central processing unit does the math and logic. Third, storage. Drive-second SSDs save data long-term. Fourth, output. Screens, speakers, or motors turn digital results back into light, sound, or movement. Now why did our 2 a.m. document vanish? Because a computer actually uses two very different places to hold data. RAM and storage. Think of a computer as a kitchen. The CPU is the head chef. Storage, your SSD, is the walk-in freezer down the hall. It holds a huge amount of food, and if the kitchen lights go out, the food stays inside. RAM or Random Access Memory is the chef prep counter right in front of them. The chef cannot chop vegetables inside the freezer, so whenever you open a photo or a document, the computer copies it from the SSD onto the RAM prep counter. RAM is thousands of times faster than an SSD. but there's a catch. RAM is volatile. It holds data as tiny electrical charges that vanish the instant power drops. Until you press save to copy your work from the RAM, counter back into the SSD freezer. A power cut wipes the counter clean.",
+ "task": "transcribe",
+ "language": "en",
+ "duration": 98,
+ "words": [
+  {
+   "word": "Every",
+   "start": 0.58,
+   "end": 0.86
+  },
+  {
+   "word": "digital",
+   "start": 0.86,
+   "end": 1.22
+  },
+  {
+   "word": "device,",
+   "start": 1.22,
+   "end": 1.66
+  },
+  {
+   "word": "from",
+   "start": 1.9,
+   "end": 2.1
+  },
+  {
+   "word": "a",
+   "start": 2.1,
+   "end": 2.18
+  },
+  {
+   "word": "phone",
+   "start": 2.18,
+   "end": 2.46
+  },
+  {
+   "word": "to",
+   "start": 2.46,
+   "end": 2.66
+  },
+  {
+   "word": "a",
+   "start": 2.66,
+   "end": 2.76
+  },
+  {
+   "word": "robot",
+   "start": 2.76,
+   "end": 3.02
+  },
+  {
+   "word": "vacuum,",
+   "start": 3.02,
+   "end": 3.36
+  },
+  {
+   "word": "runs",
+   "start": 3.56,
+   "end": 3.76
+  },
+  {
+   "word": "on",
+   "start": 3.76,
+   "end": 3.98
+  },
+  {
+   "word": "the",
+   "start": 3.98,
+   "end": 4.04
+  },
+  {
+   "word": "same",
+   "start": 4.04,
+   "end": 4.28
+  },
+  {
+   "word": "four",
+   "start": 4.28,
+   "end": 4.52
+  },
+  {
+   "word": "-step",
+   "start": 4.52,
+   "end": 4.76
+  },
+  {
+   "word": "loop.",
+   "start": 4.76,
+   "end": 5.02
+  },
+  {
+   "word": "First,",
+   "start": 5.28,
+   "end": 5.84
+  },
+  {
+   "word": "input",
+   "start": 6,
+   "end": 6.42
+  },
+  {
+   "word": "sensors",
+   "start": 6.42,
+   "end": 6.88
+  },
+  {
+   "word": "like",
+   "start": 6.88,
+   "end": 7.4
+  },
+  {
+   "word": "a",
+   "start": 7.4,
+   "end": 7.56
+  },
+  {
+   "word": "keyboard,",
+   "start": 7.56,
+   "end": 7.9
+  },
+  {
+   "word": "microphone,",
+   "start": 8.14,
+   "end": 8.6
+  },
+  {
+   "word": "or",
+   "start": 8.72,
+   "end": 8.9
+  },
+  {
+   "word": "camera",
+   "start": 8.9,
+   "end": 9.2
+  },
+  {
+   "word": "turn",
+   "start": 9.2,
+   "end": 9.52
+  },
+  {
+   "word": "the",
+   "start": 9.52,
+   "end": 9.62
+  },
+  {
+   "word": "physical",
+   "start": 9.62,
+   "end": 9.9
+  },
+  {
+   "word": "world",
+   "start": 9.9,
+   "end": 10.28
+  },
+  {
+   "word": "into",
+   "start": 10.28,
+   "end": 10.52
+  },
+  {
+   "word": "electrical",
+   "start": 10.52,
+   "end": 10.84
+  },
+  {
+   "word": "signals.",
+   "start": 10.84,
+   "end": 11.34
+  },
+  {
+   "word": "Second,",
+   "start": 11.86,
+   "end": 12.42
+  },
+  {
+   "word": "processing.",
+   "start": 12.66,
+   "end": 13.3
+  },
+  {
+   "word": "The",
+   "start": 13.54,
+   "end": 13.9
+  },
+  {
+   "word": "CPU",
+   "start": 13.9,
+   "end": 14.28
+  },
+  {
+   "word": "or",
+   "start": 14.28,
+   "end": 14.74
+  },
+  {
+   "word": "central",
+   "start": 14.74,
+   "end": 15.16
+  },
+  {
+   "word": "processing",
+   "start": 15.16,
+   "end": 15.62
+  },
+  {
+   "word": "unit",
+   "start": 15.62,
+   "end": 16.02
+  },
+  {
+   "word": "does",
+   "start": 16.02,
+   "end": 16.38
+  },
+  {
+   "word": "the",
+   "start": 16.38,
+   "end": 16.6
+  },
+  {
+   "word": "math",
+   "start": 16.6,
+   "end": 16.84
+  },
+  {
+   "word": "and",
+   "start": 16.84,
+   "end": 17.04
+  },
+  {
+   "word": "logic.",
+   "start": 17.04,
+   "end": 17.3
+  },
+  {
+   "word": "Third,",
+   "start": 18.18,
+   "end": 18.74
+  },
+  {
+   "word": "storage.",
+   "start": 18.74,
+   "end": 19.3
+  },
+  {
+   "word": "Drive",
+   "start": 19.56,
+   "end": 20.04
+  },
+  {
+   "word": "-second",
+   "start": 20.04,
+   "end": 20.24
+  },
+  {
+   "word": "SSDs",
+   "start": 20.24,
+   "end": 20.96
+  },
+  {
+   "word": "save",
+   "start": 20.96,
+   "end": 21.2
+  },
+  {
+   "word": "data",
+   "start": 21.2,
+   "end": 21.5
+  },
+  {
+   "word": "long",
+   "start": 21.5,
+   "end": 22.24
+  },
+  {
+   "word": "-term.",
+   "start": 22.24,
+   "end": 22.52
+  },
+  {
+   "word": "Fourth,",
+   "start": 22.86,
+   "end": 23.42
+  },
+  {
+   "word": "output.",
+   "start": 23.88,
+   "end": 24.18
+  },
+  {
+   "word": "Screens,",
+   "start": 24.98,
+   "end": 25.54
+  },
+  {
+   "word": "speakers,",
+   "start": 25.72,
+   "end": 26.22
+  },
+  {
+   "word": "or",
+   "start": 26.22,
+   "end": 26.44
+  },
+  {
+   "word": "motors",
+   "start": 26.44,
+   "end": 27.18
+  },
+  {
+   "word": "turn",
+   "start": 27.18,
+   "end": 27.74
+  },
+  {
+   "word": "digital",
+   "start": 27.74,
+   "end": 28.44
+  },
+  {
+   "word": "results",
+   "start": 28.44,
+   "end": 29.26
+  },
+  {
+   "word": "back",
+   "start": 29.26,
+   "end": 29.84
+  },
+  {
+   "word": "into",
+   "start": 29.84,
+   "end": 30.16
+  },
+  {
+   "word": "light,",
+   "start": 30.16,
+   "end": 30.54
+  },
+  {
+   "word": "sound,",
+   "start": 30.72,
+   "end": 31.1
+  },
+  {
+   "word": "or",
+   "start": 31.22,
+   "end": 31.36
+  },
+  {
+   "word": "movement.",
+   "start": 31.36,
+   "end": 31.6
+  },
+  {
+   "word": "Now",
+   "start": 32.74,
+   "end": 33.38
+  },
+  {
+   "word": "why",
+   "start": 33.38,
+   "end": 34
+  },
+  {
+   "word": "did",
+   "start": 34,
+   "end": 34.2
+  },
+  {
+   "word": "our",
+   "start": 34.2,
+   "end": 34.34
+  },
+  {
+   "word": "2",
+   "start": 34.34,
+   "end": 34.58
+  },
+  {
+   "word": "a",
+   "start": 34.58,
+   "end": 34.7
+  },
+  {
+   "word": ".m.",
+   "start": 34.7,
+   "end": 35
+  },
+  {
+   "word": "document",
+   "start": 35,
+   "end": 35.2
+  },
+  {
+   "word": "vanish?",
+   "start": 35.2,
+   "end": 35.8
+  },
+  {
+   "word": "Because",
+   "start": 36.06,
+   "end": 36.7
+  },
+  {
+   "word": "a",
+   "start": 36.7,
+   "end": 36.82
+  },
+  {
+   "word": "computer",
+   "start": 36.82,
+   "end": 37.1
+  },
+  {
+   "word": "actually",
+   "start": 37.1,
+   "end": 37.46
+  },
+  {
+   "word": "uses",
+   "start": 37.46,
+   "end": 37.88
+  },
+  {
+   "word": "two",
+   "start": 37.88,
+   "end": 38.16
+  },
+  {
+   "word": "very",
+   "start": 38.16,
+   "end": 38.5
+  },
+  {
+   "word": "different",
+   "start": 38.5,
+   "end": 38.84
+  },
+  {
+   "word": "places",
+   "start": 38.84,
+   "end": 39.24
+  },
+  {
+   "word": "to",
+   "start": 39.24,
+   "end": 39.82
+  },
+  {
+   "word": "hold",
+   "start": 39.82,
+   "end": 39.98
+  },
+  {
+   "word": "data.",
+   "start": 39.98,
+   "end": 40.22
+  },
+  {
+   "word": "RAM",
+   "start": 40.82,
+   "end": 41.46
+  },
+  {
+   "word": "and",
+   "start": 41.46,
+   "end": 41.8
+  },
+  {
+   "word": "storage.",
+   "start": 41.8,
+   "end": 42.2
+  },
+  {
+   "word": "Think",
+   "start": 42.66,
+   "end": 43.3
+  },
+  {
+   "word": "of",
+   "start": 43.3,
+   "end": 43.46
+  },
+  {
+   "word": "a",
+   "start": 43.46,
+   "end": 43.58
+  },
+  {
+   "word": "computer",
+   "start": 43.58,
+   "end": 43.92
+  },
+  {
+   "word": "as",
+   "start": 43.92,
+   "end": 44.26
+  },
+  {
+   "word": "a",
+   "start": 44.26,
+   "end": 44.4
+  },
+  {
+   "word": "kitchen.",
+   "start": 44.4,
+   "end": 44.7
+  },
+  {
+   "word": "The",
+   "start": 44.84,
+   "end": 45.4
+  },
+  {
+   "word": "CPU",
+   "start": 45.4,
+   "end": 45.82
+  },
+  {
+   "word": "is",
+   "start": 45.82,
+   "end": 46.3
+  },
+  {
+   "word": "the",
+   "start": 46.3,
+   "end": 46.44
+  },
+  {
+   "word": "head",
+   "start": 46.44,
+   "end": 46.6
+  },
+  {
+   "word": "chef.",
+   "start": 46.6,
+   "end": 46.94
+  },
+  {
+   "word": "Storage,",
+   "start": 47.68,
+   "end": 48.32
+  },
+  {
+   "word": "your",
+   "start": 48.5,
+   "end": 48.84
+  },
+  {
+   "word": "SSD,",
+   "start": 48.84,
+   "end": 49.24
+  },
+  {
+   "word": "is",
+   "start": 49.42,
+   "end": 49.76
+  },
+  {
+   "word": "the",
+   "start": 49.76,
+   "end": 49.9
+  },
+  {
+   "word": "walk",
+   "start": 49.9,
+   "end": 50.2
+  },
+  {
+   "word": "-in",
+   "start": 50.2,
+   "end": 50.38
+  },
+  {
+   "word": "freezer",
+   "start": 50.38,
+   "end": 50.7
+  },
+  {
+   "word": "down",
+   "start": 50.7,
+   "end": 51.34
+  },
+  {
+   "word": "the",
+   "start": 51.34,
+   "end": 51.54
+  },
+  {
+   "word": "hall.",
+   "start": 51.54,
+   "end": 51.78
+  },
+  {
+   "word": "It",
+   "start": 52.02,
+   "end": 52.66
+  },
+  {
+   "word": "holds",
+   "start": 52.66,
+   "end": 52.98
+  },
+  {
+   "word": "a",
+   "start": 52.98,
+   "end": 53.16
+  },
+  {
+   "word": "huge",
+   "start": 53.16,
+   "end": 53.44
+  },
+  {
+   "word": "amount",
+   "start": 53.44,
+   "end": 53.94
+  },
+  {
+   "word": "of",
+   "start": 53.94,
+   "end": 54.18
+  },
+  {
+   "word": "food,",
+   "start": 54.18,
+   "end": 54.42
+  },
+  {
+   "word": "and",
+   "start": 54.54,
+   "end": 54.94
+  },
+  {
+   "word": "if",
+   "start": 54.94,
+   "end": 55.08
+  },
+  {
+   "word": "the",
+   "start": 55.08,
+   "end": 55.16
+  },
+  {
+   "word": "kitchen",
+   "start": 55.16,
+   "end": 55.4
+  },
+  {
+   "word": "lights",
+   "start": 55.4,
+   "end": 55.68
+  },
+  {
+   "word": "go",
+   "start": 55.68,
+   "end": 55.96
+  },
+  {
+   "word": "out,",
+   "start": 55.96,
+   "end": 56.22
+  },
+  {
+   "word": "the",
+   "start": 56.36,
+   "end": 56.52
+  },
+  {
+   "word": "food",
+   "start": 56.52,
+   "end": 56.86
+  },
+  {
+   "word": "stays",
+   "start": 56.86,
+   "end": 57.1
+  },
+  {
+   "word": "inside.",
+   "start": 57.1,
+   "end": 57.5
+  },
+  {
+   "word": "RAM",
+   "start": 58.4,
+   "end": 59.02
+  },
+  {
+   "word": "or",
+   "start": 59.02,
+   "end": 59.28
+  },
+  {
+   "word": "Random",
+   "start": 59.28,
+   "end": 59.62
+  },
+  {
+   "word": "Access",
+   "start": 59.62,
+   "end": 59.94
+  },
+  {
+   "word": "Memory",
+   "start": 59.94,
+   "end": 60.3
+  },
+  {
+   "word": "is",
+   "start": 60.3,
+   "end": 60.78
+  },
+  {
+   "word": "the",
+   "start": 60.78,
+   "end": 60.92
+  },
+  {
+   "word": "chef",
+   "start": 60.92,
+   "end": 61.2
+  },
+  {
+   "word": "prep",
+   "start": 61.2,
+   "end": 61.62
+  },
+  {
+   "word": "counter",
+   "start": 61.62,
+   "end": 62.06
+  },
+  {
+   "word": "right",
+   "start": 62.06,
+   "end": 62.5
+  },
+  {
+   "word": "in",
+   "start": 62.5,
+   "end": 62.66
+  },
+  {
+   "word": "front",
+   "start": 62.66,
+   "end": 62.84
+  },
+  {
+   "word": "of",
+   "start": 62.84,
+   "end": 62.96
+  },
+  {
+   "word": "them.",
+   "start": 62.96,
+   "end": 63.06
+  },
+  {
+   "word": "The",
+   "start": 63.4,
+   "end": 63.78
+  },
+  {
+   "word": "chef",
+   "start": 63.78,
+   "end": 64.1
+  },
+  {
+   "word": "cannot",
+   "start": 64.1,
+   "end": 64.46
+  },
+  {
+   "word": "chop",
+   "start": 64.46,
+   "end": 64.74
+  },
+  {
+   "word": "vegetables",
+   "start": 64.74,
+   "end": 65.3
+  },
+  {
+   "word": "inside",
+   "start": 65.3,
+   "end": 65.68
+  },
+  {
+   "word": "the",
+   "start": 65.68,
+   "end": 65.9
+  },
+  {
+   "word": "freezer,",
+   "start": 65.9,
+   "end": 66.22
+  },
+  {
+   "word": "so",
+   "start": 66.38,
+   "end": 66.92
+  },
+  {
+   "word": "whenever",
+   "start": 66.92,
+   "end": 67.18
+  },
+  {
+   "word": "you",
+   "start": 67.18,
+   "end": 67.38
+  },
+  {
+   "word": "open",
+   "start": 67.38,
+   "end": 67.62
+  },
+  {
+   "word": "a",
+   "start": 67.62,
+   "end": 67.76
+  },
+  {
+   "word": "photo",
+   "start": 67.76,
+   "end": 68.1
+  },
+  {
+   "word": "or",
+   "start": 68.1,
+   "end": 68.26
+  },
+  {
+   "word": "a",
+   "start": 68.26,
+   "end": 68.38
+  },
+  {
+   "word": "document,",
+   "start": 68.38,
+   "end": 68.7
+  },
+  {
+   "word": "the",
+   "start": 69.02,
+   "end": 69.48
+  },
+  {
+   "word": "computer",
+   "start": 69.48,
+   "end": 69.86
+  },
+  {
+   "word": "copies",
+   "start": 69.86,
+   "end": 70.34
+  },
+  {
+   "word": "it",
+   "start": 70.34,
+   "end": 70.5
+  },
+  {
+   "word": "from",
+   "start": 70.5,
+   "end": 70.72
+  },
+  {
+   "word": "the",
+   "start": 70.72,
+   "end": 70.82
+  },
+  {
+   "word": "SSD",
+   "start": 70.82,
+   "end": 71.24
+  },
+  {
+   "word": "onto",
+   "start": 71.24,
+   "end": 72
+  },
+  {
+   "word": "the",
+   "start": 72,
+   "end": 72.26
+  },
+  {
+   "word": "RAM",
+   "start": 72.26,
+   "end": 72.48
+  },
+  {
+   "word": "prep",
+   "start": 72.48,
+   "end": 72.76
+  },
+  {
+   "word": "counter.",
+   "start": 72.76,
+   "end": 73.08
+  },
+  {
+   "word": "RAM",
+   "start": 74.58,
+   "end": 75.2
+  },
+  {
+   "word": "is",
+   "start": 75.2,
+   "end": 76.12
+  },
+  {
+   "word": "thousands",
+   "start": 76.12,
+   "end": 76.42
+  },
+  {
+   "word": "of",
+   "start": 76.42,
+   "end": 77.42
+  },
+  {
+   "word": "times",
+   "start": 77.42,
+   "end": 78.18
+  },
+  {
+   "word": "faster",
+   "start": 78.18,
+   "end": 78.78
+  },
+  {
+   "word": "than",
+   "start": 78.78,
+   "end": 79.1
+  },
+  {
+   "word": "an",
+   "start": 79.1,
+   "end": 79.24
+  },
+  {
+   "word": "SSD.",
+   "start": 79.24,
+   "end": 79.56
+  },
+  {
+   "word": "but",
+   "start": 79.56,
+   "end": 80.24
+  },
+  {
+   "word": "there's",
+   "start": 80.24,
+   "end": 80.6
+  },
+  {
+   "word": "a",
+   "start": 80.6,
+   "end": 80.64
+  },
+  {
+   "word": "catch.",
+   "start": 80.64,
+   "end": 80.88
+  },
+  {
+   "word": "RAM",
+   "start": 81.18,
+   "end": 81.74
+  },
+  {
+   "word": "is",
+   "start": 81.74,
+   "end": 81.96
+  },
+  {
+   "word": "volatile.",
+   "start": 81.96,
+   "end": 82.3
+  },
+  {
+   "word": "It",
+   "start": 82.68,
+   "end": 83.24
+  },
+  {
+   "word": "holds",
+   "start": 83.24,
+   "end": 83.52
+  },
+  {
+   "word": "data",
+   "start": 83.52,
+   "end": 83.82
+  },
+  {
+   "word": "as",
+   "start": 83.82,
+   "end": 84.24
+  },
+  {
+   "word": "tiny",
+   "start": 84.24,
+   "end": 84.56
+  },
+  {
+   "word": "electrical",
+   "start": 84.56,
+   "end": 85.16
+  },
+  {
+   "word": "charges",
+   "start": 85.16,
+   "end": 85.6
+  },
+  {
+   "word": "that",
+   "start": 85.6,
+   "end": 85.92
+  },
+  {
+   "word": "vanish",
+   "start": 85.92,
+   "end": 86.3
+  },
+  {
+   "word": "the",
+   "start": 86.3,
+   "end": 86.5
+  },
+  {
+   "word": "instant",
+   "start": 86.5,
+   "end": 86.78
+  },
+  {
+   "word": "power",
+   "start": 86.78,
+   "end": 87.16
+  },
+  {
+   "word": "drops.",
+   "start": 87.16,
+   "end": 87.46
+  },
+  {
+   "word": "Until",
+   "start": 88.08,
+   "end": 88.64
+  },
+  {
+   "word": "you",
+   "start": 88.64,
+   "end": 88.9
+  },
+  {
+   "word": "press",
+   "start": 88.9,
+   "end": 89.14
+  },
+  {
+   "word": "save",
+   "start": 89.14,
+   "end": 89.5
+  },
+  {
+   "word": "to",
+   "start": 89.5,
+   "end": 89.64
+  },
+  {
+   "word": "copy",
+   "start": 89.64,
+   "end": 89.92
+  },
+  {
+   "word": "your",
+   "start": 89.92,
+   "end": 90.12
+  },
+  {
+   "word": "work",
+   "start": 90.12,
+   "end": 90.36
+  },
+  {
+   "word": "from",
+   "start": 90.36,
+   "end": 90.58
+  },
+  {
+   "word": "the",
+   "start": 90.58,
+   "end": 90.74
+  },
+  {
+   "word": "RAM,",
+   "start": 90.74,
+   "end": 91.02
+  },
+  {
+   "word": "counter",
+   "start": 91.2,
+   "end": 91.82
+  },
+  {
+   "word": "back",
+   "start": 91.82,
+   "end": 92.08
+  },
+  {
+   "word": "into",
+   "start": 92.08,
+   "end": 92.36
+  },
+  {
+   "word": "the",
+   "start": 92.36,
+   "end": 92.64
+  },
+  {
+   "word": "SSD",
+   "start": 92.64,
+   "end": 93
+  },
+  {
+   "word": "freezer.",
+   "start": 93,
+   "end": 93.44
+  },
+  {
+   "word": "A",
+   "start": 93.72,
+   "end": 94.18
+  },
+  {
+   "word": "power",
+   "start": 94.18,
+   "end": 94.4
+  },
+  {
+   "word": "cut",
+   "start": 94.4,
+   "end": 94.66
+  },
+  {
+   "word": "wipes",
+   "start": 94.66,
+   "end": 95.04
+  },
+  {
+   "word": "the",
+   "start": 95.04,
+   "end": 95.3
+  },
+  {
+   "word": "counter",
+   "start": 95.3,
+   "end": 95.56
+  },
+  {
+   "word": "clean.",
+   "start": 95.56,
+   "end": 95.92
+  }
+ ],
+ "segments": [
+  {
+   "id": 0,
+   "start": 0.72,
+   "end": 5.02,
+   "text": " Every digital device, from a phone to a robot vacuum, runs on the same four-step loop."
+  },
+  {
+   "id": 1,
+   "start": 5.28,
+   "end": 10.84,
+   "text": " First, input sensors like a keyboard, microphone, or camera turn the physical world into electrical"
+  },
+  {
+   "id": 2,
+   "start": 10.84,
+   "end": 17.3,
+   "text": " signals. Second, processing. The CPU or central processing unit does the math and logic."
+  },
+  {
+   "id": 3,
+   "start": 18.18,
+   "end": 26.22,
+   "text": " Third, storage. Drive-second SSDs save data long-term. Fourth, output. Screens, speakers,"
+  },
+  {
+   "id": 4,
+   "start": 26.22,
+   "end": 34.34,
+   "text": " or motors turn digital results back into light, sound, or movement. Now why did our"
+  },
+  {
+   "id": 5,
+   "start": 34.34,
+   "end": 39.24,
+   "text": " 2 a.m. document vanish? Because a computer actually uses two very different places"
+  },
+  {
+   "id": 6,
+   "start": 39.24,
+   "end": 46.44,
+   "text": " to hold data. RAM and storage. Think of a computer as a kitchen. The CPU is the"
+  },
+  {
+   "id": 7,
+   "start": 46.44,
+   "end": 53.16,
+   "text": " head chef. Storage, your SSD, is the walk-in freezer down the hall. It holds a"
+  },
+  {
+   "id": 8,
+   "start": 53.16,
+   "end": 59.62,
+   "text": " huge amount of food, and if the kitchen lights go out, the food stays inside. RAM or Random"
+  },
+  {
+   "id": 9,
+   "start": 59.62,
+   "end": 65.3,
+   "text": " Access Memory is the chef prep counter right in front of them. The chef cannot chop vegetables"
+  },
+  {
+   "id": 10,
+   "start": 65.3,
+   "end": 70.5,
+   "text": " inside the freezer, so whenever you open a photo or a document, the computer copies it"
+  },
+  {
+   "id": 11,
+   "start": 70.5,
+   "end": 79.56,
+   "text": " from the SSD onto the RAM prep counter. RAM is thousands of times faster than an SSD."
+  },
+  {
+   "id": 12,
+   "start": 79.56,
+   "end": 85.6,
+   "text": " but there's a catch. RAM is volatile. It holds data as tiny electrical charges"
+  },
+  {
+   "id": 13,
+   "start": 85.6,
+   "end": 90.36,
+   "text": " that vanish the instant power drops. Until you press save to copy your work"
+  },
+  {
+   "id": 14,
+   "start": 90.36,
+   "end": 95.56,
+   "text": " from the RAM, counter back into the SSD freezer. A power cut wipes the counter"
+  },
+  {
+   "id": 15,
+   "start": 95.56,
+   "end": 95.92,
+   "text": " clean."
+  }
+ ],
+ "usage": {
+  "type": "duration",
+  "seconds": 98
+ }
+}

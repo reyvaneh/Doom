@@ -4,3 +4,13 @@
 # Build tooling for the game guide
 tools/game_guide/node_modules/
 tools/game_guide/build/
+
+tools/video_build/
+/.claude
+/tools
+/tools
+
+# Rendered videos (too large for GitHub; kept locally)
+videos/*.mp4
+videos/samples/
+~$*

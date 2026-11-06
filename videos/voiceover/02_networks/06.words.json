@@ -1,0 +1,849 @@
+{
+ "text": " Pause the video for 10 seconds and match its scenario to either TCP or UAP. Scenario 1 is a firmware update file sent to a medical robot where if one byte is missing, the robot crashes. Scenario 2 is live telemetry video from a racing drone at 60 frames per second. Got your predictions? Scenario 1, the robot firmware update requires TCP because every single byte must arrive intact and in order. Even if retransmitting a lost packet takes an extra moment. Scenario 2, the live racing drone video uses UDP because the pilot needs the current frame immediately with minimal delay, not a frame from 2 seconds ago. Take study guide chapter 12 and taskbank questions MC11 and OE04 to test more cases. Now that our hardware can sense the world and our network can carry message, how does a machine actually decide what to do next? In video 3, we enter behaviorist AI.",
+ "task": "transcribe",
+ "language": "en",
+ "duration": 63,
+ "words": [
+  {
+   "word": "Pause",
+   "start": 0,
+   "end": 0.7
+  },
+  {
+   "word": "the",
+   "start": 0.7,
+   "end": 0.88
+  },
+  {
+   "word": "video",
+   "start": 0.88,
+   "end": 1.24
+  },
+  {
+   "word": "for",
+   "start": 1.24,
+   "end": 1.46
+  },
+  {
+   "word": "10",
+   "start": 1.46,
+   "end": 1.7
+  },
+  {
+   "word": "seconds",
+   "start": 1.7,
+   "end": 2.16
+  },
+  {
+   "word": "and",
+   "start": 2.16,
+   "end": 2.42
+  },
+  {
+   "word": "match",
+   "start": 2.42,
+   "end": 2.68
+  },
+  {
+   "word": "its",
+   "start": 2.68,
+   "end": 2.9
+  },
+  {
+   "word": "scenario",
+   "start": 2.9,
+   "end": 3.24
+  },
+  {
+   "word": "to",
+   "start": 3.24,
+   "end": 3.88
+  },
+  {
+   "word": "either",
+   "start": 3.88,
+   "end": 4.54
+  },
+  {
+   "word": "TCP",
+   "start": 4.54,
+   "end": 5.04
+  },
+  {
+   "word": "or",
+   "start": 5.04,
+   "end": 5.48
+  },
+  {
+   "word": "UAP.",
+   "start": 5.48,
+   "end": 5.82
+  },
+  {
+   "word": "Scenario",
+   "start": 6.06,
+   "end": 6.66
+  },
+  {
+   "word": "1",
+   "start": 6.66,
+   "end": 6.96
+  },
+  {
+   "word": "is",
+   "start": 6.96,
+   "end": 7.28
+  },
+  {
+   "word": "a",
+   "start": 7.28,
+   "end": 7.42
+  },
+  {
+   "word": "firmware",
+   "start": 7.42,
+   "end": 7.76
+  },
+  {
+   "word": "update",
+   "start": 7.76,
+   "end": 8.16
+  },
+  {
+   "word": "file",
+   "start": 8.16,
+   "end": 8.48
+  },
+  {
+   "word": "sent",
+   "start": 8.48,
+   "end": 8.76
+  },
+  {
+   "word": "to",
+   "start": 8.76,
+   "end": 8.96
+  },
+  {
+   "word": "a",
+   "start": 8.96,
+   "end": 9.06
+  },
+  {
+   "word": "medical",
+   "start": 9.06,
+   "end": 9.32
+  },
+  {
+   "word": "robot",
+   "start": 9.32,
+   "end": 9.72
+  },
+  {
+   "word": "where",
+   "start": 9.72,
+   "end": 10.28
+  },
+  {
+   "word": "if",
+   "start": 10.28,
+   "end": 10.54
+  },
+  {
+   "word": "one",
+   "start": 10.54,
+   "end": 10.74
+  },
+  {
+   "word": "byte",
+   "start": 10.74,
+   "end": 10.96
+  },
+  {
+   "word": "is",
+   "start": 10.96,
+   "end": 11.12
+  },
+  {
+   "word": "missing,",
+   "start": 11.12,
+   "end": 11.42
+  },
+  {
+   "word": "the",
+   "start": 11.52,
+   "end": 11.66
+  },
+  {
+   "word": "robot",
+   "start": 11.66,
+   "end": 11.86
+  },
+  {
+   "word": "crashes.",
+   "start": 11.86,
+   "end": 12.22
+  },
+  {
+   "word": "Scenario",
+   "start": 12.56,
+   "end": 13.06
+  },
+  {
+   "word": "2",
+   "start": 13.06,
+   "end": 13.46
+  },
+  {
+   "word": "is",
+   "start": 13.46,
+   "end": 13.78
+  },
+  {
+   "word": "live",
+   "start": 13.78,
+   "end": 14.02
+  },
+  {
+   "word": "telemetry",
+   "start": 14.02,
+   "end": 14.66
+  },
+  {
+   "word": "video",
+   "start": 14.66,
+   "end": 15.08
+  },
+  {
+   "word": "from",
+   "start": 15.08,
+   "end": 15.42
+  },
+  {
+   "word": "a",
+   "start": 15.42,
+   "end": 15.58
+  },
+  {
+   "word": "racing",
+   "start": 15.58,
+   "end": 15.86
+  },
+  {
+   "word": "drone",
+   "start": 15.86,
+   "end": 16.2
+  },
+  {
+   "word": "at",
+   "start": 16.2,
+   "end": 16.74
+  },
+  {
+   "word": "60",
+   "start": 16.74,
+   "end": 17.14
+  },
+  {
+   "word": "frames",
+   "start": 17.14,
+   "end": 17.46
+  },
+  {
+   "word": "per",
+   "start": 17.46,
+   "end": 17.68
+  },
+  {
+   "word": "second.",
+   "start": 17.68,
+   "end": 17.94
+  },
+  {
+   "word": "Got",
+   "start": 18.28,
+   "end": 18.56
+  },
+  {
+   "word": "your",
+   "start": 18.56,
+   "end": 18.76
+  },
+  {
+   "word": "predictions?",
+   "start": 18.76,
+   "end": 19.08
+  },
+  {
+   "word": "Scenario",
+   "start": 19.46,
+   "end": 19.98
+  },
+  {
+   "word": "1,",
+   "start": 19.98,
+   "end": 20.36
+  },
+  {
+   "word": "the",
+   "start": 20.42,
+   "end": 20.52
+  },
+  {
+   "word": "robot",
+   "start": 20.52,
+   "end": 20.74
+  },
+  {
+   "word": "firmware",
+   "start": 20.74,
+   "end": 21
+  },
+  {
+   "word": "update",
+   "start": 21,
+   "end": 21.36
+  },
+  {
+   "word": "requires",
+   "start": 21.36,
+   "end": 21.78
+  },
+  {
+   "word": "TCP",
+   "start": 21.78,
+   "end": 22.22
+  },
+  {
+   "word": "because",
+   "start": 22.22,
+   "end": 22.72
+  },
+  {
+   "word": "every",
+   "start": 22.72,
+   "end": 23.12
+  },
+  {
+   "word": "single",
+   "start": 23.12,
+   "end": 23.4
+  },
+  {
+   "word": "byte",
+   "start": 23.4,
+   "end": 23.74
+  },
+  {
+   "word": "must",
+   "start": 23.74,
+   "end": 23.9
+  },
+  {
+   "word": "arrive",
+   "start": 23.9,
+   "end": 24.22
+  },
+  {
+   "word": "intact",
+   "start": 24.22,
+   "end": 24.62
+  },
+  {
+   "word": "and",
+   "start": 24.62,
+   "end": 25.02
+  },
+  {
+   "word": "in",
+   "start": 25.02,
+   "end": 25.16
+  },
+  {
+   "word": "order.",
+   "start": 25.16,
+   "end": 25.46
+  },
+  {
+   "word": "Even",
+   "start": 25.64,
+   "end": 26.28
+  },
+  {
+   "word": "if",
+   "start": 26.28,
+   "end": 26.58
+  },
+  {
+   "word": "retransmitting",
+   "start": 26.58,
+   "end": 27.3
+  },
+  {
+   "word": "a",
+   "start": 27.3,
+   "end": 27.54
+  },
+  {
+   "word": "lost",
+   "start": 27.54,
+   "end": 27.8
+  },
+  {
+   "word": "packet",
+   "start": 27.8,
+   "end": 28.08
+  },
+  {
+   "word": "takes",
+   "start": 28.08,
+   "end": 28.46
+  },
+  {
+   "word": "an",
+   "start": 28.46,
+   "end": 28.88
+  },
+  {
+   "word": "extra",
+   "start": 28.88,
+   "end": 29.32
+  },
+  {
+   "word": "moment.",
+   "start": 29.32,
+   "end": 29.7
+  },
+  {
+   "word": "Scenario",
+   "start": 29.7,
+   "end": 30.62
+  },
+  {
+   "word": "2,",
+   "start": 30.62,
+   "end": 31
+  },
+  {
+   "word": "the",
+   "start": 31.08,
+   "end": 31.16
+  },
+  {
+   "word": "live",
+   "start": 31.16,
+   "end": 31.44
+  },
+  {
+   "word": "racing",
+   "start": 31.44,
+   "end": 31.74
+  },
+  {
+   "word": "drone",
+   "start": 31.74,
+   "end": 32.14
+  },
+  {
+   "word": "video",
+   "start": 32.14,
+   "end": 32.44
+  },
+  {
+   "word": "uses",
+   "start": 32.44,
+   "end": 32.94
+  },
+  {
+   "word": "UDP",
+   "start": 32.94,
+   "end": 33.82
+  },
+  {
+   "word": "because",
+   "start": 33.82,
+   "end": 34.26
+  },
+  {
+   "word": "the",
+   "start": 34.26,
+   "end": 34.4
+  },
+  {
+   "word": "pilot",
+   "start": 34.4,
+   "end": 34.72
+  },
+  {
+   "word": "needs",
+   "start": 34.72,
+   "end": 35.04
+  },
+  {
+   "word": "the",
+   "start": 35.04,
+   "end": 35.32
+  },
+  {
+   "word": "current",
+   "start": 35.32,
+   "end": 35.8
+  },
+  {
+   "word": "frame",
+   "start": 35.8,
+   "end": 36.32
+  },
+  {
+   "word": "immediately",
+   "start": 36.32,
+   "end": 36.78
+  },
+  {
+   "word": "with",
+   "start": 36.78,
+   "end": 37.38
+  },
+  {
+   "word": "minimal",
+   "start": 37.38,
+   "end": 37.68
+  },
+  {
+   "word": "delay,",
+   "start": 37.68,
+   "end": 38.1
+  },
+  {
+   "word": "not",
+   "start": 38.28,
+   "end": 38.82
+  },
+  {
+   "word": "a",
+   "start": 38.82,
+   "end": 38.96
+  },
+  {
+   "word": "frame",
+   "start": 38.96,
+   "end": 39.26
+  },
+  {
+   "word": "from",
+   "start": 39.26,
+   "end": 39.7
+  },
+  {
+   "word": "2",
+   "start": 39.7,
+   "end": 40
+  },
+  {
+   "word": "seconds",
+   "start": 40,
+   "end": 40.32
+  },
+  {
+   "word": "ago.",
+   "start": 40.32,
+   "end": 40.64
+  },
+  {
+   "word": "Take",
+   "start": 41.16,
+   "end": 41.82
+  },
+  {
+   "word": "study",
+   "start": 41.82,
+   "end": 42.08
+  },
+  {
+   "word": "guide",
+   "start": 42.08,
+   "end": 42.42
+  },
+  {
+   "word": "chapter",
+   "start": 42.42,
+   "end": 42.7
+  },
+  {
+   "word": "12",
+   "start": 42.7,
+   "end": 43.18
+  },
+  {
+   "word": "and",
+   "start": 43.18,
+   "end": 43.42
+  },
+  {
+   "word": "taskbank",
+   "start": 43.42,
+   "end": 43.84
+  },
+  {
+   "word": "questions",
+   "start": 43.84,
+   "end": 44.1
+  },
+  {
+   "word": "MC11",
+   "start": 44.1,
+   "end": 44.8
+  },
+  {
+   "word": "and",
+   "start": 44.8,
+   "end": 45.3
+  },
+  {
+   "word": "OE04",
+   "start": 45.3,
+   "end": 46.62
+  },
+  {
+   "word": "to",
+   "start": 46.62,
+   "end": 47.6
+  },
+  {
+   "word": "test",
+   "start": 47.6,
+   "end": 48.04
+  },
+  {
+   "word": "more",
+   "start": 48.04,
+   "end": 48.32
+  },
+  {
+   "word": "cases.",
+   "start": 48.32,
+   "end": 48.78
+  },
+  {
+   "word": "Now",
+   "start": 49.14,
+   "end": 49.68
+  },
+  {
+   "word": "that",
+   "start": 49.68,
+   "end": 49.96
+  },
+  {
+   "word": "our",
+   "start": 49.96,
+   "end": 50.14
+  },
+  {
+   "word": "hardware",
+   "start": 50.14,
+   "end": 50.56
+  },
+  {
+   "word": "can",
+   "start": 50.56,
+   "end": 50.8
+  },
+  {
+   "word": "sense",
+   "start": 50.8,
+   "end": 51.2
+  },
+  {
+   "word": "the",
+   "start": 51.2,
+   "end": 51.36
+  },
+  {
+   "word": "world",
+   "start": 51.36,
+   "end": 51.76
+  },
+  {
+   "word": "and",
+   "start": 51.76,
+   "end": 52.32
+  },
+  {
+   "word": "our",
+   "start": 52.32,
+   "end": 52.62
+  },
+  {
+   "word": "network",
+   "start": 52.62,
+   "end": 53.02
+  },
+  {
+   "word": "can",
+   "start": 53.02,
+   "end": 53.22
+  },
+  {
+   "word": "carry",
+   "start": 53.22,
+   "end": 53.58
+  },
+  {
+   "word": "message,",
+   "start": 53.58,
+   "end": 54.02
+  },
+  {
+   "word": "how",
+   "start": 54.6,
+   "end": 55.28
+  },
+  {
+   "word": "does",
+   "start": 55.28,
+   "end": 55.62
+  },
+  {
+   "word": "a",
+   "start": 55.62,
+   "end": 55.78
+  },
+  {
+   "word": "machine",
+   "start": 55.78,
+   "end": 56.14
+  },
+  {
+   "word": "actually",
+   "start": 56.14,
+   "end": 56.68
+  },
+  {
+   "word": "decide",
+   "start": 56.68,
+   "end": 57.38
+  },
+  {
+   "word": "what",
+   "start": 57.38,
+   "end": 57.76
+  },
+  {
+   "word": "to",
+   "start": 57.76,
+   "end": 57.92
+  },
+  {
+   "word": "do",
+   "start": 57.92,
+   "end": 58.08
+  },
+  {
+   "word": "next?",
+   "start": 58.08,
+   "end": 58.34
+  },
+  {
+   "word": "In",
+   "start": 58.34,
+   "end": 58.62
+  },
+  {
+   "word": "video",
+   "start": 58.62,
+   "end": 58.96
+  },
+  {
+   "word": "3,",
+   "start": 58.96,
+   "end": 59.24
+  },
+  {
+   "word": "we",
+   "start": 59.38,
+   "end": 59.52
+  },
+  {
+   "word": "enter",
+   "start": 59.52,
+   "end": 59.78
+  },
+  {
+   "word": "behaviorist",
+   "start": 59.78,
+   "end": 61.14
+  },
+  {
+   "word": "AI.",
+   "start": 61.14,
+   "end": 61.46
+  }
+ ],
+ "segments": [
+  {
+   "id": 0,
+   "start": 0,
+   "end": 5.82,
+   "text": " Pause the video for 10 seconds and match its scenario to either TCP or UAP."
+  },
+  {
+   "id": 1,
+   "start": 6.06,
+   "end": 12.22,
+   "text": " Scenario 1 is a firmware update file sent to a medical robot where if one byte is missing, the robot crashes."
+  },
+  {
+   "id": 2,
+   "start": 12.56,
+   "end": 17.94,
+   "text": " Scenario 2 is live telemetry video from a racing drone at 60 frames per second."
+  },
+  {
+   "id": 3,
+   "start": 18.28,
+   "end": 19.08,
+   "text": " Got your predictions?"
+  },
+  {
+   "id": 4,
+   "start": 19.46,
+   "end": 25.46,
+   "text": " Scenario 1, the robot firmware update requires TCP because every single byte must arrive intact and in order."
+  },
+  {
+   "id": 5,
+   "start": 25.64,
+   "end": 29.7,
+   "text": " Even if retransmitting a lost packet takes an extra moment."
+  },
+  {
+   "id": 6,
+   "start": 29.7,
+   "end": 40.64,
+   "text": " Scenario 2, the live racing drone video uses UDP because the pilot needs the current frame immediately with minimal delay, not a frame from 2 seconds ago."
+  },
+  {
+   "id": 7,
+   "start": 41.16,
+   "end": 48.78,
+   "text": " Take study guide chapter 12 and taskbank questions MC11 and OE04 to test more cases."
+  },
+  {
+   "id": 8,
+   "start": 49.14,
+   "end": 58.34,
+   "text": " Now that our hardware can sense the world and our network can carry message, how does a machine actually decide what to do next?"
+  },
+  {
+   "id": 9,
+   "start": 58.34,
+   "end": 61.46,
+   "text": " In video 3, we enter behaviorist AI."
+  }
+ ],
+ "usage": {
+  "type": "duration",
+  "seconds": 63
+ }
+}
