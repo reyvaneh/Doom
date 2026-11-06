@@ -57,14 +57,109 @@
     ['rig_q', '🤖', 'Trainer of Machines', 'Train the vacuum agent for 100 episodes.'],
     ['trial_done', '🛡', 'Trial Survivor', 'Finish a Final Trial run.'],
     ['trial_ace', '🏆', 'Grade S', 'Finish a full Final Trial run with grade S.'],
+    ['perfect5', '✷', 'Perfect Riposte', 'Land five perfect parries in a single fight.'],
+    ['untouched', '🜁', 'Untouched', 'Win a fight without taking a single hit.'],
+    ['prof_down', '🎓', 'Top of the Class', 'Defeat The Professor in the Final Trial.'],
   ].map(([id, ico, name, desc]) => ({ id, ico, name, desc }));
 
   /* ---------- Saved progress ---------- */
   const KEY = 'doom-campaign-v1';
-  const fresh = () => ({ xp: 0, seen: {}, ops: {}, decrypt: {}, solved: {}, missions: {}, codex: {}, ach: {}, sims: {}, bank: {}, typed: {}, free: false, streak: 0, best: 0, trialBest: null });
+  const fresh = () => ({ xp: 0, seen: {}, ops: {}, decrypt: {}, solved: {}, missions: {}, codex: {}, ach: {}, sims: {}, bank: {}, typed: {}, free: false, streak: 0, best: 0, trialBest: null, marks: 0, up: {}, vol: 0.6, muted: false, profDown: false });
   let P;
+  // Older saves simply pick up the new fields' defaults.
   try { P = Object.assign(fresh(), JSON.parse(localStorage.getItem(KEY) || '{}')); } catch (e) { P = fresh(); }
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify(P)); } catch (e) { /* private mode */ } };
+
+  /* ---------- Music: crossfaded tracks, started on the first click ---------- */
+  const Music = (() => {
+    const SRC = window.MUSIC || {};
+    const els = {}, fades = new Map();
+    let cur = null, curName = null, want = null, unlocked = false, ducked = false;
+    const level = () => (P.muted ? 0 : P.vol) * (ducked ? 0.35 : 1);
+    const get = (name) => {
+      if (!els[name] && SRC[name]) { const a = new Audio(SRC[name]); a.loop = name !== 'victory'; a.volume = 0; els[name] = a; }
+      return els[name];
+    };
+    function fade(a, to, ms, done) {
+      clearInterval(fades.get(a));
+      const from = a.volume, t0 = performance.now();
+      const id = setInterval(() => {
+        const k = Math.min(1, (performance.now() - t0) / ms);
+        a.volume = Math.max(0, Math.min(1, from + (to - from) * k));
+        if (k >= 1) { clearInterval(id); fades.delete(a); if (done) done(); }
+      }, 40);
+      fades.set(a, id);
+    }
+    function play(name) {
+      want = name;
+      if (!unlocked || name === curName) return;
+      const old = cur;
+      if (old) fade(old, 0, 1200, () => old.pause());
+      cur = get(name); curName = name;
+      if (!cur) return;
+      if (cur.paused) { cur.currentTime = 0; cur.play().catch(() => {}); }
+      fade(cur, level(), 1500);
+    }
+    function sting(name) {
+      const a = get(name);
+      if (!a || !unlocked) return;
+      a.currentTime = 0; a.volume = P.muted ? 0 : Math.min(1, P.vol * 1.1);
+      a.play().catch(() => {});
+    }
+    function refresh() { if (cur) fade(cur, level(), 300); }
+    const unlock = () => {
+      if (unlocked) return;
+      unlocked = true;
+      const w = want; want = null; curName = null;
+      if (w) play(w);
+    };
+    addEventListener('pointerdown', unlock, { once: true });
+    addEventListener('keydown', unlock, { once: true });
+    return { play, sting, refresh, duck(on) { ducked = on; refresh(); }, get current() { return curName || want; } };
+  })();
+
+  window.DoomMusic = Music; // lets you check which track is playing from the console
+
+  /* ---------- Sound effects, synthesised so they need no files ---------- */
+  const Sfx = (() => {
+    let ctx = null;
+    const ac = () => {
+      if (!ctx) { const C = window.AudioContext || window.webkitAudioContext; if (!C) return null; ctx = new C(); }
+      if (ctx.state === 'suspended') ctx.resume();
+      return ctx;
+    };
+    const vol = () => (P.muted ? 0 : 0.35 + P.vol * 0.5);
+    function tone(freq, dur, type = 'sine', gain = 0.2, slideTo = 0, delay = 0) {
+      const c = ac(); if (!c || !vol()) return;
+      const t = c.currentTime + delay, o = c.createOscillator(), g = c.createGain();
+      o.type = type; o.frequency.setValueAtTime(freq, t);
+      if (slideTo) o.frequency.exponentialRampToValueAtTime(slideTo, t + dur);
+      g.gain.setValueAtTime(gain * vol(), t); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+      o.connect(g).connect(c.destination); o.start(t); o.stop(t + dur + 0.02);
+    }
+    function noise(dur, gain = 0.3, freq = 1200, type = 'highpass', delay = 0) {
+      const c = ac(); if (!c || !vol()) return;
+      const t = c.currentTime + delay, len = Math.floor(c.sampleRate * dur);
+      const buf = c.createBuffer(1, len, c.sampleRate), d = buf.getChannelData(0);
+      for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / len);
+      const s = c.createBufferSource(), f = c.createBiquadFilter(), g = c.createGain();
+      s.buffer = buf; f.type = type; f.frequency.value = freq; g.gain.value = gain * vol();
+      s.connect(f).connect(g).connect(c.destination); s.start(t);
+    }
+    return {
+      parry() { tone(1320, 0.35, 'triangle', 0.18); tone(1980, 0.25, 'triangle', 0.1); noise(0.08, 0.25, 3000); },
+      perfect() { tone(1320, 0.5, 'triangle', 0.2); tone(2640, 0.6, 'sine', 0.12, 0, 0.05); tone(3520, 0.5, 'sine', 0.08, 0, 0.12); noise(0.1, 0.3, 4000); },
+      strike() { tone(160, 0.25, 'sawtooth', 0.18, 60); noise(0.18, 0.35, 900, 'lowpass'); },
+      hurt() { tone(110, 0.45, 'square', 0.16, 40); noise(0.3, 0.45, 600, 'lowpass'); },
+      tick() { tone(880, 0.05, 'square', 0.05); },
+      heal() { tone(440, 0.4, 'sine', 0.15, 880); tone(660, 0.5, 'sine', 0.1, 1320, 0.08); },
+      whoosh() { noise(0.25, 0.25, 700, 'bandpass'); },
+      rumble() { tone(55, 1.1, 'sawtooth', 0.12, 35); noise(1.0, 0.35, 160, 'lowpass'); },
+      crack() { noise(0.12, 0.5, 2500); tone(240, 0.2, 'square', 0.08, 90); },
+      shatter() { for (let i = 0; i < 6; i++) { noise(0.18, 0.35, 2000 + i * 600, 'highpass', i * 0.06); tone(1800 - i * 200, 0.2, 'triangle', 0.05, 0, i * 0.05); } },
+      roar() { tone(90, 1.2, 'sawtooth', 0.18, 45); tone(135, 1.2, 'sawtooth', 0.1, 60); noise(1.0, 0.3, 300, 'lowpass'); },
+    };
+  })();
 
   /* ---------- Assets ---------- */
   function hydrate(root) {
@@ -156,7 +251,15 @@
     $('#hud-stars').textContent = `${stars()}/${CH.length * 3}`;
     $('#hud-codex').textContent = `${codexCount()}/${G.glossary.length}`;
     $('#hud-trophies').textContent = `${Object.keys(P.ach).length}/${ACH.length}`;
+    $('#hud-marks').textContent = P.marks;
+    const sb = $('#snd-btn');
+    sb.textContent = P.muted ? '🔇' : '🔊';
+    sb.setAttribute('aria-pressed', P.muted);
+    $('#vol').value = P.vol;
   }
+  $('#snd-btn').addEventListener('click', () => { P.muted = !P.muted; save(); hud(); Music.refresh(); });
+  $('#vol').addEventListener('input', (e) => { P.vol = Number(e.target.value); if (P.vol > 0) P.muted = false; save(); hud(); Music.refresh(); });
+  $('#vol').addEventListener('click', (e) => e.stopPropagation());
 
   /* ---------- Router ---------- */
   let scenes = [];
@@ -175,6 +278,8 @@
     $('#menu-pop').classList.remove('open');
     const show = (id) => { const s = $('#scr-' + id); s.classList.add('active'); return s; };
     window.scrollTo(0, 0);
+    Music.duck(false);
+    Music.play(name === 'm' ? 'study' : 'hall');
     switch (name) {
       case 'map': renderMap(show('map'), Number(arg) || null); break;
       case 'm': {
@@ -228,7 +333,7 @@
     CH.forEach((c) => (o[c.n] = { state: state(c.n), stars: (P.missions[c.n] || {}).stars || 0 }));
     return o;
   }
-  function renderMap(scr, focus) {
+  function drawMissionList() {
     const done = CH.filter((c) => cleared(c.n)).length;
     $('#camp-bar').style.width = (done / CH.length) * 100 + '%';
     $('#camp-note').textContent = `${done} of ${CH.length} missions conquered · ${stars()} ★`;
@@ -240,11 +345,23 @@
       `<div class="act-head">Act I · The Beginner Course</div>${CH.filter((c) => act(c.n) === 1).map(row).join('')}` +
       `<div class="act-head">Act II · The Extended Campaign</div>${CH.filter((c) => act(c.n) === 2).map(row).join('')}`;
     $$('#mission-list .m-row').forEach((b) => b.addEventListener('click', () => selectMission(Number(b.dataset.n))));
+    if (selected) $$('.m-row').forEach((r) => r.classList.toggle('sel', Number(r.dataset.n) === selected));
+  }
+  function renderMap(scr, focus) {
+    drawMissionList();
     const fr = $('#free-roam');
     fr.setAttribute('aria-pressed', P.free);
-    fr.onclick = () => { P.free = !P.free; save(); renderMap(scr, selected); };
+    // Free roam only changes which missions are open, so update the existing map instead of building a second one.
+    fr.onclick = () => {
+      P.free = !P.free; save();
+      fr.setAttribute('aria-pressed', P.free);
+      drawMissionList();
+      if (mapScene) mapScene.setState(missionStates());
+      if (selected) selectMission(selected);
+    };
     $('#overview-btn').onclick = () => { selected = null; $('#map-card').classList.remove('show'); mapScene && mapScene.overview(); $$('.m-row').forEach((r) => r.classList.remove('sel')); };
     if (GL) {
+      if (mapScene) { mapScene.dispose(); scenes = scenes.filter((x) => x !== mapScene); }
       mapScene = S3.createMap($('#map-host'), { missions: CH.map((c) => ({ n: c.n, unit: c.unit, title: c.title })), onSelect: selectMission });
       mapScene.setState(missionStates());
       scenes.push(mapScene);
@@ -353,11 +470,11 @@
         <div class="codex-grid">${c.glossary.map((g) => `<div class="codex-card" data-unit="${c.unit}"><span class="src">CH ${pad2(n)}</span><h5>${esc(g.term)}</h5><p>${g.def}</p></div>`).join('')}</div>
       </section>`);
 
-    // Boss gate.
+    // The guardian's seal: reaching it after studying breaks the page open into a fight.
     main.insertAdjacentHTML('beforeend', `
       <section id="b-boss">
-        <div class="block-head"><span class="eyebrow" style="color:var(--danger)">Boss gate</span><h2>Defeat the gatekeeper</h2></div>
-        <div class="panel boss" id="boss"></div>
+        <div class="block-head"><span class="eyebrow" style="color:var(--danger)">The guardian</span><h2>Break the seal</h2></div>
+        <div class="panel seal rivets" id="boss" data-unit="${c.unit}"></div>
       </section>
       <nav class="m-next">
         ${prev ? `<button class="btn ghost" data-go="#/m/${prev.n}">◂ Mission ${pad2(prev.n)}</button>` : '<span></span>'}
@@ -367,7 +484,7 @@
     hydrate(scr);
 
     // Mission log rail.
-    const railItems = [['b-brief', 'Briefing'], ['b-obj', 'Objectives'], ...c.sections.map((s, i) => ['b-s' + i, s.title.replace(/<[^>]+>/g, '')]), ['b-tx', 'Transmission'], ['b-op', 'Field operation'], ['b-codex', 'Codex unlocks'], ['b-boss', 'Boss gate']];
+    const railItems = [['b-brief', 'Briefing'], ['b-obj', 'Objectives'], ...c.sections.map((s, i) => ['b-s' + i, s.title.replace(/<[^>]+>/g, '')]), ['b-tx', 'Transmission'], ['b-op', 'Field operation'], ['b-codex', 'Codex unlocks'], ['b-boss', 'The guardian']];
     $('#rail', scr).innerHTML = railItems.map(([id, t]) => `<li><a href="#${id}" data-to="${id}" class="${id === 'b-boss' ? 'boss' : ''}"><i></i><span>${esc(t)}</span></a></li>`).join('');
     $$('#rail a', scr).forEach((a) => a.addEventListener('click', (e) => { e.preventDefault(); document.getElementById(a.dataset.to).scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' }); }));
 
@@ -489,137 +606,548 @@
     };
     drawOp();
 
-    bossGate(c, $('#boss', scr), refresh);
+    guardianSeal(c, $('#boss', scr), refresh);
     refresh();
   }
 
-  /* ---------- Boss gate ---------- */
-  function bossGate(c, box, refresh) {
-    const n = c.n, qs = c.questions, total = qs.length;
-    let qi = 0, shields = 3, mistakes = 0, hints = 0, boss = null, combat = false;
-    const names = ['Sentinel', 'Warden', 'Executor', 'Inquisitor', 'Overseer'];
-    const bossName = `Gatekeeper Doombot Mk.${['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI'][n - 1]} “${names[n % names.length]}”`;
+  /* ================= COMBAT ================= */
+  const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI'];
+  const GUARDIAN = { hardware: 'Forge Golem', networks: 'Relay Sentinel', ai: 'Mind Eye' };
+  const GLYPH = { hardware: '⚙', networks: '📡', ai: '👁', professor: '🎓' };
+  const shuffle = (list) => {
+    const a = list.slice();
+    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+    return a;
+  };
 
-    function frame(inner) {
-      box.innerHTML = `
-        <div class="boss-grid">
-          <div class="boss-stage">
-            <div class="boss-hp"><div class="name">${esc(bossName)}</div><div class="hpbar"><i id="hp" style="width:${((total - qi) / total) * 100}%"></i></div></div>
-            <div class="gl-host" id="boss-host"></div>
-            ${GL ? '' : '<div class="fallback-bot">🤖</div>'}
-            <div class="shields">SHIELDS ${[0, 1, 2].map((i) => `<i class="${i >= shields ? 'lost' : ''}"></i>`).join('')}</div>
-          </div>
-          <div class="boss-q" id="bq">${inner}</div>
-        </div>`;
-      if (GL) {
-        if (boss) boss.dispose();
-        boss = S3.createBoss($('#boss-host', box), { color: 0x10b981 });
-        scenes.push(boss);
-        boss.hit((total - qi) / total);
+  /* ---------- The Forge: small upgrades bought with Marks ---------- */
+  const UPGRADES = [
+    { id: 'vit', ico: '❤', name: 'Vitality', max: 3, cost: 30, desc: '+1 maximum HP in every fight.' },
+    { id: 'ref', ico: '⏳', name: 'Reflexes', max: 3, cost: 25, desc: '+3 seconds on every attack timer.' },
+    { id: 'elx', ico: '⚗', name: 'Elixir', max: 2, cost: 40, desc: 'One more healing elixir per fight.' },
+    { id: 'rip', ico: '⚔', name: 'Riposte', max: 2, cost: 35, desc: 'A wider perfect-parry window and harder critical counters.' },
+    { id: 'ins', ico: '☉', name: 'Insight', max: 2, cost: 30, desc: 'Insight costs 1 Focus. At level II it also strikes out a wrong answer.' },
+    { id: 'ward', ico: '🛡', name: "Doom's Ward", max: 1, cost: 80, desc: 'Blocks the first hit you take in every fight.' },
+  ];
+  const upLvl = (id) => P.up[id] || 0;
+  const upCost = (u) => u.cost * (upLvl(u.id) + 1);
+  // What the upgrades add up to, read at the start of each fight.
+  function kit() {
+    const rip = upLvl('rip');
+    return {
+      hp: 3 + upLvl('vit'), elixirs: 1 + upLvl('elx'), timeBonus: 3 * upLvl('ref'),
+      perfect: [0.33, 0.39, 0.45][rip], crit: [1.5, 1.75, 2][rip],
+      insightCost: upLvl('ins') ? 1 : 2, strike: upLvl('ins') >= 2, ward: upLvl('ward') > 0,
+    };
+  }
+
+  /* ---------- Fight questions ---------- */
+  // A chapter guardian asks the chapter's review questions, interleaved with "name the term" strikes.
+  function chapterFightQs(c) {
+    const review = c.questions.map((q, i) => ({ kind: 'mc', prompt: q.prompt, options: q.options.map(esc), right: 'ABCD'.indexOf(q.answer), hint: q.hint, explain: q.explanation, key: c.n + ':' + i }));
+    const terms = shuffle(c.glossary).slice(0, 3).map((g) => {
+      const options = shuffle([g.term, ...shuffle(c.glossary.filter((t) => t.term !== g.term)).slice(0, 3).map((t) => t.term)]);
+      return { kind: 'term', prompt: `<span class="q-k">Which term is this?</span> ${g.def}`, options: options.map(esc), right: options.indexOf(g.term), hint: `It starts with “${esc(g.term.charAt(0))}”.`, explain: `<b>${esc(g.term)}</b>: ${g.def}` };
+    });
+    const out = [];
+    for (let i = 0; i < Math.max(review.length, terms.length); i++) { if (terms[i]) out.push(terms[i]); if (review[i]) out.push(review[i]); }
+    return out;
+  }
+  function bankFightQ(q) {
+    const kind = q.id.slice(0, 2);
+    const base = { prompt: esc(q.prompt), explain: esc(q.explanation || ''), hint: null, bank: q.id };
+    if (kind === 'TF') return { ...base, kind: 'tf', options: ['True', 'False'], right: /^t/i.test(q.answer) ? 0 : 1 };
+    if (kind === 'MC') return { ...base, kind: 'mc', options: q.options.map(esc), right: 'ABCD'.indexOf(q.answer) };
+    return { ...base, kind: 'oe', tasks: q.tasks || [], sample: q.sample || '', points: q.key_points || [] };
+  }
+
+  /* ---------- The page breaks: quake, cracks, then the page falls away in shards ---------- */
+  function breakPage(scr, done) {
+    const restore = () => { scr.style.visibility = ''; scr.classList.remove('quake'); };
+    if (reduced) { scr.style.visibility = 'hidden'; done(restore); return; }
+    Music.duck(true);
+    Sfx.rumble();
+    const W = innerWidth, H = innerHeight, cx = W / 2, cy = H * 0.55;
+    let paths = '';
+    for (let k = 0; k < 12; k++) {
+      let a = (k / 12) * Math.PI * 2 + Math.random() * 0.4, x = cx, y = cy, d = `M${cx} ${cy}`;
+      const steps = 6 + Math.floor(Math.random() * 4);
+      for (let s = 0; s < steps; s++) {
+        a += (Math.random() - 0.5) * 0.7;
+        const len = (Math.max(W, H) / steps) * (0.6 + Math.random() * 0.6);
+        x += Math.cos(a) * len; y += Math.sin(a) * len;
+        d += ` L${x.toFixed(0)} ${y.toFixed(0)}`;
+      }
+      paths += `<path d="${d}" pathLength="1" style="animation-delay:${(0.55 + Math.random() * 0.4).toFixed(2)}s"/>`;
+    }
+    const fx = document.createElement('div');
+    fx.className = 'breakfx';
+    fx.innerHTML = `<div class="vign"></div><svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">${paths}</svg>`;
+    document.body.appendChild(fx);
+    scr.classList.add('quake');
+    setTimeout(() => Sfx.crack(), 650);
+    setTimeout(() => Sfx.crack(), 950);
+    setTimeout(() => {
+      // Copies of the visible page, each clipped to one jagged quad, fall away to reveal the arena.
+      const r = scr.getBoundingClientRect();
+      const snap = scr.cloneNode(true);
+      snap.removeAttribute('id');
+      snap.classList.remove('active');
+      $$('canvas', snap).forEach((n) => n.remove());
+      $$('[id]', snap).forEach((n) => n.removeAttribute('id'));
+      const cols = 4, rows = 3;
+      const P2 = [];
+      for (let j = 0; j <= rows; j++) {
+        P2[j] = [];
+        for (let i = 0; i <= cols; i++) {
+          const edge = i === 0 || j === 0 || i === cols || j === rows;
+          P2[j][i] = [(i / cols) * W + (edge ? 0 : (Math.random() - 0.5) * W * 0.12), (j / rows) * H + (edge ? 0 : (Math.random() - 0.5) * H * 0.14)];
+        }
+      }
+      for (let j = 0; j < rows; j++) {
+        for (let i = 0; i < cols; i++) {
+          const q = [P2[j][i], P2[j][i + 1], P2[j + 1][i + 1], P2[j + 1][i]];
+          const sh = document.createElement('div');
+          sh.className = 'shard';
+          sh.style.clipPath = `polygon(${q.map(([x, y]) => `${x.toFixed(0)}px ${y.toFixed(0)}px`).join(',')})`;
+          const mx = (q[0][0] + q[2][0]) / 2 - cx, my = (q[0][1] + q[2][1]) / 2 - cy;
+          sh.style.setProperty('--dx', (mx * 0.5 + (Math.random() - 0.5) * 120).toFixed(0) + 'px');
+          sh.style.setProperty('--dy', (H * 0.9 + Math.random() * H * 0.4).toFixed(0) + 'px');
+          sh.style.setProperty('--rot', ((Math.random() - 0.5) * 70).toFixed(0) + 'deg');
+          sh.style.setProperty('--delay', (Math.hypot(mx, my) / Math.max(W, H) * 0.35).toFixed(2) + 's');
+          sh.style.transformOrigin = `${(mx + cx).toFixed(0)}px ${(my + cy).toFixed(0)}px`;
+          const inner = snap.cloneNode(true);
+          inner.classList.add('shard-in');
+          inner.style.cssText = `position:absolute;left:${r.left}px;top:${r.top}px;width:${r.width}px;display:block;visibility:visible`;
+          sh.appendChild(inner);
+          fx.appendChild(sh);
+        }
+      }
+      scr.style.visibility = 'hidden';
+      done(restore);
+      Sfx.shatter();
+      requestAnimationFrame(() => requestAnimationFrame(() => fx.classList.add('fall')));
+      setTimeout(() => fx.remove(), 1900);
+    }, 1250);
+  }
+
+  /* ---------- The fight engine: timed parries, Focus actions, phases ---------- */
+  function fight(o) {
+    const K = kit();
+    const phases = (o.phases || [{ qs: o.queue }]).filter((p) => p.qs.length);
+    const seg = 1 / phases.length;
+    const R = { hits: 0, insights: 0, perfects: 0, parries: 0, firstTry: 0, total: phases.reduce((s, p) => s + p.qs.length, 0), maxHp: K.hp + (o.bonusHp || 0) };
+    let hp = R.maxHp, focus = 1, elixirs = K.elixirs, ward = K.ward, combo = 0;
+    let pi = -1, floor = 1, dmg = 0, enemy = 1, queue = [], cur = null;
+    let running = false, raf = 0, elapsed = 0, limit = 1, last = 0, frozenUntil = 0, lastTick = -1, over = false, closed = false;
+    const timers = [];
+    const later = (f, ms) => timers.push(setTimeout(f, ms));
+    const el = document.createElement('div');
+    el.className = 'arena';
+    el.dataset.variant = o.variant;
+    el.innerHTML = `
+      <div class="ar-stage"><div class="gl-host" id="ar-host"></div>${GL ? '' : `<div class="ar-glyph">${GLYPH[o.variant]}</div>`}</div>
+      <div class="ar-top">
+        <div class="ar-name"><small>${esc(o.title)}</small><b>${esc(o.name)}</b></div>
+        <div class="ar-ehp"><i id="ar-ehp"></i>${phases.slice(1).map((_, i) => `<span class="mark" style="left:${(1 - (i + 1) * seg) * 100}%"></span>`).join('')}</div>
+        <div class="ar-phase" id="ar-phase"></div>
+      </div>
+      <button class="ar-flee" type="button" id="ar-flee">Flee ✕</button>
+      <div class="ar-banner" id="ar-banner"></div>
+      <div class="ar-dock">
+        <div class="ar-player panel">
+          <div class="ar-hearts" id="ar-hearts"></div>
+          <div class="ar-focus"><span>Focus</span><div id="ar-focus"></div></div>
+          <div class="ar-combo" id="ar-combo"></div>
+        </div>
+        <div class="ar-card panel rivets" id="ar-card"></div>
+        <div class="ar-actions">
+          <button type="button" class="ar-act" id="ar-ins"><b>☉ Insight</b><small>${K.insightCost} Focus · clue, time slows</small></button>
+          <button type="button" class="ar-act" id="ar-side"><b>↷ Sidestep</b><small>1 Focus · face it later</small></button>
+          <button type="button" class="ar-act" id="ar-elx"><b>⚗ Elixir</b><small id="ar-elx-n"></small></button>
+        </div>
+      </div>
+      <div class="ar-hurt"></div>`;
+    document.body.appendChild(el);
+    document.body.classList.add('in-arena');
+    requestAnimationFrame(() => el.classList.add('on'));
+    Music.duck(false);
+    Music.play(o.music);
+    let boss = null;
+    try { if (GL) boss = S3.createBoss($('#ar-host', el), { variant: o.variant }); } catch (e) { boss = null; }
+    const card = $('#ar-card', el);
+    const RING = 2 * Math.PI * 19;
+
+    function draw() {
+      $('#ar-ehp', el).style.width = enemy * 100 + '%';
+      $('#ar-hearts', el).innerHTML = Array.from({ length: R.maxHp }, (_, i) => `<i class="${i < hp ? '' : 'lost'}">♥</i>`).join('') + (ward ? `<i class="ward" title="Doom's Ward">🛡</i>` : '');
+      $('#ar-focus', el).innerHTML = [0, 1, 2].map((i) => `<i class="${i < focus ? 'on' : ''}"></i>`).join('');
+      $('#ar-combo', el).textContent = combo >= 2 ? `Combo ×${combo}` : '';
+      $('#ar-elx-n', el).textContent = `${elixirs} left · heals 1 HP`;
+      $('#ar-ins', el).disabled = !running || focus < K.insightCost || !!(cur && cur.insight);
+      $('#ar-side', el).disabled = !running || focus < 1 || !queue.length;
+      $('#ar-elx', el).disabled = over || !elixirs || hp >= R.maxHp;
+    }
+    function banner(big, small, cls = '') {
+      const b = $('#ar-banner', el);
+      b.className = 'ar-banner show ' + cls;
+      b.innerHTML = `<b>${big}</b>${small ? `<span>${small}</span>` : ''}`;
+      clearTimeout(b._t);
+      b._t = setTimeout(() => b.classList.remove('show'), 1300);
+    }
+    function flash(cls) { el.classList.remove('hit', 'parry-flash', 'perfect-flash'); void el.offsetWidth; el.classList.add(cls); }
+    function dmgPop(text, crit) {
+      const d = document.createElement('div');
+      d.className = 'ar-dmg' + (crit ? ' crit' : '');
+      d.textContent = text;
+      d.style.left = 44 + Math.random() * 12 + '%';
+      el.appendChild(d);
+      setTimeout(() => d.remove(), 1200);
+    }
+
+    function nextPhase() {
+      pi++;
+      if (pi >= phases.length) return win();
+      const ph = phases[pi];
+      queue = ph.qs.slice();
+      floor = Math.max(0, 1 - (pi + 1) * seg);
+      if (floor < 1e-6) floor = 0;
+      enemy = Math.min(enemy, 1 - pi * seg);
+      dmg = seg / ph.qs.length;
+      $('#ar-phase', el).textContent = ph.name ? `Phase ${ROMAN[pi]} · ${ph.name}` : '';
+      if (ph.name) {
+        let healed = '';
+        if (pi > 0) { if (boss) boss.enrage(ph.color); Sfx.roar(); if (hp < R.maxHp) { hp++; healed = ' · +1 HP'; } }
+        banner(`Phase ${ROMAN[pi]}`, ph.name + healed, 'phase');
+        draw();
+        later(ask, 1600);
+      } else { draw(); later(ask, 500); }
+    }
+
+    function ask() {
+      if (over) return;
+      if (!queue.length) return nextPhase();
+      cur = queue.shift();
+      cur.insight = false;
+      const label = { mc: 'Multiple choice', tf: 'True or false', term: 'Name the term', oe: 'Charge attack · open-ended' }[cur.kind];
+      if (cur.kind === 'oe') return askOpen(label);
+      card.classList.remove('result');
+      card.innerHTML = `
+        <div class="ar-q-head"><span class="eyebrow">${label}</span><span class="ar-left">${queue.length} more after this</span>
+          <svg class="ar-ring" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="19" class="bg"/><circle cx="22" cy="22" r="19" class="fg" id="ar-ring"/><text x="22" y="26.5" id="ar-sec"></text></svg></div>
+        <div class="ar-prompt">${cur.prompt}</div>
+        <div class="ar-opts ${cur.kind === 'tf' ? 'tf' : ''}">${cur.options.map((x, i) => `<button type="button" class="opt" data-i="${i}"><span class="L">${cur.kind === 'tf' ? (i ? '✗' : '✓') : 'ABCD'[i]}</span><span>${x}</span></button>`).join('')}</div>
+        <div id="ar-extra"></div>`;
+      $$('.opt', card).forEach((b) => (b.onclick = () => running && resolve(Number(b.dataset.i), b)));
+      limit = ({ tf: 18, term: 20, mc: 30 }[cur.kind] || 25) + K.timeBonus;
+      elapsed = 0; last = performance.now(); frozenUntil = 0; lastTick = -1;
+      running = true;
+      el.classList.add('timing');
+      draw();
+      raf = requestAnimationFrame(loop);
+    }
+    function loop() {
+      if (!running) return;
+      const now = performance.now();
+      const dt = Math.min(0.1, (now - last) / 1000);
+      last = now;
+      if (now >= frozenUntil) elapsed += dt;
+      const p = Math.min(1, elapsed / limit);
+      const ring = $('#ar-ring', card);
+      if (ring) {
+        ring.style.strokeDasharray = RING;
+        ring.style.strokeDashoffset = RING * p;
+        ring.classList.toggle('perfect', p <= K.perfect);
+        ring.classList.toggle('danger', p > 0.75);
+        ring.classList.toggle('frozen', now < frozenUntil);
+        $('#ar-sec', card).textContent = Math.max(0, Math.ceil(limit - elapsed));
+      }
+      if (boss) boss.windup(p);
+      const left = Math.floor(limit - elapsed);
+      if (left < 3 && left !== lastTick) { lastTick = left; Sfx.tick(); }
+      if (p >= 1) { resolve(-1); return; }
+      raf = requestAnimationFrame(loop);
+    }
+    function resolve(i, btn) {
+      running = false;
+      cancelAnimationFrame(raf);
+      el.classList.remove('timing');
+      const p = elapsed / limit;
+      $$('.opt', card).forEach((b) => { b.disabled = true; if (Number(b.dataset.i) === cur.right) b.classList.add('right'); });
+      const ok = i === cur.right;
+      if (!ok && btn) btn.classList.add('wrong');
+      if (ok) parry(p <= K.perfect, 1, btn);
+      else takeHit(i < 0 ? 'Too slow' : 'Wrong answer', true);
+      const ans = cur.kind === 'tf' ? cur.options[cur.right] : `${'ABCD'[cur.right]} · ${cur.options[cur.right]}`;
+      $('#ar-extra', card).innerHTML = `<div class="explain ${ok ? '' : 'bad'}"><b>${ok ? 'Parried · why it works' : `The blow lands · the answer is ${ans}`}</b>${cur.explain || ''}${ok ? '' : '<div class="again">This question returns later in the fight.</div>'}</div>`;
+      addNext();
+    }
+    function addNext() {
+      $('#ar-extra', card).insertAdjacentHTML('beforeend', `<div class="q-tools"><button class="btn primary" type="button" id="ar-next">Continue ▸</button><span class="count-note" style="margin:0">or press Enter</span></div>`);
+      const nb = $('#ar-next', card);
+      nb.onclick = () => { if (!over) ask(); };
+      nb.focus({ preventScroll: true });
+      draw();
+    }
+    function parry(perfect, scale, src) {
+      combo++; R.parries++;
+      if (perfect) R.perfects++;
+      if (!cur.tries) R.firstTry += scale < 1 ? 0.5 : 1;
+      focus = Math.min(3, focus + (perfect ? 2 : 1));
+      if (perfect) Sfx.perfect(); else Sfx.parry();
+      if (boss) boss.parried(perfect);
+      flash(perfect ? 'perfect-flash' : 'parry-flash');
+      banner(perfect ? 'Perfect parry' : 'Parried', perfect ? 'Critical riposte' : combo >= 3 ? `Combo ×${combo}` : '', perfect ? 'gold' : '');
+      // Every question must be faced: blows are capped until the last one, which is always the finisher.
+      const finisher = !queue.length;
+      const d = finisher ? enemy - floor : Math.max(0, Math.min(dmg * scale * (perfect ? K.crit : 1), enemy - floor - seg * 0.05));
+      later(() => {
+        enemy = Math.max(floor, enemy - d);
+        if (boss) boss.hit(enemy);
+        Sfx.strike();
+        dmgPop(Math.round(d * 1000) + (perfect ? '!' : ''), perfect);
+        draw();
+      }, 280);
+      if (o.onAnswer) o.onAnswer(cur, true, src);
+    }
+    function takeHit(reason, requeue) {
+      combo = 0;
+      cur.tries = (cur.tries || 0) + 1;
+      if (requeue) queue.push(cur);
+      if (o.onAnswer) o.onAnswer(cur, false);
+      banner(reason, 'The enemy strikes', 'red');
+      const ms = boss ? boss.attack() : 250;
+      later(() => {
+        if (ward) { ward = false; Sfx.parry(); banner("Doom's Ward", 'The blow is absorbed', 'gold'); }
+        else { hp--; R.hits++; Sfx.hurt(); flash('hit'); }
+        draw();
+        if (hp <= 0) lose();
+      }, ms);
+    }
+    function askOpen(label) {
+      card.classList.remove('result');
+      card.innerHTML = `
+        <div class="ar-q-head"><span class="eyebrow">${label}</span><span class="ar-left">${queue.length} more after this</span></div>
+        <div class="ar-prompt">${cur.prompt}</div>
+        <ol class="oe-tasks">${cur.tasks.map((t) => `<li>${esc(t)}</li>`).join('')}</ol>
+        <textarea class="oe-input" placeholder="Write your answer to charge the counter-attack. There is no timer. Then reveal the model answer and grade yourself honestly."></textarea>
+        <div class="q-tools"><button class="btn primary" type="button" id="oe-reveal">⚡ Unleash the answer</button></div><div id="ar-extra"></div>`;
+      if (boss) boss.windup(0.45);
+      draw();
+      $('#oe-reveal', card).onclick = (e) => {
+        e.currentTarget.remove();
+        $('#ar-extra', card).innerHTML = `<div class="explain model"><b>Model answer</b>${esc(cur.sample)}${cur.points.length ? `<ul>${cur.points.map((k) => `<li>${esc(k)}</li>`).join('')}</ul>` : ''}</div>
+          <div class="self-grade"><span class="count-note" style="margin:0">Grade yourself honestly:</span><button class="btn green sm" type="button" data-g="1">✓ I covered it</button><button class="btn sm" type="button" data-g="0.5">◐ Partly</button><button class="btn ghost sm" type="button" data-g="0">✗ Missed it</button></div>`;
+        $$('.self-grade button', card).forEach((b) => (b.onclick = () => {
+          const g = Number(b.dataset.g);
+          $('.self-grade', card).remove();
+          if (g === 1) parry(true, 1, b);
+          else if (g > 0) parry(false, 0.5, b);
+          else takeHit('Missed', false);
+          addNext();
+        }));
+      };
+    }
+
+    function win() {
+      over = true; running = false;
+      cancelAnimationFrame(raf);
+      enemy = 0; draw();
+      if (boss) boss.defeat();
+      Sfx.shatter();
+      Music.duck(true);
+      Music.sting('victory');
+      banner(o.winBanner || 'Enemy felled', '', 'gold big');
+      if (R.hits === 0) award('untouched');
+      if (R.perfects >= 5) award('perfect5');
+      R.hpLeft = hp;
+      later(() => { card.classList.add('result'); card.innerHTML = o.onWin(R); bindResult(); }, 1900);
+    }
+    function lose() {
+      over = true; running = false;
+      cancelAnimationFrame(raf);
+      if (boss) { boss.windup(0); boss.taunt(); }
+      Music.duck(true);
+      el.classList.add('fallen');
+      const marks = Math.min(12, R.parries * 2);
+      if (marks) { P.marks += marks; save(); hud(); }
+      later(() => {
+        card.classList.add('result');
+        card.innerHTML = `<div class="died"><div class="died-title">DOOM PREVAILS</div>
+          <p>${o.loseLine || 'You fall before the guardian.'} Re-read the intel, temper your kit at the Forge, then rise again.</p>
+          ${marks ? `<p class="loot"><span><b>◈ +${marks}</b> Marks for ${R.parries} parries</span></p>` : ''}
+          <div class="actions"><button class="btn primary" type="button" data-retry>↻ Rise again</button><button class="btn" type="button" data-go="#/armoury">Forge ◈</button><button class="btn ghost" type="button" data-close>${o.leaveLabel || 'Back to the page'}</button></div></div>`;
+        bindResult();
+      }, 1500);
+    }
+    function bindResult() {
+      $$('[data-close]', card).forEach((b) => (b.onclick = () => close()));
+      $$('[data-retry]', card).forEach((b) => (b.onclick = () => { close(true); o.retry(); }));
+      const first = $('button', card);
+      if (first) first.focus({ preventScroll: true });
+    }
+    function close(quiet) {
+      if (closed) return;
+      closed = true; over = true; running = false;
+      cancelAnimationFrame(raf);
+      timers.forEach(clearTimeout);
+      removeEventListener('keydown', onKey);
+      if (boss) boss.dispose();
+      el.remove();
+      document.body.classList.remove('in-arena');
+      if (o.onClose) o.onClose();
+      if (!quiet) { Music.duck(false); Music.play(o.after); }
+    }
+    function onKey(e) {
+      if (closed || e.target.tagName === 'TEXTAREA') return;
+      if (running) {
+        const i = '1234'.indexOf(e.key) >= 0 ? '1234'.indexOf(e.key) : 'abcd'.indexOf(e.key.toLowerCase());
+        const b = i >= 0 && $$('.opt', card)[i];
+        if (b && !b.disabled) { e.preventDefault(); b.click(); }
+      } else if (e.key === 'Enter') {
+        const nb = $('#ar-next', card);
+        if (nb && document.activeElement !== nb) { e.preventDefault(); nb.click(); }
       }
     }
-    function intro() {
-      const m = P.missions[n];
-      frame(`
-        <div class="eyebrow" style="color:var(--danger)">A gatekeeper bars the way</div>
-        <h3 class="q-prompt" style="font-size:24px;margin-top:10px">${total} trials stand between you and the next mission.</h3>
-        <p style="color:var(--muted)">Each correct answer cracks the Doombot's armour for <b style="color:var(--gold)">${XP.q} XP</b>. A wrong answer costs a shield. Consulting Doom for a hint halves that question's XP. Clear all ${total} with no mistakes and no hints for ★★★.</p>
-        ${m && m.cleared ? `<p style="color:var(--green-b)">Best record: ${'★'.repeat(m.stars)}${'☆'.repeat(3 - m.stars)}. Replay to improve it.</p>` : ''}
-        <div class="q-tools"><button class="btn primary" type="button" id="engage">⚔ Engage</button></div>`);
-      $('#engage', box).onclick = () => { combat = true; qi = 0; shields = 3; mistakes = 0; hints = 0; ask(); };
+    addEventListener('keydown', onKey);
+
+    $('#ar-ins', el).onclick = () => {
+      if (!running || focus < K.insightCost || cur.insight) return;
+      focus -= K.insightCost; cur.insight = true; R.insights++;
+      frozenUntil = performance.now() + 5000;
+      const extra = $('#ar-extra', card);
+      extra.innerHTML = `<div class="hint-box"><b>Doom's clue</b>${cur.hint || 'Time slows for five seconds. Read the question again, slowly.'}</div>`;
+      if ((K.strike || !cur.hint) && cur.kind !== 'tf') {
+        const wrong = $$('.opt', card).filter((b) => Number(b.dataset.i) !== cur.right && !b.disabled);
+        const w = wrong[Math.floor(Math.random() * wrong.length)];
+        if (w) { w.disabled = true; w.classList.add('struck'); }
+      }
+      Sfx.heal();
+      draw();
+    };
+    $('#ar-side', el).onclick = () => {
+      if (!running || focus < 1 || !queue.length) return;
+      focus -= 1;
+      running = false;
+      cancelAnimationFrame(raf);
+      el.classList.remove('timing');
+      queue.push(cur);
+      Sfx.whoosh();
+      if (boss) boss.windup(0);
+      banner('Sidestep', 'You will face it again', '');
+      later(ask, 450);
+    };
+    $('#ar-elx', el).onclick = () => {
+      if (over || !elixirs || hp >= R.maxHp) return;
+      elixirs--; hp++;
+      Sfx.heal();
+      banner('Elixir', '+1 HP', 'green');
+      draw();
+    };
+    $('#ar-flee', el).onclick = () => { if (over || confirm('Flee this fight? Progress in it is lost, but XP already earned stays.')) close(); };
+    scenes.push({ dispose: () => close(true) });
+
+    draw();
+    later(nextPhase, 900);
+    return { close };
+  }
+
+  /* ---------- Chapter guardian (miniboss) ---------- */
+  function guardianSeal(c, box, refresh) {
+    const n = c.n, name = `${GUARDIAN[c.unit]} Mk.${ROMAN[n - 1]}`;
+    const count = c.questions.length + Math.min(3, c.glossary.length);
+    const studiedAll = () => c.sections.every((_, i) => P.seen[n + ':' + i]);
+    function draw() {
+      const m = P.missions[n] || {}, K = kit();
+      const studied = c.sections.filter((_, i) => P.seen[n + ':' + i]).length;
+      box.innerHTML = `<div class="seal-sigil" aria-hidden="true"><span>${GLYPH[c.unit]}</span></div>
+        <div class="seal-body"><div class="eyebrow" style="color:var(--danger)">${UNIT[c.unit].name} guardian</div><h3>${esc(name)}</h3>
+          <p>Finish the intel and the seal breaks. The guardian winds up an attack while a timer drains: answer correctly before it lands to <b>parry</b> and strike back, or answer in the first third of the timer for a <b>perfect parry</b> and a critical riposte. ${count} questions: the chapter's review questions and its key terms.</p>
+          <div class="seal-meta"><span>Intel studied <b>${studied}/${c.sections.length}</b></span><span>Record <b>${m.cleared ? '★'.repeat(m.stars) + '☆'.repeat(3 - m.stars) : 'unbeaten'}</b></span><span>Your kit <b>${K.hp} HP · ${K.elixirs} elixir${K.elixirs > 1 ? 's' : ''}${K.ward ? ' · ward' : ''}</b></span></div>
+          <div class="q-tools"><button class="btn primary" type="button" id="face">⚔ ${m.cleared ? 'Fight the guardian again' : 'Break the seal'}</button>${studied < c.sections.length ? '<span class="count-note" style="margin:0">Study every intel file first, or fight now if you are brave.</span>' : ''}</div></div>`;
+      $('#face', box).onclick = start;
     }
-    function ask() {
-      const q = qs[qi];
-      let hinted = false, wrongHere = 0;
-      frame(`
-        <div class="q-pips">${qs.map((_, i) => `<i class="${i < qi ? 'ok' : i === qi ? 'cur' : ''}"></i>`).join('')}</div>
-        <div class="eyebrow">Trial ${qi + 1} of ${total}</div>
-        <p class="q-prompt" style="margin-top:8px">${q.prompt}</p>
-        <div class="opts">${q.options.map((o, i) => `<button type="button" class="opt" data-l="${'ABCD'[i]}"><span class="L">${'ABCD'[i]}</span><span>${esc(o)}</span></button>`).join('')}</div>
-        <div class="q-tools"><button class="btn sm" type="button" id="hint-btn">☉ Consult Doom (hint)</button></div>
-        <div id="q-extra"></div>`);
-      $('#hint-btn', box).onclick = (e) => {
-        if (hinted) return;
-        hinted = true; hints++;
-        e.target.disabled = true;
-        $('#q-extra', box).insertAdjacentHTML('afterbegin', `<div class="hint-box"><b>Doom's clue</b>${q.hint}</div>`);
-      };
-      $$('.opt', box).forEach((b) => (b.onclick = () => {
-        const L = b.dataset.l;
-        if (L === q.answer) {
-          $$('.opt', box).forEach((x) => (x.disabled = true));
-          b.classList.add('right');
-          const k = n + ':' + qi;
-          const firstTime = !P.solved[k];
-          if (firstTime) {
-            P.solved[k] = hinted || wrongHere ? 'hint' : 1;
-            save();
-            gain(hinted || wrongHere ? XP.qHint : XP.q, b, 'trial');
-          }
-          award('first_blood');
-          P.streak++; P.best = Math.max(P.best, P.streak); save();
-          if (P.streak >= 5) award('streak5');
-          qi++;
-          $('#hp', box).style.width = ((total - qi) / total) * 100 + '%';
-          boss && boss.hit((total - qi) / total);
-          $('#q-extra', box).insertAdjacentHTML('beforeend', `<div class="explain"><b>Correct · why it works</b>${q.explanation}</div>
-            <div class="q-tools"><button class="btn primary" type="button" id="next-q">${qi >= total ? '⚔ Deliver the final blow' : 'Next trial ▸'}</button></div>`);
-          $('#next-q', box).onclick = () => (qi >= total ? victory() : ask());
-          $('#next-q', box).focus({ preventScroll: true });
-          refresh();
-        } else {
-          b.classList.add('wrong'); b.disabled = true;
-          wrongHere++; mistakes++; P.streak = 0; save();
-          shields = Math.max(0, shields - 1);
-          $$('.shields i', box).forEach((s, i) => s.classList.toggle('lost', i >= shields));
-          box.classList.remove('shake', 'flash-red'); void box.offsetWidth; box.classList.add('shake', 'flash-red');
-          boss && boss.taunt();
-          if (shields === 0) return defeat();
+    function start() {
+      if (document.body.classList.contains('in-arena') || document.querySelector('.breakfx')) return;
+      breakPage($('#scr-mission'), (restore) => chapterFight(c, name, () => { refresh(); draw(); }, restore));
+    }
+    // Reaching the seal with every intel file studied breaks it on its own, once per visit.
+    let armed = true;
+    const io = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return;
+      draw();
+      if (!armed || cleared(n) || !studiedAll()) return;
+      armed = false;
+      io.disconnect();
+      box.classList.add('trembling');
+      Sfx.rumble();
+      const warn = document.createElement('div');
+      warn.className = 'seal-warn';
+      warn.innerHTML = `<b>The seal is cracking…</b><button class="btn ghost sm" type="button">Not yet</button>`;
+      box.appendChild(warn);
+      const t = setTimeout(() => { box.classList.remove('trembling'); start(); }, 1900);
+      $('button', warn).onclick = () => { clearTimeout(t); box.classList.remove('trembling'); warn.remove(); };
+      scenes.push({ dispose: () => clearTimeout(t) });
+    }, { threshold: 0.55 });
+    io.observe(box);
+    scenes.push({ dispose: () => io.disconnect() });
+    draw();
+  }
+
+  function chapterFight(c, name, refresh, restore) {
+    const n = c.n;
+    fight({
+      variant: c.unit, name, title: `Mission ${pad2(n)} · ${UNIT[c.unit].name} guardian`, music: 'miniboss', after: 'study',
+      queue: chapterFightQs(c),
+      onClose: restore,
+      retry: () => chapterFight(c, name, refresh, restore),
+      onAnswer(q, ok) {
+        if (!ok) { P.streak = 0; save(); return; }
+        award('first_blood');
+        P.streak++;
+        P.best = Math.max(P.best, P.streak);
+        if (P.streak >= 5) award('streak5');
+        if (q.key && !P.solved[q.key]) {
+          const clean = !q.tries && !q.insight;
+          P.solved[q.key] = clean ? 1 : 'hint';
+          gain(clean ? XP.q : XP.qHint, null, 'parry');
         }
-      }));
-    }
-    function defeat() {
-      setTimeout(() => {
-        frame(`<div class="victory"><div class="eyebrow" style="color:var(--danger)">Shields depleted</div><h3 style="color:#fda4af">The Doombot repels you</h3>
-          <p>Doom is unimpressed, but not surprised. Re-read the intel files above, then try again. Questions you already answered keep their XP.</p>
-          <div class="actions"><button class="btn primary" type="button" id="retry">↻ Retry the gate</button><button class="btn ghost" type="button" id="reread">Review intel</button></div></div>`);
-        $('#retry', box).onclick = () => { qi = 0; shields = 3; mistakes = 0; hints = 0; ask(); };
-        $('#reread', box).onclick = () => document.getElementById('b-s0').scrollIntoView({ behavior: 'smooth' });
-      }, 500);
-    }
-    function victory() {
-      boss && boss.defeat();
-      const st = mistakes === 0 && hints === 0 ? 3 : mistakes + hints <= 1 ? 2 : 1;
-      const prev = P.missions[n] || { stars: 0 };
-      const first = !prev.cleared;
-      P.missions[n] = { cleared: true, stars: Math.max(prev.stars || 0, st) };
-      save();
-      let bonus = (first ? XP.clear : 0) + Math.max(0, st - (prev.stars || 0)) * XP.star;
-      setTimeout(() => {
-        const nx = byN[n + 1];
-        $('#bq', box).innerHTML = `<div class="victory">
-          <div class="eyebrow">Mission ${pad2(n)} conquered</div>
-          <h3 class="gold-text">Victory</h3>
-          <div class="stars-big">${[1, 2, 3].map((i) => `<span>${i <= st ? '★' : '☆'}</span>`).join('')}</div>
-          <p>${st === 3 ? 'Flawless. Even Doom nods, once.' : st === 2 ? 'Strong work. One stumble stands between you and perfection.' : 'The gate falls, but Doom saw every misstep. Replay for more stars.'}</p>
-          <div class="actions">${nx ? `<button class="btn primary" type="button" data-go="#/m/${nx.n}">Next: Mission ${pad2(nx.n)} ▸</button>` : `<button class="btn primary" type="button" data-go="#/trial">Face the Final Trial ▸</button>`}<button class="btn" type="button" data-go="#/map/${n}">Campaign map</button><button class="btn ghost" type="button" id="again">↻ Replay gate</button></div></div>`;
-        $('#again', box).onclick = () => { qi = 0; shields = 3; mistakes = 0; hints = 0; ask(); };
-        if (bonus) gain(bonus, $('.stars-big', box), first ? 'mission conquered' : 'new stars');
-        const ms = $('#m-stars');
-        if (ms) ms.textContent = '★'.repeat(P.missions[n].stars) + '☆'.repeat(3 - P.missions[n].stars);
+        save();
+        refresh();
+      },
+      onWin(R) {
+        const st = R.hits === 0 && R.insights === 0 ? 3 : R.hits + R.insights <= 1 ? 2 : 1;
+        const prev = P.missions[n] || { stars: 0 };
+        const first = !prev.cleared;
+        P.missions[n] = { cleared: true, stars: Math.max(prev.stars || 0, st) };
+        const bonus = (first ? XP.clear : 0) + Math.max(0, st - (prev.stars || 0)) * XP.star;
+        const marks = (first ? 20 : 8) + Math.min(5, R.perfects) * 3;
+        P.marks += marks;
+        save();
+        if (bonus) gain(bonus, null, first ? 'mission conquered' : 'new stars');
         if (first) award('first_clear');
         if (st === 3) award('flawless');
-        checkMeta(); refresh();
-      }, 700);
-    }
-    intro();
+        checkMeta(); refresh(); hud();
+        const ms = $('#m-stars');
+        if (ms) ms.textContent = '★'.repeat(P.missions[n].stars) + '☆'.repeat(3 - P.missions[n].stars);
+        const nx = byN[n + 1];
+        return `<div class="victory">
+          <div class="eyebrow">Mission ${pad2(n)} conquered</div>
+          <h3 class="gold-text">Guardian felled</h3>
+          <div class="stars-big">${[1, 2, 3].map((i) => `<span>${i <= st ? '★' : '☆'}</span>`).join('')}</div>
+          <div class="loot"><span><b>+${bonus}</b> XP</span><span><b>◈ +${marks}</b> Marks</span><span><b>${R.perfects}</b> perfect parries</span><span><b>${R.hits}</b> hits taken</span></div>
+          <p>${st === 3 ? 'Flawless. Even Doom nods, once.' : st === 2 ? 'Strong work. One stumble stands between you and perfection.' : 'The guardian falls, but Doom saw every misstep. Fight again for more stars.'}</p>
+          <div class="actions">${nx ? `<button class="btn primary" type="button" data-go="#/m/${nx.n}">Next: Mission ${pad2(nx.n)} ▸</button>` : `<button class="btn primary" type="button" data-go="#/trial">Face The Professor ▸</button>`}<button class="btn" type="button" data-go="#/armoury">Forge ◈</button><button class="btn ghost" type="button" data-close>Back to the page</button></div></div>`;
+      },
+    });
   }
 
   /* ================= ARMOURY ================= */
   function renderArmoury(scr) {
     const badge = (id) => `<span class="badge-state ${P.ach[id] ? 'got' : ''}">${P.ach[id] ? '★ RIG MASTERED' : '◇ +' + XP.sim + ' XP ON MASTERY'}</span>`;
     scr.innerHTML = `<div class="wrap">
-      <header class="page-head"><div class="eyebrow">Castle Doom Armoury</div><h1 class="gold-text">Training rigs</h1><p>Three live simulators from the campaign. Master each rig to earn its trophy and XP.</p></header>
+      <header class="page-head"><div class="eyebrow">Castle Doom Armoury</div><h1 class="gold-text">The Forge &amp; training rigs</h1><p>Temper your kit with Marks won in battle, then sharpen your skills on three live simulators. Master each rig to earn its trophy and XP.</p></header>
+      ${forgeHtml()}
 
       <section class="panel rig rivets" data-unit="hardware">
         <div class="rig-head"><div><div class="unit-chip">Rig I · Hardware</div><h2>CPU fetch–decode–execute stepper</h2><p>Step a tiny CPU through each clock phase and watch the address, data and control buses carry each instruction between RAM and the registers.</p></div>
@@ -654,6 +1182,45 @@
       </section>
     </div>`;
     cpuRig(scr); netRig(scr); qRig(scr);
+    bindForge(scr);
+  }
+
+  function forgeHtml() {
+    const K = kit();
+    return `<section class="panel forge rivets" id="forge">
+      <div class="rig-head"><div><div class="unit-chip">The Forge</div><h2>Temper your kit</h2><p>Every fight drops Marks, with extra for perfect parries. Each upgrade makes a small difference in battle. Respec at any time for a full refund.</p></div>
+        <div class="forge-purse"><b>◈ ${P.marks}</b><small>Marks</small><button class="btn ghost sm" type="button" id="respec" ${Object.keys(P.up).length ? '' : 'disabled'}>Respec</button></div></div>
+      <div class="forge-grid">${UPGRADES.map((u) => {
+        const l = upLvl(u.id), maxed = l >= u.max, cost = upCost(u);
+        return `<div class="forge-card ${maxed ? 'maxed' : ''} ${l ? 'owned' : ''}"><div class="ico">${u.ico}</div>
+          <div class="txt"><b>${u.name}</b><div class="lv">${Array.from({ length: u.max }, (_, i) => `<i class="${i < l ? 'on' : ''}"></i>`).join('')}</div><p>${u.desc}</p></div>
+          <button class="btn sm ${!maxed && P.marks >= cost ? 'primary' : ''}" type="button" data-up="${u.id}" ${maxed || P.marks < cost ? 'disabled' : ''}>${maxed ? 'Mastered' : `◈ ${cost}`}</button></div>`;
+      }).join('')}</div>
+      <div class="forge-kit"><span>Your kit</span><b>${K.hp} HP</b><b>${K.elixirs} elixir${K.elixirs > 1 ? 's' : ''}</b><b>+${K.timeBonus} s timers</b><b>${Math.round(K.perfect * 100)}% perfect window</b><b>×${K.crit} crits</b><b>Insight ${K.insightCost} Focus</b>${K.ward ? '<b>Doom\'s Ward</b>' : ''}</div>
+    </section>`;
+  }
+  function bindForge(scr) {
+    const box = $('#forge', scr);
+    if (!box) return;
+    $$('[data-up]', box).forEach((b) => (b.onclick = () => {
+      const u = UPGRADES.find((x) => x.id === b.dataset.up), cost = upCost(u);
+      if (P.marks < cost || upLvl(u.id) >= u.max) return;
+      P.marks -= cost;
+      P.up[u.id] = upLvl(u.id) + 1;
+      save(); hud();
+      Sfx.parry();
+      toast(u.ico, 'Forged', `${u.name} ${ROMAN[upLvl(u.id) - 1]}`, u.desc);
+      box.outerHTML = forgeHtml();
+      bindForge(scr);
+    }));
+    $('#respec', box).onclick = () => {
+      const refund = UPGRADES.reduce((s, u) => { let t = 0; for (let k = 1; k <= upLvl(u.id); k++) t += u.cost * k; return s + t; }, 0);
+      if (!refund || !confirm(`Melt down every upgrade for ◈ ${refund} Marks?`)) return;
+      P.marks += refund; P.up = {};
+      save(); hud();
+      box.outerHTML = forgeHtml();
+      bindForge(scr);
+    };
   }
 
   function rigMastered(id, el) {
@@ -878,7 +1445,7 @@
   function renderTrial(scr) {
     let topic = 'ALL', mode = 'run';
     scr.innerHTML = `<div class="wrap">
-      <header class="page-head"><div class="eyebrow">The Final Trial · Test Bank</div><h1 class="gold-text">Face the Final Trial</h1><p>${G.bank.length} questions from the team's Stage 2 test bank: true/false, multiple choice and open-ended scenarios. Survive the run with three lives and build combos for score multipliers, or practise freely.</p></header>
+      <header class="page-head"><div class="eyebrow">The Final Trial · Test Bank</div><h1 class="gold-text">Face the Final Trial</h1><p>${G.bank.length} questions from the team's Stage 2 test bank: true/false, multiple choice and open-ended scenarios. Defeat The Professor, the final boss, by parrying his attacks with correct answers, or practise freely with no timer.</p></header>
       <div id="trial-body"></div></div>`;
     const body = $('#trial-body', scr);
     function setup() {
@@ -886,7 +1453,7 @@
       body.innerHTML = `<div class="panel trial-setup rivets">
         <div><h3>Choose your battlefield</h3><div class="seg" id="t-topic">${[['ALL', `All (${G.bank.length})`], ['Hardware', 'Hardware'], ['Networks', 'Networks'], ['AI Behaviour', 'AI Behaviour']].map(([k, l]) => `<button type="button" data-t="${k}" class="${k === topic ? 'on' : ''}">${l}</button>`).join('')}</div></div>
         <div><h3>Choose your mode</h3><div class="mode-cards">
-          <button type="button" class="mode-card ${mode === 'run' ? 'on' : ''}" data-m="run"><b>⚔ Gauntlet run</b><span>Three lives. Wrong answers cost a life. Streaks build a ×2 and ×3 combo. Graded S to D.</span></button>
+          <button type="button" class="mode-card boss-card ${mode === 'run' ? 'on' : ''}" data-m="run"><b>🎓 Face The Professor</b><span>The final boss, in three phases: The Lecture (true or false), The Examination (multiple choice) and Final Grading (open-ended, self-graded). Timed parries, your Forge upgrades, graded S to D.</span></button>
           <button type="button" class="mode-card ${mode === 'practice' ? 'on' : ''}" data-m="practice"><b>📖 Practice drill</b><span>No lives and no pressure. Every answer is explained. XP still counts for first-time correct answers.</span></button>
         </div></div>
         ${best ? `<div class="count-note" style="margin:0">Best run: grade ${best.grade} · score ${best.score} · ${best.correct}/${best.total} correct</div>` : ''}
@@ -897,8 +1464,47 @@
     }
     function start() {
       const pool = G.bank.filter((q) => topic === 'ALL' || q.topic === topic);
+      if (mode === 'run') return professorFight(pool, topic);
       const R = { qs: pool, i: 0, lives: 3, combo: 0, score: 0, correct: 0, mode, topic, answered: 0 };
       next(R);
+    }
+    function professorFight(pool, topic) {
+      const by = (k) => shuffle(pool.filter((q) => q.id.startsWith(k))).map(bankFightQ);
+      fight({
+        variant: 'professor', name: 'The Professor', title: `Final boss · The Final Trial${topic === 'ALL' ? '' : ' · ' + topic}`,
+        music: 'boss', after: 'hall', bonusHp: 2, winBanner: 'Class dismissed',
+        loseLine: 'The Professor adjusts his glasses. You are not ready yet.', leaveLabel: 'Leave the trial',
+        phases: [
+          { name: 'The Lecture', color: 0x6ee7b7, qs: by('TF') },
+          { name: 'The Examination', color: 0x60a5fa, qs: by('MC') },
+          { name: 'Final Grading', color: 0xfbbf24, qs: by('OE') },
+        ],
+        retry: () => professorFight(pool, topic),
+        onClose: setup,
+        onAnswer(q, ok) {
+          if (ok && q.bank && !q.tries && !P.bank[q.bank]) { P.bank[q.bank] = 1; save(); gain(XP.bank, null, 'trial'); }
+        },
+        onWin(R) {
+          const pct = R.firstTry / R.total;
+          const grade = pct >= 0.9 ? 'S' : pct >= 0.75 ? 'A' : pct >= 0.6 ? 'B' : pct >= 0.4 ? 'C' : 'D';
+          const score = Math.round(R.firstTry * 100 + R.perfects * 50 + R.hpLeft * 100);
+          if (!P.ach.trial_done) gain(XP.run, null, 'trial complete');
+          award('trial_done');
+          if (topic === 'ALL') { award('prof_down'); if (grade === 'S') award('trial_ace'); }
+          const marks = topic === 'ALL' && !P.profDown ? 120 : 30;
+          if (topic === 'ALL') P.profDown = true;
+          P.marks += marks;
+          const best = P.trialBest;
+          if (!best || score > best.score) P.trialBest = { grade, score, correct: R.firstTry, total: R.total };
+          save(); hud();
+          return `<div class="victory">
+            <div class="eyebrow">The Professor is defeated</div>
+            <div class="grade gold-text">${grade}</div>
+            <div class="loot"><span><b>${score}</b> score</span><span><b>${R.firstTry}/${R.total}</b> right first time</span><span><b>${R.perfects}</b> perfect parries</span><span><b>◈ +${marks}</b> Marks</span></div>
+            <p>${grade === 'S' ? 'Full marks. The Professor closes his book and, for once, smiles.' : grade === 'A' ? 'Formidable. Revisit the topics you stumbled on.' : 'You passed, barely. Return to the campaign and study the intel again.'}</p>
+            <div class="actions"><button class="btn primary" type="button" data-retry>↻ Fight again</button><button class="btn" type="button" data-go="#/map">Campaign map</button><button class="btn ghost" type="button" data-close>Leave the trial</button></div></div>`;
+        },
+      });
     }
     function hudHtml(R) {
       const mult = R.combo >= 6 ? 3 : R.combo >= 3 ? 2 : 1;

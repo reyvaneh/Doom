@@ -7,8 +7,11 @@
 Content comes from the original guide via tools/game_guide/extract.py.
 Three.js scenes live in tools/game_guide/src/scene.js; after editing them run
 `npm install` then `npm run bundle` inside tools/game_guide.
+The soundtrack in tools/game_guide/music/ is embedded in the HTML; regenerate
+it with tools/make_music.py (needs a Pollinations key in POLLINATIONS_KEY).
 """
 from pathlib import Path
+import base64
 import json
 import re
 import subprocess
@@ -22,6 +25,8 @@ from extract import extract  # noqa: E402
 HTML_OUT = ROOT / "DOOM_Stage2_Study_Guide_Interactive.html"
 PDF_OUT = ROOT / "DOOM_Stage2_Study_Guide.pdf"
 PRINT_HTML = HERE / "build/print.html"
+MUSIC_DIR = HERE / "music"
+MUSIC_TRACKS = ("hall", "study", "miniboss", "boss", "victory")
 CHROME_PATHS = [
     r"C:\Program Files\Google\Chrome\Application\chrome.exe",
     r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
@@ -59,6 +64,18 @@ def fill(template, parts):
     return template
 
 
+def music():
+    """The soundtrack from tools/game_guide/music as data URIs (see tools/make_music.py)."""
+    out = {}
+    for name in MUSIC_TRACKS:
+        f = MUSIC_DIR / f"{name}.mp3"
+        if f.exists():
+            out[name] = "data:audio/mpeg;base64," + base64.b64encode(f.read_bytes()).decode("ascii")
+        else:
+            print(f"music: {f.name} missing; the guide will play without it")
+    return out
+
+
 def build_html():
     model, assets = model_with_art()
     model = asset_attrs(model)
@@ -67,6 +84,7 @@ def build_html():
     page = fill(page, {
         "/*CSS*/": (src / "app.css").read_text(encoding="utf-8"),
         "/*DATA*/": f"window.GUIDE={script_json(model)};window.ASSETS={script_json(assets)};",
+        "/*MUSIC*/": f"window.MUSIC={script_json(music())};",
         "/*SCENE*/": (HERE / "vendor/scene.bundle.js").read_text(encoding="utf-8").replace("</script", "<\\/script"),
         "/*APP*/": (src / "app.js").read_text(encoding="utf-8"),
     })
@@ -167,8 +185,14 @@ def check():
     missing = [k for k in set(re.findall(r'data-asset="(\w+)"', page)) if k not in assets and k != "CREST"]
     if missing:
         problems.append(f"missing images {missing}")
-    if not PDF_OUT.exists() or PDF_OUT.stat().st_mtime < HTML_OUT.stat().st_mtime - 600:
-        problems.append("PDF is missing or older than the HTML")
+    tracks = [t for t in MUSIC_TRACKS if not (MUSIC_DIR / f"{t}.mp3").exists()]
+    if tracks:
+        problems.append(f"missing music {tracks}")
+    print(f"{'music tracks':20} {len(MUSIC_TRACKS) - len(tracks):4} / {len(MUSIC_TRACKS)}")
+    # The PDF only depends on the print sources and the extracted content.
+    print_src = [HERE / "src" / n for n in ("print.html", "print.css", "print.js")] + [HERE / "extract.py"]
+    if not PDF_OUT.exists() or PDF_OUT.stat().st_mtime < max(p.stat().st_mtime for p in print_src) - 600:
+        problems.append("PDF is missing or older than its print sources")
     print("OK" if not problems else "PROBLEMS: " + ", ".join(problems))
     return not problems
 

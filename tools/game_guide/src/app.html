@@ -33,9 +33,12 @@
     <button class="chip star" type="button" data-go="#/map" title="Stars earned"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 17l-6.5 4 2-7.5L2 9h7z"/></svg><span id="hud-stars">0</span></button>
     <button class="chip codex" type="button" data-go="#/codex" title="Codex entries unlocked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h12a4 4 0 014 4v12H8a4 4 0 01-4-4z"/><path d="M8 8h8M8 12h6"/></svg><span id="hud-codex">0</span></button>
     <button class="chip trophies" type="button" data-go="#/trophies" title="Trophies"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 3h10v3h4v3a5 5 0 01-5 5h-.3A5 5 0 0113 16.9V19h3v2H8v-2h3v-2.1A5 5 0 018.3 14H8a5 5 0 01-5-5V6h4zm0 5H5v1a3 3 0 002 2.8zm10 0v3.8A3 3 0 0019 9V8z"/></svg><span id="hud-trophies">0</span></button>
+    <button class="chip marks" type="button" data-go="#/armoury" title="Marks to spend at the Forge"><b>◈</b><span id="hud-marks">0</span></button>
+    <button class="icon-btn" type="button" id="snd-btn" aria-label="Mute music" aria-pressed="false" title="Music on or off">🔊</button>
     <div class="hud-menu">
       <button class="icon-btn" type="button" id="menu-btn" aria-label="Menu" aria-expanded="false">☰</button>
       <div class="menu-pop" id="menu-pop">
+        <label class="vol-row">Music volume <input type="range" min="0" max="1" step="0.05" id="vol"></label>
         <button type="button" data-go="#/title">Title screen</button>
         <button type="button" data-go="#/trophies">Rank &amp; trophies</button>
         <a href="DOOM_Stage2_Study_Guide.pdf" target="_blank" rel="noopener">Open printable dossier (PDF)</a>
@@ -86,6 +89,7 @@
 <div class="toasts" id="toasts" aria-live="polite"></div>
 
 <script>/*DATA*/</script>
+<script>/*MUSIC*/</script>
 <script>/*SCENE*/</script>
 <script>/*APP*/</script>
 </body>
