@@ -14,6 +14,127 @@
   const ornament = '<div class="ornament"><span>◆</span></div>';
   const corners = '<div class="frame"></div><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>';
 
+  function cleanInline(html) {
+    return String(html).split(/(<[^>]+>)/g).map((seg, idx) => {
+      if (idx % 2 === 1) return seg;
+      return seg
+        .replace(/`([^`]+)`/g, '<code>$1</code>')
+        .replace(/\s*-&gt;\s*|\s*->\s*/g, ' → ')
+        .replace(/\(0\.9\)\^(\d+)/g, '(0.9)<sup>$1</sup>')
+        .replace(/γ\^([a-zA-Z0-9]+)/g, 'γ<sup>$1</sup>')
+        .replace(/10\^(\d+)/g, '10<sup>$1</sup>')
+        .replace(/\b([sRG])_(\d+)\b/g, '$1<sub>$2</sub>')
+        .replace(/\bV_(out|in)\b/g, 'V<sub>$1</sub>')
+        .replace(/(^|[\s(])\*([A-Za-z][A-Za-z\s-]{0,28}[A-Za-z])\*(?=[\s.,;:!?)])/g, '$1<em>$2</em>');
+    }).join('');
+  }
+
+  function formatTaskHtml(raw) {
+    const lines = String(raw).split(/<br\s*\/?>/i);
+    const steps = [];
+    const preamble = [];
+    let cur = null;
+    lines.forEach((rawLine) => {
+      const lead = rawLine.match(/^(\s*)/)[1].length;
+      const trimmed = rawLine.trim();
+      if (!trimmed) return;
+      const m = trimmed.match(/^Step\s+(\d+)\s*:\s*(.*)$/i);
+      if (m) {
+        cur = { num: m[1], head: m[2], items: [] };
+        steps.push(cur);
+      } else if (cur) {
+        cur.items.push({ lead, text: trimmed });
+      } else {
+        preamble.push(trimmed);
+      }
+    });
+    if (!steps.length) return cleanInline(raw);
+    const renderItems = (items) => {
+      let out = '';
+      let bullets = [];
+      let codeLines = [];
+      const flushBullets = () => {
+        if (bullets.length) {
+          out += `<ul class="task-sub">${bullets.map((b) => `<li>${cleanInline(b)}</li>`).join('')}</ul>`;
+          bullets = [];
+        }
+      };
+      const flushCode = () => {
+        if (codeLines.length) {
+          out += `<div class="task-code">${codeLines.map((c) => `<div>${cleanInline(c)}</div>`).join('')}</div>`;
+          codeLines = [];
+        }
+      };
+      const isCodeLike = (lead, txt) => lead >= 2 || /^(Address |Data Address |Priority |Rule \d+:|Packet \d+:|TD |G_0 =|N\(|`)/.test(txt);
+      items.forEach(({ lead, text: t }) => {
+        if (/^-\s+/.test(t)) {
+          flushCode();
+          bullets.push(t.replace(/^-\s+/, ''));
+        } else if (isCodeLike(lead, t)) {
+          flushBullets();
+          codeLines.push(t);
+        } else {
+          flushBullets();
+          flushCode();
+          out += `<div class="task-note">${cleanInline(t)}</div>`;
+        }
+      });
+      flushBullets();
+      flushCode();
+      return out;
+    };
+    return (preamble.length ? `<div class="task-note">${cleanInline(preamble.join(' '))}</div>` : '') +
+      `<ol class="task-steps">${steps.map((s) => `<li class="task-step"><div class="step-k">STEP ${pad2(s.num)}</div><div class="step-c"><div class="step-head">${cleanInline(s.head)}</div>${renderItems(s.items)}</div></li>`).join('')}</ol>`;
+  }
+
+  function formatObservationHtml(raw) {
+    const lines = String(raw).split(/<br\s*\/?>/i).map((s) => s.trim()).filter(Boolean);
+    const out = [];
+    let rows = [];
+    const flushRows = () => {
+      if (!rows.length) return;
+      const keyed = rows.filter((r) => /^[^:]{2,55}:\s+.+/.test(r));
+      if (keyed.length === rows.length && keyed.length >= 2) {
+        out.push(`<table class="obs-table"><tbody>${rows.map((r) => {
+          const idx = r.indexOf(':');
+          return `<tr><th>${cleanInline(r.slice(0, idx))}</th><td>${cleanInline(r.slice(idx + 1).trim())}</td></tr>`;
+        }).join('')}</tbody></table>`);
+      } else {
+        out.push(`<ul class="obs-list">${rows.map((r) => `<li>${cleanInline(r)}</li>`).join('')}</ul>`);
+      }
+      rows = [];
+    };
+    lines.forEach((line) => {
+      if (/^-\s+/.test(line)) {
+        rows.push(line.replace(/^-\s+/, ''));
+      } else {
+        flushRows();
+        out.push(`<div class="${/:$/.test(line) ? 'obs-sub' : 'obs-intro'}">${cleanInline(line)}</div>`);
+      }
+    });
+    flushRows();
+    return out.join('');
+  }
+
+  function formatEvaluationHtml(raw) {
+    const norm = cleanInline(raw.replace(/<br\s*\/?>/gi, ' '));
+    const m = norm.match(/Benchmark Outcome:\s*(.+?)\s*Common Misconception:\s*(.+)$/i);
+    if (!m) return norm;
+    return `<div class="eval-grid">
+      <div class="eval-card ok"><span class="eval-tag">Benchmark Outcome</span><p>${m[1].trim()}</p></div>
+      <div class="eval-card warn"><span class="eval-tag">Common Misconception</span><p>${m[2].trim()}</p></div>
+    </div>`;
+  }
+
+  function formatActivityPart(label, raw) {
+    const up = String(label).toUpperCase();
+    if (up.includes('TASK')) return formatTaskHtml(raw);
+    if (up.includes('OBSERVATION')) return formatObservationHtml(raw);
+    if (up.includes('REFLECTION')) return `<div class="reflect-box">${cleanInline(raw)}</div>`;
+    if (up.includes('EVALUATION') || up.includes('DOOM APPROVES')) return formatEvaluationHtml(raw);
+    return cleanInline(raw);
+  }
+
   // The crest render is the only 3D art in the printed edition.
   let crest = G.artUri.hall;
   if (S3 && S3.supported()) {
@@ -56,6 +177,7 @@
     const parts = c.activity.parts;
     add(`<section class="chapter" data-unit="${c.unit}">
       <header class="opener">
+        ${c.bannerUri ? `<div class="opener-art"><img src="${c.bannerUri}" alt=""></div>` : ''}
         <div class="label">Chapter ${c.n} · ${UNIT[c.unit]}</div>
         <div class="num">${pad2(c.n)}</div>
         <h1>${esc(c.title)}</h1>
@@ -72,7 +194,11 @@
       <aside class="meanwhile"><div class="label">Meanwhile in Latveria</div><div class="body">${c.meanwhile}</div></aside>
       <h3 class="part">Activity</h3>
       <div class="activity"><h4>${esc(c.activity.title)}</h4>
-        ${parts.map((p) => `<div class="step"><div class="label">${esc(p.label.replace(/^\d+\.\s*/, '').replace(/^DOOM APPROVES\s*\/\/\s*/i, ''))}</div>${p.html}</div>`).join('')}
+        ${parts.map((p) => {
+          const lbl = p.label.replace(/^\d+\.\s*/, '').replace(/^DOOM APPROVES\s*\/\/\s*/i, '');
+          const isTask = /TASK/i.test(p.label);
+          return `<div class="step ${isTask ? 'is-task' : ''}"><div class="label">${esc(lbl)}</div><div class="step-body">${formatActivityPart(p.label, p.html)}</div></div>`;
+        }).join('')}
       </div>
       <h3 class="part">Key terms</h3>
       <div class="terms">${c.glossary.map((g) => `<div><b>${esc(g.term)}</b><span>${g.def}</span></div>`).join('')}</div>

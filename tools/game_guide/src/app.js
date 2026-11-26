@@ -451,6 +451,65 @@
       </section>`);
 
     // Field operation.
+    const cleanOpInline = (html) => String(html).split(/(<[^>]+>)/g).map((seg, idx) => (idx % 2 === 1 ? seg : seg
+      .replace(/`([^`]+)`/g, '<code>$1</code>')
+      .replace(/\s*-&gt;\s*|\s*->\s*/g, ' → ')
+      .replace(/\(0\.9\)\^(\d+)/g, '(0.9)<sup>$1</sup>')
+      .replace(/γ\^([a-zA-Z0-9]+)/g, 'γ<sup>$1</sup>')
+      .replace(/10\^(\d+)/g, '10<sup>$1</sup>')
+      .replace(/\b([sRG])_(\d+)\b/g, '$1<sub>$2</sub>')
+      .replace(/\bV_(out|in)\b/g, 'V<sub>$1</sub>')
+      .replace(/(^|[\s(])\*([A-Za-z][A-Za-z\s-]{0,28}[A-Za-z])\*(?=[\s.,;:!?)])/g, '$1<em>$2</em>'))).join('');
+    const fmtOpPart = (label, raw) => {
+      const up = String(label).toUpperCase();
+      if (up.includes('TASK')) {
+        const lines = String(raw).split(/<br\s*\/?>/i);
+        const steps = [];
+        let cur = null;
+        lines.forEach((rl) => {
+          const lead = rl.match(/^(\s*)/)[1].length;
+          const t = rl.trim();
+          if (!t) return;
+          const m = t.match(/^Step\s+(\d+)\s*:\s*(.*)$/i);
+          if (m) { cur = { num: m[1], head: m[2], items: [] }; steps.push(cur); }
+          else if (cur) cur.items.push({ lead, text: t });
+        });
+        if (!steps.length) return cleanOpInline(raw);
+        return `<ol class="op-task-list">${steps.map((s) => {
+          let body = ''; let bul = []; let cod = [];
+          const flB = () => { if (bul.length) { body += `<ul class="op-task-sub">${bul.map((b) => `<li>${cleanOpInline(b)}</li>`).join('')}</ul>`; bul = []; } };
+          const flC = () => { if (cod.length) { body += `<div class="op-task-code">${cod.map((c) => `<div>${cleanOpInline(c)}</div>`).join('')}</div>`; cod = []; } };
+          s.items.forEach(({ lead, text: t }) => {
+            if (/^-\s+/.test(t)) { flC(); bul.push(t.replace(/^-\s+/, '')); }
+            else if (lead >= 2 || /^(Address |Data Address |Priority |Rule \d+:|Packet \d+:|TD |G_0 =|N\(|`)/.test(t)) { flB(); cod.push(t); }
+            else { flB(); flC(); body += `<div class="op-task-note">${cleanOpInline(t)}</div>`; }
+          });
+          flB(); flC();
+          return `<li><span class="op-step-pill">STEP ${pad2(s.num)}</span><div><b>${cleanOpInline(s.head)}</b>${body}</div></li>`;
+        }).join('')}</ol>`;
+      }
+      if (up.includes('OBSERVATION')) {
+        const lines = String(raw).split(/<br\s*\/?>/i).map((s) => s.trim()).filter(Boolean);
+        const out = []; let rows = [];
+        const fl = () => {
+          if (!rows.length) return;
+          const keyed = rows.filter((r) => /^[^:]{2,55}:\s+.+/.test(r));
+          if (keyed.length === rows.length && keyed.length >= 2) {
+            out.push(`<table class="op-obs-table"><tbody>${rows.map((r) => { const idx = r.indexOf(':'); return `<tr><th>${cleanOpInline(r.slice(0, idx))}</th><td>${cleanOpInline(r.slice(idx + 1).trim())}</td></tr>`; }).join('')}</tbody></table>`);
+          } else out.push(`<ul class="op-task-sub">${rows.map((r) => `<li>${cleanOpInline(r)}</li>`).join('')}</ul>`);
+          rows = [];
+        };
+        lines.forEach((l) => { if (/^-\s+/.test(l)) rows.push(l.replace(/^-\s+/, '')); else { fl(); out.push(`<div>${cleanOpInline(l)}</div>`); } });
+        fl();
+        return out.join('');
+      }
+      if (up.includes('EVALUATION') || up.includes('DOOM APPROVES')) {
+        const norm = cleanOpInline(raw.replace(/<br\s*\/?>/gi, ' '));
+        const m = norm.match(/Benchmark Outcome:\s*(.+?)\s*Common Misconception:\s*(.+)$/i);
+        if (m) return `<div class="op-eval-grid"><div class="op-eval ok"><small>Benchmark Outcome</small><p>${m[1].trim()}</p></div><div class="op-eval warn"><small>Common Misconception</small><p>${m[2].trim()}</p></div></div>`;
+      }
+      return cleanOpInline(raw);
+    };
     const parts = c.activity.parts;
     main.insertAdjacentHTML('beforeend', `
       <section id="b-op" class="panel fieldop rivets">
@@ -458,7 +517,7 @@
         <h3>${esc(c.activity.title)}</h3>
         <div class="op-steps">${parts.map((p, i) => {
           const lbl = p.label.replace(/^\d+\.\s*/, '');
-          return `<div class="op-step ${i === parts.length - 1 ? 'verdict' : ''}"><div class="k">${i === parts.length - 1 ? '✓' : pad2(i + 1)}</div><div><div class="lbl">${esc(lbl)}</div><div class="txt">${p.html}</div></div></div>`;
+          return `<div class="op-step ${i === parts.length - 1 ? 'verdict' : ''}"><div class="k">${i === parts.length - 1 ? '✓' : pad2(i + 1)}</div><div><div class="lbl">${esc(lbl)}</div><div class="txt">${fmtOpPart(p.label, p.html)}</div></div></div>`;
         }).join('')}</div>
         <div class="op-done" id="op-done"></div>
       </section>`);

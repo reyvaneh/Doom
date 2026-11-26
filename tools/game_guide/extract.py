@@ -5,12 +5,16 @@ Every chapter, question, glossary term and image is carried over word for word;
 only the presentation is rebuilt by build_game_guide.py.
 """
 from pathlib import Path
+import glob
 import hashlib
 import json
 import re
+import shutil
 import subprocess
 
 from bs4 import BeautifulSoup
+
+import content_upgrades  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 # Last commit holding the original hand-built guide. The redesigned page
@@ -21,9 +25,21 @@ SOURCE_PATH = "DOOM_Stage2_Study_Guide_Interactive.html"
 DATA_URI = re.compile(r"data:image/[a-z0-9.+-]+;base64,[A-Za-z0-9+/=]+|data:image/svg\+xml[^\"')]+")
 
 
+def _find_git():
+    g = shutil.which("git")
+    if g:
+        return g
+    candidates = glob.glob(r"C:\Users\*\AppData\Local\GitHubDesktop\app-*\resources\app\git\cmd\git.exe")
+    candidates += [r"C:\Program Files\Git\cmd\git.exe", r"C:\Program Files (x86)\Git\cmd\git.exe"]
+    for c in candidates:
+        if Path(c).exists():
+            return c
+    raise FileNotFoundError("git executable not found in PATH or standard Windows install paths")
+
+
 def source_html():
     return subprocess.run(
-        ["git", "show", f"{SOURCE_REV}:{SOURCE_PATH}"],
+        [_find_git(), "show", f"{SOURCE_REV}:{SOURCE_PATH}"],
         cwd=ROOT, check=True, capture_output=True,
     ).stdout.decode("utf-8")
 
@@ -144,13 +160,15 @@ def extract():
         decor.append({"selector": m.group(1), "asset": assets.key(m.group(2))})
     crest = soup.select_one(".crest-icon")
 
-    return {
+    model = {
         "chapters": chapters,
         "bank": bank,
         "glossary": terms,
         "decor": decor,
         "crest": assets.key(crest["src"]) if crest else None,
-    }, assets.items
+    }
+    content_upgrades.apply(model, assets)
+    return model, assets.items
 
 
 if __name__ == "__main__":
