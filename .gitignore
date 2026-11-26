@@ -14,3 +14,20 @@ tools/video_build/
 videos/*.mp4
 videos/samples/
 ~$*
+
+# CPU/GPU video production (Blender sources, stems, renders) — local only
+videos/**/*.mp4
+videos/**/*.mov
+videos/**/*.wav
+*.blend
+*.blend1
+*.glb
+.venv/
+__pycache__/
+videos/04_cpu_gpu/assets/
+videos/04_cpu_gpu/blender/textures/
+videos/04_cpu_gpu/preview/
+videos/04_cpu_gpu/renders/
+videos/04_cpu_gpu/sync/
+videos/04_cpu_gpu/audio_test/
+videos/04_cpu_gpu/voiceover/pace_test/
