@@ -4,7 +4,7 @@
 **Module:** Hardware, Networks & Behaviorist AI<br>
 **Audience:** Absolute beginners<br>
 **Planning date:** 30 October 2026<br>
-**Status:** Implemented as a version 1.0 draft following the user's instruction to keep questions simple; teammate review and final Study Guide mapping remain pending
+**Status:** Implemented as a version 1.0 draft following the user's instruction to keep questions simple; revised to version 1.1 (27 November 2026) after the Stage 2 peer review, which added ten extension questions and Study Guide section references. Teammate review remains pending
 
 ## 1. Purpose and assignment requirements
 
@@ -25,14 +25,16 @@ The [Lexue Study Guide and Test Bank assignment](https://lexue.bit.edu.cn/mod/as
 
 The topic split below, question IDs, four-option MCQ format and workflow are our implementation choices, not extra lecturer requirements.
 
-## 2. Coverage: 46 questions
+## 2. Coverage: 56 questions
 
-| Topic | True/false | Multiple-choice | Open-ended | Total |
+| Topic | True/false | Multiple-choice (core + extension) | Open-ended | Total |
 | --- | --- | --- | --- | --- |
-| Hardware | 7 | 7 | 2 | 16 |
-| Networks | 7 | 7 | 2 | 16 |
-| AI Behaviour | 6 | 6 | 2 | 14 |
-| **Total** | **20** | **20** | **6** | **46** |
+| Hardware | 7 | 7 + 5 | 2 | 21 |
+| Networks | 7 | 7 + 2 | 2 | 18 |
+| AI Behaviour | 6 | 6 + 3 | 2 | 17 |
+| **Total** | **20** | **20 + 10 = 30** | **6** | **56** |
+
+**Version 1.1 (peer review).** The reviewers found that the core bank did not assess TCP and layers, buses and Harvard vs von Neumann, multimeter and resistor colour codes, or the running-average and Q-update calculations taught in Study Guide Chapters 6-14. Ten extension MCQs (MC21-MC30) now cover these. The core items still mainly assess Study Guide Chapters 1-6, and every item names its Study Guide section ("→ Guide §x.y"). MCQ keys are balanced (A 8, B 7, C 8, D 7), distractors are plausible beginner misconceptions, and no correct option is the single longest choice; `tools/build_test_bank.py` checks this.
 
 Keep all three units substantial. Hardware's longer source chapter should not crowd out Networks or AI. The two-question difference keeps the bank at the minimum while maintaining a similar allocation across topics.
 
@@ -74,6 +76,11 @@ Source: [Hardware](../Learning%20Materials/Hardware/hardware.md) and [Beginner L
 | MC06 | Predict how a change in the specified LDR divider affects its reading | B6-B7 |
 | MC07 | Choose a useful first check for an LED or sensor fault | B4, B15 |
 | OE01 | Follow a supplied photo/file scenario through storage, RAM, CPU and output; explain an unsaved-work outcome | A1-A2, A5 |
+| MC23 | Extension: distinguish von Neumann from Harvard architecture | A6 |
+| MC24 | Extension: apply the 2^n rule to a 16-bit address bus | A5 buses |
+| MC25 | Extension: connect a multimeter correctly to measure current | Lab Skills L2 |
+| MC26 | Extension: read a four-band resistor colour code (supplied) | Lab Skills L3 |
+| MC27 | Extension: trace the program counter through one fetch | A5 paper CPU |
 | OE02 | Trace a described automatic-light system and three readings; explain the component roles, apply the supplied threshold, then suggest a fault and a safe check | B6-B8, B11-B15 |
 
 ### Networks
@@ -96,6 +103,8 @@ Source: [Network Fundamentals](../Learning%20Materials/Network/network_fundament
 | MC12 | Put a simplified website request journey in order | Fundamentals 06 |
 | MC13 | Identify DHCP's address-configuration role | Fundamentals 12 |
 | MC14 | Choose a proportionate network-security action | Fundamentals 08, 14 |
+| MC21 | Extension: order the TCP three-way handshake | Fundamentals 07, 11 |
+| MC22 | Extension: identify the OSI layer that adds port numbers | Fundamentals 07, 11 |
 | OE03 | Describe a simple website request using a supplied home-network scenario | Fundamentals 04-07 |
 | OE04 | Compare failures in described star and mesh networks using listed links | Fundamentals 03 and its troubleshooting activity |
 
@@ -117,6 +126,9 @@ Source: [AI Behaviour](../Learning%20Materials/AIBehaviour/AIBehaviour.md) and i
 | MC18 | Select a mode transition from a supplied starting mode and conditions | 3. Rules |
 | MC19 | Identify what changes when experience updates action estimates | 4. Learning |
 | MC20 | Identify a limitation of the supplied reward or observation design | 5. Decision problems; 9. Limits |
+| MC28 | Extension: calculate one running-average update | 4. Learning; Study Book 6.3 |
+| MC29 | Extension: calculate one Q-learning update (values supplied) | 6. Q-learning |
+| MC30 | Extension: calculate a discounted return (formula supplied) | 5.2 Reward and return |
 | OE05 | Trace several robot decisions using supplied rules, battery readings and dirt observations; explain what changes if rule order changes | 2. Agents; 3. Rules |
 | OE06 | Compare fixed-rule and learning controllers in a supplied scenario; identify what changes with experience and what evidence would support improvement | 3. Rules; 4. Learning; What would count as evidence? |
 
@@ -161,9 +173,9 @@ The Word document contains:
 
 1. Title, team, module, version and brief instructions.
 2. Part A: 20 true/false questions, grouped by topic.
-3. Part B: 20 multiple-choice questions, grouped by topic, with explicit selection instructions.
+3. Part B: 20 core multiple-choice questions, grouped by topic, with explicit selection instructions, followed by 10 extension multiple-choice questions (MC21-MC30).
 4. Part C: 6 open-ended questions, grouped by topic, with clear expectations for developed reasoning.
-5. A page break and clearly labeled answer key, covering all 46 IDs with explanations.
+5. A page break and clearly labeled answer key, covering all 56 IDs with explanations.
 
 Keep answers out of the question sections. Put diagrams and supplied data beside their questions. Include a brief source list and useful Study Guide references without requiring learners to follow external links to answer.
 
@@ -186,7 +198,7 @@ Record significant AI assistance, verification and decisions in the actual proje
 
 ## 7. Review checks before release
 
-- Count 20 TF, 20 MC and 6 OE items; check for duplicate or missing IDs and matching answer-key entries.
+- Count 20 TF, 30 MC (20 core and 10 extension) and 6 OE items; check for duplicate or missing IDs and matching answer-key entries.
 - Verify every assessed concept is taught in the submitted Study Guide. Remove or postpone unsupported questions rather than testing future content.
 - Check that each MCQ has exactly one defensible correct choice and that incorrect options are not also valid under a reasonable interpretation.
 - For each false statement, explain a corrected version. Avoid absolute wording that creates an unintended exception.

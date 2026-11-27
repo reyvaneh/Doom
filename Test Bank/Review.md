@@ -4,11 +4,22 @@
 **Date:** 30 October 2026<br>
 **Status:** AI-assisted draft; local checks recorded below. Teammate review, a non-author learner trial and final Study Guide mapping remain pending.
 
+## Version 1.1 peer-review revision (27 November 2026)
+
+The Stage 2 peer review by team "team" agreed with all 46 version 1.0 key answers and asked for the changes below. They are made in `bank.json`, and `Questions.md` and `AnswerKey.md` were regenerated with `tools/build_test_bank.py --markdown-only`.
+
+- **Answer cues.** Distractors that gave the answer away (for example Monitor/Keyboard/Speaker in MC01, Microphone/printer/paper in MC05, Keyboard/Monitor/Microphone in MC11, "Clean the laptop screen" in MC13) were replaced with plausible misconceptions of similar length: RAM/SSD/motherboard for the CPU, switch/hub/access point for the router, DNS/router/Wi-Fi encryption roles for DHCP, and so on. The correct option is no longer the single longest choice in any MCQ, including MC07, MC12, MC14 and MC19. Keys are balanced across all 30 MCQs (A 8, B 7, C 8, D 7). Correct answers to MC01-MC20 are unchanged; explanations now say why each distractor is wrong.
+- **Coverage.** Ten extension MCQs were added (MC21-MC30): TCP handshake, OSI transport layer and ports, von Neumann vs Harvard, 16-bit address bus, multimeter current measurement, resistor colour code, a program-counter fetch trace, a running-average update, a Q-learning update and a discounted return. The bank now has 56 questions.
+- **Recomputed values.** Running average: 2.0 + (8 − 2.0) ÷ 2 = 5.0. Q-update: target 2 + 0.9 × 10 = 11.0, new Q = 1.0 + 0.5 × (11.0 − 1.0) = 6.0. Discounted return: 4 − 0.9 + 0.81 × 10 = 11.2 (the same sequence as AI Behaviour 5.2). Address bus: 2^16 = 65,536. Resistor red-red-brown-gold: 22 × 10 = 220 Ω ±5%. PC after fetching address 1: 2.
+- **Traceability.** Every question now ends with "→ Guide §x.y", pointing to the section of the Stage 2 Study Guide (16 chapters) where the idea is taught. The header states that the core questions mainly assess Chapters 1-6 and the extension questions Chapters 7-16.
+- **Wording.** The MC03 explanation now reads "The inputs are not both 1". The open-ended questions have their own headings, so OE03 (visiting a website: DNS, router and web server) and OE04 (star and mesh networks when a link fails) are no longer both labelled only "Networks".
+- **Not changed here.** The Word document, the interactive HTML guide and test bank, and the PDFs still show version 1.0 and need regenerating. The review's other points (§6.4 policy-flip trial label, §14 "Episode 2, Step 3" label, the insulting opening voice, and B being correct in 37 of the guide's 48 gatekeeper questions) are in the interactive Study Guide's content, not in these Markdown files.
+
 ## Scope and difficulty
 
 The user requested simple questions that cover the materials without going too deep. The draft uses 46 questions across all three units: 20 true/false, 20 single-answer multiple-choice and 6 guided open-ended questions. Each open-ended question has three short parts; its sample answer has more than 100 words, and learners can instead give equivalent reasoning with a diagram, table or trace.
 
-Advanced Q-learning calculations, detailed circuit calculations and network configuration tasks were excluded. The small binary addition and logic-gate question supply the information needed to solve them. Network link lists and robot rules are given in the question itself.
+Version 1.0 excluded advanced Q-learning calculations, detailed circuit calculations and network configuration tasks; version 1.1 adds three short calculations with every formula and value supplied (MC28-MC30). The small binary addition and logic-gate question supply the information needed to solve them. Network link lists and robot rules are given in the question itself.
 
 ## Local content checks
 

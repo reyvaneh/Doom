@@ -12,58 +12,77 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = json.loads((ROOT / 'bank.json').read_text(encoding='utf-8'))
 QUESTIONS = DATA['questions']
 LETTERS = 'ABCD'
+MC_COUNT = 30
+TOTAL = 20 + MC_COUNT + 6
+INTRO = ('Use these questions to practise the main ideas in Hardware, Networks and AI Behaviour. '
+         f'All {TOTAL} questions can be answered without equipment or an external website. Write answers separately, then check AnswerKey.md.')
+SCOPE = ('The bank mainly assesses the core course, Study Guide Chapters 1-6. Some core items also use the light-indicator project (Chapter 9), '
+         'network diagrams (Chapter 11) and limits of models (Chapter 15). The Extension multiple-choice questions MC21-MC30 assess Chapters 7-16 '
+         'material and the Guide\'s calculations: TCP and OSI layers, buses and architectures, lab skills, running averages, Q-learning and discounted return.')
+TRACE = ('Each question names its learning-material source and the Study Guide section to revise, written as "→ Guide §x.y". '
+         'The bank is a draft for teammate review.')
 
 
 def check():
     ids = [q['id'] for q in QUESTIONS]
-    assert len(ids) == len(set(ids)) == 46, 'Expected 46 unique question IDs'
-    expected = [f'{prefix}{i:02}' for prefix, n in [('TF', 20), ('MC', 20), ('OE', 6)] for i in range(1, n + 1)]
+    assert len(ids) == len(set(ids)) == TOTAL, f'Expected {TOTAL} unique question IDs'
+    expected = [f'{prefix}{i:02}' for prefix, n in [('TF', 20), ('MC', MC_COUNT), ('OE', 6)] for i in range(1, n + 1)]
     assert ids == expected, 'Missing, extra or out-of-order IDs'
-    assert Counter(q['topic'] for q in QUESTIONS) == {'Hardware': 16, 'Networks': 16, 'AI Behaviour': 14}
+    assert Counter(q['topic'] for q in QUESTIONS) == {'Hardware': 21, 'Networks': 18, 'AI Behaviour': 17}
     for q in QUESTIONS:
         assert q['prompt'].strip() and q['source'].strip()
+        assert re.fullmatch(r'§\d+\.\d+(( and | to )§\d+\.\d+)?', q['guide']), q['id'] + ': missing Study Guide reference'
+        assert q.get('extension', False) == (q['id'].startswith('MC') and int(q['id'][2:]) > 20)
         if q['id'].startswith('MC'):
             assert len(q['options']) == len(set(q['options'])) == 4
             assert q['answer'] in LETTERS and q['explanation'].strip()
         elif q['id'].startswith('TF'):
             assert q['answer'] in ('True', 'False') and q['explanation'].strip()
         else:
-            assert len(q['tasks']) == 3 and len(q['key_points']) == 4
+            assert len(q['tasks']) == 3 and len(q['key_points']) == 4 and q['title'].strip()
             assert len(q['sample'].split()) > 100
     assert Counter(q['answer'] for q in QUESTIONS[:20]) == {'True': 10, 'False': 10}
-    assert Counter(q['answer'] for q in QUESTIONS[20:40]) == dict.fromkeys(LETTERS, 5)
-    print('Passed: 46 unique IDs, topic counts, 20 TF, 20 MC, 6 guided OE, complete keys and developed sample answers.')
+    mcqs = [q for q in QUESTIONS if q['id'].startswith('MC')]
+    # Peer review: answer positions and option length must not give the key away.
+    assert Counter(q['answer'] for q in mcqs) == {'A': 8, 'B': 7, 'C': 8, 'D': 7}
+    longest = [q['id'] for q in mcqs if len(q['options'][LETTERS.index(q['answer'])]) > max(len(o) for i, o in enumerate(q['options']) if LETTERS[i] != q['answer'])]
+    assert len(longest) <= len(mcqs) // 4, f'Correct option is the single longest in too many MCQs: {longest}'
+    print(f'Passed: {TOTAL} unique IDs, topic counts, 20 TF, {MC_COUNT} MC ({MC_COUNT - 20} extension), 6 guided OE, Guide references, balanced keys and developed sample answers.')
+
+
+PARTS = [
+    ('TF', False, 'Part A True or False', 'Write True or False for each statement.'),
+    ('MC', False, 'Part B Multiple Choice', 'Choose ONE answer, A, B, C or D, for each question.'),
+    ('MC', True, 'Part B Extension Multiple Choice', 'These questions assess Study Guide Chapters 7-16 and its worked calculations. Choose ONE answer, A, B, C or D, for each question. Show your working for the calculations.'),
+    ('OE', False, 'Part C Explain Your Answer', 'Answer all three parts of each question. Aim for a developed response, normally more than 100 words in total per question, or equivalent reasoning using a labeled diagram, table or step-by-step trace. Keep the explanation simple and use the supplied situation.')]
 
 
 def markdown():
-    lines = ['# Hardware Networks and AI Behaviour Test Bank', '', '**Team Doom | Version 1.0 draft | 30 October 2026**', '',
-             'Use these questions to practise the main ideas in Hardware, Networks and AI Behaviour. No equipment or external website is needed. Write answers separately, then check AnswerKey.md.', '',
-             'The bank is a draft for teammate review. Source-topic labels show where each idea is taught; final Study Guide section references will be added when that guide is available.', '']
-    answers = ['# Test Bank Answer Key', '', '**Version 1.0 draft.** Try the questions before reading these answers. For open-ended questions, accept equivalent correct explanations, diagrams or worked steps.', '']
-    for prefix, title, instruction in [
-        ('TF', 'Part A True or False', 'Write True or False for each statement.'),
-        ('MC', 'Part B Multiple Choice', 'Choose ONE answer, A, B, C or D, for each question.'),
-        ('OE', 'Part C Explain Your Answer', 'Answer all three parts of each question. Aim for a developed response, normally more than 100 words in total per question, or equivalent reasoning using a labeled diagram, table or step-by-step trace. Keep the explanation simple and use the supplied situation.')]:
+    lines = ['# Hardware Networks and AI Behaviour Test Bank', '', f"**Team Doom | Version {DATA['version']} | {DATA['date']}**", '',
+             INTRO, '', SCOPE, '', TRACE, '']
+    answers = ['# Test Bank Answer Key', '', f"**Version {DATA['version']}.** Try the questions before reading these answers. For open-ended questions, accept equivalent correct explanations, diagrams or worked steps.", '']
+    for prefix, extension, title, instruction in PARTS:
         lines += ['## ' + title, '', instruction, '']
         answers += ['## ' + title, '']
         topic = None
-        for q in (q for q in QUESTIONS if q['id'].startswith(prefix)):
+        for q in (q for q in QUESTIONS if q['id'].startswith(prefix) and q.get('extension', False) == extension):
             if topic != q['topic']:
                 topic = q['topic']
                 lines += ['### ' + topic, '']
                 answers += ['### ' + topic, '']
-            lines += [f"#### {q['id']}", '', q['prompt'], '']
+            heading = f"#### {q['id']}" + (f" · {q['title']}" if q.get('title') else '')
+            lines += [heading, '', q['prompt'], '']
             if prefix == 'MC':
                 lines += [f'{letter}. {option}<br>' for letter, option in zip(LETTERS, q['options'])] + ['']
             if prefix == 'OE':
                 lines += [f'{letter}) {task}' for letter, task in zip('abc', q['tasks'])] + ['']
-                answers += [f"#### {q['id']} Sample answer", '', q['sample'], '', '**Expected key points**', ''] + ['- ' + point for point in q['key_points']] + ['']
+                answers += [f"#### {q['id']} Sample answer · {q['title']}", '', q['sample'], '', '**Expected key points**', ''] + ['- ' + point for point in q['key_points']] + ['']
             else:
                 answer = q['answer']
                 if prefix == 'MC':
                     answer += ' - ' + q['options'][LETTERS.index(q['answer'])]
                 answers += [f"**{q['id']} {answer}.** {q['explanation']}", '']
-            lines += [f"*Topic source: {q['source']}.*", '']
+            lines += [f"*Topic source: {q['source']} → Guide {q['guide']}.*", '']
     lines += ['## Source Materials', '',
               '- [Hardware](../Learning%20Materials/Hardware/hardware.md)',
               '- [Network Fundamentals](../Learning%20Materials/Network/network_fundamentals.md)',
@@ -122,9 +141,10 @@ def word():
     doc.core_properties.subject = 'Stage 2 beginner test bank'
     doc.core_properties.comments = 'Draft for teammate review'
     doc.add_paragraph(DATA['title'], 'Title')
-    doc.add_paragraph('Team Doom  |  Version 1.0 draft  |  30 October 2026', 'Subtitle')
-    doc.add_paragraph('Practise the main ideas in Hardware, Networks and AI Behaviour. All 46 questions can be answered without equipment or an external website. Write answers separately, then use the answer key to check your understanding.')
-    doc.add_paragraph('Draft for teammate review. Topic labels refer to the shared learning material. Final Study Guide section references will be added when the guide is available.')
+    doc.add_paragraph(f"Team Doom  |  Version {DATA['version']}  |  {DATA['date']}", 'Subtitle')
+    doc.add_paragraph(INTRO.replace('check AnswerKey.md', 'use the answer key to check your understanding'))
+    doc.add_paragraph(SCOPE)
+    doc.add_paragraph(TRACE)
     p = doc.add_paragraph('Sources: Hardware and Beginner Lab Skills; Network Fundamentals and Beginner Prerequisites; AI Behaviour and References. These chapters are in Learning Materials, grouped by subject.')
     for run in p.runs:
         run.font.size = Pt(9)
@@ -157,7 +177,11 @@ def word():
                 topic = q['topic']
                 heading = doc.add_heading(topic, 2)
                 heading.paragraph_format.page_break_before = q['id'] in ('MC08', 'MC15', 'OE04')
-            stem = paragraph(f"{q['id']}  {q['prompt']}", keep=True)
+            if q.get('title'):
+                paragraph(f"{q['id']}  {q['title']}", bold=True, keep=True)
+                stem = paragraph(q['prompt'], keep=True)
+            else:
+                stem = paragraph(f"{q['id']}  {q['prompt']}", keep=True)
             if prefix == 'MC':
                 stem.paragraph_format.space_after = Pt(3)
                 stem.paragraph_format.line_spacing = 1.04
@@ -168,7 +192,7 @@ def word():
             elif prefix == 'OE':
                 for letter, task in zip('abc', q['tasks']):
                     paragraph(f'{letter}) {task}', keep=True)
-            p = paragraph('Topic source  ' + q['source'], small=True)
+            p = paragraph(f"Topic source  {q['source']} → Guide {q['guide']}", small=True)
             p.paragraph_format.space_after = Pt(9)
     heading = doc.add_heading('Answer Key', 1)
     heading.paragraph_format.page_break_before = True
@@ -178,7 +202,7 @@ def word():
         heading.paragraph_format.page_break_before = prefix != 'TF'
         for q in (q for q in QUESTIONS if q['id'].startswith(prefix)):
             if prefix == 'OE':
-                heading = doc.add_heading(q['id'] + ' Sample Answer', 3)
+                heading = doc.add_heading(f"{q['id']} Sample Answer · {q['title']}", 3)
                 heading.paragraph_format.page_break_before = q['id'] == 'OE04'
                 paragraph(q['sample'])
                 paragraph('Expected key points', bold=True, keep=True)

@@ -19,7 +19,7 @@
 * [Learning materials in markdown_content](markdown_content/README.md) - Complete Markdown content, including all 16 chapters and 10 appendices, plus the three core unit sources.
 * **[Read the study book](Learning%20Materials/Study%20Book.md)** - One reading edition for Hardware, Networks and AI Behaviour, with 16 numbered chapters, subchapters, examples, questions and 10 reference/glossary appendices.
 * [Book guide and supporting materials](Learning%20Materials/README.md) - Reading order, chapter map, source records, diagrams and practical files.
-* [Test Bank](Test%20Bank/README.md) - Beginner Stage 2 draft with 46 questions, explained answers and an editable Word document; teammate review pending.
+* [Test Bank](Test%20Bank/README.md) - Beginner Stage 2 bank, version 1.1: 56 questions (46 core plus 10 extension) with explained answers and Study Guide section references; the editable Word document still needs regenerating from version 1.1; teammate review pending.
 * [Module outline](study-overview.md) - Teaching plan for the six core lessons; the book is the current reading edition.
 * [Project plan and master task list](Project%20Plan/Project_Plan_Stage2_and_Stage3.md) - Master plan and task list, with the supplied [PDF](Project%20Plan/Project_Plan_Stage2_and_Stage3.pdf) and its Markdown transcription; the plan spans Stages 1–3.
 

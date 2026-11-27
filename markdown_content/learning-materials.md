@@ -20,7 +20,7 @@ No previous programming is needed for the core chapters. Practical extensions in
 
 The appendices collect glossaries, sources and image credits. Bracketed numerical citations in Chapters 1–2 refer to Appendix D; Chapters 3–4 to Appendix E; Chapters 5–6 to Appendix F. S1–S18 citations in Chapters 13–15 refer to Appendix I. Practical hardware chapters retain their named-source citations and original section labels such as A5, B6 and C4; these correspond, in order, to subchapters in Chapters 7, 9 and 10. Laboratory L1–L8 correspond to Chapter 8.
 
-Use the [46-question practice bank](../Test%20Bank/Questions.md), then consult its [explained answers](../Test%20Bank/AnswerKey.md). It remains a draft awaiting teammate and learner review. Ready-to-open [Arduino sketches](../Learning%20Materials/Hardware/arduino/README.md) and the optional [AI arithmetic check](../Learning%20Materials/AIBehaviour/checks/rl_vacuum_model.py) accompany the relevant chapters.
+Use the [56-question practice bank](../Test%20Bank/Questions.md), then consult its [explained answers](../Test%20Bank/AnswerKey.md). It remains a draft awaiting teammate and learner review. Ready-to-open [Arduino sketches](../Learning%20Materials/Hardware/arduino/README.md) and the optional [AI arithmetic check](../Learning%20Materials/AIBehaviour/checks/rl_vacuum_model.py) accompany the relevant chapters.
 
 ### Contents
 
